@@ -1,127 +1,127 @@
-# 01-retail-demand-prediction-api
+# 01-product-demand-insight-lite
 
 ## 🧠 Descripción
 
-API de predicción de demanda retail construida como primer proyecto del Plan 1 — AI / Machine Learning Engineering.
+Microproducto de IA aplicada para analizar ventas de productos y generar insights básicos de demanda.
 
-El proyecto busca predecir cuántas unidades de un producto podrían venderse usando datos como producto, tienda, promoción, stock, precio y variables temporales.
+Este proyecto pertenece al Plan 1 — IA Aplicada / Microproductos ML de Building Projects.
+
+La idea no es construir una plataforma grande, sino una herramienta pequeña, visible y terminable que convierta datos simples de ventas en análisis, baseline, gráficos, tarjetas de insight y conclusiones claras.
 
 ---
 
 ## 🎯 Objetivo
 
-Construir una aplicación completa de predicción de demanda:
+Crear una herramienta ligera que analice ventas de productos y genere insights básicos de demanda:
 
 ```txt
-SQL local → features → baseline → modelo → FastAPI → frontend simple → tests → Render
+CSV local → limpieza → features → baseline → métricas simples → análisis → insight cards → gráficos → dashboard ligero
 ```
 
 ---
 
 ## 👤 Usuario objetivo
 
-* Analista retail.
-* Pequeña tienda.
-* Equipo de operaciones.
-* Reclutador técnico que quiere ver un sistema ML completo.
+* Dueño de una tienda pequeña.
+* Analista de ventas.
+* Equipo comercial.
+* Persona que necesita entender qué productos se venden mejor.
+* Reclutador técnico que quiere ver evidencia aplicada de análisis con datos.
 
 ---
 
 ## 🧱 Arquitectura esperada
 
 ```txt
-CSV / SQL local
+CSV local
       ↓
-Pandas / Feature Engineering
+Pandas / Limpieza básica
       ↓
-Modelo ML clásico
+Feature Engineering simple
       ↓
-Modelo guardado
+Baseline promedio
       ↓
-FastAPI
+Análisis de ventas
       ↓
-Frontend simple
+Insight Cards
       ↓
-Render
+Gráficos
+      ↓
+Dashboard ligero / README visual
 ```
 
 ---
 
 ## 🧩 Módulos
 
-### Módulo 1 — Feature Engineering
+### Módulo 1 — Data Loading
 
-Crear variables como día de semana, promoción, stock, precio y promedio de ventas.
+Cargar dataset y revisar columnas.
 
-### Módulo 2 — Model Comparison
+### Módulo 2 — Basic Sales Analysis
 
-Comparar baseline, Linear Regression, Random Forest y Gradient Boosting.
+Calcular ventas por producto, categoría y fecha.
 
-### Módulo 3 — Interpretability ligera
+### Módulo 3 — Simple Baseline
 
-Explicar variables importantes del modelo.
+Crear una predicción simple para comparar.
 
-### Módulo 4 — Error Analysis básico
+### Módulo 4 — Insight Cards
 
-Ver dónde falla más el modelo: producto, tienda, día o promoción.
+Convertir resultados en frases claras.
+
+### Módulo 5 — Visual Report
+
+Crear gráficos simples y evidencia visual.
 
 ---
 
 ## 🧪 Labs
 
-### tec-feature-engineering-lab
+### tec-sales-eda-lab
 
-CSV manual → DataFrame → features → X/y → baseline → MAE.
+Explorar columnas, productos, fechas, ventas y estructura inicial del dataset.
 
-### tec-model-comparison-lab
+### tec-product-ranking-lab
 
-Comparación baseline vs modelos clásicos.
+Calcular ranking de productos por unidades vendidas y revenue.
 
-### tec-interpretability-lab
+### tec-basic-demand-insight-lab
 
-Explicación simple de variables importantes.
+Convertir análisis y baseline en insights de demanda entendibles.
 
-### cloud-local-sql-to-gcp-bigquery-lab
+### cloud-local-csv-to-gcp-cloud-storage-lab
 
-Traducción conceptual de SQL local hacia BigQuery.
+Traducir conceptualmente el CSV local hacia GCP Cloud Storage.
 
-### cloud-model-artifact-to-aws-s3-lab
+### cloud-local-csv-to-aws-s3-lab
 
-Guardar artefactos de modelo en AWS S3.
+Traducir conceptualmente el CSV local hacia AWS S3.
 
-### cloud-model-artifact-to-azure-blob-lab
+### cloud-local-csv-to-azure-blob-lab
 
-Guardar artefactos de modelo en Azure Blob Storage.
+Traducir conceptualmente el CSV local hacia Azure Blob Storage.
 
 ---
 
-## 📊 Métricas
+## 📊 Métricas / Evidencia
 
-Métrica principal inicial:
-
-```txt
-MAE — Mean Absolute Error
-```
-
-Baseline inicial:
-
-```txt
-Baseline prediction: 22.8
-Baseline MAE: 5.63
-```
+* Total de unidades vendidas.
+* Revenue total.
+* Producto más vendido.
+* Producto con mayor revenue.
+* Mejor día de ventas.
+* Baseline promedio.
+* MAE del baseline.
+* Insight cards.
+* Gráficos exportados.
+* Dashboard ligero o README visual.
 
 ---
 
 ## 🚀 Estado actual
 
-* FastAPI base creada.
-* Rutas con APIRouter.
-* Schemas con Pydantic.
-* Endpoint `/api/v1/predict`.
-* Mock dinámico.
-* Servicio separado.
-* Lab de Feature Engineering iniciado.
-* Baseline y MAE calculados.
+Pendiente / por iniciar desde cero.
 
 ---
 
@@ -129,26 +129,27 @@ Baseline MAE: 5.63
 
 ```txt
 Día 1 → Exploración
-Día 2 → Ejecución
-Día 3 → Ejecución
-Día 4 → Ejecución
+Día 2 → Ejecución 1
+Día 3 → Ejecución 2
+Día 4 → Ejecución 3
 ```
 
 ---
 
 ## 📌 Próximos pasos
 
-* Cerrar README del lab.
-* Crear `tec-model-comparison-lab`.
-* Entrenar Linear Regression.
-* Comparar contra baseline.
-* Entrenar Random Forest.
-* Elegir modelo inicial.
-* Guardar modelo.
-* Conectar FastAPI con modelo real.
-* Crear frontend simple.
-* Agregar tests mínimos.
-* Desplegar en Render.
-* Grabar demo.
-* Actualizar LinkedIn y CV.
-
+* Crear estructura base del proyecto.
+* Crear dataset inicial en `data/raw`.
+* Crear carga de datos con Pandas.
+* Crear limpieza básica.
+* Crear features simples.
+* Calcular revenue.
+* Crear baseline promedio.
+* Calcular MAE.
+* Analizar productos más vendidos.
+* Crear insight cards.
+* Crear gráficos.
+* Documentar labs.
+* Preparar README final.
+* Agregar capturas o evidencia visual.
+* Publicar repo.
