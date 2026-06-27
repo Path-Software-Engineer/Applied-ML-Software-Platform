@@ -402,3 +402,91 @@ La evidencia del día fue la salida de inspección con Pandas, donde se verific�
 El dataset inicial está suficientemente sano para continuar.
 
 El siguiente paso será crear una función oficial de carga de datos en `src/data/load_data.py`, manteniendo una responsabilidad clara: cargar datos, no limpiarlos, no crear features y no analizarlos.
+
+
+## DÍA 6 — EJECUCIÓN 1 — LOAD_DATA.PY PROFESIONAL
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que cargar datos no es lo mismo que limpiar, transformar, analizar o crear features.
+
+La función de carga debe tener una responsabilidad pequeña y clara: recibir una ruta, verificar que el archivo exista, leer el CSV y devolver un DataFrame.
+
+Esto ayuda a que el proyecto sea más ordenado, porque cada archivo cumple una función específica dentro del microproducto.
+
+### 2. Archivo creado
+
+Se trabajó el archivo:
+
+`src/data/load_data.py`
+
+Este archivo contiene la función:
+
+`load_sales_data`
+
+Su responsabilidad es cargar el dataset de ventas desde un archivo CSV.
+
+### 3. Check manual
+
+Se trabajó el archivo:
+
+`checks/check_load_data.py`
+
+Este check permite verificar manualmente que la función de carga funciona correctamente.
+
+La ejecución correcta desde la raíz del proyecto es:
+
+`python -m checks.check_load_data`
+
+### 4. Resultado de la prueba
+
+La carga fue exitosa.
+
+El dataset cargado tiene:
+
+* 18 filas;
+* 5 columnas.
+
+Columnas cargadas:
+
+* `date`
+* `product`
+* `category`
+* `units_sold`
+* `unit_price`
+
+### 5. Decisión sobre responsabilidad
+
+La función `load_sales_data` no debe convertir `date` a `datetime`, no debe limpiar nulos, no debe crear `revenue`, no debe crear features y no debe analizar datos.
+
+La decisión es mantener esta función enfocada únicamente en carga de datos.
+
+### 6. Error aprendido
+
+Apareció el error:
+
+`ModuleNotFoundError: No module named 'src'`
+
+Este error ocurrió porque el check fue ejecutado de una forma en la que Python no encontraba correctamente la carpeta `src`.
+
+La decisión es ejecutar los checks desde la raíz del proyecto usando el modo módulo:
+
+`python -m checks.check_load_data`
+
+### 7. Fuera de alcance del día
+
+Hoy no se creó `clean_data.py`, no se convirtió `date`, no se revisaron reglas de limpieza, no se crearon features, no se calculó `revenue` y no se generó dataset processed.
+
+Eso pertenece a los próximos días.
+
+### 8. Conclusión del día
+
+El proyecto ya tiene una función oficial para cargar datos desde `data/raw/sales_raw.csv`.
+
+La carga está separada de la limpieza y de la transformación, lo cual mantiene el proyecto más claro, reutilizable y fácil de probar.
