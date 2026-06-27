@@ -139,3 +139,97 @@ Cada parte debe tener una responsabilidad clara:
 `dashboard/` presenta resultados.
 
 La estructura correcta no es tener muchas carpetas, sino saber por qué existe cada una.
+
+
+## DÍA 3 — EJECUCIÓN 2 — DATASET INICIAL Y CONFIGURACIÓN MÍNIMA
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que antes de cargar datos con Pandas o crear lógica en `src/`, primero debo definir correctamente la materia prima del proyecto.
+
+El archivo `data/raw/sales_raw.csv` representa los datos originales del microproducto. Estos datos deben mantenerse simples y no deben mezclarse con columnas calculadas.
+
+También entendí que el dataset raw no debe incluir todo lo que quiero analizar, sino solo lo que viene como base inicial. Las columnas derivadas se crearán después en `data/processed`.
+
+### 2. Dataset inicial
+
+El dataset inicial será:
+
+`data/raw/sales_raw.csv`
+
+Columnas iniciales:
+
+* `date`
+* `product`
+* `category`
+* `units_sold`
+* `unit_price`
+
+Cada fila representa ventas agregadas de un producto en una fecha específica.
+
+### 3. Decisión sobre raw y processed
+
+La decisión principal es separar claramente los datos originales de los datos calculados.
+
+`data/raw` guardará la fuente original.
+
+`data/processed` guardará los datos generados después de limpiar, transformar o enriquecer el dataset.
+
+La columna `date` pertenece al raw porque viene como parte del registro original. Pero desde `date` se crearán nuevas columnas calculadas como:
+
+* `day_of_week`
+* `month`
+* `year`
+* `is_weekend`
+
+Estas columnas pertenecerán al dataset procesado.
+
+### 4. Decisión sobre revenue
+
+`revenue` no estará en `sales_raw.csv`.
+
+Aunque es una métrica importante para el análisis, no viene directamente como dato original. Será calculada después usando:
+
+`revenue = units_sold * unit_price`
+
+Por eso `revenue` debe aparecer en `data/processed/sales_features.csv`, no en `data/raw/sales_raw.csv`.
+
+### 5. Decisión sobre requirements.txt
+
+Se creó `requirements.txt` para registrar las dependencias externas del proyecto.
+
+Por ahora la dependencia principal será:
+
+`pandas`
+
+La decisión es subir `requirements.txt` a GitHub, pero no subir `.venv/`, porque el entorno virtual puede reconstruirse instalando las dependencias desde `requirements.txt`.
+
+### 6. Fuera de alcance del día
+
+Hoy no se construirá carga de datos con Pandas, limpieza, feature engineering, baseline, análisis, gráficos ni dashboard.
+
+El objetivo del día es dejar lista la materia prima del proyecto y entender qué representa cada columna.
+
+### 7. Evidencia del día
+
+La evidencia del día será:
+
+* `requirements.txt` creado;
+* `data/raw/sales_raw.csv` creado;
+* `data/README.md` actualizado;
+* columnas raw definidas;
+* diferencia entre raw y processed entendida;
+* `project-structure.txt` actualizado;
+* decisión registrada en `docs/decisions.md`.
+
+### 8. Conclusión del día
+
+El proyecto ya tiene una fuente inicial de datos.
+
+La regla principal es no contaminar `raw` con columnas calculadas. Primero recibo datos simples, luego los transformo y recién después genero un dataset procesado más útil para análisis, baseline, insights y gráficos.
