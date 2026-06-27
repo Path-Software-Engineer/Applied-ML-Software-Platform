@@ -233,3 +233,76 @@ La evidencia del día será:
 El proyecto ya tiene una fuente inicial de datos.
 
 La regla principal es no contaminar `raw` con columnas calculadas. Primero recibo datos simples, luego los transformo y recién después genero un dataset procesado más útil para análisis, baseline, insights y gráficos.
+
+## DÍA 4 — EJECUCIÓN 3 — DOCUMENTACIÓN BASE Y CIERRE DEL BLOQUE 1
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que la documentación base no existe solo para llenar archivos Markdown. Existe para que el proyecto tenga dirección, sea entendible y pueda crecer sin convertirse en una carpeta desordenada.
+
+También entendí que cada documento cumple una responsabilidad distinta. El README principal presenta el proyecto. `data/README.md` explica los datos. `reports/README.md` explica la evidencia generada. `dashboard/README.md` explica la presentación ligera. `docs/data-dictionary.md` define las columnas. `docs/insight-methodology.md` explica cómo se transforman datos en conclusiones. `docs/decisions.md` registra la ruta mental del proyecto.
+
+### 2. Decisión sobre el README principal
+
+El README principal será la puerta de entrada del proyecto.
+
+Debe permitir que alguien externo entienda qué hace el microproducto, para quién sirve, qué problema resuelve, qué datos usa, cómo está organizado y qué resultado espera mostrar.
+
+No debe ser solo una lista de carpetas. Debe explicar el sentido del proyecto.
+
+### 3. Decisión sobre reports y dashboard
+
+`reports/` será la carpeta donde se guardará evidencia generada por el proyecto, como resúmenes, gráficos e insight cards.
+
+`dashboard/` será una presentación ligera de los resultados. En esta primera versión no construiremos una app real, sino una vista documental o visual que reúna los resultados importantes de forma entendible.
+
+La regla será:
+
+`reports/ guarda evidencia; dashboard/ presenta evidencia.`
+
+### 4. Decisión sobre data dictionary
+
+`docs/data-dictionary.md` explicará las columnas del dataset.
+
+Debe indicar qué significa cada campo, si pertenece al dataset raw o si será una columna calculada en processed.
+
+Esto ayuda a no confundir datos originales con datos derivados.
+
+### 5. Decisión sobre insight methodology
+
+`docs/insight-methodology.md` explicará cómo el proyecto transforma datos en conclusiones útiles.
+
+Aquí se documentará cómo se usarán columnas como `units_sold`, `unit_price`, `date` y futuras columnas calculadas como `revenue`, `day_of_week`, `month`, `year` e `is_weekend`.
+
+Este documento debe conectar cálculos con valor para el usuario.
+
+### 6. Fuera de alcance del día
+
+Hoy no construiremos carga de datos con Pandas, limpieza, feature engineering, baseline, MAE, análisis, gráficos ni dashboard real.
+
+El foco del día es cerrar la base documental antes de avanzar al Bloque 2.
+
+### 7. Evidencia del día
+
+La evidencia del día será:
+
+* README principal revisado;
+* `data/README.md` actualizado;
+* `reports/README.md` creado o revisado;
+* `dashboard/README.md` creado o revisado;
+* `docs/data-dictionary.md` creado o revisado;
+* `docs/insight-methodology.md` creado o revisado;
+* `docs/decisions.md` actualizado;
+* Bloque 1 cerrado con dirección clara.
+
+### 8. Conclusión del día
+
+El Bloque 1 deja preparado el terreno del proyecto.
+
+Ya existe una estructura, un dataset inicial, una configuración mínima y una base documental. A partir del Bloque 2, el proyecto puede empezar a trabajar con datos sin perder orden ni mezclar responsabilidades.
