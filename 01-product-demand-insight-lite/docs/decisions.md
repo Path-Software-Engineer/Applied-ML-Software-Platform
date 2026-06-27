@@ -306,3 +306,99 @@ La evidencia del día será:
 El Bloque 1 deja preparado el terreno del proyecto.
 
 Ya existe una estructura, un dataset inicial, una configuración mínima y una base documental. A partir del Bloque 2, el proyecto puede empezar a trabajar con datos sin perder orden ni mezclar responsabilidades.
+
+
+## DÍA 5 — EXPLORACIÓN — DATASET INICIAL Y SIGNIFICADO DE COLUMNAS
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que antes de crear funciones oficiales de carga, limpieza o transformación, primero debo inspeccionar el dataset y comprender qué representa cada columna.
+
+El objetivo del Día 5 no fue programar lógica definitiva, sino observar el archivo `data/raw/sales_raw.csv`, revisar sus columnas, verificar sus tipos de datos y detectar posibles problemas iniciales.
+
+### 2. Archivo explorado
+
+El archivo revisado fue:
+
+`data/raw/sales_raw.csv`
+
+Columnas encontradas:
+
+* `date`
+* `product`
+* `category`
+* `units_sold`
+* `unit_price`
+
+Cada fila representa ventas agregadas de un producto en una fecha específica.
+
+### 3. Resultado de la inspección
+
+La lectura inicial con Pandas funcionó correctamente.
+
+Los tipos detectados fueron:
+
+* `date`: texto
+* `product`: texto
+* `category`: texto
+* `units_sold`: entero
+* `unit_price`: decimal
+
+No se encontraron valores nulos en las columnas iniciales.
+
+### 4. Decisión sobre date
+
+La columna `date` aparece como texto en la lectura inicial.
+
+Esto no se considera un error en el dataset raw. La conversión de `date` a tipo fecha se realizará más adelante dentro del flujo de limpieza o transformación.
+
+La decisión es no modificar directamente `data/raw/sales_raw.csv`.
+
+### 5. Decisión sobre demanda observada
+
+La columna principal para analizar demanda observada será `units_sold`.
+
+Esta columna indica cuántas unidades se vendieron de un producto en una fecha específica.
+
+No representa necesariamente toda la demanda real del mercado, pero sí representa la demanda observada en las ventas registradas.
+
+### 6. Problemas iniciales revisados
+
+En esta exploración se revisaron:
+
+* columnas existentes;
+* primeras filas del dataset;
+* tipos de datos;
+* valores nulos;
+* significado general de cada columna.
+
+No se detectaron valores nulos en esta versión inicial del dataset.
+
+### 7. Fuera de alcance del día
+
+Hoy no se creó `load_data.py`, no se creó `clean_data.py`, no se crearon features, no se calculó `revenue`, no se generó dataset processed y no se construyó baseline.
+
+El foco del día fue entender el dataset antes de construir lógica oficial.
+
+### 8. Evidencia del día
+
+La evidencia del día fue la salida de inspección con Pandas, donde se verificó que:
+
+* el CSV se puede leer;
+* las columnas están presentes;
+* los tipos son razonables para esta etapa;
+* no hay valores nulos;
+* `date` deberá convertirse más adelante;
+* `units_sold` será la señal principal de demanda observada.
+
+### 9. Conclusión del día
+
+El dataset inicial está suficientemente sano para continuar.
+
+El siguiente paso será crear una función oficial de carga de datos en `src/data/load_data.py`, manteniendo una responsabilidad clara: cargar datos, no limpiarlos, no crear features y no analizarlos.
