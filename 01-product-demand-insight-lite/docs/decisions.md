@@ -490,3 +490,103 @@ Eso pertenece a los próximos días.
 El proyecto ya tiene una función oficial para cargar datos desde `data/raw/sales_raw.csv`.
 
 La carga está separada de la limpieza y de la transformación, lo cual mantiene el proyecto más claro, reutilizable y fácil de probar.
+
+
+## DÍA 7 — EJECUCIÓN 2 — CLEAN_DATA.PY PROFESIONAL
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que limpiar datos no significa crear nuevas columnas analíticas, sino dejar el dataset en un estado confiable para poder trabajar con él después.
+
+La limpieza se encarga de validar columnas requeridas, revisar valores nulos, convertir tipos importantes y detectar valores imposibles.
+
+También entendí que `clean_data.py` debe mantenerse separado de `feature_engineering.py`.
+
+### 2. Archivo trabajado
+
+Se trabajó el archivo:
+
+`src/data/clean_data.py`
+
+Este archivo contiene la función:
+
+`clean_sales_data`
+
+Su responsabilidad es limpiar y validar el dataset de ventas después de cargarlo.
+
+### 3. Check manual
+
+Se trabajó el archivo:
+
+`checks/check_clean_data.py`
+
+Este check permite verificar que la carga y limpieza funcionan juntas.
+
+La ejecución correcta desde la raíz del proyecto es:
+
+`python -m checks.check_clean_data`
+
+### 4. Resultado de la prueba
+
+La limpieza fue exitosa.
+
+El dataset limpio tiene:
+
+* 18 filas;
+* 5 columnas.
+
+La columna `date` fue convertida correctamente desde texto a tipo fecha.
+
+Los tipos principales quedaron así:
+
+* `date`: datetime
+* `product`: texto
+* `category`: texto
+* `units_sold`: entero
+* `unit_price`: decimal
+
+### 5. Decisión sobre date
+
+La conversión de `date` a tipo fecha pertenece a limpieza porque permite validar que las fechas sean utilizables.
+
+Si una fecha está mal escrita, debe detectarse en esta etapa antes de crear features temporales.
+
+### 6. Decisión sobre features
+
+`clean_sales_data` no debe crear `day_of_week`, `month`, `year`, `is_weekend` ni `revenue`.
+
+Estas columnas son derivadas y pertenecen a `feature_engineering.py`, no a `clean_data.py`.
+
+La regla será:
+
+`clean_data.py limpia; feature_engineering.py crea columnas nuevas.`
+
+### 7. Fuera de alcance del día
+
+Hoy no se creó `revenue`, no se crearon features temporales, no se generó `sales_features.csv`, no se calculó baseline y no se hicieron gráficos.
+
+Eso pertenece a los próximos bloques.
+
+### 8. Evidencia del día
+
+La evidencia del día fue:
+
+* `src/data/clean_data.py` funcionando;
+* `checks/check_clean_data.py` funcionando;
+* dataset cargado y limpiado correctamente;
+* `date` convertido a datetime;
+* número de filas conservado;
+* número de columnas conservado;
+* separación clara entre limpieza y feature engineering.
+
+### 9. Conclusión del día
+
+El proyecto ya puede cargar y limpiar datos de forma separada.
+
+Esto permite avanzar hacia un pipeline inicial con responsabilidades claras: primero cargar, luego limpiar, después crear features y finalmente analizar.
