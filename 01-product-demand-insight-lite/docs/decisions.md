@@ -590,3 +590,83 @@ La evidencia del día fue:
 El proyecto ya puede cargar y limpiar datos de forma separada.
 
 Esto permite avanzar hacia un pipeline inicial con responsabilidades claras: primero cargar, luego limpiar, después crear features y finalmente analizar.
+
+## DÍA 8 — EJECUCIÓN 3 — PIPELINE INICIAL DE DATOS
+
+Proyecto:
+01-product-demand-insight-lite
+
+Ruta:
+Building Projects / Applied AI / Microproducto ML
+
+### 1. Qué entendí hoy
+
+Entendí que `pipeline.py` no debe contener toda la lógica interna del proyecto.
+
+Su responsabilidad es coordinar piezas ya separadas. En este caso, llama a `load_sales_data` para cargar datos y luego a `clean_sales_data` para limpiar el dataset.
+
+La regla principal es:
+
+`pipeline.py orquesta; los módulos ejecutan su responsabilidad.`
+
+### 2. Archivos trabajados
+
+Se trabajaron estos archivos:
+
+* `src/pipeline.py`
+* `checks/check_pipeline.py`
+* `scripts/run_pipeline.ps1`
+
+### 3. Flujo construido
+
+El flujo inicial del pipeline quedó así:
+
+`data/raw/sales_raw.csv → load_sales_data → clean_sales_data → clean_data`
+
+Este flujo todavía no crea features, no calcula revenue, no genera baseline y no guarda `data/processed`.
+
+### 4. Resultado de la prueba
+
+El pipeline se ejecutó correctamente.
+
+Resultado principal:
+
+* raw data: 18 filas y 5 columnas;
+* clean data: 18 filas y 5 columnas;
+* `date` fue convertido a tipo datetime;
+* `units_sold` se mantuvo presente;
+* las columnas limpias fueron preservadas.
+
+### 5. Decisión sobre responsabilidades
+
+La decisión principal es mantener separadas las responsabilidades:
+
+* `load_data.py` carga datos;
+* `clean_data.py` limpia datos;
+* `pipeline.py` conecta los pasos en orden;
+* `check_pipeline.py` verifica manualmente que el flujo funcione;
+* `run_pipeline.ps1` permite ejecutar el flujo de forma repetible desde PowerShell.
+
+### 6. Fuera de alcance del día
+
+Hoy no se crearon features temporales, no se calculó revenue, no se generó `sales_features.csv`, no se calculó baseline, no se creó MAE y no se hizo análisis de ventas.
+
+Eso pertenece a los siguientes bloques.
+
+### 7. Evidencia del día
+
+La evidencia del día fue:
+
+* `python -m src.pipeline` ejecutado correctamente;
+* `python -m checks.check_pipeline` ejecutado correctamente;
+* `.\scripts\run_pipeline.ps1` ejecutado correctamente;
+* carga y limpieza conectadas;
+* `date` convertido a datetime;
+* `units_sold` preservado;
+* pipeline reproducible desde script.
+
+### 8. Conclusión del día
+
+El Bloque 2 queda cerrado.
+
+El proyecto ya puede cargar y limpiar datos desde `data/raw` de forma reproducible. La base de datos del microproducto está lista para avanzar al Bloque 3, donde se trabajará el primer lab cloud y luego feature engineering.
