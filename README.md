@@ -1,438 +1,1010 @@
 # Building Projects Roadmap — Plan 1
 
-## 🧠 Descripción
+## 🧠 Applied ML Microproducts
 
-Esta organización reúne los proyectos del **Plan 1 — IA Aplicada / Microproductos ML**.
+Esta organización reúne los proyectos del **Plan 1 — Applied ML Microproducts** dentro de **Building Projects**.
 
-El objetivo de esta ruta es construir una base práctica de proyectos propios como complemento directo del camino principal de **AI Engineer**, no creando sistemas grandes, sino herramientas pequeñas, terminables, visibles y útiles.
+Este plan acompaña directamente al:
 
-Esta ruta convierte conceptos de Machine Learning, datos, dashboards, reportes, RAG ligero, costos, latencia y portafolio técnico en evidencia aplicada.
-
-```txt
-datos → análisis → features simples → baseline → visualización → dashboard → reporte → demo → evidencia
+```txt id="bp1-ai-relation"
+AI Engineer Plan 1 — Machine Learning Engineering & Software Foundations
 ```
 
-La idea central de este plan es construir microproductos de IA aplicada, documentarlos, hacerlos visibles y convertirlos en evidencia de portafolio.
+La idea central es construir proyectos propios más pequeños, visibles y terminables, alineados con proyectos específicos de AI Engineer.
+
+Building Projects no reemplaza AI Engineer.
+
+Building Projects convierte el aprendizaje técnico profundo en evidencia aplicada.
+
+```txt id="bp1-core"
+AI Engineer = profundidad técnica
+Building Projects = aplicación visible
+```
 
 ---
 
-## 🎯 Objetivo general
+# 🎯 Objetivo general
 
-Construir proyectos propios capaces de:
+Construir microproductos de IA aplicada capaces de:
 
 * Convertir datos en insights.
+* Crear reportes visuales.
+* Comparar modelos de forma entendible.
 * Crear dashboards ligeros.
-* Analizar ventas y demanda.
-* Crear reportes de calidad de modelos.
-* Construir herramientas RAG pequeñas.
-* Medir costos y latencia de respuestas IA.
-* Crear portales simples de evidencia técnica.
-* Documentar aprendizajes.
-* Generar capturas, demos y README claros.
-* Acompañar la ruta principal de AI Engineer con evidencia visible.
+* Traducir resultados técnicos a lenguaje de usuario.
+* Generar evidencia para GitHub.
+* Documentar decisiones.
+* Crear capturas y outputs.
+* Acompañar la ruta principal sin inflar el alcance.
 
 ---
 
-## 🧭 Filosofía de trabajo
+# 🔗 Regla de match del Plan 1
 
-Cada proyecto se trabaja con un ciclo de estudio de 4 días:
+Building Projects hará match solo con los proyectos impares de AI Engineer.
 
-```txt
-Día 1 → Exploración
-Día 2 → Ejecución
-Día 3 → Ejecución
-Día 4 → Ejecución
+```txt id="bp1-match-rule"
+Proyecto 1 IA → Proyecto 1 Building
+Proyecto 2 IA → Nada
+Proyecto 3 IA → Proyecto 2 Building
+Proyecto 4 IA → Nada
+Proyecto 5 IA → Proyecto 3 Building
+Proyecto 6 IA → Nada
 ```
 
-### Día de exploración
+Esto significa que este plan tendrá **3 proyectos**, no 6.
 
-Sirve para:
-
-* Entender el tema.
-* Investigar conceptos.
-* Definir el mapa de los próximos 3 días.
-* Identificar módulos y labs.
-* Preparar el criterio práctico antes de construir.
-* Conectar el proyecto propio con el proyecto grande correspondiente.
-
-### Días de ejecución
-
-Sirven para:
-
-* Implementar.
-* Probar.
-* Corregir errores.
-* Documentar.
-* Cerrar labs.
-* Generar evidencia visible.
+Cada proyecto Building toma como referencia la duración del proyecto IA correspondiente.
 
 ---
 
-## 🧩 Conceptos base
+# 🗺️ Cronograma Plan 1
 
-### Proyecto propio aplicado
+| Semana Building |                             Proyecto Building | Match IA |  Duración | Objetivo                                     |
+| --------------- | --------------------------------------------: | -------: | --------: | -------------------------------------------- |
+| 1-4             |              `01-product-demand-insight-lite` |    IA 01 | 4 semanas | Insights de demanda y ventas                 |
+| 5-8             | `02-classical-model-comparison-visual-report` |    IA 03 | 4 semanas | Comparación visual de modelos clásicos       |
+| 9-13            |        `03-inventory-decision-dashboard-lite` |    IA 05 | 5 semanas | Dashboard ligero de decisiones de inventario |
+
+Duración total del Plan 1:
+
+```txt id="bp1-duration"
+13 semanas
+```
+
+---
+
+# 🧭 Filosofía de trabajo
+
+Cada proyecto debe cerrar con evidencia visible.
+
+Regla central:
+
+```txt id="bp1-philosophy"
+No basta con que el código funcione.
+Debe verse, entenderse y poder explicarse.
+```
+
+Un Building Project debe ser:
+
+```txt id="bp1-values"
+pequeño
+útil
+visual
+documentado
+terminable
+publicable
+```
+
+No debe convertirse en el proyecto grande de AI Engineer.
+
+---
+
+# 🧩 Conceptos base
+
+## Proyecto propio aplicado
 
 Un proyecto propio aplicado es un repositorio pequeño o mediano de GitHub.
 
 Debe demostrar una habilidad concreta y visible.
 
-No tiene que ser tan grande como un proyecto principal de AI Engineer.
-
-Debe ser terminable, útil y publicable, y tener, según corresponda:
+Puede incluir:
 
 * README.
-* Frontend simple.
-* Backend simple si aplica.
-* Notebook si aplica.
 * Datos de ejemplo.
+* Notebook.
+* Scripts.
 * Dashboard.
-* Demo.
+* Gráficos.
+* Reportes.
 * Capturas.
-* Documentación.
 * Labs pequeños.
+* Demo local.
 
-### Módulo
+---
 
-Un módulo es una parte funcional o técnica del proyecto.
+## Módulo
+
+Un módulo es una parte funcional del proyecto.
 
 Ejemplo:
 
-```txt
+```txt id="bp1-module-example"
 Módulo: Insight Cards
 ```
 
 Significa:
 
-```txt
-Tomo resultados de datos.
-Los convierto en tarjetas visuales.
+```txt id="bp1-module-meaning"
+Tomo resultados técnicos.
+Los convierto en tarjetas claras.
 Explico qué significan.
-Hago que el usuario entienda el resultado.
+Hago que una persona no técnica entienda el valor.
 ```
 
-### Lab
+---
+
+## Lab
 
 Un lab es un experimento pequeño y cerrado.
 
-Regla personal:
+En Building Projects, los labs deben fortalecer el proyecto sin hacerlo pesado.
 
-```txt
-Un lab debe durar 1 día de horario.
+Tipos de labs:
+
+```txt id="bp1-lab-types"
+tec-labs
+cloud-labs
+docs-labs
+product-labs
 ```
 
-Un lab no debe quedar suelto. Debe conectarse al proyecto propio y al proyecto grande correspondiente.
+Regla:
 
----
-
-## 🧪 Tipos de labs
-
-### ml-labs
-
-Laboratorios de Machine Learning.
-
-Ejemplos:
-
-* Sales EDA.
-* Product ranking.
-* Basic demand insight.
-* Naive forecast.
-* Moving average.
-* Forecast error.
-* Model metrics report.
-
-### rag-labs
-
-Laboratorios de RAG y embeddings.
-
-Ejemplos:
-
-* Chunking básico.
-* Semantic search.
-* Source display.
-
-### tec-labs
-
-Laboratorios técnicos.
-
-Ejemplos:
-
-* Latency table.
-* Prompt comparison.
-* Cost estimation.
-* Dashboard cards.
-* Demo links.
-
-### docs-labs
-
-Laboratorios de documentación.
-
-Ejemplos:
-
-* Cloud architecture notes.
-* GCP / AWS / Azure map.
-* Model report template.
-* README storytelling.
-
-### portal-labs
-
-Laboratorios de portales.
-
-Ejemplos:
-
-* Project gallery.
-* Learning notes.
-* Demo links.
-
----
-
-## 🗺️ Cronograma Plan 1
-
-| Semana | Proyecto                               | Objetivo                                |
-| ------ | -------------------------------------- | --------------------------------------- |
-| 1-4    | `01-product-demand-insight-lite`       | Insights básicos de demanda             |
-| 5-8    | `02-mini-sales-forecast-dashboard`     | Forecasting ligero de ventas            |
-| 9-13   | `03-cloud-ml-pipeline-notes-dashboard` | Notas visuales de pipeline ML cloud     |
-| 14-18  | `04-model-quality-report-generator`    | Reportes simples de calidad ML          |
-| 19-24  | `05-personal-document-search-rag-lite` | Buscador semántico ligero               |
-| 25-27  | `06-ai-response-cost-latency-notebook` | Medición de costos y latencia IA        |
-| 28-36  | `07-ai-portfolio-platform-lite`        | Portal ligero de proyectos y evidencias |
+```txt id="bp1-lab-rule"
+El lab debe dejar una comparación, una conclusión y una evidencia.
+```
 
 ---
 
 # 📁 Proyectos del Plan 1
 
+---
+
 ## 01 — product-demand-insight-lite
 
-### Objetivo
+### Match
 
-Crear una herramienta ligera que analice ventas de productos y genere insights básicos de demanda.
-
-### Flujo
-
-```txt
-CSV / dataset pequeño → Pandas → análisis → features simples → baseline → métricas → gráficos → insight cards → README
+```txt id="bp01-match"
+AI Engineer Proyecto 01 — retail-demand-prediction-api
 ```
 
-### Aprendizajes principales
+### Duración
 
-* Pandas.
-* EDA.
-* Agrupaciones.
-* Promedios.
-* Features simples.
-* Baseline.
-* Métricas simples.
-* Tendencias simples.
-* Visualización.
-* Insight cards.
-* README.
-
-### Módulos
-
-* Data Loading.
-* Basic Sales Analysis.
-* Simple Baseline.
-* Insight Cards.
-* Visual Report.
-
-### Labs
-
-* `ml-sales-eda-lab`
-* `ml-product-ranking-lab`
-* `ml-basic-demand-insight-lab`
+```txt id="bp01-duration"
+4 semanas
+```
 
 ---
 
-## 02 — mini-sales-forecast-dashboard
+## 🧠 Descripción
 
-### Objetivo
+Microproducto aplicado para analizar ventas de productos y generar insights básicos de demanda.
 
-Crear un dashboard pequeño que proyecte ventas futuras usando métodos simples.
+Este proyecto acompaña al primer proyecto grande de AI Engineer, pero con un alcance más pequeño.
 
-### Aprendizajes principales
+Mientras AI Engineer construye un sistema ML profesional con modelo, inferencia, API, tests y documentación, Building Projects construye una herramienta visual y terminable centrada en análisis, insights, gráficos y dashboard ligero.
 
-* Forecasting básico.
-* Media móvil.
-* Naive forecast.
-* Lags simples.
+---
+
+## 🎯 Objetivo
+
+Crear una herramienta ligera que analice ventas de productos y genere evidencia visible sobre demanda observada.
+
+El objetivo es convertir datos simples en:
+
+```txt id="bp01-output"
+análisis
+→ baseline
+→ métrica
+→ insights
+→ gráficos
+→ dashboard ligero
+→ README
+```
+
+---
+
+## 👤 Usuario objetivo
+
+* Dueño de tienda pequeña.
+* Analista junior.
+* Persona que quiere entender ventas.
+* Reclutador técnico viendo evidencia aplicada.
+* Yo mismo como constructor de portafolio.
+
+---
+
+## 🧱 Arquitectura esperada
+
+```txt id="bp01-architecture"
+CSV / dataset pequeño
+      ↓
+Carga de datos
+      ↓
+Limpieza
+      ↓
+Features simples
+      ↓
+Baseline
+      ↓
+MAE
+      ↓
+Análisis de ventas
+      ↓
+Insight cards
+      ↓
+Gráficos
+      ↓
+Dashboard ligero
+```
+
+---
+
+## 🔁 Flujo técnico
+
+```txt id="bp01-flow"
+data/raw
+→ load_data
+→ clean_data
+→ feature_engineering
+→ baseline
+→ metrics
+→ analysis
+→ insight_cards
+→ charts
+→ dashboard
+→ README
+```
+
+---
+
+## 🧩 Módulos
+
+### Módulo 1 — Data Loading
+
+Cargar datos de ventas desde CSV.
+
+Incluye:
+
+* Leer dataset.
+* Validar ruta.
+* Revisar columnas.
+* Revisar primeras filas.
+* Mantener data/raw sin modificar.
+
+---
+
+### Módulo 2 — Data Cleaning
+
+Limpiar datos básicos sin destruir información.
+
+Incluye:
+
+* Convertir fechas.
+* Revisar nulos.
+* Revisar valores imposibles.
+* Validar unidades vendidas.
+* Validar precios.
+
+---
+
+### Módulo 3 — Feature Engineering
+
+Crear señales simples.
+
+Incluye:
+
+* `day_of_week`.
+* `month`.
+* `year`.
+* `is_weekend`.
+* `revenue`.
+
+---
+
+### Módulo 4 — Baseline and MAE
+
+Crear referencia mínima.
+
+Incluye:
+
+* Baseline promedio.
+* Predicción simple.
 * MAE.
-* Gráficos de serie temporal.
-* Dashboard.
-* README.
-
-### Módulos
-
-* Time Series Preparation.
-* Naive Forecast.
-* Moving Average Forecast.
-* Forecast Dashboard.
-
-### Labs
-
-* `ml-naive-forecast-lab`
-* `ml-moving-average-lab`
-* `ml-forecast-error-lab`
+* Interpretación en lenguaje simple.
 
 ---
 
-## 03 — cloud-ml-pipeline-notes-dashboard
+### Módulo 5 — Sales Analysis
 
-### Objetivo
+Calcular resultados principales.
 
-Crear una herramienta ligera para documentar y visualizar un flujo ML cloud.
+Incluye:
 
-### Aprendizajes principales
-
-* Cloud architecture.
-* BigQuery conceptual.
-* Cloud Storage conceptual.
-* MLflow conceptual.
-* Cloud Run conceptual.
-* AWS equivalents.
-* Azure equivalents.
-* Documentación técnica.
-* Diagramas simples.
-
-### Módulos
-
-* Cloud Architecture Notes.
-* GCP / AWS / Azure Map.
-* MLflow Artifact Notes.
-* Visual Architecture Dashboard.
-
-### Labs
-
-* `docs-cloud-architecture-notes-lab`
-* `docs-gcp-aws-azure-map-lab`
-* `docs-mlflow-artifact-notes-lab`
+* Producto más vendido.
+* Producto con mayor revenue.
+* Revenue total.
+* Unidades totales.
+* Mejor día de ventas.
 
 ---
 
-## 04 — model-quality-report-generator
+### Módulo 6 — Insight Cards
 
-### Objetivo
+Convertir resultados en tarjetas entendibles.
 
-Crear una herramienta que genere reportes simples de calidad de modelos ML.
+Incluye:
 
-### Aprendizajes principales
-
-* Métricas.
-* Model performance.
-* Monitoring conceptual.
-* Error analysis.
-* Reportes técnicos.
-* Markdown reports.
-* Visualización.
-* README.
-
-### Módulos
-
-* Metrics Input.
-* Model Quality Summary.
-* Error Summary.
-* Report Generator.
-
-### Labs
-
-* `ml-model-metrics-report-lab`
-* `ml-error-summary-lab`
-* `docs-model-report-template-lab`
+* Título.
+* Valor.
+* Explicación.
+* Recomendación.
+* Limitación.
 
 ---
 
-## 05 — personal-document-search-rag-lite
+### Módulo 7 — Visual Report
 
-### Objetivo
+Crear gráficos simples.
 
-Crear un buscador semántico pequeño para documentos personales o notas técnicas.
+Incluye:
 
-### Aprendizajes principales
-
-* Embeddings.
-* Chunks.
-* Vector search.
-* RAG ligero.
-* Fuentes.
-* UI de búsqueda.
-* Evaluación básica.
-* README.
-
-### Módulos
-
-* Document Ingestion.
-* Chunking.
-* Semantic Search.
-* Source Display.
-
-### Labs
-
-* `rag-chunking-basic-lab`
-* `rag-semantic-search-lab`
-* `rag-source-display-lab`
+* Unidades por producto.
+* Revenue por producto.
+* Unidades por día.
+* Comparación visual.
 
 ---
 
-## 06 — ai-response-cost-latency-notebook
+### Módulo 8 — Dashboard Lite
 
-### Objetivo
+Crear una vista ligera del producto.
 
-Crear un notebook o mini dashboard para medir costo y latencia de respuestas IA.
+Puede ser:
 
-### Aprendizajes principales
-
-* Latencia.
-* Costo estimado.
-* Tokens.
-* Tiempo de respuesta.
-* Comparación de prompts.
-* Registro de resultados.
-* Optimización ligera.
-* README.
-
-### Módulos
-
-* Prompt Set.
-* Latency Logging.
-* Cost Table.
-* Recommendation Notes.
-
-### Labs
-
-* `tec-latency-table-lab`
-* `tec-prompt-comparison-lab`
-* `tec-cost-estimation-lite-lab`
+* `dashboard/README.md`;
+* Streamlit simple;
+* notebook visual;
+* HTML ligero.
 
 ---
 
-## 07 — ai-portfolio-platform-lite
+## 🧪 Labs
 
-### Objetivo
+### tec-labs
 
-Crear un portal ligero que agrupe proyectos, aprendizajes, demos y evidencias del Plan 1.
+* `tec-sales-eda-lab`
+* `tec-product-ranking-lab`
+* `tec-basic-demand-insight-lab`
 
-### Aprendizajes principales
+### cloud-labs
 
-* Frontend ligero.
-* Portafolio técnico.
-* Project gallery.
-* Storytelling técnico.
-* Dashboard simple.
-* Documentación.
+* `cloud-local-csv-to-gcp-cloud-storage-lab`
+* `cloud-local-csv-to-aws-s3-lab`
+* `cloud-local-csv-to-azure-blob-lab`
+
+---
+
+## 📊 Métricas / señales de análisis
+
+* Total de unidades vendidas.
+* Revenue total.
+* Producto líder por unidades.
+* Producto líder por revenue.
+* Mejor día de ventas.
+* Baseline promedio.
+* MAE del baseline.
+* Número de insights generados.
+* Número de gráficos generados.
+
+---
+
+## 📌 Próximos pasos
+
+* Cerrar pipeline de datos.
+* Crear features.
+* Calcular baseline.
+* Generar análisis principal.
+* Crear insight cards.
+* Crear gráficos.
+* Preparar dashboard ligero.
+* Cerrar labs.
+* Actualizar README.
+* Agregar capturas.
+* Publicar en GitHub.
+
+---
+
+## ✅ Entregable final
+
+Al terminar este proyecto debe existir:
+
+* Microproducto de demanda.
+* Dataset pequeño.
+* Pipeline local.
+* Baseline.
+* MAE.
+* Análisis de ventas.
+* Insight cards.
+* Gráficos.
+* Dashboard ligero.
+* Labs documentados.
+* README profesional.
+* Capturas o outputs visibles.
+
+---
+
+## 🧭 Regla final
+
+```txt id="bp01-rule"
+Este proyecto no compite con la API grande de AI Engineer.
+Este proyecto convierte la base común en evidencia visible.
+
+Datos → análisis → insights → gráficos → dashboard.
+```
+
+---
+
+# 02 — classical-model-comparison-visual-report
+
+### Match
+
+```txt id="bp02-match"
+AI Engineer Proyecto 03 — classical-model-comparison-suite
+```
+
+### Duración
+
+```txt id="bp02-duration"
+4 semanas
+```
+
+---
+
+## 🧠 Descripción
+
+Microproducto para comparar modelos clásicos de Machine Learning de forma visual, entendible y documentada.
+
+Este proyecto acompaña al proyecto grande de AI Engineer enfocado en comparación de modelos clásicos.
+
+Mientras AI Engineer profundiza en entrenamiento, evaluación, estructura, tests y comparación técnica, Building Projects convierte esa comparación en un reporte visual claro.
+
+---
+
+## 🎯 Objetivo
+
+Crear una herramienta que permita comparar baseline y modelos clásicos mediante métricas, tablas, visuales y tarjetas de decisión.
+
+El objetivo es responder:
+
+```txt id="bp02-question"
+¿Qué modelo funcionó mejor?
+¿Por qué?
+¿Qué métrica lo demuestra?
+Qué limitaciones tiene la comparación?
+Qué modelo elegiría para esta versión?
+```
+
+---
+
+## 👤 Usuario objetivo
+
+* AI Engineer en formación.
+* Analista de datos.
+* Reclutador técnico.
+* Persona que quiere entender model comparison sin leer todo el código.
+* Usuario que necesita una recomendación clara de modelo.
+
+---
+
+## 🧱 Arquitectura esperada
+
+```txt id="bp02-architecture"
+Dataset pequeño
+      ↓
+Baseline
+      ↓
+Modelo 1
+      ↓
+Modelo 2
+      ↓
+Modelo 3
+      ↓
+Métricas
+      ↓
+Tabla comparativa
+      ↓
+Error notes
+      ↓
+Decision cards
+      ↓
+Visual report
+```
+
+---
+
+## 🔁 Flujo técnico
+
+```txt id="bp02-flow"
+data
+→ train/test split
+→ baseline
+→ train classical models
+→ calculate metrics
+→ compare results
+→ generate decision cards
+→ export report
+```
+
+---
+
+## 🧩 Módulos
+
+### Módulo 1 — Dataset Setup
+
+Preparar dataset pequeño para comparación.
+
+Incluye:
+
+* Cargar datos.
+* Separar features y target.
+* Crear train/test split.
+* Documentar limitaciones.
+
+---
+
+### Módulo 2 — Baseline Summary
+
+Crear referencia mínima.
+
+Incluye:
+
+* Baseline simple.
+* Métrica base.
+* Interpretación.
+* Por qué el baseline importa.
+
+---
+
+### Módulo 3 — Classical Models
+
+Entrenar o registrar modelos clásicos.
+
+Puede incluir:
+
+* Linear Regression.
+* Decision Tree.
+* Random Forest.
+* Logistic Regression si es clasificación.
+* SVM si aplica.
+
+---
+
+### Módulo 4 — Metrics Table
+
+Crear tabla comparativa.
+
+Incluye:
+
+* MAE.
+* RMSE.
+* Accuracy.
+* Precision.
+* Recall.
+* F1.
+* Tiempo de entrenamiento si aplica.
+
+---
+
+### Módulo 5 — Error Notes
+
+Documentar errores principales.
+
+Incluye:
+
+* Casos donde falla.
+* Casos donde mejora.
+* Riesgo de overfitting.
+* Dataset pequeño.
+* Limitaciones.
+
+---
+
+### Módulo 6 — Decision Cards
+
+Crear tarjetas de decisión.
+
+Incluye:
+
+* Mejor modelo.
+* Modelo más simple.
+* Modelo más riesgoso.
+* Modelo recomendado.
+* Justificación.
+
+---
+
+### Módulo 7 — Visual Report
+
+Crear reporte visual final.
+
+Incluye:
+
+* Tabla.
+* Gráficos.
+* Tarjetas.
+* Conclusión técnica.
+* Siguiente paso.
+
+---
+
+## 🧪 Labs
+
+### tec-labs
+
+* `tec-baseline-vs-model-lab`
+* `tec-metrics-comparison-lab`
+* `tec-error-analysis-card-lab`
+* `tec-model-decision-card-lab`
+
+### docs-labs
+
+* `docs-model-comparison-report-template-lab`
+* `docs-technical-storytelling-lab`
+
+### cloud-labs
+
+* `cloud-model-report-to-gcp-storage-lab`
+* `cloud-model-report-to-aws-s3-lab`
+* `cloud-model-report-to-azure-blob-lab`
+
+---
+
+## 📊 Métricas / señales de análisis
+
+Según el tipo de problema:
+
+### Regresión
+
+* MAE.
+* RMSE.
+* R².
+* Error promedio.
+* Error máximo.
+
+### Clasificación
+
+* Accuracy.
+* Precision.
+* Recall.
+* F1-score.
+* Confusion matrix.
+
+### Señales de decisión
+
+* Mejor métrica.
+* Simplicidad.
+* Interpretabilidad.
+* Riesgo de sobreajuste.
+* Facilidad de explicar.
+* Calidad del reporte.
+
+---
+
+## 📌 Próximos pasos
+
+* Elegir dataset pequeño.
+* Definir problema.
+* Crear baseline.
+* Entrenar modelos clásicos.
+* Calcular métricas.
+* Crear tabla comparativa.
+* Crear notas de error.
+* Crear decision cards.
+* Exportar reporte.
+* Documentar limitaciones.
+* Actualizar README.
+* Agregar capturas.
+
+---
+
+## ✅ Entregable final
+
+Al terminar este proyecto debe existir:
+
+* Reporte visual de comparación.
+* Baseline.
+* Modelos clásicos comparados.
+* Tabla de métricas.
+* Error notes.
+* Decision cards.
+* Recomendación final.
+* README profesional.
 * Capturas.
-* Demo links.
+* Labs documentados.
 
-### Módulos
+---
 
-* Portal Structure.
-* Project Gallery.
-* Learning Notes.
-* Demo Links.
+## 🧭 Regla final
 
-### Labs
+```txt id="bp02-rule"
+Comparar modelos no es mirar quién gana una métrica.
+Es entender rendimiento, simplicidad, riesgo y decisión técnica.
 
-* `portal-project-gallery-lab`
-* `portal-learning-notes-lab`
-* `portal-demo-links-lab`
+Un reporte claro vale más que una tabla sin explicación.
+```
+
+---
+
+# 03 — inventory-decision-dashboard-lite
+
+### Match
+
+```txt id="bp03-match"
+AI Engineer Proyecto 05 — inventory-optimization-ml-service
+```
+
+### Duración
+
+```txt id="bp03-duration"
+5 semanas
+```
+
+---
+
+## 🧠 Descripción
+
+Dashboard ligero para explicar decisiones básicas de inventario usando demanda observada, stock, reglas de reorder y tarjetas de riesgo.
+
+Este proyecto acompaña al proyecto grande de AI Engineer sobre optimización de inventario con ML.
+
+Mientras AI Engineer construye un servicio ML más completo, Building Projects crea una herramienta visual para entender decisiones de inventario de forma práctica.
+
+---
+
+## 🎯 Objetivo
+
+Crear un dashboard ligero que ayude a responder:
+
+```txt id="bp03-questions"
+¿Qué productos parecen tener más demanda?
+Qué productos tienen riesgo de falta?
+Qué productos podrían necesitar reposición?
+Qué regla simple puedo usar para sugerir reorder?
+Qué limitaciones tiene esta recomendación?
+```
+
+---
+
+## 👤 Usuario objetivo
+
+* Dueño de tienda.
+* Analista de inventario.
+* Operador de negocio.
+* Estudiante de AI aplicada.
+* Reclutador técnico viendo evidencia de producto.
+
+---
+
+## 🧱 Arquitectura esperada
+
+```txt id="bp03-architecture"
+Datos de ventas / inventario
+      ↓
+Carga y limpieza
+      ↓
+Demanda observada
+      ↓
+Stock actual
+      ↓
+Regla de reorder
+      ↓
+Risk scoring simple
+      ↓
+Recommendation cards
+      ↓
+Dashboard ligero
+```
+
+---
+
+## 🔁 Flujo técnico
+
+```txt id="bp03-flow"
+data
+→ demand summary
+→ stock summary
+→ reorder rule
+→ risk score
+→ recommendation cards
+→ charts
+→ dashboard
+→ README
+```
+
+---
+
+## 🧩 Módulos
+
+### Módulo 1 — Inventory Inputs
+
+Preparar datos básicos.
+
+Incluye:
+
+* Producto.
+* Categoría.
+* Unidades vendidas.
+* Stock actual.
+* Precio.
+* Fecha si aplica.
+
+---
+
+### Módulo 2 — Demand Summary
+
+Calcular demanda observada.
+
+Incluye:
+
+* Unidades vendidas por producto.
+* Promedio de ventas.
+* Tendencia simple.
+* Producto con mayor demanda.
+
+---
+
+### Módulo 3 — Stock Summary
+
+Analizar inventario actual.
+
+Incluye:
+
+* Stock por producto.
+* Stock bajo.
+* Stock suficiente.
+* Stock crítico.
+
+---
+
+### Módulo 4 — Reorder Rule
+
+Crear regla simple de reposición.
+
+Ejemplo:
+
+```txt id="bp03-reorder-example"
+Si stock actual < demanda promedio estimada × factor de seguridad
+→ sugerir reposición
+```
+
+Incluye:
+
+* Reorder point.
+* Safety factor.
+* Umbral.
+* Recomendación.
+
+---
+
+### Módulo 5 — Risk Cards
+
+Crear tarjetas de riesgo.
+
+Incluye:
+
+* Riesgo bajo.
+* Riesgo medio.
+* Riesgo alto.
+* Explicación.
+* Recomendación.
+
+---
+
+### Módulo 6 — Recommendation Dashboard
+
+Mostrar resultados en dashboard.
+
+Incluye:
+
+* Tabla de productos.
+* Estado de inventario.
+* Recomendación.
+* Gráficos.
+* Limitaciones.
+
+---
+
+## 🧪 Labs
+
+### tec-labs
+
+* `tec-reorder-point-lab`
+* `tec-stock-risk-card-lab`
+* `tec-inventory-recommendation-lab`
+* `tec-demand-vs-stock-lab`
+
+### product-labs
+
+* `product-inventory-user-card-lab`
+* `product-recommendation-language-lab`
+
+### cloud-labs
+
+* `cloud-inventory-report-to-gcp-storage-lab`
+* `cloud-inventory-report-to-aws-s3-lab`
+* `cloud-inventory-report-to-azure-blob-lab`
+
+---
+
+## 📊 Métricas / señales de análisis
+
+* Unidades vendidas por producto.
+* Stock actual.
+* Demanda promedio.
+* Reorder point.
+* Safety factor.
+* Riesgo de stockout.
+* Número de productos en riesgo.
+* Recomendaciones generadas.
+* Productos priorizados.
+
+---
+
+## 📌 Próximos pasos
+
+* Definir dataset pequeño.
+* Agregar columna de stock.
+* Calcular demanda observada.
+* Calcular stock actual.
+* Crear regla de reorder.
+* Crear risk cards.
+* Crear dashboard.
+* Agregar gráficos.
+* Documentar limitaciones.
+* Preparar README.
+* Agregar capturas.
+* Publicar en GitHub.
+
+---
+
+## ✅ Entregable final
+
+Al terminar este proyecto debe existir:
+
+* Dashboard de inventario.
+* Dataset pequeño.
+* Demanda observada.
+* Stock summary.
+* Reorder rule.
+* Risk cards.
+* Recommendation cards.
+* Gráficos.
+* README profesional.
+* Labs documentados.
+* Capturas o outputs visibles.
+
+---
+
+## 🧭 Regla final
+
+```txt id="bp03-rule"
+Una recomendación de inventario no debe sonar como verdad absoluta.
+Debe explicar la regla, el riesgo y la limitación.
+
+Building Projects convierte la optimización en una decisión visible.
+```
 
 ---
 
@@ -440,7 +1012,7 @@ Crear un portal ligero que agrupe proyectos, aprendizajes, demos y evidencias de
 
 Cada proyecto del Plan 1 sigue este ciclo:
 
-```txt
+```txt id="bp1-cycle"
 1. Definir problema.
 2. Definir usuario.
 3. Definir valor.
@@ -458,57 +1030,42 @@ Cada proyecto del Plan 1 sigue este ciclo:
 15. Definir limitaciones.
 16. Definir siguiente paso.
 17. Publicar en GitHub.
-18. Conectar con el proyecto grande correspondiente.
+18. Conectar con el proyecto IA correspondiente.
 ```
 
 ---
 
 # 🗂️ Estructura recomendada del repositorio
 
-```txt
-Applied-AI/
+```txt id="bp1-repo-structure"
+Applied-ML-Microproducts/
 ├── 01-product-demand-insight-lite/
-│   ├── labs/
 │   ├── data/
-│   ├── notebooks/
 │   ├── src/
-│   └── README.md
-│
-├── 02-mini-sales-forecast-dashboard/
-│   ├── labs/
-│   ├── data/
-│   ├── notebooks/
+│   ├── checks/
+│   ├── reports/
 │   ├── dashboard/
-│   └── README.md
-│
-├── 03-cloud-ml-pipeline-notes-dashboard/
-│   ├── labs/
 │   ├── docs/
-│   ├── diagrams/
+│   ├── labs/
+│   ├── scripts/
 │   └── README.md
 │
-├── 04-model-quality-report-generator/
-│   ├── labs/
+├── 02-classical-model-comparison-visual-report/
+│   ├── data/
 │   ├── src/
 │   ├── reports/
-│   └── README.md
-│
-├── 05-personal-document-search-rag-lite/
-│   ├── labs/
-│   ├── documents/
-│   ├── src/
-│   └── README.md
-│
-├── 06-ai-response-cost-latency-notebook/
-│   ├── labs/
-│   ├── notebooks/
-│   ├── reports/
-│   └── README.md
-│
-├── 07-ai-portfolio-platform-lite/
-│   ├── labs/
-│   ├── frontend/
+│   ├── dashboard/
 │   ├── docs/
+│   ├── labs/
+│   └── README.md
+│
+├── 03-inventory-decision-dashboard-lite/
+│   ├── data/
+│   ├── src/
+│   ├── reports/
+│   ├── dashboard/
+│   ├── docs/
+│   ├── labs/
 │   └── README.md
 │
 └── README.md
@@ -518,20 +1075,21 @@ Applied-AI/
 
 # 📊 Nivel esperado al terminar Plan 1
 
-| Área                                      | Nivel esperado |
-| ----------------------------------------- | -------------: |
-| EDA aplicada                              |           8/10 |
-| Pandas práctico                           |           8/10 |
-| Visualización                             |           8/10 |
-| Dashboards ligeros                        |         8.5/10 |
-| Forecasting básico                        |         7.5/10 |
-| Segmentación o análisis de comportamiento |         7.5/10 |
-| Métricas de modelos                       |           8/10 |
-| Reportes ML                               |         8.5/10 |
-| Interpretación de resultados              |           8/10 |
-| Storytelling técnico                      |         8.5/10 |
-| Documentación de proyectos pequeños       |         8.5/10 |
-| Evidencia visual de aprendizaje           |         8.5/10 |
+| Área                                  | Nivel esperado |
+| ------------------------------------- | -------------: |
+| EDA aplicada                          |           8/10 |
+| Pandas práctico                       |           8/10 |
+| Limpieza de datos simple              |           8/10 |
+| Feature engineering simple            |           8/10 |
+| Baseline y métricas básicas           |           8/10 |
+| Model comparison visual               |           8/10 |
+| Error analysis básico                 |         7.5/10 |
+| Dashboards ligeros                    |         8.5/10 |
+| Insight cards                         |         8.5/10 |
+| Recomendaciones de inventario simples |           8/10 |
+| Storytelling técnico                  |         8.5/10 |
+| Documentación de proyectos pequeños   |         8.5/10 |
+| Evidencia visual de aprendizaje       |         8.5/10 |
 
 ---
 
@@ -539,16 +1097,16 @@ Applied-AI/
 
 Al completar este plan, podré decir:
 
-```txt
+```txt id="bp1-result"
 Sé construir microproductos de IA aplicada.
 Sé convertir datos en insights.
 Sé cargar, limpiar y analizar datasets pequeños.
+Sé crear baseline y métricas simples.
+Sé comparar modelos de forma visual.
+Sé crear reportes de decisión técnica.
 Sé crear dashboards ligeros.
-Sé hacer forecasting básico.
-Sé crear reportes de modelos.
-Sé crear buscadores semánticos pequeños.
-Sé medir costos y latencia de respuestas IA.
-Sé crear portales técnicos ligeros.
+Sé traducir resultados técnicos a lenguaje de usuario.
+Sé crear recomendaciones simples de inventario.
 Sé convertir aprendizaje técnico en evidencia visible.
 ```
 
@@ -556,7 +1114,7 @@ Sé convertir aprendizaje técnico en evidencia visible.
 
 # 🧭 Regla final de avance
 
-```txt
+```txt id="bp1-final-rule"
 Exploro antes de ejecutar.
 Ejecuto con mapa.
 Cierro cada lab.
@@ -568,9 +1126,19 @@ Construyo para entender.
 
 Frase guía:
 
-```txt
+```txt id="bp1-final-phrase"
 Aprendo profundo en Path-AI-Engineer.
-Construyo visible en Building-Projects.
+Construyo visible en Building Projects.
+
 Uno me forma.
 El otro me muestra.
 ```
+
+---
+
+# 👤 Autor
+
+**Jean Franck Loa Rojas**
+
+Building Projects Path Builder
+Applied ML • Microproducts • Dashboards • Visual Reports • Inventory Decisions • Technical Storytelling
