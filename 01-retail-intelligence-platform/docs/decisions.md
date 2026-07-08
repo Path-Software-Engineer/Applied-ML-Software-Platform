@@ -366,3 +366,23 @@ The lab makes the data transformation story visible and easier to explain.
 ### Status
 
 Accepted.
+
+<!-- DAY-13-MEAN-BASELINE -->
+
+## Decision 013 â€” Use mean baseline as first prediction reference
+
+### Context
+
+Before comparing models, the Demand Insight Module needs a basic reference prediction.
+
+### Decision
+
+Use the mean of `units_sold` as the first baseline.
+
+### Why
+
+A baseline provides a minimum standard that future models must beat.
+
+### Status
+
+Accepted.

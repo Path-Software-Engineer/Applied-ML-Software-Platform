@@ -256,3 +256,26 @@ ai-services/demand-insight/checks/check_eda_flow_lab.py
 - The lab script runs.
 - The EDA comparison report exists.
 - The check script passes.
+
+<!-- DAY-13-MEAN-BASELINE -->
+
+## Day 13 â€” Mean Baseline
+
+### Goal
+
+Calculate the first baseline for `units_sold`.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/src/baselines/baseline.py
+ai-services/demand-insight/checks/check_mean_baseline.py
+reports/summaries/demand-insight/mean_baseline_summary.md
+```
+
+### Definition of Done
+
+- Mean baseline is calculated.
+- Baseline predictions are generated.
+- The summary exists.
+- The check script passes.
