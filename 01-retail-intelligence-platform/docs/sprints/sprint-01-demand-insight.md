@@ -279,3 +279,27 @@ reports/summaries/demand-insight/mean_baseline_summary.md
 - Baseline predictions are generated.
 - The summary exists.
 - The check script passes.
+
+<!-- DAY-14-BASELINE-MAE -->
+
+## Day 14 â€” Baseline MAE
+
+### Goal
+
+Calculate MAE for the mean baseline.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/src/baselines/baseline.py
+ai-services/demand-insight/checks/check_baseline_mae.py
+reports/summaries/demand-insight/baseline_mae_summary.md
+```
+
+### Definition of Done
+
+- Baseline value is calculated.
+- Baseline predictions are generated.
+- MAE is calculated.
+- The summary exists.
+- The check script passes.
