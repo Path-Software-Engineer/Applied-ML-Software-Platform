@@ -37,3 +37,22 @@ The data contract prevents the project from depending on unclear or changing dat
 ### Status
 
 Completed when the dataset exists and the contract is documented.
+
+## Día 4 — Data Loading
+
+### Objetivo
+
+Crear el primer módulo técnico ejecutable para cargar el dataset raw de ventas.
+
+### Entregables
+
+- `ai-services/demand-insight/src/data/data_loader.py`
+- `ai-services/demand-insight/checks/check_data_loading.py`
+- `reports/summaries/demand-insight/data_loading_summary.md`
+
+### Resultado
+
+El dataset raw de ventas puede cargarse desde:
+
+```txt
+data/raw/demand-insight/sales.csv

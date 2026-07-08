@@ -108,3 +108,29 @@ Future changes to the dataset must update the data contract.
 ### Status
 
 Accepted.
+
+## Decision 003 — Standard raw sales data path
+
+### Context
+
+Sprint 1 needs a stable location for the raw sales dataset before cleaning, feature engineering, baseline calculation and metric evaluation.
+
+### Decision
+
+Use the following standard raw data path for the Demand Insight Module:
+
+```txt
+data/raw/demand-insight/sales.csv
+```
+
+### Why
+
+A stable path makes the pipeline easier to run and avoids mixing data files with source code, reports or documentation.
+
+### Consequences
+
+All demand insight scripts and checks should load the raw sales dataset from this path unless a future decision changes the data contract.
+
+### Status
+
+Accepted.
