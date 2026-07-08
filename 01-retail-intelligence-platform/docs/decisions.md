@@ -326,3 +326,23 @@ Revenue allows the Demand Insight Module to compare products by business value, 
 ### Status
 
 Accepted.
+
+<!-- DAY-11-FEATURE-ENGINEERING-INTEGRATION -->
+
+## Decision 011 â€” Build a final feature engineering output
+
+### Context
+
+Temporal features and revenue exist as separate enrichments.
+
+### Decision
+
+Create a feature engineering integration step that produces the final feature dataset for the Demand Insight Module.
+
+### Why
+
+Later baseline and metric work should use one clear feature output.
+
+### Status
+
+Accepted.

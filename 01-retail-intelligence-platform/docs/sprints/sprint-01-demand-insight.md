@@ -209,3 +209,27 @@ reports/summaries/demand-insight/revenue_processed_dataset_summary.md
 - Revenue is calculated from units and price.
 - The revenue processed dataset exists.
 - The check script passes.
+
+<!-- DAY-11-FEATURE-ENGINEERING-INTEGRATION -->
+
+## Day 11 â€” Feature Engineering Integration
+
+### Goal
+
+Combine temporal features and revenue into the final feature dataset.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/src/features/feature_engineering.py
+ai-services/demand-insight/checks/check_feature_engineering.py
+data/processed/demand-insight/sales_features.csv
+reports/summaries/demand-insight/feature_engineering_summary.md
+```
+
+### Definition of Done
+
+- The final feature dataset exists.
+- Temporal features exist.
+- Revenue exists.
+- The check script passes.
