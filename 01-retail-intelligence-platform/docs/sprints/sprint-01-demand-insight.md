@@ -90,3 +90,39 @@ reports/summaries/demand-insight/data_cleaning_summary.md
 - No hay valores negativos en `units_sold` ni `unit_price`.
 - El summary de limpieza fue generado.
 - El check pasó sin errores.
+<!-- DAY-06-FIRST-DATA-PIPELINE -->
+
+## Day 6 â€” First Data Pipeline
+
+### Goal
+
+Connect data loading and data cleaning into a repeatable first pipeline.
+
+### Flow
+
+```txt
+raw sales data
+â†’ load dataset
+â†’ validate columns
+â†’ clean rows
+â†’ export pipeline-ready dataset
+â†’ generate summary
+```
+
+### Expected files
+
+```txt
+ai-services/demand-insight/src/pipelines/first_data_pipeline.py
+ai-services/demand-insight/checks/check_first_data_pipeline.py
+data/processed/demand-insight/sales_pipeline_ready.csv
+reports/summaries/demand-insight/first_data_pipeline_summary.md
+```
+
+### Definition of Done
+
+- The raw dataset can be loaded.
+- Required columns are validated.
+- Cleaning rules are applied inside the pipeline.
+- A pipeline-ready dataset is generated.
+- A technical summary is generated.
+- The check script passes without errors.

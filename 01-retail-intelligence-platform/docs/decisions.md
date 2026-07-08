@@ -180,3 +180,41 @@ processed / feature-ready data
 ### Status
 
 Accepted.
+
+<!-- DAY-06-FIRST-DATA-PIPELINE -->
+
+## Decision 006 â€” First data pipeline for Demand Insight
+
+### Context
+
+The Demand Insight Module already has data loading and data cleaning pieces.
+
+The next step is to connect those pieces into a repeatable pipeline that creates a pipeline-ready dataset and a technical summary.
+
+### Decision
+
+Create a first data pipeline responsible for:
+
+```txt
+raw sales data
+â†’ validation
+â†’ cleaning
+â†’ pipeline-ready output
+â†’ summary report
+```
+
+### Why
+
+A pipeline makes the data workflow repeatable and prevents manual steps from becoming hidden requirements.
+
+Later work such as feature engineering, baseline calculation, MAE and insight cards should depend on a clear processed output.
+
+### Consequences
+
+The project now has a stronger base for Sprint 1.
+
+Future modules can reuse the pipeline output instead of reading raw data directly.
+
+### Status
+
+Accepted.
