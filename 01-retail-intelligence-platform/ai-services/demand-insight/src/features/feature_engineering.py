@@ -55,3 +55,13 @@ def add_revenue_column(
     enriched[revenue_column] = enriched[units_column] * enriched[price_column]
 
     return enriched
+
+# DAY-11-FEATURE-ENGINEERING-INTEGRATION
+import pandas as pd
+
+
+def build_sales_features(data: pd.DataFrame) -> pd.DataFrame:
+    """Build the final sales feature dataset for the Demand Insight Module."""
+    featured = add_date_features(data)
+    featured = add_revenue_column(featured)
+    return featured
