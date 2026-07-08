@@ -164,3 +164,26 @@ Prepare Week 2 execution around temporal features, revenue, baseline and MAE.
 - Week 2 exploration document exists.
 - Execution map for Days 9â€“14 is documented.
 - The day check generates a summary.
+
+<!-- DAY-09-TEMPORAL-FEATURES -->
+
+## Day 9 â€” Temporal Features
+
+### Goal
+
+Create temporal features from the sales date column.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/src/features/feature_engineering.py
+ai-services/demand-insight/checks/check_temporal_features.py
+data/processed/demand-insight/sales_temporal_features.csv
+reports/summaries/demand-insight/temporal_features_summary.md
+```
+
+### Definition of Done
+
+- Temporal features are generated.
+- The processed temporal dataset exists.
+- The check script passes.
