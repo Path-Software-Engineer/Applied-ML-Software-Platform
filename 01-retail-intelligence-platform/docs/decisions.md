@@ -302,3 +302,27 @@ Temporal signals help explain sales behavior across days, months and weekends.
 ### Status
 
 Accepted.
+
+<!-- DAY-10-REVENUE-PROCESSED-DATASET -->
+
+## Decision 010 â€” Add revenue as a business signal
+
+### Context
+
+Units sold explain volume, but retail analysis also needs monetary value.
+
+### Decision
+
+Create a revenue column using:
+
+```txt
+revenue = units_sold * unit_price
+```
+
+### Why
+
+Revenue allows the Demand Insight Module to compare products by business value, not only by units sold.
+
+### Status
+
+Accepted.
