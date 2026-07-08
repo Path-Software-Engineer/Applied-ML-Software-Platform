@@ -233,3 +233,26 @@ reports/summaries/demand-insight/feature_engineering_summary.md
 - Temporal features exist.
 - Revenue exists.
 - The check script passes.
+
+<!-- DAY-12-EDA-FLOW-LAB -->
+
+## Day 12 â€” EDA Flow Lab
+
+### Goal
+
+Compare the raw, clean and processed data flows.
+
+### Expected files
+
+```txt
+labs/tec-labs/tec-sales-eda-lab/src/compare_eda_flows.py
+labs/tec-labs/tec-sales-eda-lab/outputs/eda_flow_comparison.md
+labs/tec-labs/tec-sales-eda-lab/README.md
+ai-services/demand-insight/checks/check_eda_flow_lab.py
+```
+
+### Definition of Done
+
+- The lab script runs.
+- The EDA comparison report exists.
+- The check script passes.
