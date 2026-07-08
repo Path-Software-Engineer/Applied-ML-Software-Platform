@@ -1,4 +1,4 @@
-﻿# Sprint 1 â€” Week 2 Exploration
+﻿# Sprint 1 - Week 2 Exploration
 
 ## Day
 
