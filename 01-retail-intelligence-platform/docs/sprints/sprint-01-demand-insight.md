@@ -334,3 +334,50 @@ reports/summaries/demand-insight/week_02_technical_report.md
 This is not a new project day.
 
 This is a correction to make Week 2 compatible with the official map.
+
+---
+
+# Day 15 - Analysis and Insights Exploration
+
+## Type
+
+Exploration day.
+
+## Goal
+
+Define how the Demand Insight Module will transform processed sales data into business analysis, user-facing language and Insight Cards.
+
+## Evidence created
+
+- `docs/insight-card-methodology.md`
+- `docs/sprints/sprint-01-week-03-plan.md`
+- `reports/summaries/demand-insight/week_03_exploration_summary.md`
+
+## Decisions
+
+- An insight is not only a number.
+- An insight is an interpreted metric that helps the user understand a business signal.
+- Insight Cards must use user-facing retail language.
+- Technical language such as baseline, MAE, feature engineering and pipeline should remain in technical documentation, not in user-facing cards.
+- Sprint 2 and Sprint 3 documentation should not be maintained as active sprint files before those sprints officially start.
+
+## Insight Card structure
+
+Each Insight Card must contain:
+
+- Title
+- Metric
+- Insight
+- Recommendation
+- Limitation
+
+## Week 3 direction
+
+Week 3 will move through:
+
+- sales summary;
+- product ranking;
+- temporal sales analysis;
+- Insight Cards;
+- basic charts;
+- documentation and week close.

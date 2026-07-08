@@ -1,8 +1,8 @@
-﻿# Sprint 1 â€” Week 1 Review
+﻿# Sprint 1 - Week 1 Review
 
 ## Sprint
 
-Sprint 1 â€” Demand Insight Module
+Sprint 1 - Demand Insight Module
 
 ## Week
 
@@ -47,3 +47,5 @@ The next week should focus on feature engineering, revenue, baseline, MAE and th
 ## Rule
 
 Do not move to dashboard work until the data pipeline, features, baseline and metric evidence are clear.
+
+
