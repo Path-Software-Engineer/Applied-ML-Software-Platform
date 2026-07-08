@@ -150,3 +150,17 @@ reports/summaries/demand-insight/week_01_close_summary.md
 - Missing files are identified if something is incomplete.
 - A Week 1 summary is generated.
 - The project is ready for Week 2 only if the checklist is clean.
+
+<!-- DAY-08-FEATURE-BASELINE-EXPLORATION -->
+
+## Day 8 â€” Feature, Baseline and Metric Exploration
+
+### Goal
+
+Prepare Week 2 execution around temporal features, revenue, baseline and MAE.
+
+### Definition of Done
+
+- Week 2 exploration document exists.
+- Execution map for Days 9â€“14 is documented.
+- The day check generates a summary.

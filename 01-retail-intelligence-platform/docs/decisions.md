@@ -244,3 +244,34 @@ The project can start Week 2 with a clearer foundation.
 ### Status
 
 Accepted.
+
+<!-- DAY-08-FEATURE-BASELINE-EXPLORATION -->
+
+## Decision 008 â€” Explore features, baseline and MAE before building reports
+
+### Context
+
+Week 1 created the data foundation for the Demand Insight Module.
+
+Week 2 needs a clear technical map before execution continues.
+
+### Decision
+
+Use Day 8 to define the next execution flow:
+
+```txt
+processed data
+â†’ temporal features
+â†’ revenue
+â†’ baseline
+â†’ MAE
+â†’ technical summary
+```
+
+### Why
+
+Feature engineering and baseline metrics should be connected by intent, not added as isolated files.
+
+### Status
+
+Accepted.
