@@ -386,3 +386,23 @@ A baseline provides a minimum standard that future models must beat.
 ### Status
 
 Accepted.
+
+<!-- DAY-14-BASELINE-MAE -->
+
+## Decision 014 â€” Evaluate the baseline with MAE
+
+### Context
+
+A baseline value alone does not say how wrong the prediction is.
+
+### Decision
+
+Use Mean Absolute Error to evaluate the mean baseline.
+
+### Why
+
+MAE gives an understandable average error in the same unit as the target: units sold.
+
+### Status
+
+Accepted.
