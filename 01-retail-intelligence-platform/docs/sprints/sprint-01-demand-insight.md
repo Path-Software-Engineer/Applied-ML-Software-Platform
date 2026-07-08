@@ -187,3 +187,25 @@ reports/summaries/demand-insight/temporal_features_summary.md
 - Temporal features are generated.
 - The processed temporal dataset exists.
 - The check script passes.
+
+<!-- DAY-10-REVENUE-PROCESSED-DATASET -->
+
+## Day 10 â€” Revenue and Processed Dataset
+
+### Goal
+
+Create the revenue column and export a revenue-ready processed dataset.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/checks/check_revenue_processed_dataset.py
+data/processed/demand-insight/sales_revenue.csv
+reports/summaries/demand-insight/revenue_processed_dataset_summary.md
+```
+
+### Definition of Done
+
+- Revenue is calculated from units and price.
+- The revenue processed dataset exists.
+- The check script passes.
