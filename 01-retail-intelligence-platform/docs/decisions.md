@@ -275,3 +275,30 @@ Feature engineering and baseline metrics should be connected by intent, not adde
 ### Status
 
 Accepted.
+
+<!-- DAY-09-TEMPORAL-FEATURES -->
+
+## Decision 009 â€” Add temporal features to sales data
+
+### Context
+
+Sales data contains dates, but raw dates alone are not enough for demand analysis.
+
+### Decision
+
+Create temporal features from the date column:
+
+```txt
+day_of_week
+month
+year
+is_weekend
+```
+
+### Why
+
+Temporal signals help explain sales behavior across days, months and weekends.
+
+### Status
+
+Accepted.
