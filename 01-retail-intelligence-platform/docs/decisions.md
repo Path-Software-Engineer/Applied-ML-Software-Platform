@@ -346,3 +346,23 @@ Later baseline and metric work should use one clear feature output.
 ### Status
 
 Accepted.
+
+<!-- DAY-12-EDA-FLOW-LAB -->
+
+## Decision 012 â€” Compare raw, clean and processed EDA flows
+
+### Context
+
+The project now has multiple data stages.
+
+### Decision
+
+Create a technical lab that compares raw, clean and processed data.
+
+### Why
+
+The lab makes the data transformation story visible and easier to explain.
+
+### Status
+
+Accepted.
