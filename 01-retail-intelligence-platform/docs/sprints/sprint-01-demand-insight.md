@@ -54,5 +54,39 @@ Crear el primer módulo técnico ejecutable para cargar el dataset raw de ventas
 
 El dataset raw de ventas puede cargarse desde:
 
+
+## Día 5 — Data Cleaning
+
+### Objetivo
+
+Crear la capa de limpieza del dataset de ventas para el Demand Insight Module.
+
+### Resultado esperado
+
 ```txt
-data/raw/demand-insight/sales.csv
+raw sales dataset
+→ validation
+→ cleaning rules
+→ clean sales dataset
+→ data cleaning summary
+```
+
+### Evidencia generada
+
+```txt
+ai-services/demand-insight/src/data/data_cleaner.py
+ai-services/demand-insight/checks/check_data_cleaning.py
+data/processed/demand-insight/sales_clean.csv
+reports/summaries/demand-insight/data_cleaning_summary.md
+```
+
+### Definition of Done
+
+- El dataset raw existe.
+- Las columnas requeridas fueron validadas.
+- El dataset limpio fue generado.
+- No hay nulos en columnas requeridas.
+- No hay duplicados después de la limpieza.
+- No hay valores negativos en `units_sold` ni `unit_price`.
+- El summary de limpieza fue generado.
+- El check pasó sin errores.

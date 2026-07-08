@@ -134,3 +134,49 @@ All demand insight scripts and checks should load the raw sales dataset from thi
 ### Status
 
 Accepted.
+
+## Decision 004 — Data cleaning rules for Demand Insight Module
+
+### Context
+
+The Demand Insight Module needs a reliable cleaned dataset before feature engineering, baseline calculation or dashboard work.
+
+Raw data may contain missing values, invalid types, duplicates or negative numeric values.
+
+### Decision
+
+Create a dedicated data cleaning layer in:
+
+```txt
+ai-services/demand-insight/src/data/data_cleaner.py
+```
+
+The cleaning process will:
+
+- validate required columns;
+- convert dates;
+- convert numeric fields;
+- trim text fields;
+- remove invalid rows;
+- remove duplicates;
+- save the clean dataset in `data/processed/demand-insight/`.
+
+### Why
+
+Feature engineering and baseline metrics should not run directly on raw data.
+
+A clean dataset creates a safer foundation for later pipeline steps.
+
+### Consequences
+
+The project now has a clear separation between:
+
+```txt
+raw data
+clean data
+processed / feature-ready data
+```
+
+### Status
+
+Accepted.
