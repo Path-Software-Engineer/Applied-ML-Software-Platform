@@ -49,3 +49,62 @@ Sprint 3 can add Inventory Decision logic while reusing the same structure.
 ### Status
 
 Accepted.
+
+---
+
+## Decision 002 — Demand Insight dataset contract
+
+### Context
+
+The Demand Insight Module needs a stable initial dataset before implementing data loading, validation, cleaning, feature engineering and baseline evaluation.
+
+Without a clear data contract, the project can become inconsistent when columns, types or rules change.
+
+### Decision
+
+Create a small controlled retail sales dataset at:
+
+```txt
+data/raw/demand-insight/sales.csv
+```
+
+Create a data contract at:
+
+```txt
+docs/data-contract.md
+```
+
+The initial dataset must include these columns:
+
+```txt
+sale_id
+date
+product_id
+product_name
+category
+units_sold
+unit_price
+stock_available
+```
+
+### Why
+
+The project needs a predictable input before building the data pipeline.
+
+The data contract defines what the system expects.
+
+It also makes future validation, cleaning, feature engineering and reporting easier.
+
+### Consequences
+
+The Day 4 data loading module can read a known CSV file.
+
+The Day 5 cleaning step can validate against documented rules.
+
+The Day 6 pipeline can rely on stable column names.
+
+Future changes to the dataset must update the data contract.
+
+### Status
+
+Accepted.

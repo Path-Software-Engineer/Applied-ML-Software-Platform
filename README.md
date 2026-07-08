@@ -1,6 +1,6 @@
-# 🧩 Plan 1 — Applied ML Software Platform
+# 🧩 Path Software Engineer Roadmap — Plan 1
 
-## 🧠 Descripción
+## 🧠 Applied ML Software Platform
 
 **Applied ML Software Platform** es el primer plan de **Path Software Engineer**.
 

@@ -1,0 +1,204 @@
+﻿Listado de rutas de carpetas para el volumen OS
+El n·mero de serie del volumen es 00000057 9ADA:A206
+C:.
+|   .env.example
+|   .gitignore
+|   docker-compose.yml
+|   project-structure.txt
+|   README.md
+|   
++---.git
+|   |   config
+|   |   description
+|   |   HEAD
+|   |   
+|   +---hooks
+|   |       applypatch-msg.sample
+|   |       commit-msg.sample
+|   |       fsmonitor-watchman.sample
+|   |       post-update.sample
+|   |       pre-applypatch.sample
+|   |       pre-commit.sample
+|   |       pre-merge-commit.sample
+|   |       pre-push.sample
+|   |       pre-rebase.sample
+|   |       pre-receive.sample
+|   |       prepare-commit-msg.sample
+|   |       push-to-checkout.sample
+|   |       sendemail-validate.sample
+|   |       update.sample
+|   |       
+|   \---info
+|           exclude
+|           
++---ai-services
+|   |   .gitkeep
+|   |   
+|   +---demand-insight
+|   |   |   .gitkeep
+|   |   |   
+|   |   +---checks
+|   |   |       .gitkeep
+|   |   |       
+|   |   \---src
+|   |       |   .gitkeep
+|   |       |   
+|   |       +---analysis
+|   |       |       .gitkeep
+|   |       |       
+|   |       +---baselines
+|   |       |       .gitkeep
+|   |       |       
+|   |       +---data
+|   |       |       .gitkeep
+|   |       |       
+|   |       +---features
+|   |       |       .gitkeep
+|   |       |       feature_engineering.py
+|   |       |       
+|   |       +---insights
+|   |       |       .gitkeep
+|   |       |       
+|   |       +---metrics
+|   |       |       .gitkeep
+|   |       |       
+|   |       \---visualization
+|   |               .gitkeep
+|   |               
+|   +---inventory-decision
+|   |       .gitkeep
+|   |       
+|   \---model-comparison
+|           .gitkeep
+|           
++---backend
+|   |   .gitkeep
+|   |   
+|   \---api
+|       |   .gitkeep
+|       |   
+|       \---app
+|           |   .gitkeep
+|           |   
+|           +---routes
+|           |       .gitkeep
+|           |       
+|           +---schemas
+|           |       .gitkeep
+|           |       
+|           \---services
+|                   .gitkeep
+|                   
++---data
+|   |   .gitkeep
+|   |   
+|   +---processed
+|   |   |   .gitkeep
+|   |   |   
+|   |   \---demand-insight
+|   |           .gitkeep
+|   |           
+|   \---raw
+|       |   .gitkeep
+|       |   
+|       \---demand-insight
+|               .gitkeep
+|               sales.csv
+|               
++---deployment
+|   |   .gitkeep
+|   |   
+|   +---docker
+|   |       .gitkeep
+|   |       
+|   \---gcp
+|           .gitkeep
+|           
++---docs
+|   |   .gitkeep
+|   |   api-contract.md
+|   |   architecture.md
+|   |   data-contract.md
+|   |   decisions.md
+|   |   technical-stories.md
+|   |   user-stories.md
+|   |   
+|   \---sprints
+|           .gitkeep
+|           sprint-01-demand-insight.md
+|           sprint-02-model-comparison.md
+|           sprint-03-inventory-decision.md
+|           
++---frontend
+|   |   .gitkeep
+|   |   
+|   \---dashboard-app
+|           .gitkeep
+|           
++---labs
+|   |   .gitkeep
+|   |   
+|   +---cloud-labs
+|   |       .gitkeep
+|   |       
+|   +---docs-labs
+|   |       .gitkeep
+|   |       
+|   +---product-labs
+|   |       .gitkeep
+|   |       
+|   \---tec-labs
+|           .gitkeep
+|           
++---models
+|       .gitkeep
+|       
++---reports
+|   |   .gitkeep
+|   |   
+|   +---decision-cards
+|   |       .gitkeep
+|   |       
+|   +---figures
+|   |   |   .gitkeep
+|   |   |   
+|   |   \---demand-insight
+|   |           .gitkeep
+|   |           
+|   +---insight-cards
+|   |       .gitkeep
+|   |       
+|   +---outputs
+|   |       .gitkeep
+|   |       
+|   +---recommendation-cards
+|   |       .gitkeep
+|   |       
+|   \---summaries
+|       |   .gitkeep
+|       |   
+|       \---demand-insight
+|               .gitkeep
+|               
++---scripts
+|       .gitkeep
+|       generate-report.ps1
+|       run-ai-service.ps1
+|       run-backend.ps1
+|       run-frontend.ps1
+|       
+\---tests
+    |   .gitkeep
+    |   
+    +---ai-services
+    |   |   .gitkeep
+    |   |   
+    |   \---demand-insight
+    |           .gitkeep
+    |           
+    +---backend
+    |       .gitkeep
+    |       
+    \---frontend
+            .gitkeep
+            
