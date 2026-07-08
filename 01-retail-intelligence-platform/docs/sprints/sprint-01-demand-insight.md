@@ -303,3 +303,34 @@ reports/summaries/demand-insight/baseline_mae_summary.md
 - MAE is calculated.
 - The summary exists.
 - The check script passes.
+
+<!-- WEEK-02-MAP-ALIGNMENT -->
+
+## Week 2 Map Alignment â€” Features, Baseline and Metric
+
+### Purpose
+
+Align Week 2 with the current Software Engineer map before starting Week 3.
+
+### Official missing closures
+
+```txt
+Day 6 â†’ Pipeline with features, baseline and metric
+Day 7 â†’ Initial technical report and documentation
+```
+
+### Evidence added
+
+```txt
+ai-services/demand-insight/src/pipelines/feature_baseline_metric_pipeline.py
+ai-services/demand-insight/checks/check_week_02_map_alignment.py
+docs/sprints/sprint-01-week-02-review.md
+reports/summaries/demand-insight/feature_baseline_metric_pipeline_summary.md
+reports/summaries/demand-insight/week_02_technical_report.md
+```
+
+### Rule
+
+This is not a new project day.
+
+This is a correction to make Week 2 compatible with the official map.
