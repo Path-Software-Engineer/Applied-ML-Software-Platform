@@ -126,3 +126,27 @@ reports/summaries/demand-insight/first_data_pipeline_summary.md
 - A pipeline-ready dataset is generated.
 - A technical summary is generated.
 - The check script passes without errors.
+
+<!-- DAY-07-WEEK-01-CLOSE -->
+
+## Day 7 â€” Week 1 Close
+
+### Goal
+
+Close the first week of Sprint 1 with evidence, documentation and a clear checkpoint.
+
+### Expected files
+
+```txt
+ai-services/demand-insight/checks/check_week_01_close.py
+docs/sprints/sprint-01-week-01-review.md
+reports/summaries/demand-insight/week_01_close_summary.md
+```
+
+### Definition of Done
+
+- The week close check passes.
+- Week 1 evidence is documented.
+- Missing files are identified if something is incomplete.
+- A Week 1 summary is generated.
+- The project is ready for Week 2 only if the checklist is clean.

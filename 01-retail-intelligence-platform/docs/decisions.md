@@ -218,3 +218,29 @@ Future modules can reuse the pipeline output instead of reading raw data directl
 ### Status
 
 Accepted.
+
+<!-- DAY-07-WEEK-01-CLOSE -->
+
+## Decision 007 â€” Close Week 1 with evidence checklist
+
+### Context
+
+The first week created the base of the Demand Insight Module.
+
+Before moving into features, baseline and metrics, the project needs a checkpoint that confirms evidence exists.
+
+### Decision
+
+Use a Week 1 close check that verifies core files, raw data, data loading, data cleaning, first pipeline and summaries.
+
+### Why
+
+A week close prevents silent gaps from moving forward into later work.
+
+### Consequences
+
+The project can start Week 2 with a clearer foundation.
+
+### Status
+
+Accepted.
