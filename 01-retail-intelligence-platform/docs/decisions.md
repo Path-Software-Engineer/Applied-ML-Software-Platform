@@ -406,3 +406,34 @@ MAE gives an understandable average error in the same unit as the target: units 
 ### Status
 
 Accepted.
+
+<!-- WEEK-02-MAP-ALIGNMENT -->
+
+## Correction 001 â€” Align Sprint 1 Week 2 with the current Software Engineer map
+
+### Context
+
+Week 2 had useful technical work, but the sequence must be aligned with the current Software Engineer map before starting Week 3.
+
+### Decision
+
+Close Week 2 with explicit evidence for:
+
+```txt
+Pipeline with features, baseline and metric
+Initial technical report and documentation
+```
+
+### Why
+
+The plan is the boundary of the project.
+
+The correction must not create extra days or extend the sprint.
+
+### Consequences
+
+Week 3 can start only after the integrated pipeline and technical report are verified.
+
+### Status
+
+Accepted.
