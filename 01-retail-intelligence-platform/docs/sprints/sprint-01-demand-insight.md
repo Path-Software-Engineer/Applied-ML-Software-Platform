@@ -381,3 +381,55 @@ Week 3 will move through:
 - Insight Cards;
 - basic charts;
 - documentation and week close.
+
+---
+
+# Day 16 - Sales Summary
+
+## Type
+
+Execution day.
+
+## Goal
+
+Create a general summary of observed sales using the processed Demand Insight dataset.
+
+## Input
+
+- `data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv`
+
+## Outputs
+
+- `ai-services/demand-insight/src/analysis/sales_summary.py`
+- `data/processed/demand-insight/sales_summary.csv`
+- `reports/summaries/demand-insight/sales_summary.md`
+
+## Summary results
+
+- Total observed demand: 293 units sold
+- Total observed revenue: 747.65
+- Sales records: 18
+- Unique products: 6
+- Unique categories: 3
+- Date range: 2026-01-01 to 2026-01-09
+- Average units per sale: 16.28
+- Average revenue per sale: 41.54
+- Average unit price: 3.10
+
+## Interpretation
+
+`units_sold` is used as observed demand because it represents the number of units actually purchased by customers.
+
+`revenue` is used as observed economic value because it depends on both units sold and unit price.
+
+These metrics are related, but they do not mean the same thing.
+
+## Limitations
+
+This summary describes only the current processed dataset.
+
+It does not guarantee future demand.
+
+It does not measure profit or profitability because the dataset does not include costs.
+
+It does not replace product ranking, temporal analysis, insight cards or charts.

@@ -1,4 +1,4 @@
-# Data Loading Summary — Demand Insight Module
+# Data Loading Summary - Demand Insight Module
 
 ## Source
 

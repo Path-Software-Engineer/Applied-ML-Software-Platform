@@ -2,7 +2,7 @@
 
 ## Day
 
-Day 10 â€” Revenue and Processed Dataset
+Day 10 - Revenue and Processed Dataset
 
 ## Input
 
