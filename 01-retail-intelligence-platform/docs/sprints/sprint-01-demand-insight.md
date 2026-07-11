@@ -433,3 +433,68 @@ It does not guarantee future demand.
 It does not measure profit or profitability because the dataset does not include costs.
 
 It does not replace product ranking, temporal analysis, insight cards or charts.
+
+---
+
+# Day 17 - Product Ranking
+
+## Type
+
+Execution day.
+
+## Goal
+
+Create a product-level summary and rank observed products by units sold and revenue.
+
+## Input
+
+- `data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv`
+
+## Outputs
+
+- `ai-services/demand-insight/src/analysis/product_ranking.py`
+- `ai-services/demand-insight/checks/check_product_ranking.py`
+- `data/processed/demand-insight/product_summary.csv`
+- `data/processed/demand-insight/product_ranking_by_units.csv`
+- `data/processed/demand-insight/product_ranking_by_revenue.csv`
+- `reports/summaries/demand-insight/product_ranking_summary.md`
+
+## Summary results
+
+- Unique products: 6
+- Top product by units sold: Bread with 105 units
+- Top product by revenue: Rice 1kg with 220.50
+- Coffee 250g and Orange Juice tied at 23 units
+- Product ID was used as the deterministic tie-breaker
+
+## Interpretation
+
+Bread led observed demand by accumulated units sold.
+
+Rice 1kg led observed economic value by accumulated revenue.
+
+The two rankings do not tell the same story because revenue depends on both units sold and unit price.
+
+The product summary provides a reusable product-level representation for rankings, future Insight Cards and dashboard outputs.
+
+## Validation
+
+The product ranking check confirmed:
+
+- one summary row per product;
+- no duplicated product identifiers;
+- preservation of 293 total units sold;
+- preservation of 747.65 total revenue;
+- descending order in both rankings;
+- consecutive ranking positions;
+- reproducible output generation.
+
+## Limitations
+
+These rankings describe only the current observed dataset.
+
+They do not predict future product demand.
+
+They do not justify production, replenishment or promotional decisions without temporal, inventory and cost analysis.
+
+They do not measure profit or profitability because product costs are unavailable.
