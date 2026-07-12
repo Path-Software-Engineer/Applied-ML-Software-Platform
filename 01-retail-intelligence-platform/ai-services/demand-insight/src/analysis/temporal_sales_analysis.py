@@ -24,6 +24,13 @@ OUTPUT_PATH = (
     / "demand-insight"
     / "daily_sales_summary.csv"
 )
+REPORT_PATH = (
+    PROJECT_ROOT
+    / "reports"
+    / "summaries"
+    / "demand-insight"
+    / "temporal_sales_analysis_summary.md"
+)
 
 REQUIRED_COLUMNS = {
     "date",
@@ -118,15 +125,46 @@ def save_daily_sales_summary(
     return output_path
 
 
+def write_temporal_summary(
+    daily_summary: pd.DataFrame,
+    results: dict[str, object],
+    report_path: Path = REPORT_PATH,
+) -> Path:
+    """Write temporal-analysis evidence from production results."""
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(
+        f"""# Temporal Sales Analysis Summary
+
+## Results
+
+| Metric | Result |
+|---|---:|
+| Observed dates | {results['observed_days']} |
+| Total units | {int(daily_summary['total_units_sold'].sum())} |
+| Total revenue | {float(daily_summary['total_revenue'].sum()):.2f} |
+| Top date by units | {results['top_units_date']} |
+| Top units | {results['top_units_sold']} |
+| Top date by revenue | {results['top_revenue_date']} |
+| Top revenue | {results['top_revenue']:.2f} |
+
+This report describes the observed period and does not establish seasonality or forecast demand.
+""",
+        encoding="utf-8",
+    )
+    return report_path
+
+
 def main() -> None:
     sales_df = load_sales_data()
     daily_summary = build_daily_sales_summary(sales_df)
     temporal_results = build_temporal_results(daily_summary)
     output_path = save_daily_sales_summary(daily_summary)
+    report_path = write_temporal_summary(daily_summary, temporal_results)
 
     print("Temporal sales analysis generated")
     print(f"Input: {INPUT_PATH}")
     print(f"Output: {output_path}")
+    print(f"Report: {report_path}")
     print(
         "Top date by units sold: "
         f"{temporal_results['top_units_date']} "

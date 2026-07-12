@@ -54,3 +54,32 @@ def build_clean_sales_dataset(raw_path: Path, output_path: Path) -> pd.DataFrame
     save_clean_sales_data(clean_data, output_path)
 
     return clean_data
+
+
+def run_data_cleaning_pipeline(
+    raw_path: Path,
+    output_path: Path,
+    summary_path: Path,
+) -> pd.DataFrame:
+    """Generate the official clean dataset and its production evidence."""
+    raw_data = pd.read_csv(raw_path)
+    clean_data = clean_sales_data(raw_data)
+    save_clean_sales_data(clean_data, output_path)
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.write_text(
+        f"""# Data Cleaning Summary
+
+| Metric | Value |
+|---|---:|
+| Raw rows | {len(raw_data)} |
+| Clean rows | {len(clean_data)} |
+| Rows removed | {len(raw_data) - len(clean_data)} |
+| Missing required values | {int(clean_data[REQUIRED_COLUMNS].isna().sum().sum())} |
+| Duplicate rows | {int(clean_data.duplicated().sum())} |
+
+The production cleaning flow validates columns, converts types, removes invalid
+rows and duplicates, and orders the result by date and product.
+""",
+        encoding="utf-8",
+    )
+    return clean_data

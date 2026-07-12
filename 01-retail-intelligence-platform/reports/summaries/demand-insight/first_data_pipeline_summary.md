@@ -22,13 +22,13 @@ raw sales data
 ## Inputs
 
 ```txt
-C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/raw/demand-insight/sales.csv
+C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/raw/demand-insight/sales.csv
 ```
 
 ## Outputs
 
 ```txt
-C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_pipeline_ready.csv
+C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_pipeline_ready.csv
 ```
 
 ## Result

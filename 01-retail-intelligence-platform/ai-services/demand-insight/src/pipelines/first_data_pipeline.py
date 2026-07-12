@@ -166,3 +166,18 @@ def build_pipeline_ready_dataset(
         )
 
     return pipeline_ready
+
+
+def main() -> None:
+    project_root = Path(__file__).resolve().parents[4]
+    raw_path = find_raw_sales_file(project_root)
+    output_path = project_root / "data/processed/demand-insight/sales_pipeline_ready.csv"
+    summary_path = project_root / "reports/summaries/demand-insight/first_data_pipeline_summary.md"
+    result = build_pipeline_ready_dataset(raw_path, output_path, summary_path)
+    print(f"First data pipeline generated: {len(result)} rows")
+    print(f"Output: {output_path}")
+    print(f"Report: {summary_path}")
+
+
+if __name__ == "__main__":
+    main()

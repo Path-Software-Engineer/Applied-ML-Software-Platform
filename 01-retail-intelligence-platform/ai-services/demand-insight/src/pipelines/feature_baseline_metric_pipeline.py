@@ -170,3 +170,15 @@ def run_feature_baseline_metric_pipeline(project_root: Path) -> dict[str, object
         "baseline_value": baseline_value,
         "baseline_mae": baseline_mae,
     }
+
+
+def main() -> None:
+    project_root = Path(__file__).resolve().parents[4]
+    result = run_feature_baseline_metric_pipeline(project_root)
+    print(f"Feature + baseline + metric pipeline generated: {result['rows']} rows")
+    print(f"Output: {result['output_path']}")
+    print(f"Report: {result['summary_path']}")
+
+
+if __name__ == "__main__":
+    main()
