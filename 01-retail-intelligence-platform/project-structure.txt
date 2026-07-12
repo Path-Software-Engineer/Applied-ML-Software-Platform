@@ -1,204 +1,178 @@
-﻿Listado de rutas de carpetas para el volumen OS
-El n·mero de serie del volumen es 00000057 9ADA:A206
-C:.
-|   .env.example
-|   .gitignore
-|   docker-compose.yml
-|   project-structure.txt
-|   README.md
-|   
-+---.git
-|   |   config
-|   |   description
-|   |   HEAD
-|   |   
-|   +---hooks
-|   |       applypatch-msg.sample
-|   |       commit-msg.sample
-|   |       fsmonitor-watchman.sample
-|   |       post-update.sample
-|   |       pre-applypatch.sample
-|   |       pre-commit.sample
-|   |       pre-merge-commit.sample
-|   |       pre-push.sample
-|   |       pre-rebase.sample
-|   |       pre-receive.sample
-|   |       prepare-commit-msg.sample
-|   |       push-to-checkout.sample
-|   |       sendemail-validate.sample
-|   |       update.sample
-|   |       
-|   \---info
-|           exclude
-|           
-+---ai-services
-|   |   .gitkeep
-|   |   
-|   +---demand-insight
-|   |   |   .gitkeep
-|   |   |   
-|   |   +---checks
-|   |   |       .gitkeep
-|   |   |       
-|   |   \---src
-|   |       |   .gitkeep
-|   |       |   
-|   |       +---analysis
-|   |       |       .gitkeep
-|   |       |       
-|   |       +---baselines
-|   |       |       .gitkeep
-|   |       |       
-|   |       +---data
-|   |       |       .gitkeep
-|   |       |       
-|   |       +---features
-|   |       |       .gitkeep
-|   |       |       feature_engineering.py
-|   |       |       
-|   |       +---insights
-|   |       |       .gitkeep
-|   |       |       
-|   |       +---metrics
-|   |       |       .gitkeep
-|   |       |       
-|   |       \---visualization
-|   |               .gitkeep
-|   |               
-|   +---inventory-decision
-|   |       .gitkeep
-|   |       
-|   \---model-comparison
-|           .gitkeep
-|           
-+---backend
-|   |   .gitkeep
-|   |   
-|   \---api
-|       |   .gitkeep
-|       |   
-|       \---app
-|           |   .gitkeep
-|           |   
-|           +---routes
-|           |       .gitkeep
-|           |       
-|           +---schemas
-|           |       .gitkeep
-|           |       
-|           \---services
-|                   .gitkeep
-|                   
-+---data
-|   |   .gitkeep
-|   |   
-|   +---processed
-|   |   |   .gitkeep
-|   |   |   
-|   |   \---demand-insight
-|   |           .gitkeep
-|   |           
-|   \---raw
-|       |   .gitkeep
-|       |   
-|       \---demand-insight
-|               .gitkeep
-|               sales.csv
-|               
-+---deployment
-|   |   .gitkeep
-|   |   
-|   +---docker
-|   |       .gitkeep
-|   |       
-|   \---gcp
-|           .gitkeep
-|           
-+---docs
-|   |   .gitkeep
-|   |   api-contract.md
-|   |   architecture.md
-|   |   data-contract.md
-|   |   decisions.md
-|   |   technical-stories.md
-|   |   user-stories.md
-|   |   
-|   \---sprints
-|           .gitkeep
-|           sprint-01-demand-insight.md
-|           sprint-02-model-comparison.md
-|           sprint-03-inventory-decision.md
-|           
-+---frontend
-|   |   .gitkeep
-|   |   
-|   \---dashboard-app
-|           .gitkeep
-|           
-+---labs
-|   |   .gitkeep
-|   |   
-|   +---cloud-labs
-|   |       .gitkeep
-|   |       
-|   +---docs-labs
-|   |       .gitkeep
-|   |       
-|   +---product-labs
-|   |       .gitkeep
-|   |       
-|   \---tec-labs
-|           .gitkeep
-|           
-+---models
-|       .gitkeep
-|       
-+---reports
-|   |   .gitkeep
-|   |   
-|   +---decision-cards
-|   |       .gitkeep
-|   |       
-|   +---figures
-|   |   |   .gitkeep
-|   |   |   
-|   |   \---demand-insight
-|   |           .gitkeep
-|   |           
-|   +---insight-cards
-|   |       .gitkeep
-|   |       
-|   +---outputs
-|   |       .gitkeep
-|   |       
-|   +---recommendation-cards
-|   |       .gitkeep
-|   |       
-|   \---summaries
-|       |   .gitkeep
-|       |   
-|       \---demand-insight
-|               .gitkeep
-|               
-+---scripts
-|       .gitkeep
-|       generate-report.ps1
-|       run-ai-service.ps1
-|       run-backend.ps1
-|       run-frontend.ps1
-|       
-\---tests
-    |   .gitkeep
-    |   
-    +---ai-services
-    |   |   .gitkeep
-    |   |   
-    |   \---demand-insight
-    |           .gitkeep
-    |           
-    +---backend
-    |       .gitkeep
-    |       
-    \---frontend
-            .gitkeep
-            
+# Project structure
+
+Generated from the current working tree. Paths are UTF-8 and relative to the repository root.
+Excluded: `.git`, `.venv`, `venv`, `__pycache__`, `node_modules`, and local audit snapshots.
+
+```text
+.env.example
+.gitignore
+ai-services/
+ai-services/.gitkeep
+ai-services/demand-insight/
+ai-services/demand-insight/checks/
+ai-services/demand-insight/checks/check_baseline_mae.py
+ai-services/demand-insight/checks/check_data_cleaning.py
+ai-services/demand-insight/checks/check_data_loading.py
+ai-services/demand-insight/checks/check_eda_flow_lab.py
+ai-services/demand-insight/checks/check_feature_engineering.py
+ai-services/demand-insight/checks/check_first_data_pipeline.py
+ai-services/demand-insight/checks/check_mean_baseline.py
+ai-services/demand-insight/checks/check_product_ranking.py
+ai-services/demand-insight/checks/check_revenue_processed_dataset.py
+ai-services/demand-insight/checks/check_temporal_features.py
+ai-services/demand-insight/checks/check_temporal_sales_analysis.py
+ai-services/demand-insight/checks/check_week_01_close.py
+ai-services/demand-insight/checks/check_week_02_exploration.py
+ai-services/demand-insight/checks/check_week_02_map_alignment.py
+ai-services/demand-insight/requirements.txt
+ai-services/demand-insight/src/
+ai-services/demand-insight/src/.gitkeep
+ai-services/demand-insight/src/analysis/
+ai-services/demand-insight/src/analysis/product_ranking.py
+ai-services/demand-insight/src/analysis/sales_summary.py
+ai-services/demand-insight/src/analysis/temporal_sales_analysis.py
+ai-services/demand-insight/src/baselines/
+ai-services/demand-insight/src/baselines/baseline.py
+ai-services/demand-insight/src/data/
+ai-services/demand-insight/src/data/data_cleaner.py
+ai-services/demand-insight/src/data/data_loader.py
+ai-services/demand-insight/src/features/
+ai-services/demand-insight/src/features/feature_engineering.py
+ai-services/demand-insight/src/insights/
+ai-services/demand-insight/src/insights/.gitkeep
+ai-services/demand-insight/src/metrics/
+ai-services/demand-insight/src/metrics/.gitkeep
+ai-services/demand-insight/src/pipelines/
+ai-services/demand-insight/src/pipelines/feature_baseline_metric_pipeline.py
+ai-services/demand-insight/src/pipelines/first_data_pipeline.py
+ai-services/demand-insight/src/visualization/
+ai-services/demand-insight/src/visualization/.gitkeep
+ai-services/inventory-decision/
+ai-services/inventory-decision/.gitkeep
+ai-services/model-comparison/
+ai-services/model-comparison/.gitkeep
+backend/
+backend/.gitkeep
+backend/api/
+backend/api/.gitkeep
+backend/api/app/
+backend/api/app/.gitkeep
+backend/api/app/routes/
+backend/api/app/routes/.gitkeep
+backend/api/app/schemas/
+backend/api/app/schemas/.gitkeep
+backend/api/app/services/
+backend/api/app/services/.gitkeep
+data/
+data/.gitkeep
+data/processed/
+data/processed/.gitkeep
+data/processed/demand-insight/
+data/processed/demand-insight/daily_sales_summary.csv
+data/processed/demand-insight/product_ranking_by_revenue.csv
+data/processed/demand-insight/product_ranking_by_units.csv
+data/processed/demand-insight/product_summary.csv
+data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv
+data/processed/demand-insight/sales_features.csv
+data/processed/demand-insight/sales_pipeline_ready.csv
+data/processed/demand-insight/sales_revenue.csv
+data/processed/demand-insight/sales_summary.csv
+data/processed/demand-insight/sales_temporal_features.csv
+data/raw/
+data/raw/.gitkeep
+data/raw/demand-insight/
+data/raw/demand-insight/sales.csv
+deployment/
+deployment/.gitkeep
+deployment/docker/
+deployment/docker/.gitkeep
+deployment/gcp/
+deployment/gcp/.gitkeep
+docker-compose.yml
+docs/
+docs/api-contract.md
+docs/architecture.md
+docs/data-contract.md
+docs/decisions.md
+docs/insight-card-methodology.md
+docs/sprints/
+docs/sprints/sprint-01-demand-insight.md
+docs/sprints/sprint-01-week-01-review.md
+docs/sprints/sprint-01-week-02-exploration.md
+docs/sprints/sprint-01-week-02-review.md
+docs/sprints/sprint-01-week-03-plan.md
+docs/technical-stories.md
+docs/user-stories.md
+frontend/
+frontend/.gitkeep
+frontend/dashboard-app/
+frontend/dashboard-app/.gitkeep
+labs/
+labs/.gitkeep
+labs/cloud-labs/
+labs/cloud-labs/.gitkeep
+labs/docs-labs/
+labs/docs-labs/.gitkeep
+labs/product-labs/
+labs/product-labs/.gitkeep
+labs/tec-labs/
+labs/tec-labs/.gitkeep
+labs/tec-labs/tec-sales-eda-lab/
+labs/tec-labs/tec-sales-eda-lab/outputs/
+labs/tec-labs/tec-sales-eda-lab/outputs/eda_flow_comparison.md
+labs/tec-labs/tec-sales-eda-lab/README.md
+labs/tec-labs/tec-sales-eda-lab/src/
+labs/tec-labs/tec-sales-eda-lab/src/compare_eda_flows.py
+models/
+models/.gitkeep
+project-structure.txt
+README.md
+reports/
+reports/.gitkeep
+reports/decision-cards/
+reports/decision-cards/.gitkeep
+reports/figures/
+reports/figures/.gitkeep
+reports/figures/demand-insight/
+reports/figures/demand-insight/.gitkeep
+reports/insight-cards/
+reports/insight-cards/.gitkeep
+reports/outputs/
+reports/outputs/.gitkeep
+reports/recommendation-cards/
+reports/recommendation-cards/.gitkeep
+reports/summaries/
+reports/summaries/.gitkeep
+reports/summaries/demand-insight/
+reports/summaries/demand-insight/baseline_mae_summary.md
+reports/summaries/demand-insight/data_loading_summary.md
+reports/summaries/demand-insight/feature_baseline_metric_pipeline_summary.md
+reports/summaries/demand-insight/feature_engineering_summary.md
+reports/summaries/demand-insight/first_data_pipeline_summary.md
+reports/summaries/demand-insight/mean_baseline_summary.md
+reports/summaries/demand-insight/product_ranking_summary.md
+reports/summaries/demand-insight/revenue_processed_dataset_summary.md
+reports/summaries/demand-insight/sales_summary.md
+reports/summaries/demand-insight/temporal_features_summary.md
+reports/summaries/demand-insight/temporal_sales_analysis_summary.md
+reports/summaries/demand-insight/week_01_close_summary.md
+reports/summaries/demand-insight/week_02_exploration_summary.md
+reports/summaries/demand-insight/week_02_technical_report.md
+reports/summaries/demand-insight/week_03_exploration_summary.md
+scripts/
+scripts/generate-report.ps1
+scripts/run-ai-service.ps1
+scripts/run-backend.ps1
+scripts/run-frontend.ps1
+tests/
+tests/.gitkeep
+tests/ai-services/
+tests/ai-services/.gitkeep
+tests/ai-services/demand-insight/
+tests/ai-services/demand-insight/.gitkeep
+tests/ai-services/demand-insight/test_temporal_sales_analysis.py
+tests/backend/
+tests/backend/.gitkeep
+tests/frontend/
+tests/frontend/.gitkeep
+```

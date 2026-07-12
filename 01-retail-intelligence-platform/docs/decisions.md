@@ -50,8 +50,6 @@ Sprint 3 can add Inventory Decision logic while reusing the same structure.
 
 Accepted.
 
----
-
 ## Decision 002 — Demand Insight dataset contract
 
 ### Context
@@ -437,3 +435,23 @@ Week 3 can start only after the integrated pipeline and technical report are ver
 ### Status
 
 Accepted.
+
+---
+
+## Decision 018 — Separate production, automated tests and manual checks
+
+### Decision
+
+- `src/` contains production logic.
+- `tests/` contains automated tests executed with pytest.
+- `checks/` contains manual end-to-end verification and readable evidence.
+
+### Historical debt
+
+Some checks from Days 1–17 still mix generation, validation and documentation.
+They must be migrated gradually; this debt remains open and is not addressed by
+the Day 18 alignment.
+
+### Status
+
+Accepted for Day 18; historical migration pending.
