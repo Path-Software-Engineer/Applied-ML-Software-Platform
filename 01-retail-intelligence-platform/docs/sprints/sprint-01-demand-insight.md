@@ -498,3 +498,46 @@ They do not predict future product demand.
 They do not justify production, replenishment or promotional decisions without temporal, inventory and cost analysis.
 
 They do not measure profit or profitability because product costs are unavailable.
+
+---
+
+# Day 18 - Temporal Sales Analysis
+
+## Type
+
+Execution day.
+
+## Goal
+
+Aggregate observed sales by date and identify temporal leaders in units sold and
+revenue without inferring trends or seasonality from the limited period.
+
+## Input
+
+- `data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv`
+
+## Outputs
+
+- `ai-services/demand-insight/src/analysis/temporal_sales_analysis.py`
+- `ai-services/demand-insight/checks/check_temporal_sales_analysis.py`
+- `tests/ai-services/demand-insight/test_temporal_sales_analysis.py`
+- `data/processed/demand-insight/daily_sales_summary.csv`
+- `reports/summaries/demand-insight/temporal_sales_analysis_summary.md`
+
+## Summary results
+
+- Observed dates: 9
+- Total units preserved: 293
+- Total revenue preserved: 747.65
+- Leading date by units sold: 2026-01-06 with 45 units
+- Leading date by revenue: 2026-01-08 with 99.30
+
+## Validation
+
+Production generates the daily CSV, pytest verifies isolated behavior and the
+manual check inspects the existing end-to-end artifact without rewriting it.
+
+## Limitations
+
+The analysis describes only the observed period from 2026-01-01 to 2026-01-09.
+It does not establish seasonality, predict demand or justify inventory decisions.
