@@ -35,20 +35,24 @@ In progress through Day 18. This is a checkpoint, not a weekly closure.
 
 The accumulated suite reports 20 passing tests and the 14 manual checks pass.
 
-## Pending planned scope
-
-- Day 19: Insight Cards.
-- Day 20: basic charts and visual report.
-- Day 21: final tests, documentation and Week 3 closure.
-
-Pending items are not represented as completed.
-
 ## Decisions
 
 Demand volume and economic value remain separate analytical signals. All
 interpretations must state the short observed period and avoid predictive or
 inventory claims.
 
-## Status
+## Day 19 checkpoint — Insight Cards
 
-In progress. Week 3 is not closed.
+Day 19 converted validated sales artifacts into five structured Insight Cards:
+
+- observed demand;
+- top product by units;
+- top product by revenue;
+- top date by units;
+- top date by revenue.
+
+The cards are available as JSON for future software integration and Markdown for human review.
+
+The implementation keeps metric calculation separate from user-facing interpretation and explicitly states that the observed period does not predict future demand.
+
+Week 3 remains open. Days 20 and 21 are still pending.
