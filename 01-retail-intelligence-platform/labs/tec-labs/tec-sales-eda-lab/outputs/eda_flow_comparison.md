@@ -12,9 +12,9 @@ Compare the raw, clean and processed data flows of the Demand Insight Module.
 
 | Dataset | Exists | Rows | Columns | Path |
 | ------- | ------ | ---: | ------: | ---- |
-| raw | yes | 18 | 8 | `C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/raw/demand-insight/sales.csv` |
-| clean | no | 0 | 0 | `C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_clean.csv` |
-| processed | yes | 18 | 13 | `C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_features.csv` |
+| raw | yes | 18 | 8 | `C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/raw/demand-insight/sales.csv` |
+| clean | yes | 18 | 8 | `C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_clean.csv` |
+| processed | yes | 18 | 13 | `C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_features.csv` |
 
 ## Interpretation
 

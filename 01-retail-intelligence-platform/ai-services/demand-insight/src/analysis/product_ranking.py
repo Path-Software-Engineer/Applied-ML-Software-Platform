@@ -25,6 +25,13 @@ OUTPUT_DIRECTORY = (
 PRODUCT_SUMMARY_PATH = OUTPUT_DIRECTORY / "product_summary.csv"
 UNITS_RANKING_PATH = OUTPUT_DIRECTORY / "product_ranking_by_units.csv"
 REVENUE_RANKING_PATH = OUTPUT_DIRECTORY / "product_ranking_by_revenue.csv"
+REPORT_PATH = (
+    PROJECT_ROOT
+    / "reports"
+    / "summaries"
+    / "demand-insight"
+    / "product_ranking_summary.md"
+)
 
 REQUIRED_COLUMNS = {
     "product_id",
@@ -113,18 +120,53 @@ def save_product_outputs(
     product_summary: pd.DataFrame,
     units_ranking: pd.DataFrame,
     revenue_ranking: pd.DataFrame,
+    output_directory: Path = OUTPUT_DIRECTORY,
 ) -> tuple[Path, Path, Path]:
-    OUTPUT_DIRECTORY.mkdir(parents=True, exist_ok=True)
+    output_directory.mkdir(parents=True, exist_ok=True)
 
-    product_summary.to_csv(PRODUCT_SUMMARY_PATH, index=False)
-    units_ranking.to_csv(UNITS_RANKING_PATH, index=False)
-    revenue_ranking.to_csv(REVENUE_RANKING_PATH, index=False)
+    product_summary_path = output_directory / "product_summary.csv"
+    units_ranking_path = output_directory / "product_ranking_by_units.csv"
+    revenue_ranking_path = output_directory / "product_ranking_by_revenue.csv"
+
+    product_summary.to_csv(product_summary_path, index=False)
+    units_ranking.to_csv(units_ranking_path, index=False)
+    revenue_ranking.to_csv(revenue_ranking_path, index=False)
 
     return (
-        PRODUCT_SUMMARY_PATH,
-        UNITS_RANKING_PATH,
-        REVENUE_RANKING_PATH,
+        product_summary_path,
+        units_ranking_path,
+        revenue_ranking_path,
     )
+
+
+def write_product_ranking_summary(
+    product_summary: pd.DataFrame,
+    units_ranking: pd.DataFrame,
+    revenue_ranking: pd.DataFrame,
+    report_path: Path = REPORT_PATH,
+) -> Path:
+    """Write product-ranking evidence from production results."""
+    top_units = units_ranking.iloc[0]
+    top_revenue = revenue_ranking.iloc[0]
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(
+        f"""# Product Ranking Summary
+
+## Results
+
+| Metric | Result |
+|---|---:|
+| Products | {len(product_summary)} |
+| Top product by units | {top_units['product_name']} |
+| Top units | {int(top_units['total_units_sold'])} |
+| Top product by revenue | {top_revenue['product_name']} |
+| Top revenue | {float(top_revenue['total_revenue']):.2f} |
+
+This report describes observed sales and does not predict future demand.
+""",
+        encoding="utf-8",
+    )
+    return report_path
 
 
 def main() -> None:
@@ -138,6 +180,9 @@ def main() -> None:
         units_ranking,
         revenue_ranking,
     )
+    report_path = write_product_ranking_summary(
+        product_summary, units_ranking, revenue_ranking
+    )
 
     top_units_product = units_ranking.iloc[0]
     top_revenue_product = revenue_ranking.iloc[0]
@@ -147,6 +192,7 @@ def main() -> None:
     print(f"Product summary: {output_paths[0]}")
     print(f"Units ranking: {output_paths[1]}")
     print(f"Revenue ranking: {output_paths[2]}")
+    print(f"Report: {report_path}")
     print(
         "Top product by units sold: "
         f"{top_units_product['product_name']} "

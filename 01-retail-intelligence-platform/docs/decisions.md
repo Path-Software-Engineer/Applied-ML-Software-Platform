@@ -448,10 +448,10 @@ Accepted.
 
 ### Historical debt
 
-Some checks from Days 1–17 still mix generation, validation and documentation.
-They must be migrated gradually; this debt remains open and is not addressed by
-the Day 18 alignment.
+The historical checks mixed generation, validation and documentation. The
+validation-architecture correction after Day 18 moved generation behind
+production functions and retained checks as manual end-to-end verification.
 
 ### Status
 
-Accepted for Day 18; historical migration pending.
+Accepted and completed for the Demand Insight scope built through Day 18.

@@ -11,13 +11,13 @@ Pipeline with features, baseline and metric.
 ## Input
 
 ```txt
-C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_pipeline_ready.csv
+C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_pipeline_ready.csv
 ```
 
 ## Output
 
 ```txt
-C:/Users/Asus/OneDrive/Desktop/Jean Franck/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv
+C:/JeanLoa/Path-Software-Engineer/Applied-AI-Software-Platform/01-retail-intelligence-platform/data/processed/demand-insight/sales_feature_baseline_metric_pipeline.csv
 ```
 
 ## Pipeline flow
