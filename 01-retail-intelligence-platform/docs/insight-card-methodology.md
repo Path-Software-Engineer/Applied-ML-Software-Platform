@@ -176,3 +176,58 @@ Una Insight Card es válida si una persona no técnica puede entender:
 El módulo Demand Insight no debe mostrar únicamente métricas.
 
 Debe transformar datos y métricas en información útil para apoyar decisiones simples del usuario retail.
+
+---
+
+# Contrato de implementación
+
+La implementación oficial se encuentra en:
+
+```text
+ai-services/demand-insight/src/insights/insight_cards.py
+```
+
+Consume únicamente artefactos procesados y validados:
+
+```text
+sales_summary.csv
+product_ranking_by_units.csv
+product_ranking_by_revenue.csv
+daily_sales_summary.csv
+```
+
+No vuelve a calcular métricas desde las ventas crudas.
+
+Cada card expone:
+
+```text
+card_id
+title
+metric
+insight
+recommendation
+limitation
+```
+
+`card_id` proporciona una identidad estable para futuras integraciones con API y React.
+
+## Outputs
+
+```text
+reports/insight-cards/demand_insight_cards.json
+reports/insight-cards/demand_insight_cards.md
+```
+
+El JSON constituye el contrato consumible por software.
+
+El Markdown constituye evidencia legible para revisión humana.
+
+## Alcance actual
+
+Las cards describen únicamente el periodo observado.
+
+No predicen demanda futura.
+
+No justifican por sí solas decisiones definitivas de inventario, producción o promoción.
+
+La presentación visual en React pertenece a una fase posterior y no debe duplicar la lógica que construye las cards.
