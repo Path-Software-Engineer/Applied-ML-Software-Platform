@@ -1,22 +1,22 @@
-# Week 1 Close Summary â€” Demand Insight Module
+# Week 1 Close Summary — Demand Insight Module
 
 ## Sprint
 
-Sprint 1 â€” Demand Insight Module
+Sprint 1 — Demand Insight Module
 
 ## Day
 
-Day 7 â€” Week 1 Close
+Day 7 — Week 1 Close
 
 ## Week 1 focus
 
 ```txt
 project base
-â†’ dataset setup
-â†’ data loading
-â†’ data cleaning
-â†’ first data pipeline
-â†’ documentation close
+→ dataset setup
+→ data loading
+→ data cleaning
+→ first data pipeline
+→ documentation close
 ```
 
 ## Evidence status

@@ -1,4 +1,4 @@
-﻿# Sprint 1 - Week 1 Review
+# Sprint 1 - Week 1 Review
 
 ## Sprint
 
@@ -11,13 +11,13 @@ Week 1
 ## Days covered
 
 ```txt
-Day 1 â€” Exploration
-Day 2 â€” Base architecture
-Day 3 â€” Initial dataset and data contract
-Day 4 â€” Data loading
-Day 5 â€” Data cleaning
-Day 6 â€” First data pipeline
-Day 7 â€” Week close
+Day 1 — Exploration
+Day 2 — Base architecture
+Day 3 — Initial dataset and data contract
+Day 4 — Data loading
+Day 5 — Data cleaning
+Day 6 — First data pipeline
+Day 7 — Week close
 ```
 
 ## Goal

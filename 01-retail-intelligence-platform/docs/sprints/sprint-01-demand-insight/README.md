@@ -1,4 +1,68 @@
-﻿
+
+# Sprint 1 — Demand Insight Module
+
+## Objective
+
+Build a traceable retail-sales analysis flow from a controlled CSV to validated
+summaries of observed demand and economic value.
+
+## User and value
+
+The current sprint serves a retail analyst or small-store operator who needs to
+understand sales totals, product leaders and temporal leaders without reading
+implementation details.
+
+## Scope through Day 18
+
+```text
+raw sales
+→ validation and cleaning
+→ temporal and revenue features
+→ mean baseline and MAE
+→ general sales summary
+→ product rankings
+→ temporal sales analysis
+→ reports and verification
+```
+
+Days 1–18 are complete. Insight Cards, charts, API, dashboard, model comparison
+and inventory decisions are not completed scope.
+
+## Official outputs
+
+- Processed datasets under `data/processed/demand-insight/`.
+- Production modules under `ai-services/demand-insight/src/`.
+- Manual end-to-end checks under `ai-services/demand-insight/checks/`.
+- Automated tests under `tests/ai-services/demand-insight/`.
+- Evidence under `reports/summaries/demand-insight/`.
+
+## Validation and decisions
+
+The accumulated flow preserves 293 units and 747.65 in revenue. Bread leads
+observed units with 105; Rice 1kg leads observed revenue with 220.50. The daily
+leaders are 2026-01-06 by units and 2026-01-08 by revenue. Architectural and
+data-contract decisions are registered in `docs/decisions.md`.
+
+## Limitations
+
+The evidence covers 18 records from 2026-01-01 through 2026-01-09. It describes
+observed sales; it does not forecast demand, measure profit, establish
+seasonality or justify inventory actions.
+
+## Sprint documentation
+
+- Week 1: [exploration](week-01/exploration.md), [plan](week-01/plan.md), [review](week-01/review.md)
+- Week 2: [exploration](week-02/exploration.md), [plan](week-02/plan.md), [review](week-02/review.md)
+- Week 3: [exploration](week-03/exploration.md), [plan](week-03/plan.md), [review checkpoint](week-03/review.md)
+
+## Closure criteria
+
+- Production artifacts are reproducible.
+- Automated tests and manual checks pass.
+- Results preserve validated totals.
+- Documentation distinguishes completed evidence from planned work.
+- No Day 19 functionality is represented as completed.
+
 ---
 
 ## Day 3 — Initial Dataset and Data Contract
@@ -92,7 +156,7 @@ reports/summaries/demand-insight/data_cleaning_summary.md
 - El check pasó sin errores.
 <!-- DAY-06-FIRST-DATA-PIPELINE -->
 
-## Day 6 â€” First Data Pipeline
+## Day 6 — First Data Pipeline
 
 ### Goal
 
@@ -102,11 +166,11 @@ Connect data loading and data cleaning into a repeatable first pipeline.
 
 ```txt
 raw sales data
-â†’ load dataset
-â†’ validate columns
-â†’ clean rows
-â†’ export pipeline-ready dataset
-â†’ generate summary
+→ load dataset
+→ validate columns
+→ clean rows
+→ export pipeline-ready dataset
+→ generate summary
 ```
 
 ### Expected files
@@ -129,7 +193,7 @@ reports/summaries/demand-insight/first_data_pipeline_summary.md
 
 <!-- DAY-07-WEEK-01-CLOSE -->
 
-## Day 7 â€” Week 1 Close
+## Day 7 — Week 1 Close
 
 ### Goal
 
@@ -139,7 +203,7 @@ Close the first week of Sprint 1 with evidence, documentation and a clear checkp
 
 ```txt
 ai-services/demand-insight/checks/check_week_01_close.py
-docs/sprints/sprint-01-week-01-review.md
+docs/sprints/sprint-01-demand-insight/week-01/review.md
 reports/summaries/demand-insight/week_01_close_summary.md
 ```
 
@@ -153,7 +217,7 @@ reports/summaries/demand-insight/week_01_close_summary.md
 
 <!-- DAY-08-FEATURE-BASELINE-EXPLORATION -->
 
-## Day 8 â€” Feature, Baseline and Metric Exploration
+## Day 8 — Feature, Baseline and Metric Exploration
 
 ### Goal
 
@@ -162,12 +226,12 @@ Prepare Week 2 execution around temporal features, revenue, baseline and MAE.
 ### Definition of Done
 
 - Week 2 exploration document exists.
-- Execution map for Days 9â€“14 is documented.
+- Execution map for Days 9–14 is documented.
 - The day check generates a summary.
 
 <!-- DAY-09-TEMPORAL-FEATURES -->
 
-## Day 9 â€” Temporal Features
+## Day 9 — Temporal Features
 
 ### Goal
 
@@ -190,7 +254,7 @@ reports/summaries/demand-insight/temporal_features_summary.md
 
 <!-- DAY-10-REVENUE-PROCESSED-DATASET -->
 
-## Day 10 â€” Revenue and Processed Dataset
+## Day 10 — Revenue and Processed Dataset
 
 ### Goal
 
@@ -212,7 +276,7 @@ reports/summaries/demand-insight/revenue_processed_dataset_summary.md
 
 <!-- DAY-11-FEATURE-ENGINEERING-INTEGRATION -->
 
-## Day 11 â€” Feature Engineering Integration
+## Day 11 — Feature Engineering Integration
 
 ### Goal
 
@@ -236,7 +300,7 @@ reports/summaries/demand-insight/feature_engineering_summary.md
 
 <!-- DAY-12-EDA-FLOW-LAB -->
 
-## Day 12 â€” EDA Flow Lab
+## Day 12 — EDA Flow Lab
 
 ### Goal
 
@@ -259,7 +323,7 @@ ai-services/demand-insight/checks/check_eda_flow_lab.py
 
 <!-- DAY-13-MEAN-BASELINE -->
 
-## Day 13 â€” Mean Baseline
+## Day 13 — Mean Baseline
 
 ### Goal
 
@@ -282,7 +346,7 @@ reports/summaries/demand-insight/mean_baseline_summary.md
 
 <!-- DAY-14-BASELINE-MAE -->
 
-## Day 14 â€” Baseline MAE
+## Day 14 — Baseline MAE
 
 ### Goal
 
@@ -306,7 +370,7 @@ reports/summaries/demand-insight/baseline_mae_summary.md
 
 <!-- WEEK-02-MAP-ALIGNMENT -->
 
-## Week 2 Map Alignment â€” Features, Baseline and Metric
+## Week 2 Map Alignment — Features, Baseline and Metric
 
 ### Purpose
 
@@ -315,8 +379,8 @@ Align Week 2 with the current Software Engineer map before starting Week 3.
 ### Official missing closures
 
 ```txt
-Day 6 â†’ Pipeline with features, baseline and metric
-Day 7 â†’ Initial technical report and documentation
+Day 6 → Pipeline with features, baseline and metric
+Day 7 → Initial technical report and documentation
 ```
 
 ### Evidence added
@@ -324,7 +388,7 @@ Day 7 â†’ Initial technical report and documentation
 ```txt
 ai-services/demand-insight/src/pipelines/feature_baseline_metric_pipeline.py
 ai-services/demand-insight/checks/check_week_02_map_alignment.py
-docs/sprints/sprint-01-week-02-review.md
+docs/sprints/sprint-01-demand-insight/week-02/review.md
 reports/summaries/demand-insight/feature_baseline_metric_pipeline_summary.md
 reports/summaries/demand-insight/week_02_technical_report.md
 ```
@@ -350,7 +414,7 @@ Define how the Demand Insight Module will transform processed sales data into bu
 ## Evidence created
 
 - `docs/insight-card-methodology.md`
-- `docs/sprints/sprint-01-week-03-plan.md`
+- `docs/sprints/sprint-01-demand-insight/week-03/plan.md`
 - `reports/summaries/demand-insight/week_03_exploration_summary.md`
 
 ## Decisions

@@ -2,7 +2,7 @@
 
 ## Day
 
-Day 11 â€” Feature Engineering Integration
+Day 11 — Feature Engineering Integration
 
 ## Input
 

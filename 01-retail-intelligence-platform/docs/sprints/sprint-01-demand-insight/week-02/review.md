@@ -1,4 +1,4 @@
-﻿# Sprint 1 - Week 2 Review
+# Sprint 1 - Week 2 Review
 
 ## Scope
 
@@ -13,13 +13,13 @@ This review only confirms that the official expected evidence exists before star
 # Official Week 2 map
 
 ```txt
-Day 1 â†’ Exploration: features, revenue, baseline, MAE, data/signal/insight
-Day 2 â†’ Temporal features
-Day 3 â†’ Revenue and processed dataset
-Day 4 â†’ Mean baseline
-Day 5 â†’ Baseline MAE
-Day 6 â†’ Pipeline with features, baseline and metric
-Day 7 â†’ Initial technical report and documentation
+Day 1 → Exploration: features, revenue, baseline, MAE, data/signal/insight
+Day 2 → Temporal features
+Day 3 → Revenue and processed dataset
+Day 4 → Mean baseline
+Day 5 → Baseline MAE
+Day 6 → Pipeline with features, baseline and metric
+Day 7 → Initial technical report and documentation
 ```
 
 ---
@@ -30,11 +30,11 @@ Day 7 â†’ Initial technical report and documentation
 
 ```txt
 processed dataset
-â†’ feature engineering
-â†’ mean baseline
-â†’ baseline predictions
-â†’ MAE
-â†’ technical report
+→ feature engineering
+→ mean baseline
+→ baseline predictions
+→ MAE
+→ technical report
 ```
 
 ## Evidence expected
@@ -60,5 +60,5 @@ The project should not move into insight cards or dashboard work until features,
 # Status
 
 ```txt
-Ready for Week 3 â€” Analysis and Insights
+Ready for Week 3 — Analysis and Insights
 ```

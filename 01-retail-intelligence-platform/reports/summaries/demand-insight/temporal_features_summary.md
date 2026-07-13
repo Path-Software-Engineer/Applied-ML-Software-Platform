@@ -2,7 +2,7 @@
 
 ## Day
 
-Day 9 â€” Temporal Features
+Day 9 — Temporal Features
 
 ## Input
 

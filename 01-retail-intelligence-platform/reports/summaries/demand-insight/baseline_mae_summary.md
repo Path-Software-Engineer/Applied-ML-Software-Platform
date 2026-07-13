@@ -2,7 +2,7 @@
 
 ## Day
 
-Day 14 â€” Baseline MAE
+Day 14 — Baseline MAE
 
 ## Target
 
