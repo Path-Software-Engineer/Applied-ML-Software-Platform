@@ -2,21 +2,21 @@
 
 ## Sprint
 
-Sprint 1 â€” Demand Insight Module
+Sprint 1 — Demand Insight Module
 
 ## Day
 
-Day 6 â€” First Data Pipeline
+Day 6 — First Data Pipeline
 
 ## Pipeline flow
 
 ```txt
 raw sales data
-â†’ load dataset
-â†’ validate required columns
-â†’ clean rows
-â†’ export pipeline-ready dataset
-â†’ write summary
+→ load dataset
+→ validate required columns
+→ clean rows
+→ export pipeline-ready dataset
+→ write summary
 ```
 
 ## Inputs

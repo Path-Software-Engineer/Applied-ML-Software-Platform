@@ -2,7 +2,7 @@
 
 ## Day
 
-Day 13 â€” Mean Baseline
+Day 13 — Mean Baseline
 
 ## Target
 

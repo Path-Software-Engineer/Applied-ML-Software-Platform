@@ -181,7 +181,7 @@ Accepted.
 
 <!-- DAY-06-FIRST-DATA-PIPELINE -->
 
-## Decision 006 â€” First data pipeline for Demand Insight
+## Decision 006 — First data pipeline for Demand Insight
 
 ### Context
 
@@ -195,10 +195,10 @@ Create a first data pipeline responsible for:
 
 ```txt
 raw sales data
-â†’ validation
-â†’ cleaning
-â†’ pipeline-ready output
-â†’ summary report
+→ validation
+→ cleaning
+→ pipeline-ready output
+→ summary report
 ```
 
 ### Why
@@ -219,7 +219,7 @@ Accepted.
 
 <!-- DAY-07-WEEK-01-CLOSE -->
 
-## Decision 007 â€” Close Week 1 with evidence checklist
+## Decision 007 — Close Week 1 with evidence checklist
 
 ### Context
 
@@ -245,7 +245,7 @@ Accepted.
 
 <!-- DAY-08-FEATURE-BASELINE-EXPLORATION -->
 
-## Decision 008 â€” Explore features, baseline and MAE before building reports
+## Decision 008 — Explore features, baseline and MAE before building reports
 
 ### Context
 
@@ -259,11 +259,11 @@ Use Day 8 to define the next execution flow:
 
 ```txt
 processed data
-â†’ temporal features
-â†’ revenue
-â†’ baseline
-â†’ MAE
-â†’ technical summary
+→ temporal features
+→ revenue
+→ baseline
+→ MAE
+→ technical summary
 ```
 
 ### Why
@@ -276,7 +276,7 @@ Accepted.
 
 <!-- DAY-09-TEMPORAL-FEATURES -->
 
-## Decision 009 â€” Add temporal features to sales data
+## Decision 009 — Add temporal features to sales data
 
 ### Context
 
@@ -303,7 +303,7 @@ Accepted.
 
 <!-- DAY-10-REVENUE-PROCESSED-DATASET -->
 
-## Decision 010 â€” Add revenue as a business signal
+## Decision 010 — Add revenue as a business signal
 
 ### Context
 
@@ -327,7 +327,7 @@ Accepted.
 
 <!-- DAY-11-FEATURE-ENGINEERING-INTEGRATION -->
 
-## Decision 011 â€” Build a final feature engineering output
+## Decision 011 — Build a final feature engineering output
 
 ### Context
 
@@ -347,7 +347,7 @@ Accepted.
 
 <!-- DAY-12-EDA-FLOW-LAB -->
 
-## Decision 012 â€” Compare raw, clean and processed EDA flows
+## Decision 012 — Compare raw, clean and processed EDA flows
 
 ### Context
 
@@ -367,7 +367,7 @@ Accepted.
 
 <!-- DAY-13-MEAN-BASELINE -->
 
-## Decision 013 â€” Use mean baseline as first prediction reference
+## Decision 013 — Use mean baseline as first prediction reference
 
 ### Context
 
@@ -387,7 +387,7 @@ Accepted.
 
 <!-- DAY-14-BASELINE-MAE -->
 
-## Decision 014 â€” Evaluate the baseline with MAE
+## Decision 014 — Evaluate the baseline with MAE
 
 ### Context
 
@@ -407,7 +407,7 @@ Accepted.
 
 <!-- WEEK-02-MAP-ALIGNMENT -->
 
-## Correction 001 â€” Align Sprint 1 Week 2 with the current Software Engineer map
+## Correction 001 — Align Sprint 1 Week 2 with the current Software Engineer map
 
 ### Context
 

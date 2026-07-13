@@ -1,8 +1,8 @@
-﻿# Sprint 1 - Week 2 Exploration
+# Sprint 1 - Week 2 Exploration
 
 ## Day
 
-Day 8 â€” Feature, Baseline and Metric Exploration
+Day 8 — Feature, Baseline and Metric Exploration
 
 ## Goal
 
@@ -12,11 +12,11 @@ Prepare the technical map for the next execution days of the Demand Insight Modu
 
 ```txt
 processed data
-â†’ temporal features
-â†’ revenue
-â†’ baseline
-â†’ MAE
-â†’ technical summary
+→ temporal features
+→ revenue
+→ baseline
+→ MAE
+→ technical summary
 ```
 
 ## Central questions
@@ -30,12 +30,12 @@ processed data
 ## Execution map
 
 ```txt
-Day 9  â†’ temporal features
-Day 10 â†’ revenue and processed dataset
-Day 11 â†’ feature engineering integration
-Day 12 â†’ EDA flow lab
-Day 13 â†’ mean baseline
-Day 14 â†’ baseline MAE
+Day 9  → temporal features
+Day 10 → revenue and processed dataset
+Day 11 → feature engineering integration
+Day 12 → EDA flow lab
+Day 13 → mean baseline
+Day 14 → baseline MAE
 ```
 
 ## Rule

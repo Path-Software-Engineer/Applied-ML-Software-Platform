@@ -1,4 +1,4 @@
-# Week 2 Technical Report â€” Demand Insight Module
+# Week 2 Technical Report — Demand Insight Module
 
 ## Purpose
 
@@ -7,20 +7,20 @@ Close the official Week 2 requirements from the current Software Engineer map.
 ## Official Week 2 closure
 
 ```txt
-Day 6 â†’ Pipeline with features, baseline and metric
-Day 7 â†’ Initial technical report and documentation
+Day 6 → Pipeline with features, baseline and metric
+Day 7 → Initial technical report and documentation
 ```
 
 ## Integrated flow
 
 ```txt
 processed dataset
-â†’ temporal features
-â†’ revenue
-â†’ mean baseline
-â†’ baseline predictions
-â†’ MAE
-â†’ technical report
+→ temporal features
+→ revenue
+→ mean baseline
+→ baseline predictions
+→ MAE
+→ technical report
 ```
 
 ## Evidence

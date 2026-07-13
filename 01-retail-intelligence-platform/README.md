@@ -556,7 +556,20 @@ limitaciones
 │   ├── api-contract.md
 │   ├── user-stories.md
 │   ├── technical-stories.md
-│   ├── sprint-01-demand-insight.md
+│   ├── sprint-01-demand-insight/
+│   │   ├── README.md
+│   │   ├── week-01/
+│   │   │   ├── exploration.md
+│   │   │   ├── plan.md
+│   │   │   └── review.md
+│   │   ├── week-02/
+│   │   │   ├── exploration.md
+│   │   │   ├── plan.md
+│   │   │   └── review.md
+│   │   └── week-03/
+│   │       ├── exploration.md
+│   │       ├── plan.md
+│   │       └── review.md
 │   ├── sprint-02-model-comparison.md
 │   ├── sprint-03-inventory-decision.md
 │   └── product-notes.md

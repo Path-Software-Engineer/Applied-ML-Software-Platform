@@ -100,11 +100,11 @@ Pipeline with features, baseline and metric.
 
 ```txt
 processed dataset
-â†’ feature engineering
-â†’ mean baseline
-â†’ baseline predictions
-â†’ MAE
-â†’ technical summary
+→ feature engineering
+→ mean baseline
+→ baseline predictions
+→ MAE
+→ technical summary
 ```
 
 ## Results

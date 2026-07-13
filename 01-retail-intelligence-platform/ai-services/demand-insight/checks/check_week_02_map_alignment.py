@@ -24,7 +24,7 @@ def main() -> None:
     required = {"day_of_week", "month", "year", "is_weekend", "revenue", PREDICTION_COLUMN, ERROR_COLUMN}
     missing = sorted(required.difference(output.columns))
     evidence = [
-        PROJECT_ROOT / "docs/sprints/sprint-01-week-02-review.md",
+        PROJECT_ROOT / "docs/sprints/sprint-01-demand-insight/week-02/review.md",
         Path(result["summary_path"]),
         PROJECT_ROOT / "reports/summaries/demand-insight/week_02_technical_report.md",
     ]

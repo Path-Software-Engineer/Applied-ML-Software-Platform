@@ -1,4 +1,4 @@
-﻿# tec-sales-eda-lab
+# tec-sales-eda-lab
 
 ## Goal
 
@@ -8,8 +8,8 @@ Compare the raw, clean and processed data flows of the Demand Insight Module.
 
 ```txt
 raw
-â†’ clean
-â†’ processed
+→ clean
+→ processed
 ```
 
 ## Central idea
