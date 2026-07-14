@@ -2,7 +2,7 @@
 
 ## Review status
 
-In progress through Day 18. This is a checkpoint, not a weekly closure.
+In progress through Day 20. This is a checkpoint, not a weekly closure.
 
 ## Completed work
 
@@ -10,6 +10,8 @@ In progress through Day 18. This is a checkpoint, not a weekly closure.
 - Day 16: general Sales Summary.
 - Day 17: Product Summary and rankings.
 - Day 18: Temporal Sales Analysis.
+- Day 19: structured Insight Cards.
+- Day 20: basic sales figures and reusable visual report.
 
 ## Evidence
 
@@ -21,6 +23,12 @@ In progress through Day 18. This is a checkpoint, not a weekly closure.
 - `reports/summaries/demand-insight/sales_summary.md`
 - `reports/summaries/demand-insight/product_ranking_summary.md`
 - `reports/summaries/demand-insight/temporal_sales_analysis_summary.md`
+- `reports/insight-cards/demand_insight_cards.json`
+- `reports/insight-cards/demand_insight_cards.md`
+- `reports/figures/demand-insight/daily_sales.png`
+- `reports/figures/demand-insight/product_units_ranking.png`
+- `reports/figures/demand-insight/product_revenue_ranking.png`
+- `reports/outputs/demand-insight/sales_visual_report.md`
 
 ## Validated results
 
@@ -33,13 +41,17 @@ In progress through Day 18. This is a checkpoint, not a weekly closure.
 
 ## Validation
 
-The accumulated suite reports 20 passing tests and the 14 manual checks pass.
+The accumulated suite reports 30 passing tests.
+
+The Day 20 isolated suite contains seven passing cases covering input contracts, date parsing, PNG generation, Insight Card validation and visual report rendering.
 
 ## Decisions
 
 Demand volume and economic value remain separate analytical signals. All
 interpretations must state the short observed period and avoid predictive or
 inventory claims.
+
+Visual artifacts consume validated processed datasets and the interpretations already defined by the Insight Cards. They remain independent from React so their analytical meaning and generated evidence can be verified before a user interface consumes them.
 
 ## Day 19 checkpoint — Insight Cards
 
@@ -55,4 +67,18 @@ The cards are available as JSON for future software integration and Markdown for
 
 The implementation keeps metric calculation separate from user-facing interpretation and explicitly states that the observed period does not predict future demand.
 
-Week 3 remains open. Days 20 and 21 are still pending.
+## Day 20 checkpoint — Visual report
+
+Day 20 converted the validated sales signals into three reusable figures:
+
+- daily sales, with units and revenue shown in separate panels;
+- product ranking by units sold;
+- product ranking by revenue.
+
+Units sold represent demand volume, while revenue represents observed economic value. They use separate figures or axes because they are different magnitudes and must not be interpreted as equivalent measurements.
+
+The Markdown visual report embeds the generated PNG files and reuses the validated interpretations from the Insight Cards. This avoids duplicating analytical conclusions inside the visualization layer.
+
+The figures and report are production artifacts generated without requiring a browser or React. A future frontend may consume the same validated information without becoming responsible for its analytical meaning.
+
+Week 3 remains open. Day 21 is still pending.
