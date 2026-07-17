@@ -2,8 +2,9 @@
 
 ## Status
 
-The response contract was planned on Day 22. The internal service and structured
-output were implemented on Day 23. The HTTP endpoint remains planned for Day 24.
+Implemented through Day 24. The response contract was planned on Day 22, the
+internal service and structured output were implemented on Day 23, and the
+FastAPI endpoint plus HTTP schemas were implemented and tested on Day 24.
 
 ## Resource
 
@@ -13,6 +14,24 @@ GET /api/v1/demand-insights/summary
 
 The resource exposes the validated Sprint 1 demand summary for a read-only
 dashboard. It accepts no query parameters in version 1.0.
+
+## Process health
+
+```http
+GET /health
+```
+
+Status: `200 OK`
+
+```json
+{
+  "status": "ok",
+  "service": "retail-intelligence-api"
+}
+```
+
+This endpoint reports process availability only. Analytical evidence is
+validated by the Demand Summary resource itself.
 
 ## Success response
 
@@ -107,3 +126,15 @@ evidence is unavailable.
 - Numeric measures remain numeric; display formatting belongs to the frontend.
 - Units and revenue remain distinct values with explicit units.
 - Every Insight Card retains its limitation.
+
+## Local development
+
+Runtime dependencies are pinned in `backend/api/requirements.txt` and fully
+resolved in `backend/api/requirements-lock.txt`.
+
+```powershell
+.\scripts\run-backend.ps1
+```
+
+The local API listens on `http://127.0.0.1:8000` by default. Development CORS
+allows only `localhost:5173` and `127.0.0.1:5173`, the planned Vite origins.

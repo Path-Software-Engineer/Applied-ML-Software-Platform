@@ -46,11 +46,18 @@ ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
 backend/api/app/__init__.py
-backend/api/app/routes/.gitkeep
-backend/api/app/schemas/.gitkeep
+backend/api/app/main.py
+backend/api/app/routes/__init__.py
+backend/api/app/routes/demand_summary.py
+backend/api/app/schemas/__init__.py
+backend/api/app/schemas/demand_summary.py
 backend/api/app/services/__init__.py
 backend/api/app/services/demand_summary_service.py
+backend/api/checks/check_backend_dependencies.py
+backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
+backend/api/requirements-lock.txt
+backend/api/requirements.txt
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -118,6 +125,7 @@ reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
 reports/summaries/demand-insight/data_cleaning_summary.md
 reports/summaries/demand-insight/data_loading_summary.md
+reports/summaries/demand-insight/demand_summary_api_summary.md
 reports/summaries/demand-insight/demand_summary_service_summary.md
 reports/summaries/demand-insight/feature_baseline_metric_pipeline_summary.md
 reports/summaries/demand-insight/feature_engineering_summary.md
@@ -134,6 +142,7 @@ reports/summaries/demand-insight/week_02_technical_report.md
 reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
+scripts/check-backend-runtime.py
 scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1
 scripts/run-ai-service.ps1
@@ -150,6 +159,7 @@ tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
+tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
 tests/conftest.py
 tests/frontend/.gitkeep

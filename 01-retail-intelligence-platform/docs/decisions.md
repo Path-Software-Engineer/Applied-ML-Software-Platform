@@ -567,3 +567,26 @@ can map the domain-facing error to HTTP `503` without changing service logic.
 ### Status
 
 Accepted and implemented on Day 23.
+
+## Decision 024 — Keep the FastAPI route thin and the response schema strict
+
+### Context
+
+The Day 24 endpoint must expose the internal service safely and provide a stable
+contract for React without leaking local artifact details.
+
+### Decision
+
+Use FastAPI with strict Pydantic response models. Resolve the internal service
+through dependency injection, translate `DemandSummaryError` into a generic
+HTTP `503`, and validate the endpoint with HTTPX ASGI tests. Restrict local CORS
+to the planned Vite origins.
+
+### Consequences
+
+Routes remain transport-only, tests can replace the service without filesystem
+access, and the public error contract does not reveal repository paths.
+
+### Status
+
+Accepted and implemented on Day 24.

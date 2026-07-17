@@ -27,7 +27,8 @@ try {
         "backend/api/app" `
         "backend/api/checks" `
         "tests/ai-services/demand-insight" `
-        "tests/backend"
+        "tests/backend" `
+        "scripts"
     if ($LASTEXITCODE -ne 0) { throw "Python compilation failed." }
 
     Write-Host "[3/4] Running automated tests"
