@@ -334,6 +334,40 @@ Completed.
 
 US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
 
+## TS-S1-012 — Expose Demand Summary through a strict HTTP contract
+
+### Necesidad técnica
+
+The platform needs a stable HTTP boundary so a frontend can consume the Demand
+Summary without accessing analytical files or internal exception details.
+
+### Criterios de aceptación
+
+- `GET /api/v1/demand-insights/summary` returns schema version `1.0` and the
+  structured service response.
+- Strict Pydantic schemas reject missing, invalid or additional response fields.
+- `DemandSummaryError` is mapped to a generic `503 Service Unavailable` response.
+- Health and OpenAPI documents are available.
+- Endpoint tests isolate the service through dependency overrides.
+- Runtime and transitive dependencies are pinned.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `backend/api/app/main.py`
+- `backend/api/app/routes/demand_summary.py`
+- `backend/api/app/schemas/demand_summary.py`
+- `tests/backend/test_demand_summary_api.py`
+- `backend/api/checks/check_demand_summary_api.py`
+- `backend/api/requirements-lock.txt`
+
+### Relación con User Stories
+
+US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -349,3 +383,4 @@ US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-009 | US-S1-006, US-S1-007 | `docs/architecture.md`, `tests/ai-services/demand-insight/`, `ai-services/demand-insight/checks/`, `scripts/generate-report.ps1` |
 | TS-S1-010 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `reports/insight-cards/demand_insight_cards.json`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md` |
 | TS-S1-011 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/services/demand_summary_service.py`, `reports/outputs/demand-insight/demand_summary.json` |
+| TS-S1-012 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/routes/demand_summary.py`, `backend/api/app/schemas/demand_summary.py`, `tests/backend/test_demand_summary_api.py` |

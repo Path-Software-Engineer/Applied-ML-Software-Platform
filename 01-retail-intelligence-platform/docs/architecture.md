@@ -88,3 +88,17 @@ response to `reports/outputs/demand-insight/demand_summary.json`.
 
 The service exposes no HTTP behavior. FastAPI schemas and routing remain the Day
 24 boundary. `docs/api-contract.md` is the authoritative response contract.
+
+### Day 24 implementation status
+
+`backend/api/app/main.py` creates the FastAPI process, configures restricted
+local-development CORS and registers the Demand Insight router. Pydantic models
+under `schemas/` reject extra fields and validate the versioned response.
+
+The route owns only HTTP concerns: dependency resolution, response schema and
+translation of `DemandSummaryError` into a public `503` response. It does not
+expose private artifact paths or service exception details.
+
+Endpoint tests use HTTPX with an in-process ASGI transport and dependency
+overrides. The manual API check validates the real official service response and
+the generated OpenAPI document.

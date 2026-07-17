@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 23
+## Scope through Day 24
 
 ```text
 raw sales
@@ -27,11 +27,12 @@ raw sales
 → consolidated quality gate and weekly closure
 → dashboard, API and user-flow exploration
 → internal Demand Summary service and structured output
+→ versioned FastAPI endpoint and OpenAPI contract
 ```
 
-Days 1–23 are complete, Week 3 is closed and Week 4 is open. The internal
-Demand Summary service is implemented; the HTTP endpoint and React dashboard
-remain pending. Model comparison and inventory decisions are not active scope.
+Days 1–24 are complete, Week 3 is closed and Week 4 is open. The internal
+service and FastAPI endpoint are implemented; the React dashboard remains
+pending. Model comparison and inventory decisions are not active scope.
 
 ## Official outputs
 
@@ -744,3 +745,37 @@ of returning partial business data.
 
 The service has no FastAPI dependency and no route. HTTP schemas and endpoint
 tests belong to Day 24; React remains Day 25 work.
+
+---
+
+# Day 24 - Backend Endpoint and API Contract
+
+## Goal
+
+Expose the Day 23 service through a minimal, versioned HTTP boundary without
+moving analytical or artifact logic into the route.
+
+## Outputs
+
+- `backend/api/app/main.py`
+- `backend/api/app/routes/demand_summary.py`
+- `backend/api/app/schemas/demand_summary.py`
+- `backend/api/requirements.txt`
+- `backend/api/requirements-lock.txt`
+- `tests/backend/test_demand_summary_api.py`
+- `backend/api/checks/check_demand_summary_api.py`
+- `scripts/run-backend.ps1`
+- `scripts/check-backend-runtime.py`
+
+## Result
+
+`GET /api/v1/demand-insights/summary` returns schema version `1.0` with the
+validated Demand Summary. `DemandSummaryError` becomes a public `503` without
+leaking artifact details. `GET /health` reports process health, and OpenAPI
+contains the documented resource and response schema.
+
+## Validation
+
+Endpoint tests cover health, success, unavailable evidence and OpenAPI. The
+manual API check exercises the official service response through the ASGI
+application. React remains Day 25 work; figure integration remains Day 26.
