@@ -1,0 +1,7 @@
+revenue_rank,product_id,product_name,category,total_units_sold,total_revenue,sales_count
+1,P001,Rice 1kg,Food,63,220.5,4
+2,P004,Coffee 250g,Beverages,23,135.7,3
+3,P003,Bread,Food,105,126.0,4
+4,P006,Eggs 12 pack,Dairy,25,105.0,2
+5,P002,Milk 1L,Dairy,54,97.2,3
+6,P005,Orange Juice,Beverages,23,63.25,2
