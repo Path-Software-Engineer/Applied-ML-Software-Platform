@@ -4,3 +4,5 @@ __pycache__/
 .pytest-tmp/
 tests/ai-services/demand-insight/.tmp/
 .runtime/
+frontend/dashboard-app/node_modules/
+frontend/dashboard-app/dist/

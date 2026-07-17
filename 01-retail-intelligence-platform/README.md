@@ -864,10 +864,10 @@ conexión con Path AI Engineer
 
 ## Estado actual
 
-Sprint 1 está completado hasta el Día 24. Week 3 se encuentra cerrada y Week 4
-ya cuenta con un Demand Summary service y un endpoint FastAPI versionado y
-probado. React todavía no se presenta como implementado; pertenece al Día 25 y
-la integración de figuras permanece en el Día 26.
+Sprint 1 está completado hasta el Día 25. Week 3 se encuentra cerrada y Week 4
+ya cuenta con un Demand Summary service, un endpoint FastAPI versionado y un
+dashboard React inicial que consume el contrato real. La integración de las
+figuras existentes permanece en el Día 26.
 
 ## Sprint 1
 
@@ -884,7 +884,7 @@ la integración de figuras permanece en el Día 26.
 [completed] Crear análisis de ventas
 [completed] Crear Insight Cards
 [completed] Crear gráficos
-[pending] Crear API interna y dashboard inicial
+[completed] Crear API interna y dashboard inicial
 [in progress] Documentar labs y evolución semanal
 [in progress] Mantener README y trazabilidad
 ```

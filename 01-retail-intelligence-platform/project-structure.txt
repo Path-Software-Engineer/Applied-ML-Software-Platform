@@ -1,7 +1,7 @@
 # Project structure
 
 Current UTF-8 file paths relative to the repository root.
-Excluded: `.git`, `.venv`, `.runtime`, Python caches and `node_modules`.
+Excluded: `.git`, `.venv`, `.runtime`, generated `dist`, Python caches and `node_modules`.
 
 ```text
 .env.example
@@ -96,8 +96,17 @@ docs/sprints/sprint-01-demand-insight/week-04/exploration.md
 docs/sprints/sprint-01-demand-insight/week-04/plan.md
 docs/technical-stories.md
 docs/user-stories.md
-frontend/.gitkeep
-frontend/dashboard-app/.gitkeep
+frontend/dashboard-app/README.md
+frontend/dashboard-app/index.html
+frontend/dashboard-app/package-lock.json
+frontend/dashboard-app/package.json
+frontend/dashboard-app/src/app/App.jsx
+frontend/dashboard-app/src/features/demand-summary/api/demandSummaryApi.js
+frontend/dashboard-app/src/features/demand-summary/components/DemandDashboard.jsx
+frontend/dashboard-app/src/features/demand-summary/hooks/useDemandSummary.js
+frontend/dashboard-app/src/main.jsx
+frontend/dashboard-app/src/styles.css
+frontend/dashboard-app/vite.config.js
 labs/.gitkeep
 labs/cloud-labs/.gitkeep
 labs/docs-labs/.gitkeep

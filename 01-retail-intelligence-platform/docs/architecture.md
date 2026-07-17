@@ -102,3 +102,14 @@ expose private artifact paths or service exception details.
 Endpoint tests use HTTPX with an in-process ASGI transport and dependency
 overrides. The manual API check validates the real official service response and
 the generated OpenAPI document.
+
+### Day 25 implementation status
+
+`frontend/dashboard-app/` implements the initial React boundary as a feature-led
+application shell. A dedicated API client owns the HTTP request, a hook owns the
+loading lifecycle and presentation components render only the versioned resource.
+
+The dashboard exposes loading, connected and unavailable states without embedding
+fallback business values. Its metrics, observed leaders and Insight Cards come
+from `GET /api/v1/demand-insights/summary`. Existing PNG report figures remain
+outside the frontend until the Day 26 integration boundary.

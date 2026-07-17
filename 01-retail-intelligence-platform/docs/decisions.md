@@ -590,3 +590,28 @@ access, and the public error contract does not reveal repository paths.
 ### Status
 
 Accepted and implemented on Day 24.
+
+## Decision 025 — Keep React presentation behind a dedicated API client
+
+### Context
+
+The Day 25 dashboard must make Demand Insight visible without allowing React to
+read analytical files, duplicate formulas or display invented values when the API
+is unavailable.
+
+### Decision
+
+Organize the initial dashboard by feature. Use a dedicated API client for the
+versioned HTTP contract, a hook for request lifecycle state and presentation
+components for rendering. Show loading and unavailable states explicitly and keep
+figure integration outside Day 25.
+
+### Consequences
+
+The frontend remains replaceable and testable at its boundary, business meaning
+continues to originate in validated artifacts, and API failures cannot silently
+become plausible-looking dashboard data.
+
+### Status
+
+Accepted and implemented on Day 25.
