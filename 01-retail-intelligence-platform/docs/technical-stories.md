@@ -1,9 +1,9 @@
 # Sprint 1 — Demand Insight Technical Stories
 
 These stories describe technical capabilities implemented and validated through
-Day 27, including the versioned read API, React dashboard, validated figure
-delivery and cross-layer hardening. The official release remains outside this
-evidence boundary.
+the official Sprint 1 close on Day 28, including the versioned read API, React
+dashboard, validated figure delivery, cross-layer hardening and reproducible
+release traceability.
 
 ## TS-S1-001 — Establish the sales data contract and loader
 
@@ -467,6 +467,39 @@ Completed.
 
 US-S1-006, US-S1-007, US-S1-008.
 
+## TS-S1-016 — Preserve an auditable Sprint 1 release
+
+### Necesidad técnica
+
+The platform needs a reproducible release boundary that connects the passing
+quality gate, product evidence, Gitflow and the public Sprint 1 version without
+opening Sprint 2.
+
+### Criterios de aceptación
+
+- The release has one stable identifier: `v0.1.0-sprint-01-demand-insight`.
+- Release notes and a changelog describe delivered behavior and known limitations.
+- The Day 28 check validates closure evidence and the release identifier.
+- The release flow uses `release/sprint-01-demand-insight`, merges to `main`,
+  creates the annotated tag and synchronizes `main` back to `develop`.
+- Sprint 2 remains explicitly inactive.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `CHANGELOG.md`
+- `docs/releases/v0.1.0-sprint-01-demand-insight.md`
+- `reports/summaries/demand-insight/sprint_01_close_summary.md`
+- `checks/check_sprint_01_close.py`
+- `docs/sprints/sprint-01-demand-insight/README.md`
+
+### Relación con User Stories
+
+US-S1-006, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -486,3 +519,4 @@ US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-013 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `frontend/dashboard-app/src/features/demand-summary/`, `frontend/dashboard-app/package-lock.json`, `frontend/dashboard-app/README.md` |
 | TS-S1-014 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `backend/api/app/services/demand_figure_service.py`, `tests/backend/test_demand_figure_service.py`, `frontend/dashboard-app/src/features/demand-summary/` |
 | TS-S1-015 | US-S1-006, US-S1-007, US-S1-008 | `scripts/run-quality-gate.ps1`, `frontend/dashboard-app/tests/demandSummaryApi.test.js`, `checks/check_sprint_01_hardening.py` |
+| TS-S1-016 | US-S1-006, US-S1-007, US-S1-008 | `docs/releases/v0.1.0-sprint-01-demand-insight.md`, `checks/check_sprint_01_close.py`, `reports/summaries/demand-insight/sprint_01_close_summary.md` |

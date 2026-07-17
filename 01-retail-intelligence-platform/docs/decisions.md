@@ -662,3 +662,28 @@ frontend compiler keeps the gate usable in restricted Windows runners.
 ### Status
 
 Accepted and implemented on Day 27.
+
+## Decision 028 — Close Sprint 1 through a gated release boundary
+
+### Context
+
+Sprint 1 needs one stable product version without allowing documentation-only
+confidence, unfinished Gitflow or Sprint 2 work to enter the release.
+
+### Decision
+
+Require the complete repository gate before and after release preparation. Move
+the validated `develop` state through `release/sprint-01-demand-insight`, merge
+that release into `main`, create the annotated tag
+`v0.1.0-sprint-01-demand-insight` and synchronize `main` back to `develop`.
+Record the delivered scope and limitations in versioned release notes.
+
+### Consequences
+
+The stable branch, tag, release evidence and continued integration branch refer
+to the same Sprint 1 capability. Sprint 2 remains inactive until a later,
+explicitly authorized feature branch is opened.
+
+### Status
+
+Accepted and implemented on Day 28.
