@@ -249,7 +249,7 @@ verification, manual evidence and operational execution do not duplicate logic.
 - `tests/` contains isolated pytest coverage and writes only to temporary paths.
 - `checks/` provides readable end-to-end verification with non-zero failure behavior.
 - `reports/` stores evidence and `scripts/` provides repeatable execution.
-- The suite reports 30 passing tests and all 17 manual checks pass.
+- The suite reports 30 passing tests and every discovered manual check passes.
 
 ### Estado
 
@@ -263,6 +263,7 @@ Completed.
 - `scripts/generate-report.ps1`
 - `scripts/run-quality-gate.ps1`
 - `reports/summaries/demand-insight/`
+- `reports/summaries/demand-insight/week_03_close_summary.md`
 
 ### Relación con User Stories
 

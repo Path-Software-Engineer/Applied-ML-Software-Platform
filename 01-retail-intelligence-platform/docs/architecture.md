@@ -33,6 +33,8 @@ explicit operational script. Automated tests never generate official reports.
 
 Repeatable operational entry points. `scripts/generate-report.ps1` runs the
 existing Demand Insight production flows without embedding business logic.
+`scripts/run-quality-gate.ps1` verifies the repository inventory, compiles
+Python code, runs pytest and discovers manual checks.
 
 ## Dependency direction
 
@@ -47,9 +49,35 @@ production functions, but production code remains independent from verification.
 
 ## Platform areas
 
-- `frontend/`: future user-facing dashboard; not part of this correction.
-- `backend/`: future API boundary; not part of this correction.
+- `frontend/`: user-facing React dashboard boundary, planned on Day 22 and
+  implemented no earlier than Day 25.
+- `backend/`: internal service and FastAPI boundary, planned on Day 22 and
+  implemented on Days 23–24.
 - `data/`: raw inputs and processed production artifacts.
 - `labs/`: explicit technical experiments with their own evidence.
 - `docs/`: architecture, decisions, contracts and sprint documentation.
 - `deployment/`: future deployment material.
+
+## Week 4 integration boundary
+
+The selected read flow is:
+
+```text
+frontend/dashboard-app
+        │ HTTP GET
+        ▼
+backend/api/app/routes
+        │ delegates
+        ▼
+backend/api/app/services
+        │ validates and assembles
+        ▼
+official data/processed and reports artifacts
+```
+
+The API route is thin and does not calculate analytical metrics. The internal
+service assembles a versioned product response from validated evidence. React
+uses the HTTP contract and does not parse CSV, Markdown or repository paths.
+
+At the Day 22 exploration boundary, this flow is planned but not implemented.
+`docs/api-contract.md` is the authoritative planned response contract.
