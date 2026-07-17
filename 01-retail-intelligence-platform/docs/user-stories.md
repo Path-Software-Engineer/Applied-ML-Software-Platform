@@ -1,6 +1,7 @@
 # Sprint 1 — Demand Insight User Stories
 
-These stories describe only capabilities supported by evidence through Day 21.
+These stories describe only capabilities implemented and validated through the
+official Sprint 1 close on Day 28.
 
 ## US-S1-001 — Load retail sales
 
@@ -17,7 +18,9 @@ can analyze a controlled and traceable source.
 
 **Status:** Completed.
 
-**Evidence:** `src/data/data_loader.py`, `check_data_loading.py`, automated data-processing tests.
+**Evidence:** `ai-services/demand-insight/src/data/data_loader.py`,
+`ai-services/demand-insight/checks/check_data_loading.py`,
+`tests/ai-services/demand-insight/test_data_processing.py`.
 
 ## US-S1-002 — Receive clean and valid sales data
 
@@ -34,7 +37,10 @@ the analysis is based on consistent dates, units, prices and product data.
 
 **Status:** Completed.
 
-**Evidence:** `src/data/data_cleaner.py`, `sales_clean.csv`, `data_cleaning_summary.md`, pytest cleaning tests.
+**Evidence:** `ai-services/demand-insight/src/data/data_cleaner.py`,
+`data/processed/demand-insight/sales_clean.csv`,
+`reports/summaries/demand-insight/data_cleaning_summary.md`,
+`tests/ai-services/demand-insight/test_data_processing.py`.
 
 ## US-S1-003 — Understand the general sales result
 
@@ -51,7 +57,9 @@ understand the size and value of the observed period.
 
 **Status:** Completed.
 
-**Evidence:** `src/analysis/sales_summary.py`, `sales_summary.csv`, `sales_summary.md`.
+**Evidence:** `ai-services/demand-insight/src/analysis/sales_summary.py`,
+`data/processed/demand-insight/sales_summary.csv`,
+`reports/summaries/demand-insight/sales_summary.md`.
 
 ## US-S1-004 — Identify product leaders by demand and revenue
 
@@ -68,7 +76,12 @@ that I can compare observed demand with economic value.
 
 **Status:** Completed.
 
-**Evidence:** product-ranking production module, three ranking CSVs, manual check and pytest ranking tests.
+**Evidence:** `ai-services/demand-insight/src/analysis/product_ranking.py`,
+`data/processed/demand-insight/product_summary.csv`,
+`data/processed/demand-insight/product_ranking_by_units.csv`,
+`data/processed/demand-insight/product_ranking_by_revenue.csv`,
+`ai-services/demand-insight/checks/check_product_ranking.py`,
+`tests/ai-services/demand-insight/test_product_ranking.py`.
 
 ## US-S1-005 — Identify temporal sales leaders
 
@@ -86,7 +99,11 @@ revenue so that I can understand concentration in the observed period.
 
 **Status:** Completed.
 
-**Evidence:** temporal-analysis production module, `daily_sales_summary.csv`, report, check and pytest suite.
+**Evidence:** `ai-services/demand-insight/src/analysis/temporal_sales_analysis.py`,
+`data/processed/demand-insight/daily_sales_summary.csv`,
+`reports/summaries/demand-insight/temporal_sales_analysis_summary.md`,
+`ai-services/demand-insight/checks/check_temporal_sales_analysis.py`,
+`tests/ai-services/demand-insight/test_temporal_sales_analysis.py`.
 
 ## US-S1-006 — Verify the analytical flow
 
@@ -99,11 +116,14 @@ that Sprint 1 results remain reproducible as the platform evolves.
 
 - Automated tests use controlled inputs and temporary output paths.
 - Manual checks delegate business calculations to production modules.
-- Verification does not require frontend, backend or later-sprint functionality.
+- The repository gate verifies analytical code, backend contracts and frontend
+  consumption without requiring later-sprint functionality.
 
-**Status:** Completed through Day 21.
+**Status:** Completed.
 
-**Evidence:** `tests/ai-services/demand-insight/`, `checks/`, `scripts/run-quality-gate.ps1`, `docs/architecture.md`.
+**Evidence:** `tests/ai-services/demand-insight/`, `tests/backend/`,
+`frontend/dashboard-app/tests/`, `checks/`, `scripts/run-quality-gate.ps1`,
+`docs/architecture.md`.
 
 ## US-S1-007 — Understand analytical limitations
 
@@ -120,7 +140,10 @@ that I do not interpret descriptive evidence as prediction or recommendation.
 
 **Status:** Completed.
 
-**Evidence:** sales, product-ranking and temporal-analysis summaries; Sprint 1 README.
+**Evidence:** `reports/summaries/demand-insight/sales_summary.md`,
+`reports/summaries/demand-insight/product_ranking_summary.md`,
+`reports/summaries/demand-insight/temporal_sales_analysis_summary.md`,
+`docs/sprints/sprint-01-demand-insight/README.md`.
 
 ## US-S1-008 — Review concise analytical evidence
 
@@ -136,13 +159,19 @@ same analytical contracts for future software integration.
 - Five structured cards cover total demand, product leaders and daily leaders.
 - Every card includes a metric, interpretation, recommendation and limitation.
 - Three PNG figures present daily sales and product rankings by units and revenue.
-- The visual report references the generated figures and does not claim forecasting or inventory decisions.
+- The versioned API exposes the validated summary and allowlisted figure resources.
+- The React dashboard presents the cards and figures with explicit loading and
+  unavailable states.
+- The visual report and dashboard do not claim forecasting or inventory decisions.
 
 **Status:** Completed.
 
-**Evidence:** `reports/insight-cards/`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md`.
+**Evidence:** `reports/insight-cards/`, `reports/figures/demand-insight/`,
+`reports/outputs/demand-insight/sales_visual_report.md`,
+`backend/api/app/routes/demand_summary.py`,
+`frontend/dashboard-app/src/features/demand-summary/`.
 
 ## Explicitly not completed
 
-Backend API, React dashboard, model comparison, inventory decisions, Sprint 2
-and Sprint 3 are outside the completed evidence represented here.
+Model comparison, inventory decisions, Sprint 2 and Sprint 3 are outside the
+completed evidence represented here.

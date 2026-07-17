@@ -2,8 +2,8 @@
 
 ## Status
 
-Implementation complete through Day 27. Sprint 1 remains open until the
-official Day 28 release flow is validated.
+Implementation complete through Day 27. Day 28 validated the complete gate and
+closed Sprint 1 through the official release flow.
 
 ## Completed work
 
@@ -43,5 +43,5 @@ official Day 28 release flow is validated.
 
 ## Weekly close
 
-Week 4 implementation is complete. Day 28 owns the release branch, merge to
-`main`, tag and synchronization back to `develop`.
+Week 4 and Sprint 1 are closed. Day 28 owns the release branch, merge to `main`,
+tag `v0.1.0-sprint-01-demand-insight` and synchronization back to `develop`.

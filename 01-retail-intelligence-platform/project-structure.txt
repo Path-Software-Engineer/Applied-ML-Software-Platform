@@ -6,6 +6,7 @@ Excluded: `.git`, `.venv`, `.runtime`, generated `dist`, Python caches and `node
 ```text
 .env.example
 .gitignore
+CHANGELOG.md
 README.md
 ai-services/.gitkeep
 ai-services/demand-insight/checks/artifact_checks.py
@@ -59,6 +60,7 @@ backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
+checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 data/.gitkeep
 data/processed/.gitkeep
@@ -84,6 +86,7 @@ docs/architecture.md
 docs/data-contract.md
 docs/decisions.md
 docs/insight-card-methodology.md
+docs/releases/v0.1.0-sprint-01-demand-insight.md
 docs/sprints/sprint-01-demand-insight/README.md
 docs/sprints/sprint-01-demand-insight/retrospective.md
 docs/sprints/sprint-01-demand-insight/week-01/exploration.md
@@ -149,6 +152,7 @@ reports/summaries/demand-insight/mean_baseline_summary.md
 reports/summaries/demand-insight/product_ranking_summary.md
 reports/summaries/demand-insight/revenue_processed_dataset_summary.md
 reports/summaries/demand-insight/sales_summary.md
+reports/summaries/demand-insight/sprint_01_close_summary.md
 reports/summaries/demand-insight/sprint_01_hardening_summary.md
 reports/summaries/demand-insight/temporal_features_summary.md
 reports/summaries/demand-insight/temporal_sales_analysis_summary.md

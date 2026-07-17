@@ -136,3 +136,21 @@ The figure service enforces a size boundary in addition to its allowlist and PNG
 signature check. Figure responses include `nosniff`. The project-level quality
 gate runs Python tests, Node contract tests, a deterministic frontend compilation
 and all discovered manual checks.
+
+### Day 28 release boundary
+
+Sprint 1 closes through a Gitflow release boundary after the complete repository
+gate passes:
+
+```text
+feature/s1-d28-sprint-01-close
+        → develop
+        → release/sprint-01-demand-insight
+        → main
+        → v0.1.0-sprint-01-demand-insight
+        → develop
+```
+
+`CHANGELOG.md` and the versioned release notes describe the same capability and
+limitations as the validated artifacts. No model-comparison or inventory
+responsibility is introduced by the release.

@@ -864,11 +864,12 @@ conexión con Path AI Engineer
 
 ## Estado actual
 
-Sprint 1 está completado hasta el Día 27. Week 3 se encuentra cerrada y Week 4
+Sprint 1 está oficialmente cerrado en el Día 28. Week 3 y Week 4 se encuentran
+cerradas. El módulo
 ya cuenta con un Demand Summary service, un endpoint FastAPI versionado y un
 dashboard React que consume el contrato real. Las cinco Insight Cards y las tres
-figuras validadas están integradas, y el hardening, tests y documentación ya
-pasaron su cierre. El release oficial corresponde exclusivamente al Día 28.
+figuras validadas están integradas; el hardening, tests, documentación y release
+quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 
 ## Sprint 1
 
@@ -888,7 +889,13 @@ pasaron su cierre. El release oficial corresponde exclusivamente al Día 28.
 [completed] Crear API interna y dashboard inicial
 [completed] Documentar labs y evolución semanal
 [completed] Mantener README y trazabilidad
+[completed] Cerrar Sprint 1 y preparar v0.1.0
 ```
+
+Release notes:
+[`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
+
+Sprint 2 permanece sin iniciar.
 
 ## Sprint 2
 

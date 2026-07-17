@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 27
+## Scope through Day 28
 
 ```text
 raw sales
@@ -30,13 +30,14 @@ raw sales
 → versioned FastAPI endpoint and OpenAPI contract
 → React dashboard with cards and validated figures
 → cross-layer hardening, tests, review and retrospective
+→ official Sprint 1 release preparation
 ```
 
-Days 1–27 are complete, Week 3 is closed and Week 4 implementation is complete.
-The internal
+Days 1–28 are complete. Week 3, Week 4 and Sprint 1 are closed. The internal
 service, FastAPI endpoint and React dashboard are implemented with the five
-Insight Cards and three validated figures. Sprint 1 remains open only for the
-Day 28 release flow. Model comparison and inventory decisions are not active scope.
+Insight Cards and three validated figures. The release identifier is
+`v0.1.0-sprint-01-demand-insight`. Model comparison and inventory decisions are
+not active scope. Sprint 2 remains inactive.
 
 ## Official outputs
 
@@ -880,3 +881,33 @@ explicitly. Week 4 implementation and Sprint 1 lessons are documented.
 
 No release branch, `main` merge or tag is created on Day 27. Those operations
 remain exclusive to Day 28.
+
+---
+
+# Day 28 - Official Sprint 1 Close
+
+## Goal
+
+Close Sprint 1 only after the complete repository gate passes, prepare the
+release branch, integrate the release into `main`, create the official tag and
+synchronize `develop` back from `main`.
+
+## Outputs
+
+- `CHANGELOG.md`
+- `docs/releases/v0.1.0-sprint-01-demand-insight.md`
+- `reports/summaries/demand-insight/sprint_01_close_summary.md`
+- `checks/check_sprint_01_close.py`
+- release branch `release/sprint-01-demand-insight`
+- tag `v0.1.0-sprint-01-demand-insight`
+
+## Result
+
+Demand Insight is a complete Sprint 1 product slice: controlled data processing,
+validated summaries, baseline and MAE, cards, figures, a versioned API and a
+React dashboard. All limitations remain explicit and Sprint 2 is not active.
+
+## Release rule
+
+The release branch, `main` merge and tag are created only after this closure
+commit is merged into `develop` and the complete gate passes again.
