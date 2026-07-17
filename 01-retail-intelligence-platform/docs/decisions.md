@@ -520,3 +520,27 @@ specific runtime state.
 ### Status
 
 Accepted and implemented on Day 21.
+
+## Decision 022 — Assemble validated evidence behind a versioned read API
+
+### Context
+
+Week 4 must make Demand Insight visible without coupling React to repository
+artifacts or duplicating analytical calculations in the HTTP layer.
+
+### Decision
+
+Use an internal Demand Summary service to validate and assemble official
+artifacts. Expose it through the planned read-only endpoint
+`GET /api/v1/demand-insights/summary` with schema version `1.0`. Keep routes
+thin and make the dashboard consume only the API contract.
+
+### Alternatives rejected
+
+- Direct CSV and JSON access from React because it leaks storage concerns.
+- Recalculation inside the API because it duplicates validated production logic.
+- Fabricated fallback metrics because they would misrepresent unavailable evidence.
+
+### Status
+
+Accepted as the Day 22 design. Implementation begins on Day 23 according to the map.

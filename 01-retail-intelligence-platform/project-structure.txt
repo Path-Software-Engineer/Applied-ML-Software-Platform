@@ -26,6 +26,7 @@ ai-services/demand-insight/checks/check_week_01_close.py
 ai-services/demand-insight/checks/check_week_02_exploration.py
 ai-services/demand-insight/checks/check_week_02_map_alignment.py
 ai-services/demand-insight/checks/check_week_03_close.py
+ai-services/demand-insight/checks/check_week_04_exploration.py
 ai-services/demand-insight/requirements.txt
 ai-services/demand-insight/src/.gitkeep
 ai-services/demand-insight/src/analysis/product_ranking.py
@@ -84,6 +85,8 @@ docs/sprints/sprint-01-demand-insight/week-02/review.md
 docs/sprints/sprint-01-demand-insight/week-03/exploration.md
 docs/sprints/sprint-01-demand-insight/week-03/plan.md
 docs/sprints/sprint-01-demand-insight/week-03/review.md
+docs/sprints/sprint-01-demand-insight/week-04/exploration.md
+docs/sprints/sprint-01-demand-insight/week-04/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/.gitkeep
@@ -128,6 +131,7 @@ reports/summaries/demand-insight/week_02_exploration_summary.md
 reports/summaries/demand-insight/week_02_technical_report.md
 reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
+reports/summaries/demand-insight/week_04_exploration_summary.md
 scripts/generate-report.ps1
 scripts/run-ai-service.ps1
 scripts/run-backend.ps1

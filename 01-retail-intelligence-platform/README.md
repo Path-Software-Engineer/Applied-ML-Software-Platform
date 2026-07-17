@@ -864,10 +864,10 @@ conexión con Path AI Engineer
 
 ## Estado actual
 
-Sprint 1 está completado hasta el Día 21 y Week 3 se encuentra cerrada. El flujo
-vigente ya cubre datos, features, baseline, análisis, Insight Cards, figuras y
-un gate reproducible de 30 tests más 17 checks manuales. La API y el dashboard
-pertenecen a Week 4 y todavía no se presentan como implementados.
+Sprint 1 está completado hasta el Día 22. Week 3 se encuentra cerrada y Week 4
+abrió con el flujo Dashboard → API → Demand Summary service documentado. El
+backend y React todavía no se presentan como implementados; sus días oficiales
+son 23–25 y la integración de figuras pertenece al Día 26.
 
 ## Sprint 1
 

@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 21
+## Scope through Day 22
 
 ```text
 raw sales
@@ -25,10 +25,12 @@ raw sales
 → structured Insight Cards
 → reusable figures and visual report
 → consolidated quality gate and weekly closure
+→ dashboard, API and user-flow exploration
 ```
 
-Days 1–21 are complete and Week 3 is closed. Backend API, React dashboard,
-model comparison and inventory decisions are not completed scope.
+Days 1–22 are complete, Week 3 is closed and Week 4 is open. The backend API
+and React dashboard are planned but not implemented. Model comparison and
+inventory decisions are not active scope.
 
 ## Official outputs
 
@@ -59,6 +61,7 @@ seasonality or justify inventory actions.
 - Week 1: [exploration](week-01/exploration.md), [plan](week-01/plan.md), [review](week-01/review.md)
 - Week 2: [exploration](week-02/exploration.md), [plan](week-02/plan.md), [review](week-02/review.md)
 - Week 3: [exploration](week-03/exploration.md), [plan](week-03/plan.md), [closed review](week-03/review.md)
+- Week 4: [exploration](week-04/exploration.md), [plan](week-04/plan.md)
 
 ## Closure criteria
 
@@ -680,3 +683,33 @@ the complete Days 15–20 evidence.
 The project virtual environment reports 30 passing automated tests. The root
 quality gate also compiles Python code and runs all manual checks in a stable
 order. No backend endpoint or React dashboard is part of Day 21.
+
+---
+
+# Day 22 - Dashboard, API and User-Flow Exploration
+
+## Goal
+
+Define the product and integration path for Week 4 before implementing service,
+HTTP or React code.
+
+## Outputs
+
+- `docs/sprints/sprint-01-demand-insight/week-04/exploration.md`
+- `docs/sprints/sprint-01-demand-insight/week-04/plan.md`
+- `docs/api-contract.md`
+- `reports/summaries/demand-insight/week_04_exploration_summary.md`
+- `ai-services/demand-insight/checks/check_week_04_exploration.py`
+
+## Decision
+
+The initial dashboard will consume `GET /api/v1/demand-insights/summary`. A thin
+FastAPI route will delegate to an internal service that validates and assembles
+the official analytical artifacts. React will not parse repository files or
+recalculate metrics.
+
+## Boundary
+
+Day 22 is documentation and contract exploration only. Day 23 owns the service,
+Day 24 owns the endpoint and Day 25 owns the initial dashboard. Figure
+integration remains assigned to Day 26.
