@@ -1,6 +1,6 @@
 # Sprint 1 — Demand Insight User Stories
 
-These stories describe only capabilities supported by evidence through Day 18.
+These stories describe only capabilities supported by evidence through Day 21.
 
 ## US-S1-001 — Load retail sales
 
@@ -101,9 +101,9 @@ that Sprint 1 results remain reproducible as the platform evolves.
 - Manual checks delegate business calculations to production modules.
 - Verification does not require frontend, backend or later-sprint functionality.
 
-**Status:** Completed through Day 18.
+**Status:** Completed through Day 21.
 
-**Evidence:** `tests/ai-services/demand-insight/`, `checks/`, `docs/architecture.md`.
+**Evidence:** `tests/ai-services/demand-insight/`, `checks/`, `scripts/run-quality-gate.ps1`, `docs/architecture.md`.
 
 ## US-S1-007 — Understand analytical limitations
 
@@ -122,7 +122,27 @@ that I do not interpret descriptive evidence as prediction or recommendation.
 
 **Evidence:** sales, product-ranking and temporal-analysis summaries; Sprint 1 README.
 
+## US-S1-008 — Review concise analytical evidence
+
+**Story:** As a retail analyst, I want the validated findings presented as
+concise cards and figures so that I can review the observed signals without
+reading source code or raw tables.
+
+**Value:** Makes the completed analysis understandable while preserving the
+same analytical contracts for future software integration.
+
+**Acceptance criteria:**
+
+- Five structured cards cover total demand, product leaders and daily leaders.
+- Every card includes a metric, interpretation, recommendation and limitation.
+- Three PNG figures present daily sales and product rankings by units and revenue.
+- The visual report references the generated figures and does not claim forecasting or inventory decisions.
+
+**Status:** Completed.
+
+**Evidence:** `reports/insight-cards/`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md`.
+
 ## Explicitly not completed
 
-Insight Cards, charts, API, dashboard, model comparison, inventory decisions,
-Sprint 2 and Sprint 3 are outside the completed evidence represented here.
+Backend API, React dashboard, model comparison, inventory decisions, Sprint 2
+and Sprint 3 are outside the completed evidence represented here.

@@ -1,11 +1,12 @@
 # Project structure
 
 Current UTF-8 file paths relative to the repository root.
-Excluded: `.git`, `.venv`, `venv`, `__pycache__`, `.pytest_cache`, `.pytest-tmp`, `node_modules`, and local audit files.
+Excluded: `.git`, `.venv`, `.runtime`, Python caches and `node_modules`.
 
 ```text
 .env.example
 .gitignore
+README.md
 ai-services/.gitkeep
 ai-services/demand-insight/checks/artifact_checks.py
 ai-services/demand-insight/checks/check_baseline_mae.py
@@ -14,14 +15,17 @@ ai-services/demand-insight/checks/check_data_loading.py
 ai-services/demand-insight/checks/check_eda_flow_lab.py
 ai-services/demand-insight/checks/check_feature_engineering.py
 ai-services/demand-insight/checks/check_first_data_pipeline.py
+ai-services/demand-insight/checks/check_insight_cards.py
 ai-services/demand-insight/checks/check_mean_baseline.py
 ai-services/demand-insight/checks/check_product_ranking.py
 ai-services/demand-insight/checks/check_revenue_processed_dataset.py
+ai-services/demand-insight/checks/check_sales_visual_report.py
 ai-services/demand-insight/checks/check_temporal_features.py
 ai-services/demand-insight/checks/check_temporal_sales_analysis.py
 ai-services/demand-insight/checks/check_week_01_close.py
 ai-services/demand-insight/checks/check_week_02_exploration.py
 ai-services/demand-insight/checks/check_week_02_map_alignment.py
+ai-services/demand-insight/checks/check_week_03_close.py
 ai-services/demand-insight/requirements.txt
 ai-services/demand-insight/src/.gitkeep
 ai-services/demand-insight/src/analysis/product_ranking.py
@@ -32,10 +36,12 @@ ai-services/demand-insight/src/data/data_cleaner.py
 ai-services/demand-insight/src/data/data_loader.py
 ai-services/demand-insight/src/features/feature_engineering.py
 ai-services/demand-insight/src/insights/.gitkeep
+ai-services/demand-insight/src/insights/insight_cards.py
 ai-services/demand-insight/src/metrics/.gitkeep
 ai-services/demand-insight/src/pipelines/feature_baseline_metric_pipeline.py
 ai-services/demand-insight/src/pipelines/first_data_pipeline.py
 ai-services/demand-insight/src/visualization/.gitkeep
+ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
 backend/.gitkeep
@@ -87,18 +93,22 @@ labs/cloud-labs/.gitkeep
 labs/docs-labs/.gitkeep
 labs/product-labs/.gitkeep
 labs/tec-labs/.gitkeep
-labs/tec-labs/tec-sales-eda-lab/outputs/eda_flow_comparison.md
 labs/tec-labs/tec-sales-eda-lab/README.md
+labs/tec-labs/tec-sales-eda-lab/outputs/eda_flow_comparison.md
 labs/tec-labs/tec-sales-eda-lab/src/compare_eda_flows.py
 models/.gitkeep
-project-structure.txt
-README.md
 reports/.gitkeep
 reports/decision-cards/.gitkeep
 reports/figures/.gitkeep
 reports/figures/demand-insight/.gitkeep
+reports/figures/demand-insight/daily_sales.png
+reports/figures/demand-insight/product_revenue_ranking.png
+reports/figures/demand-insight/product_units_ranking.png
 reports/insight-cards/.gitkeep
+reports/insight-cards/demand_insight_cards.json
+reports/insight-cards/demand_insight_cards.md
 reports/outputs/.gitkeep
+reports/outputs/demand-insight/sales_visual_report.md
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
@@ -116,19 +126,25 @@ reports/summaries/demand-insight/temporal_sales_analysis_summary.md
 reports/summaries/demand-insight/week_01_close_summary.md
 reports/summaries/demand-insight/week_02_exploration_summary.md
 reports/summaries/demand-insight/week_02_technical_report.md
+reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 scripts/generate-report.ps1
 scripts/run-ai-service.ps1
 scripts/run-backend.ps1
 scripts/run-frontend.ps1
+scripts/run-quality-gate.ps1
+scripts/update-project-structure.py
 tests/.gitkeep
 tests/ai-services/.gitkeep
 tests/ai-services/demand-insight/conftest.py
 tests/ai-services/demand-insight/test_data_processing.py
 tests/ai-services/demand-insight/test_features_baseline_metrics.py
+tests/ai-services/demand-insight/test_insight_cards.py
 tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
+tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/backend/.gitkeep
 tests/frontend/.gitkeep
+project-structure.txt
 ```

@@ -862,24 +862,31 @@ conexión con Path AI Engineer
 
 # 📌 Próximos pasos
 
+## Estado actual
+
+Sprint 1 está completado hasta el Día 21 y Week 3 se encuentra cerrada. El flujo
+vigente ya cubre datos, features, baseline, análisis, Insight Cards, figuras y
+un gate reproducible de 30 tests más 17 checks manuales. La API y el dashboard
+pertenecen a Week 4 y todavía no se presentan como implementados.
+
 ## Sprint 1
 
 ```txt
-Definir problema y usuario
-Crear estructura base
-Crear dataset inicial
-Crear data loading
-Crear data cleaning
-Crear features
-Calcular revenue
-Crear baseline
-Calcular MAE
-Crear análisis de ventas
-Crear insight cards
-Crear gráficos
-Crear dashboard inicial
-Documentar labs
-Actualizar README
+[completed] Definir problema y usuario
+[completed] Crear estructura base
+[completed] Crear dataset inicial
+[completed] Crear data loading
+[completed] Crear data cleaning
+[completed] Crear features
+[completed] Calcular revenue
+[completed] Crear baseline
+[completed] Calcular MAE
+[completed] Crear análisis de ventas
+[completed] Crear Insight Cards
+[completed] Crear gráficos
+[pending] Crear API interna y dashboard inicial
+[in progress] Documentar labs y evolución semanal
+[in progress] Mantener README y trazabilidad
 ```
 
 ## Sprint 2
