@@ -864,10 +864,10 @@ conexión con Path AI Engineer
 
 ## Estado actual
 
-Sprint 1 está completado hasta el Día 22. Week 3 se encuentra cerrada y Week 4
-abrió con el flujo Dashboard → API → Demand Summary service documentado. El
-backend y React todavía no se presentan como implementados; sus días oficiales
-son 23–25 y la integración de figuras pertenece al Día 26.
+Sprint 1 está completado hasta el Día 23. Week 3 se encuentra cerrada y Week 4
+ya cuenta con un Demand Summary service interno, versionado y probado. El
+endpoint HTTP y React todavía no se presentan como implementados; pertenecen a
+los Días 24–25 y la integración de figuras permanece en el Día 26.
 
 ## Sprint 1
 

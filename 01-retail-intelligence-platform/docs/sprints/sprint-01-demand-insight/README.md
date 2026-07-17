@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 22
+## Scope through Day 23
 
 ```text
 raw sales
@@ -26,11 +26,12 @@ raw sales
 → reusable figures and visual report
 → consolidated quality gate and weekly closure
 → dashboard, API and user-flow exploration
+→ internal Demand Summary service and structured output
 ```
 
-Days 1–22 are complete, Week 3 is closed and Week 4 is open. The backend API
-and React dashboard are planned but not implemented. Model comparison and
-inventory decisions are not active scope.
+Days 1–23 are complete, Week 3 is closed and Week 4 is open. The internal
+Demand Summary service is implemented; the HTTP endpoint and React dashboard
+remain pending. Model comparison and inventory decisions are not active scope.
 
 ## Official outputs
 
@@ -713,3 +714,33 @@ recalculate metrics.
 Day 22 is documentation and contract exploration only. Day 23 owns the service,
 Day 24 owns the endpoint and Day 25 owns the initial dashboard. Figure
 integration remains assigned to Day 26.
+
+---
+
+# Day 23 - Demand Summary Service
+
+## Goal
+
+Create the internal application service that exposes the completed analytical
+evidence as one structured, versioned response.
+
+## Outputs
+
+- `backend/api/app/services/demand_summary_service.py`
+- `tests/backend/test_demand_summary_service.py`
+- `backend/api/checks/check_demand_summary_service.py`
+- `reports/outputs/demand-insight/demand_summary.json`
+- `reports/summaries/demand-insight/demand_summary_service_summary.md`
+- `scripts/generate-demand-summary.ps1`
+
+## Result
+
+The service validates six official artifact sources, assembles schema version
+`1.0` and preserves the validated totals, baseline, MAE, leaders and five
+Insight Cards. Invalid or missing evidence raises `DemandSummaryError` instead
+of returning partial business data.
+
+## Boundary
+
+The service has no FastAPI dependency and no route. HTTP schemas and endpoint
+tests belong to Day 24; React remains Day 25 work.

@@ -544,3 +544,26 @@ thin and make the dashboard consume only the API contract.
 ### Status
 
 Accepted as the Day 22 design. Implementation begins on Day 23 according to the map.
+
+## Decision 023 — Keep the Demand Summary service independent from HTTP
+
+### Context
+
+The Day 23 output must be testable before FastAPI is introduced and must fail
+honestly when official analytical evidence is incomplete.
+
+### Decision
+
+Implement `DemandSummaryService` as a standard-library application service. It
+validates required CSV and JSON artifacts, assembles schema version `1.0` and
+persists the same JSON it returns. Express artifact failures through the typed
+`DemandSummaryError` boundary.
+
+### Consequences
+
+Service behavior can be tested with an isolated temporary project root. Day 24
+can map the domain-facing error to HTTP `503` without changing service logic.
+
+### Status
+
+Accepted and implemented on Day 23.

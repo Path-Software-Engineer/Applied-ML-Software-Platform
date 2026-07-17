@@ -2,7 +2,8 @@
 
 ## Status
 
-Planned on Day 22. The endpoint is not implemented until Day 24.
+The response contract was planned on Day 22. The internal service and structured
+output were implemented on Day 23. The HTTP endpoint remains planned for Day 24.
 
 ## Resource
 

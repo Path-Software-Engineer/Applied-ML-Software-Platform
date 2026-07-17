@@ -45,12 +45,12 @@ ai-services/demand-insight/src/visualization/.gitkeep
 ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
-backend/.gitkeep
-backend/api/.gitkeep
-backend/api/app/.gitkeep
+backend/api/app/__init__.py
 backend/api/app/routes/.gitkeep
 backend/api/app/schemas/.gitkeep
-backend/api/app/services/.gitkeep
+backend/api/app/services/__init__.py
+backend/api/app/services/demand_summary_service.py
+backend/api/checks/check_demand_summary_service.py
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -111,12 +111,14 @@ reports/insight-cards/.gitkeep
 reports/insight-cards/demand_insight_cards.json
 reports/insight-cards/demand_insight_cards.md
 reports/outputs/.gitkeep
+reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
 reports/summaries/demand-insight/data_cleaning_summary.md
 reports/summaries/demand-insight/data_loading_summary.md
+reports/summaries/demand-insight/demand_summary_service_summary.md
 reports/summaries/demand-insight/feature_baseline_metric_pipeline_summary.md
 reports/summaries/demand-insight/feature_engineering_summary.md
 reports/summaries/demand-insight/first_data_pipeline_summary.md
@@ -132,6 +134,7 @@ reports/summaries/demand-insight/week_02_technical_report.md
 reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
+scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1
 scripts/run-ai-service.ps1
 scripts/run-backend.ps1
@@ -140,7 +143,6 @@ scripts/run-quality-gate.ps1
 scripts/update-project-structure.py
 tests/.gitkeep
 tests/ai-services/.gitkeep
-tests/ai-services/demand-insight/conftest.py
 tests/ai-services/demand-insight/test_data_processing.py
 tests/ai-services/demand-insight/test_features_baseline_metrics.py
 tests/ai-services/demand-insight/test_insight_cards.py
@@ -148,7 +150,8 @@ tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
-tests/backend/.gitkeep
+tests/backend/test_demand_summary_service.py
+tests/conftest.py
 tests/frontend/.gitkeep
 project-structure.txt
 ```

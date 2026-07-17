@@ -24,7 +24,10 @@ try {
     & $Python -m compileall -q `
         "ai-services/demand-insight/src" `
         "ai-services/demand-insight/checks" `
-        "tests/ai-services/demand-insight"
+        "backend/api/app" `
+        "backend/api/checks" `
+        "tests/ai-services/demand-insight" `
+        "tests/backend"
     if ($LASTEXITCODE -ne 0) { throw "Python compilation failed." }
 
     Write-Host "[3/4] Running automated tests"
@@ -32,9 +35,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "Automated tests failed." }
 
     Write-Host "[4/4] Running manual end-to-end checks"
-    $Checks = Get-ChildItem `
-        "ai-services/demand-insight/checks/check_*.py" |
-        Sort-Object Name
+    $Checks = @(
+        Get-ChildItem "ai-services/demand-insight/checks/check_*.py"
+        Get-ChildItem "backend/api/checks/check_*.py"
+    ) | Sort-Object FullName
 
     foreach ($Check in $Checks) {
         Write-Host "  -> $($Check.Name)"
@@ -44,7 +48,7 @@ try {
         }
     }
 
-    Write-Host "Quality gate passed: 30 tests and $($Checks.Count) manual checks."
+    Write-Host "Quality gate passed: pytest suite and $($Checks.Count) manual checks."
 }
 finally {
     $env:MPLCONFIGDIR = $PreviousMatplotlibConfig

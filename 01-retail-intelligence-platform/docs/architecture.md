@@ -79,5 +79,12 @@ The API route is thin and does not calculate analytical metrics. The internal
 service assembles a versioned product response from validated evidence. React
 uses the HTTP contract and does not parse CSV, Markdown or repository paths.
 
-At the Day 22 exploration boundary, this flow is planned but not implemented.
-`docs/api-contract.md` is the authoritative planned response contract.
+### Day 23 implementation status
+
+`backend/api/app/services/demand_summary_service.py` implements the internal
+read service with only Python standard-library dependencies. It validates the
+required artifacts, assembles schema version `1.0` and can persist the exact
+response to `reports/outputs/demand-insight/demand_summary.json`.
+
+The service exposes no HTTP behavior. FastAPI schemas and routing remain the Day
+24 boundary. `docs/api-contract.md` is the authoritative response contract.
