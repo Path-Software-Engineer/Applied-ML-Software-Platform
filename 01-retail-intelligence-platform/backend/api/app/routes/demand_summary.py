@@ -83,5 +83,8 @@ def read_demand_figure(
     return FileResponse(
         path,
         media_type="image/png",
-        headers={"Cache-Control": "public, max-age=300"},
+        headers={
+            "Cache-Control": "public, max-age=300",
+            "X-Content-Type-Options": "nosniff",
+        },
     )

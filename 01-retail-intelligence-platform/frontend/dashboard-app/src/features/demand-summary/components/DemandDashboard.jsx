@@ -168,14 +168,26 @@ function InsightCard({ card, index }) {
 
 
 function FigureCard({ figure }) {
+  const [imageState, setImageState] = React.useState("loading");
+
   return (
     <figure className="figure-card">
-      <div className="figure-frame">
+      <div
+        className={`figure-frame figure-frame-${imageState}`}
+        aria-busy={imageState === "loading"}
+      >
         <img
           src={getDemandFigureUrl(figure.figureId)}
           alt={figure.description}
           loading="lazy"
+          onLoad={() => setImageState("ready")}
+          onError={() => setImageState("unavailable")}
         />
+        {imageState === "unavailable" && (
+          <p role="status">
+            This validated figure is temporarily unavailable.
+          </p>
+        )}
       </div>
       <figcaption>
         <span>{figure.title}</span>

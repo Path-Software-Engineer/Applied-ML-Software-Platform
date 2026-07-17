@@ -6,6 +6,7 @@ import pytest
 
 from backend.api.app.services.demand_figure_service import (
     FIGURE_PATHS,
+    MAX_FIGURE_BYTES,
     PNG_SIGNATURE,
     DemandFigureError,
     DemandFigureService,
@@ -46,4 +47,13 @@ def test_service_rejects_invalid_png_signature(tmp_path: Path) -> None:
     write_figure(tmp_path, "daily-sales", b"not-a-png")
 
     with pytest.raises(DemandFigureError, match="valid PNG"):
+        DemandFigureService(tmp_path).get_figure_path("daily-sales")
+
+
+def test_service_rejects_oversized_figure(tmp_path: Path) -> None:
+    path = write_figure(tmp_path, "daily-sales", PNG_SIGNATURE)
+    with path.open("ab") as figure:
+        figure.truncate(MAX_FIGURE_BYTES + 1)
+
+    with pytest.raises(DemandFigureError, match="size"):
         DemandFigureService(tmp_path).get_figure_path("daily-sales")

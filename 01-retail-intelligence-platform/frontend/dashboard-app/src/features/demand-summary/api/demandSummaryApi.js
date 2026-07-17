@@ -34,6 +34,61 @@ export class DemandSummaryApiError extends Error {
 }
 
 
+function isRecord(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+
+export function validateDemandSummary(payload) {
+  if (!isRecord(payload) || payload.schema_version !== "1.0") {
+    throw new DemandSummaryApiError(
+      "The Demand Insight response uses an unsupported contract version.",
+    );
+  }
+
+  const summary = payload.sales_summary;
+  const leaders = payload.leaders;
+  const cards = payload.insight_cards;
+  if (
+    !isRecord(payload.period)
+    || !isRecord(summary)
+    || !isRecord(payload.baseline)
+    || !isRecord(leaders)
+    || !Array.isArray(cards)
+    || cards.length !== 5
+  ) {
+    throw new DemandSummaryApiError(
+      "The Demand Insight response does not match the expected contract.",
+    );
+  }
+
+  const numericMeasures = [
+    summary.total_units_sold,
+    summary.total_revenue,
+    payload.baseline.mean_units_prediction,
+    payload.baseline.mae,
+  ];
+  const leaderKeys = [
+    "product_by_units",
+    "product_by_revenue",
+    "date_by_units",
+    "date_by_revenue",
+  ];
+  const cardIds = new Set(cards.map((card) => card?.card_id));
+  if (
+    numericMeasures.some((value) => typeof value !== "number" || value < 0)
+    || leaderKeys.some((key) => !isRecord(leaders[key]))
+    || cardIds.size !== 5
+    || cards.some((card) => !isRecord(card) || !card.title || !card.metric)
+  ) {
+    throw new DemandSummaryApiError(
+      "The Demand Insight response contains invalid evidence.",
+    );
+  }
+  return payload;
+}
+
+
 export async function fetchDemandSummary({ signal } = {}) {
   let response;
   try {
@@ -42,7 +97,11 @@ export async function fetchDemandSummary({ signal } = {}) {
       signal,
     });
   } catch (error) {
-    if (error instanceof DOMException && error.name === "AbortError") {
+    if (
+      typeof DOMException !== "undefined"
+      && error instanceof DOMException
+      && error.name === "AbortError"
+    ) {
       throw error;
     }
     throw new DemandSummaryApiError(
@@ -59,11 +118,5 @@ export async function fetchDemandSummary({ signal } = {}) {
     );
   }
 
-  const payload = await response.json();
-  if (payload.schema_version !== "1.0") {
-    throw new DemandSummaryApiError(
-      "The Demand Insight response uses an unsupported contract version.",
-    );
-  }
-  return payload;
+  return validateDemandSummary(await response.json());
 }

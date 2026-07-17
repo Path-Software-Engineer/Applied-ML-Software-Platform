@@ -3,9 +3,14 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
 $Python = Join-Path $ProjectRoot ".venv\Scripts\python.exe"
 $RuntimeRoot = Join-Path $ProjectRoot ".runtime"
+$FrontendRoot = Join-Path $ProjectRoot "frontend\dashboard-app"
+$FrontendCompiler = Join-Path $FrontendRoot "node_modules\@esbuild\win32-x64\esbuild.exe"
 
 if (-not (Test-Path $Python)) {
     throw "Project virtual environment not found: $Python"
+}
+if (-not (Test-Path $FrontendCompiler)) {
+    throw "Frontend dependencies not found. Run npm ci in $FrontendRoot."
 }
 
 New-Item -ItemType Directory -Force -Path $RuntimeRoot | Out-Null
@@ -16,29 +21,54 @@ try {
     $env:MPLCONFIGDIR = Join-Path $RuntimeRoot "matplotlib"
     New-Item -ItemType Directory -Force -Path $env:MPLCONFIGDIR | Out-Null
 
-    Write-Host "[1/4] Verifying the repository structure inventory"
+    Write-Host "[1/6] Verifying the repository structure inventory"
     & $Python "scripts/update-project-structure.py" --check
     if ($LASTEXITCODE -ne 0) { throw "Project structure inventory is stale." }
 
-    Write-Host "[2/4] Compiling Python sources and checks"
+    Write-Host "[2/6] Compiling Python sources and checks"
     & $Python -m compileall -q `
         "ai-services/demand-insight/src" `
         "ai-services/demand-insight/checks" `
         "backend/api/app" `
         "backend/api/checks" `
+        "checks" `
         "tests/ai-services/demand-insight" `
         "tests/backend" `
         "scripts"
     if ($LASTEXITCODE -ne 0) { throw "Python compilation failed." }
 
-    Write-Host "[3/4] Running automated tests"
+    Write-Host "[3/6] Running automated Python tests"
     & $Python -m pytest -q
     if ($LASTEXITCODE -ne 0) { throw "Automated tests failed." }
 
-    Write-Host "[4/4] Running manual end-to-end checks"
+    Write-Host "[4/6] Running frontend contract tests"
+    Push-Location $FrontendRoot
+    try {
+        & npm test
+        if ($LASTEXITCODE -ne 0) { throw "Frontend contract tests failed." }
+    }
+    finally {
+        Pop-Location
+    }
+
+    Write-Host "[5/6] Compiling the frontend bundle"
+    $FrontendOutput = Join-Path $RuntimeRoot "quality-gate\dashboard.js"
+    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $FrontendOutput) | Out-Null
+    & $FrontendCompiler `
+        (Join-Path $FrontendRoot "src\main.jsx") `
+        "--bundle" `
+        "--outfile=$FrontendOutput" `
+        "--loader:.jsx=jsx" `
+        "--format=esm" `
+        "--platform=browser" `
+        "--define:import.meta.env={}"
+    if ($LASTEXITCODE -ne 0) { throw "Frontend bundle compilation failed." }
+
+    Write-Host "[6/6] Running manual end-to-end checks"
     $Checks = @(
         Get-ChildItem "ai-services/demand-insight/checks/check_*.py"
         Get-ChildItem "backend/api/checks/check_*.py"
+        Get-ChildItem "checks/check_*.py"
     ) | Sort-Object FullName
 
     foreach ($Check in $Checks) {
@@ -49,7 +79,10 @@ try {
         }
     }
 
-    Write-Host "Quality gate passed: pytest suite and $($Checks.Count) manual checks."
+    Write-Host (
+        "Quality gate passed: Python and frontend tests, frontend compilation, " +
+        "and $($Checks.Count) manual checks."
+    )
 }
 finally {
     $env:MPLCONFIGDIR = $PreviousMatplotlibConfig

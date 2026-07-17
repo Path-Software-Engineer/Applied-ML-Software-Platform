@@ -9,8 +9,10 @@
   },
   "scripts": {
     "dev": "vite --configLoader native",
+    "test": "node --test --test-isolation=none tests/demandSummaryApi.test.js",
     "build": "vite build --configLoader native --minify=false",
     "build:minified": "vite build --configLoader native",
+    "check": "npm test && npm run build",
     "preview": "vite preview --configLoader native"
   },
   "dependencies": {

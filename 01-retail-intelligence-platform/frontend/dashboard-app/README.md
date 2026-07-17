@@ -39,6 +39,12 @@ Create the production bundle with:
 npm run build
 ```
 
+Run the frontend contract tests with:
+
+```powershell
+npm test
+```
+
 The default build keeps output unminified so the repository gate remains stable
 inside restricted Windows runners. `npm run build:minified` produces the compact
 release bundle when child-process execution is available.
@@ -58,6 +64,9 @@ comparison and inventory views remain outside Sprint 1.
 - React shell and responsive Demand Insight page under `src/`.
 - Dedicated API client under `src/features/demand-summary/api/`.
 - Loading, connected and unavailable service states.
+- Client-side validation for schema version, required evidence and card count.
+- Seven Node tests covering success, malformed responses, `503`, network failure
+  and encoded figure identifiers.
 - Metrics, four observed leaders and five Insight Cards rendered from the
   versioned response; no fallback business values are embedded in React.
 - Three report figures delivered by the backend without copying analytical

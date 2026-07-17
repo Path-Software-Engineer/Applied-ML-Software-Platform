@@ -152,6 +152,7 @@ def test_figure_endpoint_returns_inline_png(tmp_path: Path) -> None:
     assert response.status_code == 200
     assert response.headers["content-type"] == "image/png"
     assert response.headers["cache-control"] == "public, max-age=300"
+    assert response.headers["x-content-type-options"] == "nosniff"
     assert "content-disposition" not in response.headers
     assert response.content.startswith(PNG_SIGNATURE)
 

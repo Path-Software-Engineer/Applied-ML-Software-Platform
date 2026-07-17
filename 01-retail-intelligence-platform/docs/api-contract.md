@@ -6,6 +6,7 @@ Implemented through Day 26. The response contract was planned on Day 22, the
 internal service and structured output were implemented on Day 23, and the
 FastAPI endpoint plus HTTP schemas were implemented and tested on Day 24.
 Day 26 adds allowlisted delivery of the three validated PNG figures.
+Day 27 adds response hardening and client-side contract validation.
 
 ## Resource
 
@@ -125,12 +126,13 @@ Public identifiers:
 - `product-revenue-ranking`.
 
 A successful request returns `200 OK`, `Content-Type: image/png` and an inline
-PNG body. Unknown identifiers return `404 Not Found`. A known figure whose
+PNG body with `X-Content-Type-Options: nosniff`. Unknown identifiers return
+`404 Not Found`. A known figure whose
 artifact is missing or invalid returns `503 Service Unavailable`.
 
 The API resolves identifiers through an allowlist and validates the PNG
 signature. Filesystem paths and arbitrary filenames are never accepted from the
-request.
+request. Empty or oversized known artifacts are rejected before delivery.
 
 ## Ownership
 
