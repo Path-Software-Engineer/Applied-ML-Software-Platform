@@ -864,10 +864,11 @@ conexión con Path AI Engineer
 
 ## Estado actual
 
-Sprint 1 está completado hasta el Día 26. Week 3 se encuentra cerrada y Week 4
+Sprint 1 está completado hasta el Día 27. Week 3 se encuentra cerrada y Week 4
 ya cuenta con un Demand Summary service, un endpoint FastAPI versionado y un
 dashboard React que consume el contrato real. Las cinco Insight Cards y las tres
-figuras validadas ya están integradas; el hardening corresponde al Día 27.
+figuras validadas están integradas, y el hardening, tests y documentación ya
+pasaron su cierre. El release oficial corresponde exclusivamente al Día 28.
 
 ## Sprint 1
 
@@ -885,8 +886,8 @@ figuras validadas ya están integradas; el hardening corresponde al Día 27.
 [completed] Crear Insight Cards
 [completed] Crear gráficos
 [completed] Crear API interna y dashboard inicial
-[in progress] Documentar labs y evolución semanal
-[in progress] Mantener README y trazabilidad
+[completed] Documentar labs y evolución semanal
+[completed] Mantener README y trazabilidad
 ```
 
 ## Sprint 2

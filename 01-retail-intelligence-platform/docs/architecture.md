@@ -125,3 +125,14 @@ React obtains figure URLs from its dedicated API module and renders the images
 as accessible report cards. It does not copy, parse or regenerate the analytical
 artifacts. The five Insight Cards continue to come from the versioned summary
 resource.
+
+### Day 27 hardening status
+
+The frontend API module validates schema version, required summary sections,
+numeric measures, leaders and five unique cards before presentation. Image
+failures render an explicit unavailable state.
+
+The figure service enforces a size boundary in addition to its allowlist and PNG
+signature check. Figure responses include `nosniff`. The project-level quality
+gate runs Python tests, Node contract tests, a deterministic frontend compilation
+and all discovered manual checks.

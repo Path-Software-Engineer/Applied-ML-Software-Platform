@@ -101,6 +101,9 @@ button { cursor: pointer; }
 .figure-card:first-child { grid-column: 1 / -1; }
 .figure-frame { padding: 18px; border-bottom: 1px solid var(--line); background: #f7f9f7; }
 .figure-card img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.figure-frame-unavailable { min-height: 220px; display: grid; place-items: center; background: var(--surface-soft); }
+.figure-frame-unavailable img { display: none; }
+.figure-frame-unavailable p { max-width: 260px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; text-align: center; }
 .figure-card figcaption { padding: 22px 24px 24px; }
 .figure-card figcaption span { color: var(--ink); font-size: 15px; font-weight: 600; }
 .figure-card figcaption p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }

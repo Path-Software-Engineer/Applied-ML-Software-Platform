@@ -16,6 +16,7 @@ FIGURE_PATHS = {
     ),
 }
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+MAX_FIGURE_BYTES = 10 * 1024 * 1024
 
 
 class DemandFigureError(RuntimeError):
@@ -44,11 +45,16 @@ class DemandFigureService:
             raise DemandFigureError(f"Required figure is missing: {path}")
 
         try:
+            size = path.stat().st_size
             with path.open("rb") as figure:
                 signature = figure.read(len(PNG_SIGNATURE))
         except OSError as error:
             raise DemandFigureError(f"Cannot read figure: {path}") from error
 
+        if size < len(PNG_SIGNATURE) or size > MAX_FIGURE_BYTES:
+            raise DemandFigureError(
+                f"Figure size is outside the accepted boundary: {path}"
+            )
         if signature != PNG_SIGNATURE:
             raise DemandFigureError(f"Figure is not a valid PNG: {path}")
         return path

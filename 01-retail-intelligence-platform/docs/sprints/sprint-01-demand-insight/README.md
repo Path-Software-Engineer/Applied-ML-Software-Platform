@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 26
+## Scope through Day 27
 
 ```text
 raw sales
@@ -29,12 +29,14 @@ raw sales
 → internal Demand Summary service and structured output
 → versioned FastAPI endpoint and OpenAPI contract
 → React dashboard with cards and validated figures
+→ cross-layer hardening, tests, review and retrospective
 ```
 
-Days 1–26 are complete, Week 3 is closed and Week 4 is open. The internal
+Days 1–27 are complete, Week 3 is closed and Week 4 implementation is complete.
+The internal
 service, FastAPI endpoint and React dashboard are implemented with the five
-Insight Cards and three validated figures. Model comparison and inventory
-decisions are not active scope.
+Insight Cards and three validated figures. Sprint 1 remains open only for the
+Day 28 release flow. Model comparison and inventory decisions are not active scope.
 
 ## Official outputs
 
@@ -67,7 +69,8 @@ seasonality or justify inventory actions.
 - Week 1: [exploration](week-01/exploration.md), [plan](week-01/plan.md), [review](week-01/review.md)
 - Week 2: [exploration](week-02/exploration.md), [plan](week-02/plan.md), [review](week-02/review.md)
 - Week 3: [exploration](week-03/exploration.md), [plan](week-03/plan.md), [closed review](week-03/review.md)
-- Week 4: [exploration](week-04/exploration.md), [plan](week-04/plan.md)
+- Week 4: [exploration](week-04/exploration.md), [plan](week-04/plan.md), [review](week-04/review.md)
+- Sprint retrospective: [retrospective](retrospective.md)
 
 ## Closure criteria
 
@@ -847,3 +850,33 @@ Service and route tests cover valid figures, unknown identifiers, missing
 artifacts, invalid signatures and public error handling. The manual API check
 confirms three `image/png` responses. Existing PNG outputs are the visible
 evidence for Day 26; no unsupported browser screenshot is claimed.
+
+---
+
+# Day 27 - Hardening, Tests and Sprint Documentation
+
+## Goal
+
+Harden the completed cross-layer flow and prepare verifiable Sprint 1 review
+evidence without starting the release operation.
+
+## Outputs
+
+- frontend contract validation and seven Node tests
+- bounded and hardened figure responses
+- extended project quality gate
+- `week-04/review.md`
+- `retrospective.md`
+- `reports/summaries/demand-insight/sprint_01_hardening_summary.md`
+- `checks/check_sprint_01_hardening.py`
+
+## Result
+
+Python, API and frontend responsibilities are covered by the root gate.
+Malformed summary payloads, unavailable figures and unsafe figure sizes fail
+explicitly. Week 4 implementation and Sprint 1 lessons are documented.
+
+## Boundary
+
+No release branch, `main` merge or tag is created on Day 27. Those operations
+remain exclusive to Day 28.

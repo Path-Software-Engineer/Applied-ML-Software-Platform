@@ -1,8 +1,9 @@
 # Sprint 1 — Demand Insight Technical Stories
 
 These stories describe technical capabilities implemented and validated through
-Day 26, including the versioned read API, initial React dashboard and validated
-figure delivery. Sprint 1 hardening remains outside this evidence boundary.
+Day 27, including the versioned read API, React dashboard, validated figure
+delivery and cross-layer hardening. The official release remains outside this
+evidence boundary.
 
 ## TS-S1-001 — Establish the sales data contract and loader
 
@@ -434,6 +435,38 @@ Completed.
 
 US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 
+## TS-S1-015 — Enforce a cross-layer release gate
+
+### Necesidad técnica
+
+Sprint 1 needs one reproducible gate that verifies analytical, API and frontend
+responsibilities before any release branch or tag is created.
+
+### Criterios de aceptación
+
+- Python production code and checks compile.
+- The complete pytest suite passes.
+- Frontend contract tests pass without external test dependencies.
+- The React entry point and CSS compile as a browser bundle.
+- All discovered manual checks pass.
+- Week 4 review and Sprint 1 retrospective are present.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `scripts/run-quality-gate.ps1`
+- `frontend/dashboard-app/tests/demandSummaryApi.test.js`
+- `checks/check_sprint_01_hardening.py`
+- `docs/sprints/sprint-01-demand-insight/week-04/review.md`
+- `docs/sprints/sprint-01-demand-insight/retrospective.md`
+
+### Relación con User Stories
+
+US-S1-006, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -452,3 +485,4 @@ US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 | TS-S1-012 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/routes/demand_summary.py`, `backend/api/app/schemas/demand_summary.py`, `tests/backend/test_demand_summary_api.py` |
 | TS-S1-013 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `frontend/dashboard-app/src/features/demand-summary/`, `frontend/dashboard-app/package-lock.json`, `frontend/dashboard-app/README.md` |
 | TS-S1-014 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `backend/api/app/services/demand_figure_service.py`, `tests/backend/test_demand_figure_service.py`, `frontend/dashboard-app/src/features/demand-summary/` |
+| TS-S1-015 | US-S1-006, US-S1-007, US-S1-008 | `scripts/run-quality-gate.ps1`, `frontend/dashboard-app/tests/demandSummaryApi.test.js`, `checks/check_sprint_01_hardening.py` |

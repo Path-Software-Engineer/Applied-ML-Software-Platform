@@ -59,6 +59,7 @@ backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
+checks/check_sprint_01_hardening.py
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -84,6 +85,7 @@ docs/data-contract.md
 docs/decisions.md
 docs/insight-card-methodology.md
 docs/sprints/sprint-01-demand-insight/README.md
+docs/sprints/sprint-01-demand-insight/retrospective.md
 docs/sprints/sprint-01-demand-insight/week-01/exploration.md
 docs/sprints/sprint-01-demand-insight/week-01/plan.md
 docs/sprints/sprint-01-demand-insight/week-01/review.md
@@ -95,6 +97,7 @@ docs/sprints/sprint-01-demand-insight/week-03/plan.md
 docs/sprints/sprint-01-demand-insight/week-03/review.md
 docs/sprints/sprint-01-demand-insight/week-04/exploration.md
 docs/sprints/sprint-01-demand-insight/week-04/plan.md
+docs/sprints/sprint-01-demand-insight/week-04/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -107,6 +110,7 @@ frontend/dashboard-app/src/features/demand-summary/components/DemandDashboard.js
 frontend/dashboard-app/src/features/demand-summary/hooks/useDemandSummary.js
 frontend/dashboard-app/src/main.jsx
 frontend/dashboard-app/src/styles.css
+frontend/dashboard-app/tests/demandSummaryApi.test.js
 frontend/dashboard-app/vite.config.js
 labs/.gitkeep
 labs/cloud-labs/.gitkeep
@@ -145,6 +149,7 @@ reports/summaries/demand-insight/mean_baseline_summary.md
 reports/summaries/demand-insight/product_ranking_summary.md
 reports/summaries/demand-insight/revenue_processed_dataset_summary.md
 reports/summaries/demand-insight/sales_summary.md
+reports/summaries/demand-insight/sprint_01_hardening_summary.md
 reports/summaries/demand-insight/temporal_features_summary.md
 reports/summaries/demand-insight/temporal_sales_analysis_summary.md
 reports/summaries/demand-insight/week_01_close_summary.md

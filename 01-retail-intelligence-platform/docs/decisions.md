@@ -639,3 +639,26 @@ invalid figures fail explicitly instead of producing broken substitute content.
 ### Status
 
 Accepted and implemented on Day 26.
+
+## Decision 027 — Harden the cross-layer contract before release
+
+### Context
+
+Sprint 1 must not enter its release flow with unchecked browser payloads,
+unbounded figure responses or a gate that ignores frontend behavior.
+
+### Decision
+
+Validate the Demand Summary again at the frontend boundary, add dependency-free
+Node contract tests, bound figure size, return `nosniff`, expose an honest image
+failure state and extend the root gate across Python and frontend responsibilities.
+
+### Consequences
+
+Malformed responses fail before rendering, known figures cannot grow without a
+defined limit and the release gate covers both product layers. The deterministic
+frontend compiler keeps the gate usable in restricted Windows runners.
+
+### Status
+
+Accepted and implemented on Day 27.
