@@ -1,5 +1,28 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "";
+const API_BASE_URL = import.meta.env?.VITE_API_BASE_URL ?? "";
 const DEMAND_SUMMARY_PATH = "/api/v1/demand-insights/summary";
+
+export const DEMAND_FIGURES = [
+  {
+    figureId: "daily-sales",
+    title: "Daily performance",
+    description: "Observed units and revenue by trading day.",
+  },
+  {
+    figureId: "product-units-ranking",
+    title: "Demand ranking",
+    description: "Products ordered by observed unit volume.",
+  },
+  {
+    figureId: "product-revenue-ranking",
+    title: "Revenue ranking",
+    description: "Products ordered by observed economic value.",
+  },
+];
+
+
+export function getDemandFigureUrl(figureId) {
+  return `${API_BASE_URL}/api/v1/demand-insights/figures/${encodeURIComponent(figureId)}`;
+}
 
 
 export class DemandSummaryApiError extends Error {

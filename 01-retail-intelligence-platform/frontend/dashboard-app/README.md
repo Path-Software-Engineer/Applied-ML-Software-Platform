@@ -1,11 +1,12 @@
 # Demand Insight Dashboard
 
-Initial React dashboard for Sprint 1 Day 25.
+React dashboard completed through Sprint 1 Day 26.
 
 ## Responsibility
 
 - Consume `GET /api/v1/demand-insights/summary` through the API client.
 - Present summary metrics, leaders and five validated Insight Cards.
+- Present the three validated analytical figures through allowlisted API URLs.
 - Provide loading and unavailable states without fallback business values.
 - Keep analytical calculations and filesystem access outside React.
 
@@ -47,10 +48,10 @@ release bundle when child-process execution is available.
 The Vite development proxy sends `/api` requests to `http://127.0.0.1:8000`.
 For a separately hosted API, set `VITE_API_BASE_URL` before building.
 
-## Day 25 boundary
+## Day 26 boundary
 
-The dashboard presents data and cards only. Existing PNG figures and visual
-report integration remain Day 26 work.
+The dashboard presents the completed integration of cards and figures. Model
+comparison and inventory views remain outside Sprint 1.
 
 ## Functional evidence
 
@@ -59,5 +60,7 @@ report integration remain Day 26 work.
 - Loading, connected and unavailable service states.
 - Metrics, four observed leaders and five Insight Cards rendered from the
   versioned response; no fallback business values are embedded in React.
+- Three report figures delivered by the backend without copying analytical
+  artifacts into the frontend.
 - Reproducible dependency graph in `package-lock.json` and a successful Vite
   production build.

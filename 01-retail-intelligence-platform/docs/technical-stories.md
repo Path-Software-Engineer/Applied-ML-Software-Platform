@@ -1,8 +1,8 @@
 # Sprint 1 — Demand Insight Technical Stories
 
 These stories describe technical capabilities implemented and validated through
-Day 25, including the versioned read API and initial React dashboard. Figure
-integration and Sprint 1 hardening remain outside this evidence boundary.
+Day 26, including the versioned read API, initial React dashboard and validated
+figure delivery. Sprint 1 hardening remains outside this evidence boundary.
 
 ## TS-S1-001 — Establish the sales data contract and loader
 
@@ -402,6 +402,38 @@ Completed.
 
 US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 
+## TS-S1-014 — Deliver validated figures to the dashboard
+
+### Necesidad técnica
+
+The platform needs to display analytical PNG artifacts without copying them into
+the frontend or allowing arbitrary path access through the API.
+
+### Criterios de aceptación
+
+- Exactly three public figure identifiers are allowlisted.
+- The service rejects unknown identifiers, missing artifacts and invalid PNG signatures.
+- The HTTP layer maps unknown identifiers to `404` and unavailable evidence to `503`.
+- Successful responses are inline `image/png` resources.
+- React renders all three figures with accessible descriptions.
+- Insight Cards remain sourced from the Demand Summary response.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `backend/api/app/services/demand_figure_service.py`
+- `backend/api/app/routes/demand_summary.py`
+- `tests/backend/test_demand_figure_service.py`
+- `tests/backend/test_demand_summary_api.py`
+- `frontend/dashboard-app/src/features/demand-summary/`
+
+### Relación con User Stories
+
+US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -419,3 +451,4 @@ US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 | TS-S1-011 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/services/demand_summary_service.py`, `reports/outputs/demand-insight/demand_summary.json` |
 | TS-S1-012 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/routes/demand_summary.py`, `backend/api/app/schemas/demand_summary.py`, `tests/backend/test_demand_summary_api.py` |
 | TS-S1-013 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `frontend/dashboard-app/src/features/demand-summary/`, `frontend/dashboard-app/package-lock.json`, `frontend/dashboard-app/README.md` |
+| TS-S1-014 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `backend/api/app/services/demand_figure_service.py`, `tests/backend/test_demand_figure_service.py`, `frontend/dashboard-app/src/features/demand-summary/` |
