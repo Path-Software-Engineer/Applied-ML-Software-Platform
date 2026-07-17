@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 18
+## Scope through Day 21
 
 ```text
 raw sales
@@ -22,11 +22,13 @@ raw sales
 → general sales summary
 → product rankings
 → temporal sales analysis
-→ reports and verification
+→ structured Insight Cards
+→ reusable figures and visual report
+→ consolidated quality gate and weekly closure
 ```
 
-Days 1–18 are complete. Insight Cards, charts, API, dashboard, model comparison
-and inventory decisions are not completed scope.
+Days 1–21 are complete and Week 3 is closed. Backend API, React dashboard,
+model comparison and inventory decisions are not completed scope.
 
 ## Official outputs
 
@@ -35,6 +37,9 @@ and inventory decisions are not completed scope.
 - Manual end-to-end checks under `ai-services/demand-insight/checks/`.
 - Automated tests under `tests/ai-services/demand-insight/`.
 - Evidence under `reports/summaries/demand-insight/`.
+- Structured cards under `reports/insight-cards/`.
+- Reusable figures under `reports/figures/demand-insight/`.
+- Visual outputs under `reports/outputs/demand-insight/`.
 
 ## Validation and decisions
 
@@ -53,7 +58,7 @@ seasonality or justify inventory actions.
 
 - Week 1: [exploration](week-01/exploration.md), [plan](week-01/plan.md), [review](week-01/review.md)
 - Week 2: [exploration](week-02/exploration.md), [plan](week-02/plan.md), [review](week-02/review.md)
-- Week 3: [exploration](week-03/exploration.md), [plan](week-03/plan.md), [review checkpoint](week-03/review.md)
+- Week 3: [exploration](week-03/exploration.md), [plan](week-03/plan.md), [closed review](week-03/review.md)
 
 ## Closure criteria
 
@@ -61,7 +66,7 @@ seasonality or justify inventory actions.
 - Automated tests and manual checks pass.
 - Results preserve validated totals.
 - Documentation distinguishes completed evidence from planned work.
-- No Day 19 functionality is represented as completed.
+- Completed status is supported by repository evidence and reproducible checks.
 
 ---
 
@@ -605,3 +610,73 @@ manual check inspects the existing end-to-end artifact without rewriting it.
 
 The analysis describes only the observed period from 2026-01-01 to 2026-01-09.
 It does not establish seasonality, predict demand or justify inventory decisions.
+
+---
+
+# Day 19 - Structured Insight Cards
+
+## Goal
+
+Transform validated analytical signals into a stable, user-facing contract
+without moving business interpretation into a future frontend.
+
+## Outputs
+
+- `ai-services/demand-insight/src/insights/insight_cards.py`
+- `ai-services/demand-insight/checks/check_insight_cards.py`
+- `tests/ai-services/demand-insight/test_insight_cards.py`
+- `reports/insight-cards/demand_insight_cards.json`
+- `reports/insight-cards/demand_insight_cards.md`
+
+## Result
+
+Five cards describe observed demand, product leaders and temporal leaders. Each
+card exposes an identifier, title, metric, insight, recommendation and explicit
+limitation.
+
+---
+
+# Day 20 - Sales Visual Report
+
+## Goal
+
+Generate reusable analytical figures and a reviewable report before introducing
+React or browser concerns.
+
+## Outputs
+
+- `ai-services/demand-insight/src/visualization/sales_visual_report.py`
+- `ai-services/demand-insight/checks/check_sales_visual_report.py`
+- `tests/ai-services/demand-insight/test_sales_visual_report.py`
+- `reports/figures/demand-insight/daily_sales.png`
+- `reports/figures/demand-insight/product_units_ranking.png`
+- `reports/figures/demand-insight/product_revenue_ranking.png`
+- `reports/outputs/demand-insight/sales_visual_report.md`
+
+## Result
+
+Three valid PNG artifacts distinguish demand volume from observed economic value
+and reuse the interpretations already validated by the Insight Card layer.
+
+---
+
+# Day 21 - Tests, Documentation and Week 3 Close
+
+## Goal
+
+Close Week 3 with one reproducible quality gate and documentation aligned with
+the complete Days 15–20 evidence.
+
+## Outputs
+
+- `scripts/run-quality-gate.ps1`
+- `scripts/update-project-structure.py`
+- `ai-services/demand-insight/checks/check_week_03_close.py`
+- `reports/summaries/demand-insight/week_03_close_summary.md`
+- updated User Stories, Technical Stories and Week 3 review
+
+## Validation
+
+The project virtual environment reports 30 passing automated tests. The root
+quality gate also compiles Python code and runs all manual checks in a stable
+order. No backend endpoint or React dashboard is part of Day 21.

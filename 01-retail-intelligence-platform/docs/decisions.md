@@ -455,3 +455,68 @@ production functions and retained checks as manual end-to-end verification.
 ### Status
 
 Accepted and completed for the Demand Insight scope built through Day 18.
+
+---
+
+## Decision 019 — Keep analytical interpretation in a structured card contract
+
+### Context
+
+Days 16–18 produced validated analytical signals, but future delivery channels
+must not reconstruct their meaning independently.
+
+### Decision
+
+Represent the five initial findings as versioned JSON and Markdown Insight Cards
+with a fixed identifier, metric, interpretation, recommendation and limitation.
+
+### Consequences
+
+Future services and interfaces can consume a stable contract while analytical
+language remains testable outside the UI.
+
+### Status
+
+Accepted and implemented on Day 19.
+
+## Decision 020 — Generate visual evidence independently from the dashboard
+
+### Context
+
+Analytical figures require validation before React integration begins.
+
+### Decision
+
+Generate PNG figures and the Markdown visual report in the Demand Insight
+production module. Keep units and revenue in separate figures or axes.
+
+### Consequences
+
+The dashboard can later present validated assets without owning chart
+calculation or business interpretation.
+
+### Status
+
+Accepted and implemented on Day 20.
+
+## Decision 021 — Use one project-level quality gate for Week 3 closure
+
+### Context
+
+Tests and readable checks existed, but weekly closure needed one reproducible
+entry point using the declared project environment.
+
+### Decision
+
+Use `scripts/run-quality-gate.ps1` to compile Python code, run the complete
+pytest suite and execute all manual checks in deterministic order. Isolate local
+Matplotlib state under the ignored `.runtime/` directory.
+
+### Consequences
+
+Week 3 closure can be reproduced with one command without committing machine
+specific runtime state.
+
+### Status
+
+Accepted and implemented on Day 21.

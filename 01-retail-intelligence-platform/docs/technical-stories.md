@@ -1,7 +1,7 @@
 # Sprint 1 — Demand Insight Technical Stories
 
 These stories describe technical capabilities implemented and validated through
-Day 18. They do not represent Day 19 or later-sprint functionality.
+Day 21. They do not represent backend API or React dashboard functionality.
 
 ## TS-S1-001 — Establish the sales data contract and loader
 
@@ -249,7 +249,7 @@ verification, manual evidence and operational execution do not duplicate logic.
 - `tests/` contains isolated pytest coverage and writes only to temporary paths.
 - `checks/` provides readable end-to-end verification with non-zero failure behavior.
 - `reports/` stores evidence and `scripts/` provides repeatable execution.
-- The suite reports 20 passing tests and all 14 manual checks pass.
+- The suite reports 30 passing tests and all 17 manual checks pass.
 
 ### Estado
 
@@ -261,11 +261,45 @@ Completed.
 - `ai-services/demand-insight/checks/artifact_checks.py`
 - `tests/ai-services/demand-insight/`
 - `scripts/generate-report.ps1`
+- `scripts/run-quality-gate.ps1`
 - `reports/summaries/demand-insight/`
 
 ### Relación con User Stories
 
 US-S1-006, US-S1-007.
+
+## TS-S1-010 — Produce structured insights and reusable visual evidence
+
+### Necesidad técnica
+
+The platform needs a stable presentation contract and reproducible figures so a
+future API and dashboard can consume validated analytical meaning instead of
+reimplementing calculations or interpretation.
+
+### Criterios de aceptación
+
+- Production code generates exactly five Insight Cards with the documented field contract.
+- JSON and Markdown card artifacts are produced from validated analytical inputs.
+- Production code generates three valid PNG figures and a Markdown visual report.
+- Figures keep units and revenue conceptually separate and reuse the card limitations.
+- Tests use temporary paths and the Week 3 quality gate verifies official evidence.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `ai-services/demand-insight/src/insights/insight_cards.py`
+- `ai-services/demand-insight/src/visualization/sales_visual_report.py`
+- `reports/insight-cards/demand_insight_cards.json`
+- `reports/figures/demand-insight/`
+- `reports/outputs/demand-insight/sales_visual_report.md`
+- `ai-services/demand-insight/checks/check_week_03_close.py`
+
+### Relación con User Stories
+
+US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 
 ## Traceability matrix
 
@@ -280,3 +314,4 @@ US-S1-006, US-S1-007.
 | TS-S1-007 | US-S1-003, US-S1-004, US-S1-007 | `ai-services/demand-insight/src/analysis/sales_summary.py`, `ai-services/demand-insight/src/analysis/product_ranking.py` |
 | TS-S1-008 | US-S1-005, US-S1-007 | `ai-services/demand-insight/src/analysis/temporal_sales_analysis.py` |
 | TS-S1-009 | US-S1-006, US-S1-007 | `docs/architecture.md`, `tests/ai-services/demand-insight/`, `ai-services/demand-insight/checks/`, `scripts/generate-report.ps1` |
+| TS-S1-010 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `reports/insight-cards/demand_insight_cards.json`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md` |
