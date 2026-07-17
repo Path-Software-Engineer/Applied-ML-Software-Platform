@@ -779,3 +779,37 @@ contains the documented resource and response schema.
 Endpoint tests cover health, success, unavailable evidence and OpenAPI. The
 manual API check exercises the official service response through the ASGI
 application. React remains Day 25 work; figure integration remains Day 26.
+
+---
+
+# Day 25 - Initial Demand Dashboard
+
+## Goal
+
+Create the first user-facing React view for Demand Insight while preserving the
+validated API as the only business-data boundary.
+
+## Outputs
+
+- `frontend/dashboard-app/src/app/App.jsx`
+- `frontend/dashboard-app/src/features/demand-summary/`
+- `frontend/dashboard-app/src/styles.css`
+- `frontend/dashboard-app/package.json`
+- `frontend/dashboard-app/package-lock.json`
+- `frontend/dashboard-app/README.md`
+- `scripts/run-frontend.ps1`
+
+## Result
+
+The dashboard consumes `GET /api/v1/demand-insights/summary` through a dedicated
+client and renders four summary metrics, four observed leaders and five validated
+Insight Cards. Loading and unavailable states are explicit, and the error state
+never substitutes fabricated business values.
+
+## Validation
+
+The dependency graph is pinned by the npm lock file and the Vite production build
+passes. A local HTTP smoke check confirms the built preview, API health and the
+versioned five-card response with the official totals. No screenshot is claimed
+for Day 25; the functional README satisfies the documented evidence alternative.
+Figure integration and visible capture evidence remain the Day 26 boundary.

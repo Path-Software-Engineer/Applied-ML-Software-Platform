@@ -15,6 +15,7 @@ EXCLUDED_PARTS = {
     ".pytest_cache",
     ".pytest-tmp",
     "__pycache__",
+    "dist",
     "node_modules",
 }
 
@@ -31,7 +32,7 @@ def build_inventory() -> str:
         "# Project structure",
         "",
         "Current UTF-8 file paths relative to the repository root.",
-        "Excluded: `.git`, `.venv`, `.runtime`, Python caches and `node_modules`.",
+        "Excluded: `.git`, `.venv`, `.runtime`, generated `dist`, Python caches and `node_modules`.",
         "",
         "```text",
         *paths,

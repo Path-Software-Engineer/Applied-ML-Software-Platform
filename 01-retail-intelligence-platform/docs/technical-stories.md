@@ -1,7 +1,8 @@
 # Sprint 1 — Demand Insight Technical Stories
 
 These stories describe technical capabilities implemented and validated through
-Day 21. They do not represent backend API or React dashboard functionality.
+Day 25, including the versioned read API and initial React dashboard. Figure
+integration and Sprint 1 hardening remain outside this evidence boundary.
 
 ## TS-S1-001 — Establish the sales data contract and loader
 
@@ -368,6 +369,39 @@ Completed.
 
 US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
 
+## TS-S1-013 — Present Demand Insight through the initial React dashboard
+
+### Necesidad técnica
+
+The platform needs a user-facing boundary that presents the validated Demand
+Summary without reading repository artifacts or reproducing analytical logic.
+
+### Criterios de aceptación
+
+- React requests only `GET /api/v1/demand-insights/summary` through a dedicated client.
+- Request lifecycle state is separated from presentation components.
+- The page renders four summary metrics, four observed leaders and five Insight Cards.
+- Loading and unavailable states are explicit and never substitute fallback business values.
+- The npm dependency tree is locked and the Vite production build passes.
+- Existing report figures are not integrated before Day 26.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `frontend/dashboard-app/src/features/demand-summary/api/demandSummaryApi.js`
+- `frontend/dashboard-app/src/features/demand-summary/hooks/useDemandSummary.js`
+- `frontend/dashboard-app/src/features/demand-summary/components/DemandDashboard.jsx`
+- `frontend/dashboard-app/package-lock.json`
+- `frontend/dashboard-app/README.md`
+- `scripts/run-frontend.ps1`
+
+### Relación con User Stories
+
+US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -384,3 +418,4 @@ US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-010 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `reports/insight-cards/demand_insight_cards.json`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md` |
 | TS-S1-011 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/services/demand_summary_service.py`, `reports/outputs/demand-insight/demand_summary.json` |
 | TS-S1-012 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/routes/demand_summary.py`, `backend/api/app/schemas/demand_summary.py`, `tests/backend/test_demand_summary_api.py` |
+| TS-S1-013 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `frontend/dashboard-app/src/features/demand-summary/`, `frontend/dashboard-app/package-lock.json`, `frontend/dashboard-app/README.md` |
