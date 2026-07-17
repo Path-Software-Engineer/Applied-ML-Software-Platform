@@ -113,3 +113,15 @@ The dashboard exposes loading, connected and unavailable states without embeddin
 fallback business values. Its metrics, observed leaders and Insight Cards come
 from `GET /api/v1/demand-insights/summary`. Existing PNG report figures remain
 outside the frontend until the Day 26 integration boundary.
+
+### Day 26 implementation status
+
+`DemandFigureService` resolves three public figure identifiers through an
+allowlist and verifies each PNG signature before returning a path to the
+transport layer. The FastAPI route converts unknown identifiers to `404` and
+invalid or unavailable known artifacts to `503`, without exposing local paths.
+
+React obtains figure URLs from its dedicated API module and renders the images
+as accessible report cards. It does not copy, parse or regenerate the analytical
+artifacts. The five Insight Cards continue to come from the versioned summary
+resource.

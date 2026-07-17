@@ -1,5 +1,9 @@
 import React from "react";
 
+import {
+  DEMAND_FIGURES,
+  getDemandFigureUrl,
+} from "../api/demandSummaryApi.js";
 import { useDemandSummary } from "../hooks/useDemandSummary.js";
 
 
@@ -43,6 +47,10 @@ function AppShell({ children }) {
           <a className="nav-item" href="#insights">
             <span className="nav-index">03</span>
             Insight cards
+          </a>
+          <a className="nav-item" href="#visuals">
+            <span className="nav-index">04</span>
+            Visual report
           </a>
         </nav>
 
@@ -159,6 +167,25 @@ function InsightCard({ card, index }) {
 }
 
 
+function FigureCard({ figure }) {
+  return (
+    <figure className="figure-card">
+      <div className="figure-frame">
+        <img
+          src={getDemandFigureUrl(figure.figureId)}
+          alt={figure.description}
+          loading="lazy"
+        />
+      </div>
+      <figcaption>
+        <span>{figure.title}</span>
+        <p>{figure.description}</p>
+      </figcaption>
+    </figure>
+  );
+}
+
+
 function DashboardContent({ data }) {
   const { period, sales_summary: sales, baseline, leaders, insight_cards: cards } = data;
   return (
@@ -217,6 +244,24 @@ function DashboardContent({ data }) {
           <div className="insight-grid">
             {cards.map((card, index) => (
               <InsightCard card={card} index={index} key={card.card_id} />
+            ))}
+          </div>
+        </section>
+
+        <section className="section-block" id="visuals">
+          <div className="section-header">
+            <div>
+              <p className="section-kicker">Visual report</p>
+              <h2>See the evidence behind the cards.</h2>
+            </div>
+            <p>
+              Generated figures remain analytical artifacts. The dashboard
+              presents them without recalculating or redefining their meaning.
+            </p>
+          </div>
+          <div className="figure-grid">
+            {DEMAND_FIGURES.map((figure) => (
+              <FigureCard figure={figure} key={figure.figureId} />
             ))}
           </div>
         </section>

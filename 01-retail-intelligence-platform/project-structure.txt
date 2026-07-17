@@ -52,6 +52,7 @@ backend/api/app/routes/demand_summary.py
 backend/api/app/schemas/__init__.py
 backend/api/app/schemas/demand_summary.py
 backend/api/app/services/__init__.py
+backend/api/app/services/demand_figure_service.py
 backend/api/app/services/demand_summary_service.py
 backend/api/checks/check_backend_dependencies.py
 backend/api/checks/check_demand_summary_api.py
@@ -132,6 +133,7 @@ reports/outputs/demand-insight/sales_visual_report.md
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
+reports/summaries/demand-insight/dashboard_visual_integration_summary.md
 reports/summaries/demand-insight/data_cleaning_summary.md
 reports/summaries/demand-insight/data_loading_summary.md
 reports/summaries/demand-insight/demand_summary_api_summary.md
@@ -168,6 +170,7 @@ tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
+tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
 tests/conftest.py

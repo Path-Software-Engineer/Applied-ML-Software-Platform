@@ -12,7 +12,7 @@ The current sprint serves a retail analyst or small-store operator who needs to
 understand sales totals, product leaders and temporal leaders without reading
 implementation details.
 
-## Scope through Day 24
+## Scope through Day 26
 
 ```text
 raw sales
@@ -28,11 +28,13 @@ raw sales
 → dashboard, API and user-flow exploration
 → internal Demand Summary service and structured output
 → versioned FastAPI endpoint and OpenAPI contract
+→ React dashboard with cards and validated figures
 ```
 
-Days 1–24 are complete, Week 3 is closed and Week 4 is open. The internal
-service and FastAPI endpoint are implemented; the React dashboard remains
-pending. Model comparison and inventory decisions are not active scope.
+Days 1–26 are complete, Week 3 is closed and Week 4 is open. The internal
+service, FastAPI endpoint and React dashboard are implemented with the five
+Insight Cards and three validated figures. Model comparison and inventory
+decisions are not active scope.
 
 ## Official outputs
 
@@ -44,6 +46,8 @@ pending. Model comparison and inventory decisions are not active scope.
 - Structured cards under `reports/insight-cards/`.
 - Reusable figures under `reports/figures/demand-insight/`.
 - Visual outputs under `reports/outputs/demand-insight/`.
+- Versioned HTTP resources under `backend/api/app/`.
+- User-facing presentation under `frontend/dashboard-app/`.
 
 ## Validation and decisions
 
@@ -813,3 +817,33 @@ passes. A local HTTP smoke check confirms the built preview, API health and the
 versioned five-card response with the official totals. No screenshot is claimed
 for Day 25; the functional README satisfies the documented evidence alternative.
 Figure integration and visible capture evidence remain the Day 26 boundary.
+
+---
+
+# Day 26 - Figures and Cards Integration
+
+## Goal
+
+Connect the validated visual report to the initial dashboard without moving
+artifact generation or analytical interpretation into React.
+
+## Outputs
+
+- `backend/api/app/services/demand_figure_service.py`
+- `GET /api/v1/demand-insights/figures/{figure_id}`
+- `tests/backend/test_demand_figure_service.py`
+- integrated visual-report section in `frontend/dashboard-app/`
+- `reports/summaries/demand-insight/dashboard_visual_integration_summary.md`
+
+## Result
+
+The backend serves exactly three allowlisted PNG artifacts after validating
+their signatures. The dashboard renders the daily performance figure and both
+product rankings alongside the five already validated Insight Cards.
+
+## Validation
+
+Service and route tests cover valid figures, unknown identifiers, missing
+artifacts, invalid signatures and public error handling. The manual API check
+confirms three `image/png` responses. Existing PNG outputs are the visible
+evidence for Day 26; no unsupported browser screenshot is claimed.

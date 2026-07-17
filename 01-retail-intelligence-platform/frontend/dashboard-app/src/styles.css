@@ -96,6 +96,14 @@ button { cursor: pointer; }
 .recommendation span { color: var(--accent); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .recommendation p { margin: 8px 0 0; color: #b4c2bc; font-size: 11px; line-height: 1.55; }
 .limitation { margin: 18px 0 0; color: #687b73; font-size: 9px; line-height: 1.55; }
+.figure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.figure-card { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.figure-card:first-child { grid-column: 1 / -1; }
+.figure-frame { padding: 18px; border-bottom: 1px solid var(--line); background: #f7f9f7; }
+.figure-card img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.figure-card figcaption { padding: 22px 24px 24px; }
+.figure-card figcaption span { color: var(--ink); font-size: 15px; font-weight: 600; }
+.figure-card figcaption p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 
 footer { margin-top: 100px; padding-top: 26px; border-top: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; color: var(--muted); font-size: 10px; }
 footer .logo-mark { width: 28px; height: 28px; padding: 6px; }
@@ -135,6 +143,8 @@ footer p { margin: 0; }
   .metric-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .insight-card { grid-column: span 6; }
   .insight-card:last-child { grid-column: span 12; }
+  .figure-grid { grid-template-columns: 1fr; }
+  .figure-card:first-child { grid-column: auto; }
 }
 
 @media (max-width: 640px) {

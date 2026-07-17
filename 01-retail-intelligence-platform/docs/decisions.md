@@ -615,3 +615,27 @@ become plausible-looking dashboard data.
 ### Status
 
 Accepted and implemented on Day 25.
+
+## Decision 026 — Deliver figures through an allowlisted API boundary
+
+### Context
+
+Day 26 must connect the validated PNG report to the dashboard without copying
+generated artifacts into React or accepting arbitrary filesystem paths over HTTP.
+
+### Decision
+
+Expose three stable figure identifiers below the existing Demand Insight route.
+Resolve them in `DemandFigureService`, reject unknown identifiers, verify the PNG
+signature and let the thin route return the file inline. Keep titles and generic
+accessible descriptions in the presentation layer.
+
+### Consequences
+
+The analytical pipeline remains the sole figure producer, the frontend receives
+browser-safe URLs and path traversal is excluded by construction. Missing or
+invalid figures fail explicitly instead of producing broken substitute content.
+
+### Status
+
+Accepted and implemented on Day 26.

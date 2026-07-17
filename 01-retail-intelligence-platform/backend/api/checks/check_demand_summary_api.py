@@ -1,4 +1,4 @@
-"""Manual in-process check for the Day 24 Demand Summary API."""
+"""Manual in-process check for the Demand Summary and figure API."""
 
 from __future__ import annotations
 
@@ -23,6 +23,16 @@ async def check_api() -> None:
     ) as client:
         health = await client.get("/health")
         response = await client.get("/api/v1/demand-insights/summary")
+        figure_responses = {
+            figure_id: await client.get(
+                f"/api/v1/demand-insights/figures/{figure_id}"
+            )
+            for figure_id in (
+                "daily-sales",
+                "product-units-ranking",
+                "product-revenue-ranking",
+            )
+        }
         openapi = await client.get("/openapi.json")
 
     if health.status_code != 200 or health.json().get("status") != "ok":
@@ -38,17 +48,28 @@ async def check_api() -> None:
         raise AssertionError("Unexpected API revenue total.")
     if len(payload["insight_cards"]) != 5:
         raise AssertionError("API must expose five Insight Cards.")
+    for figure_id, figure_response in figure_responses.items():
+        if figure_response.status_code != 200:
+            raise AssertionError(
+                f"Unexpected figure response for {figure_id}: "
+                f"{figure_response.text}"
+            )
+        if figure_response.headers.get("content-type") != "image/png":
+            raise AssertionError(f"Unexpected content type for {figure_id}.")
+        if not figure_response.content.startswith(b"\x89PNG\r\n\x1a\n"):
+            raise AssertionError(f"Invalid PNG signature for {figure_id}.")
     if openapi.status_code != 200:
         raise AssertionError("OpenAPI schema is unavailable.")
     if "/api/v1/demand-insights/summary" not in openapi.json()["paths"]:
         raise AssertionError("Demand Summary resource is missing from OpenAPI.")
 
-    print("OK - Day 24 Demand Summary API check passed")
+    print("OK - Day 26 Demand Summary and figure API check passed")
     print("GET /health: 200")
     print("GET /api/v1/demand-insights/summary: 200")
     print("Schema version: 1.0")
     print("Totals: 293 units | 747.65 revenue")
     print("Insight Cards: 5")
+    print("Validated PNG figures: 3")
     print("OpenAPI contract: confirmed")
 
 
