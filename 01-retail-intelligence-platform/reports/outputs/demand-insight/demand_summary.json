@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "period": {
+    "start_date": "2026-01-01",
+    "end_date": "2026-01-09",
+    "observed_days": 9
+  },
+  "sales_summary": {
+    "total_units_sold": 293,
+    "total_revenue": 747.65,
+    "sales_count": 18,
+    "unique_products": 6,
+    "unique_categories": 3
+  },
+  "baseline": {
+    "mean_units_prediction": 16.28,
+    "mae": 5.42
+  },
+  "leaders": {
+    "product_by_units": {
+      "name": "Bread",
+      "value": 105,
+      "unit": "units"
+    },
+    "product_by_revenue": {
+      "name": "Rice 1kg",
+      "value": 220.5,
+      "unit": "revenue"
+    },
+    "date_by_units": {
+      "name": "2026-01-06",
+      "value": 45,
+      "unit": "units"
+    },
+    "date_by_revenue": {
+      "name": "2026-01-08",
+      "value": 99.3,
+      "unit": "revenue"
+    }
+  },
+  "insight_cards": [
+    {
+      "card_id": "observed-demand",
+      "title": "Demanda observada",
+      "metric": "293 unidades | 747.65 de revenue",
+      "insight": "El periodo analizado va de 2026-01-01 a 2026-01-09.",
+      "recommendation": "Usar estos totales como contexto general para interpretar las demás señales del dashboard.",
+      "limitation": "Describe únicamente las ventas observadas entre 2026-01-01 y 2026-01-09; no predice demanda futura."
+    },
+    {
+      "card_id": "top-product-units",
+      "title": "Producto con mayor demanda",
+      "metric": "Bread — 105 unidades",
+      "insight": "Este producto concentró el mayor volumen de unidades vendidas en el periodo observado.",
+      "recommendation": "Vigilar su disponibilidad y comparar su comportamiento cuando exista un periodo histórico mayor.",
+      "limitation": "Describe únicamente las ventas observadas entre 2026-01-01 y 2026-01-09; no predice demanda futura."
+    },
+    {
+      "card_id": "top-product-revenue",
+      "title": "Producto con mayor revenue",
+      "metric": "Rice 1kg — 220.50",
+      "insight": "Este producto generó el mayor valor económico observado, aunque no lideró en unidades.",
+      "recommendation": "Mostrar esta señal junto al volumen vendido para evitar decisiones basadas en una sola métrica.",
+      "limitation": "Describe únicamente las ventas observadas entre 2026-01-01 y 2026-01-09; no predice demanda futura."
+    },
+    {
+      "card_id": "top-day-units",
+      "title": "Día con mayor movimiento",
+      "metric": "2026-01-06 — 45 unidades",
+      "insight": "Esta fecha presentó el mayor volumen diario de unidades vendidas dentro del periodo.",
+      "recommendation": "Comparar esta fecha con periodos futuros antes de asumir que representa un patrón recurrente.",
+      "limitation": "Describe únicamente las ventas observadas entre 2026-01-01 y 2026-01-09; no predice demanda futura."
+    },
+    {
+      "card_id": "top-day-revenue",
+      "title": "Día con mayor revenue",
+      "metric": "2026-01-08 — 99.30",
+      "insight": "Esta fecha generó el mayor revenue diario observado y no coincidió con el día de mayor volumen.",
+      "recommendation": "Revisar conjuntamente revenue y unidades para comprender mejor el desempeño diario.",
+      "limitation": "Describe únicamente las ventas observadas entre 2026-01-01 y 2026-01-09; no predice demanda futura."
+    }
+  ],
+  "limitations": [
+    "The response describes observed sales and does not forecast future demand.",
+    "The source covers 18 records from 2026-01-01 through 2026-01-09."
+  ]
+}

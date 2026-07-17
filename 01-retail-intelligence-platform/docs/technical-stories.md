@@ -302,6 +302,38 @@ Completed.
 
 US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 
+## TS-S1-011 — Assemble the versioned Demand Summary
+
+### Necesidad técnica
+
+The platform needs one internal read service that converts validated analytical
+artifacts into a stable product response before HTTP and React are introduced.
+
+### Criterios de aceptación
+
+- The service validates every required CSV and JSON artifact before responding.
+- The response exposes schema version, period, sales summary, baseline, leaders,
+  five Insight Cards and explicit limitations.
+- Missing, empty or structurally invalid evidence raises `DemandSummaryError`.
+- Tests use a temporary project root and never write official output paths.
+- The operational script generates the official JSON deterministically.
+
+### Estado
+
+Completed.
+
+### Evidencia
+
+- `backend/api/app/services/demand_summary_service.py`
+- `tests/backend/test_demand_summary_service.py`
+- `backend/api/checks/check_demand_summary_service.py`
+- `reports/outputs/demand-insight/demand_summary.json`
+- `reports/summaries/demand-insight/demand_summary_service_summary.md`
+
+### Relación con User Stories
+
+US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008.
+
 ## Traceability matrix
 
 | Technical Story | User Stories relacionadas | Evidencia principal |
@@ -316,3 +348,4 @@ US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008.
 | TS-S1-008 | US-S1-005, US-S1-007 | `ai-services/demand-insight/src/analysis/temporal_sales_analysis.py` |
 | TS-S1-009 | US-S1-006, US-S1-007 | `docs/architecture.md`, `tests/ai-services/demand-insight/`, `ai-services/demand-insight/checks/`, `scripts/generate-report.ps1` |
 | TS-S1-010 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `reports/insight-cards/demand_insight_cards.json`, `reports/figures/demand-insight/`, `reports/outputs/demand-insight/sales_visual_report.md` |
+| TS-S1-011 | US-S1-003, US-S1-004, US-S1-005, US-S1-006, US-S1-007, US-S1-008 | `backend/api/app/services/demand_summary_service.py`, `reports/outputs/demand-insight/demand_summary.json` |
