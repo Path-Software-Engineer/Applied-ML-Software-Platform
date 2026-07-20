@@ -64,7 +64,7 @@ def main() -> None:
     print("OK - Sprint 2 Day 57 exploration check passed")
     print(f"Evidence documents: {len(EVIDENCE)}")
     print("User stories / technical stories: 4 / 4")
-    print("Model training and dependency installation: deferred")
+    print("Day 57 boundary: training and dependency installation were deferred")
 
 
 if __name__ == "__main__":

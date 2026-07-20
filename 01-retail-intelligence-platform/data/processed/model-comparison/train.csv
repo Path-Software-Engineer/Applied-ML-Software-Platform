@@ -1,0 +1,13 @@
+sale_id,date,product_id,product_name,category,units_sold,unit_price,stock_available,day_of_week,month,year,is_weekend,revenue
+1,2026-01-01,P001,Rice 1kg,Food,12,3.5,80,3,1,2026,False,42.0
+2,2026-01-01,P002,Milk 1L,Dairy,18,1.8,45,3,1,2026,False,32.4
+3,2026-01-02,P003,Bread,Food,25,1.2,30,4,1,2026,False,30.0
+4,2026-01-02,P004,Coffee 250g,Beverages,8,5.9,25,4,1,2026,False,47.2
+5,2026-01-03,P001,Rice 1kg,Food,15,3.5,65,5,1,2026,True,52.5
+6,2026-01-03,P002,Milk 1L,Dairy,20,1.8,25,5,1,2026,True,36.0
+7,2026-01-04,P003,Bread,Food,30,1.2,15,6,1,2026,True,36.0
+8,2026-01-04,P005,Orange Juice,Beverages,10,2.75,40,6,1,2026,True,27.5
+9,2026-01-05,P004,Coffee 250g,Beverages,6,5.9,19,0,1,2026,False,35.400000000000006
+10,2026-01-05,P006,Eggs 12 pack,Dairy,14,4.2,35,0,1,2026,False,58.8
+11,2026-01-06,P001,Rice 1kg,Food,17,3.5,48,1,1,2026,False,59.5
+12,2026-01-06,P003,Bread,Food,28,1.2,8,1,1,2026,False,33.6

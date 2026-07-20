@@ -542,12 +542,15 @@ train/test boundary before any model can be compared.
 
 ### Estado
 
-Planned.
+Completed on global Day 58.
 
 ### Evidencia
 
 - `docs/model-comparison-experiment-contract.md`
-- `docs/sprints/sprint-02-model-comparison/week-05/exploration.md`
+- `ai-services/model-comparison/src/model_comparison/contract.py`
+- `ai-services/model-comparison/src/model_comparison/data.py`
+- `reports/outputs/model-comparison/split_manifest.json`
+- `tests/ai-services/model-comparison/test_experiment_split.py`
 
 ### Relación con User Stories
 

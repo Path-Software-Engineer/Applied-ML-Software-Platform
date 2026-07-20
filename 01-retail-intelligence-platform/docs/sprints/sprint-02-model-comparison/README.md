@@ -33,9 +33,11 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Day 57 / Sprint 2 Day 1 is completed as exploration.
-- Target, features, split direction, metrics and fairness rules are documented.
-- No model, new dependency, endpoint or React feature exists yet.
+- Global Days 57–58 / Sprint 2 Days 1–2 are complete.
+- Target, features, metrics and fairness rules are documented.
+- The official 12-row training and 6-row test partitions are generated with a
+  source checksum and explicit chronological boundary.
+- No model, endpoint or React feature exists yet.
 
 ## Weeks
 

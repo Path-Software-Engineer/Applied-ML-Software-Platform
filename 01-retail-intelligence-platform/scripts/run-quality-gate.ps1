@@ -29,10 +29,13 @@ try {
     & $Python -m compileall -q `
         "ai-services/demand-insight/src" `
         "ai-services/demand-insight/checks" `
+        "ai-services/model-comparison/src" `
+        "ai-services/model-comparison/checks" `
         "backend/api/app" `
         "backend/api/checks" `
         "checks" `
         "tests/ai-services/demand-insight" `
+        "tests/ai-services/model-comparison" `
         "tests/backend" `
         "scripts"
     if ($LASTEXITCODE -ne 0) { throw "Python compilation failed." }
@@ -67,6 +70,7 @@ try {
     Write-Host "[6/6] Running manual end-to-end checks"
     $Checks = @(
         Get-ChildItem "ai-services/demand-insight/checks/check_*.py"
+        Get-ChildItem "ai-services/model-comparison/checks/check_*.py"
         Get-ChildItem "backend/api/checks/check_*.py"
         Get-ChildItem "checks/check_*.py"
     ) | Sort-Object FullName

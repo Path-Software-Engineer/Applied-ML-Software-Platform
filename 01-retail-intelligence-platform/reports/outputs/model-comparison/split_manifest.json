@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "dataset": "data/processed/demand-insight/sales_features.csv",
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "categorical_features": [
+    "product_id",
+    "category"
+  ],
+  "numeric_features": [
+    "unit_price",
+    "day_of_week",
+    "is_weekend"
+  ],
+  "excluded_columns": {
+    "sale_id": "row_identifier",
+    "date": "split_key",
+    "product_name": "duplicate_product_identity",
+    "month": "constant_in_snapshot",
+    "year": "constant_in_snapshot",
+    "revenue": "target_derived_leakage",
+    "stock_available": "ambiguous_measurement_timing",
+    "mean_baseline_prediction": "target_derived",
+    "baseline_absolute_error": "target_derived"
+  },
+  "split": {
+    "strategy": "chronological_holdout",
+    "cutoff_date": "2026-01-06",
+    "random_seed": 42,
+    "train_rows": 12,
+    "test_rows": 6,
+    "train_start": "2026-01-01",
+    "train_end": "2026-01-06",
+    "test_start": "2026-01-07",
+    "test_end": "2026-01-09",
+    "train_sale_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "test_sale_ids": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "fairness_rule": "Every candidate uses this dataset, feature contract, split and metrics.",
+  "production_status": "learning_evidence_only"
+}
