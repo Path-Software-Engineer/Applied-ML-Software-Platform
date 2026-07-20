@@ -602,12 +602,16 @@ Boosting candidates behind one preprocessing and evaluation boundary.
 
 ### Estado
 
-Planned.
+Completed on global Day 62.
 
 ### Evidencia
 
-- `docs/model-comparison-experiment-contract.md`
-- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+- `ai-services/model-comparison/src/model_comparison/candidate.py`
+- `ai-services/model-comparison/src/model_comparison/preprocessing.py`
+- `ai-services/model-comparison/src/model_comparison/linear_regression.py`
+- `ai-services/model-comparison/src/model_comparison/random_forest.py`
+- `ai-services/model-comparison/src/model_comparison/gradient_boosting.py`
+- `tests/ai-services/model-comparison/`
 
 ### Relación con User Stories
 
@@ -646,5 +650,5 @@ US-S2-002, US-S2-003, US-S2-004.
 |---|---|---|
 | TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
 | TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
-| TS-S2-003 | US-S2-001, US-S2-002 | `docs/model-comparison-experiment-contract.md` |
+| TS-S2-003 | US-S2-001, US-S2-002 | `ai-services/model-comparison/src/model_comparison/candidate.py` |
 | TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `docs/sprints/sprint-02-model-comparison/README.md` |

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "model_id": "gradient_boosting",
+  "model_name": "Gradient Boosting",
+  "model_family": "boosted_tree_ensemble",
+  "configuration": {
+    "estimator_parameters": {
+      "n_estimators": 100,
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "min_samples_leaf": 2,
+      "loss": "squared_error",
+      "random_state": 42
+    },
+    "preprocessing": {
+      "categorical": {
+        "columns": [
+          "product_id",
+          "category"
+        ],
+        "strategy": "one_hot_encode",
+        "unknown_values": "ignore"
+      },
+      "numeric": {
+        "columns": [
+          "unit_price",
+          "day_of_week",
+          "is_weekend"
+        ],
+        "strategy": "standard_scale"
+      },
+      "fit_scope": "training_partition_only"
+    }
+  },
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "train_rows": 12,
+  "test_rows": 6,
+  "metrics": {
+    "mae": 3.0884361955009996,
+    "rmse": 3.3322935379403216,
+    "r2": 0.4538927759180905,
+    "metadata": {
+      "mae": {
+        "direction": "lower_is_better",
+        "unit": "units"
+      },
+      "rmse": {
+        "direction": "lower_is_better",
+        "unit": "units"
+      },
+      "r2": {
+        "direction": "higher_is_better",
+        "unit": "unitless"
+      }
+    }
+  },
+  "production_status": "learning_evidence_only"
+}

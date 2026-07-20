@@ -812,3 +812,26 @@ small holdout still prevents stability or production claims.
 ### Status
 
 Accepted and implemented on global Day 61.
+
+## Decision 034 — Add Gradient Boosting without test-driven tuning
+
+### Context
+
+The third learned candidate must represent sequential boosting while remaining
+comparable and bounded on the 12-row training partition.
+
+### Decision
+
+Evaluate `GradientBoostingRegressor` with 100 stages, learning rate 0.05,
+maximum tree depth 2, minimum leaf size 2, squared-error loss and
+`random_state=42`. Do not search parameters against the official test rows.
+
+### Consequences
+
+The experiment now contains the baseline and all three planned model families.
+Configuration is reproducible, but it is not optimized and cannot establish
+stability or production performance.
+
+### Status
+
+Accepted and implemented on global Day 62.
