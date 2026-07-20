@@ -303,9 +303,9 @@ without hiding the small-dataset boundary.
 - Decision Cards show the observed leader, selected candidate and evidence limit.
 - The browser does not recalculate metrics or selection logic.
 
-**Status:** In progress on global Day 74. The comparison view and request states
-are implemented; visual Decision Cards remain assigned to Day 75.
+**Status:** Completed on global Day 75.
 
 **Evidence:** `docs/model-comparison-read-contract.md`,
 `frontend/dashboard-app/src/features/model-comparison/`,
-`frontend/dashboard-app/tests/modelComparisonApi.test.js`.
+`frontend/dashboard-app/tests/modelComparisonApi.test.js`,
+`frontend/dashboard-app/tests/decisionCardViewModel.test.js`.

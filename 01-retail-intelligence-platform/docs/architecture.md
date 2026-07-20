@@ -241,3 +241,13 @@ The client rejects incompatible versions, missing candidates, inconsistent
 identities and incomplete Decision Cards before rendering. The view shows no
 fallback metrics in loading or unavailable states. Day 74 renders the
 comparison and rationale; Decision Card presentation remains Day 75 work.
+
+### Day 75 implementation status
+
+`DecisionCard.jsx` renders the three cards received in `decision_cards` with
+semantic articles, associated headings and limitations, status announcements,
+numeric `data` elements and reason lists. A small presentation mapper converts
+machine statuses to display copy while preserving raw identifiers and metrics.
+
+React does not sort candidates, compare MAE values or apply the practical-
+equivalence rule. Cross-layer smoke validation remains the Day 76 boundary.

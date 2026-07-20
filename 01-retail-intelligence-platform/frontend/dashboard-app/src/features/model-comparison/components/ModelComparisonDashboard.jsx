@@ -1,5 +1,6 @@
 import React from "react";
 
+import { DecisionCard } from "./DecisionCard.jsx";
 import { useModelComparison } from "../hooks/useModelComparison.js";
 
 
@@ -124,7 +125,7 @@ function CandidateTable({ candidates }) {
 
 
 function ConnectedView({ data }) {
-  const { experiment, candidates, decision, limitations } = data;
+  const { experiment, candidates, decision, decision_cards: cards, limitations } = data;
   return (
     <ModelComparisonShell status="connected">
       <div className="dashboard comparison-dashboard">
@@ -186,6 +187,24 @@ function ConnectedView({ data }) {
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{reason}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-block comparison-section" aria-labelledby="decision-cards-title">
+          <div className="section-header">
+            <div>
+              <p className="section-kicker">Decision cards</p>
+              <h2 id="decision-cards-title">Read the decision from three angles.</h2>
+            </div>
+            <p>
+              These cards arrive through the API. The browser formats their
+              values but does not rank candidates or apply selection policy.
+            </p>
+          </div>
+          <div className="decision-card-grid">
+            {cards.map((card, index) => (
+              <DecisionCard card={card} index={index} key={card.card_id} />
             ))}
           </div>
         </section>

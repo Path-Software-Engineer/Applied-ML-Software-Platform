@@ -1115,3 +1115,26 @@ Decision Card presentation remains a separate Day 75 responsibility.
 ### Status
 
 Accepted and implemented on global Day 74.
+
+## Decision 047 — Render Decision Cards from API evidence only
+
+### Context
+
+Decision Cards need a clear visual hierarchy, but recreating the ranking or
+selection rule in React would create a second source of truth.
+
+### Decision
+
+Render the three `decision_cards` returned by the API. Preserve identifiers,
+metrics, reasons and limitations; map only status codes to human-readable
+presentation labels. Use semantic articles and associated accessible text.
+
+### Consequences
+
+The dashboard explains the observed leader, integration candidate and evidence
+boundary without client-side analytical logic. Day 76 still owns cross-layer
+smoke validation.
+
+### Status
+
+Accepted and implemented on global Day 75.
