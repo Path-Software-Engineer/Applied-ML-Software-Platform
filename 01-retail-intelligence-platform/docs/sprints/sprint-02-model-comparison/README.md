@@ -33,13 +33,14 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Days 57–60 / Sprint 2 Days 1–4 are complete.
+- Global Days 57–61 / Sprint 2 Days 1–5 are complete.
 - Target, features, metrics and fairness rules are documented.
 - The official 12-row training and 6-row test partitions are generated with a
   source checksum and explicit chronological boundary.
 - The training-mean baseline and common MAE/RMSE/R² result contract are
   implemented without using test targets during fitting.
 - Linear Regression is evaluated through shared training-only preprocessing.
+- Random Forest is evaluated with a fixed seed and bounded configuration.
 - No model is selected; no endpoint or React feature exists yet.
 
 ## Weeks
