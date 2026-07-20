@@ -79,8 +79,10 @@ backend/api/app/__init__.py
 backend/api/app/main.py
 backend/api/app/routes/__init__.py
 backend/api/app/routes/demand_summary.py
+backend/api/app/routes/model_comparison.py
 backend/api/app/schemas/__init__.py
 backend/api/app/schemas/demand_summary.py
+backend/api/app/schemas/model_comparison.py
 backend/api/app/services/__init__.py
 backend/api/app/services/demand_figure_service.py
 backend/api/app/services/demand_summary_service.py
@@ -88,6 +90,7 @@ backend/api/app/services/model_comparison_service.py
 backend/api/checks/check_backend_dependencies.py
 backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
+backend/api/checks/check_model_comparison_api.py
 backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
@@ -270,6 +273,7 @@ reports/summaries/model-comparison/day_69_comparison_report_summary.md
 reports/summaries/model-comparison/day_70_week_06_close_summary.md
 reports/summaries/model-comparison/day_71_integration_exploration_summary.md
 reports/summaries/model-comparison/day_72_read_service_summary.md
+reports/summaries/model-comparison/day_73_api_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
@@ -312,6 +316,7 @@ tests/ai-services/model-comparison/test_random_forest.py
 tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
+tests/backend/test_model_comparison_api.py
 tests/backend/test_model_comparison_service.py
 tests/conftest.py
 tests/frontend/.gitkeep

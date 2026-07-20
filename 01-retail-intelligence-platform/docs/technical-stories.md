@@ -666,8 +666,7 @@ canonical comparison report without importing training behavior.
 
 ### Estado
 
-In progress on global Day 72. The internal read service and isolated tests are
-complete; strict HTTP schemas and routing remain assigned to Day 73.
+Completed on global Day 73.
 
 ### Evidencia
 
@@ -675,6 +674,9 @@ complete; strict HTTP schemas and routing remain assigned to Day 73.
 - `docs/sprints/sprint-02-model-comparison/week-07/exploration.md`
 - `backend/api/app/services/model_comparison_service.py`
 - `tests/backend/test_model_comparison_service.py`
+- `backend/api/app/schemas/model_comparison.py`
+- `backend/api/app/routes/model_comparison.py`
+- `tests/backend/test_model_comparison_api.py`
 
 ### Relación con User Stories
 

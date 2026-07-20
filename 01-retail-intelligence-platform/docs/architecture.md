@@ -217,3 +217,15 @@ card identities, and maps only the fields proposed for the public resource.
 The service has no FastAPI or model-training dependency. It raises a controlled
 domain-specific read error when required evidence is missing or inconsistent.
 HTTP routing remains the Day 73 boundary.
+
+### Day 73 implementation status
+
+`GET /api/v1/model-comparisons/summary` delegates to the internal service and
+returns a strict Pydantic resource. Extra response fields are forbidden,
+collection sizes are bounded and the experiment and evidence statuses are
+explicitly typed.
+
+The route owns only dependency resolution and translation of
+`ModelComparisonError` into a safe `503`. It performs no training, metric or
+selection work. The existing Demand Insight router remains registered without
+contract changes.
