@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "decision_status": "selected_for_next_integration",
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "measurement_leader": {
+    "model_id": "gradient_boosting",
+    "model_name": "Gradient Boosting",
+    "mae_units": 3.0884361955009996,
+    "rmse_units": 3.3322935379403216,
+    "largest_observed_error_units": 5.10985382428337
+  },
+  "selected_candidate": {
+    "model_id": "random_forest",
+    "model_name": "Random Forest",
+    "mae_units": 3.125795965608463,
+    "rmse_units": 3.44125567901965,
+    "r2_contextual": 0.41759472221057414,
+    "mae_improvement_vs_baseline_percent": 27.40086789554538,
+    "complexity_order": 3,
+    "largest_observed_error_units": 4.474922619047618
+  },
+  "measurement_leader_is_selected_candidate": false,
+  "practically_equivalent_candidates": [
+    {
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "mae_units": 3.125795965608463,
+      "complexity_order": 3
+    },
+    {
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "mae_units": 3.0884361955009996,
+      "complexity_order": 4
+    }
+  ],
+  "policy": {
+    "primary_metric": "mae",
+    "primary_metric_direction": "lower_is_better",
+    "minimum_baseline_improvement_percent": 10.0,
+    "practical_equivalence_units": 0.25,
+    "tie_breaker": "lower_operational_and_explanation_complexity",
+    "complexity_order": {
+      "training_mean": 1,
+      "linear_regression": 2,
+      "random_forest": 3,
+      "gradient_boosting": 4
+    }
+  },
+  "error_review": {
+    "status": "reviewed",
+    "role": "descriptive_diagnostic_not_causal_override",
+    "selected_candidate_largest_error": {
+      "sale_id": 17,
+      "date": "2026-01-09",
+      "product_id": "P001",
+      "product_name": "Rice 1kg",
+      "category": "Food",
+      "actual_units": 19.0,
+      "predicted_units": 14.525077380952382,
+      "residual": 4.474922619047618,
+      "absolute_error": 4.474922619047618,
+      "direction": "under_prediction"
+    },
+    "measurement_leader_largest_error": {
+      "sale_id": 17,
+      "date": "2026-01-09",
+      "product_id": "P001",
+      "product_name": "Rice 1kg",
+      "category": "Food",
+      "actual_units": 19.0,
+      "predicted_units": 13.89014617571663,
+      "residual": 5.10985382428337,
+      "absolute_error": 5.10985382428337,
+      "direction": "under_prediction"
+    }
+  },
+  "stability_evidence": {
+    "status": "not_assessed",
+    "reason": "single_fixed_chronological_holdout",
+    "repeatability_is_not_stability": true
+  },
+  "rationale": [
+    "Gradient Boosting has the lowest observed MAE.",
+    "Random Forest and Gradient Boosting are within the frozen 0.25-unit practical-equivalence tolerance.",
+    "Random Forest has lower recorded complexity and is selected for the next integration step.",
+    "Largest-error evidence was reviewed descriptively and does not replace the frozen selection rule."
+  ],
+  "production_status": "not_production_ready",
+  "authorized_next_step": "week_7_platform_integration_after_week_6_close",
+  "prohibited_claims": [
+    "production readiness",
+    "stability",
+    "generalization to real retail operations",
+    "inventory action"
+  ]
+}
