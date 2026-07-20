@@ -193,10 +193,12 @@ features, splits or evaluation rules.
 - Target-derived and temporally ambiguous features are excluded explicitly.
 - Results identify the model configuration and prediction unit.
 
-**Status:** Planned on global Day 57.
+**Status:** Completed on global Day 63.
 
 **Evidence:** `docs/model-comparison-experiment-contract.md`,
-`docs/sprints/sprint-02-model-comparison/week-05/exploration.md`.
+`reports/outputs/model-comparison/split_manifest.json`,
+`reports/outputs/model-comparison/initial_results.json`,
+`docs/sprints/sprint-02-model-comparison/week-05/review.md`.
 
 ### US-S2-002 — Understand comparative model quality
 

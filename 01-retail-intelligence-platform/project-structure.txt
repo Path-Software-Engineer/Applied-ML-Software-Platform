@@ -51,10 +51,12 @@ ai-services/model-comparison/checks/check_experiment_split.py
 ai-services/model-comparison/checks/check_gradient_boosting.py
 ai-services/model-comparison/checks/check_linear_regression.py
 ai-services/model-comparison/checks/check_random_forest.py
+ai-services/model-comparison/checks/check_week_05_close.py
 ai-services/model-comparison/requirements.txt
 ai-services/model-comparison/src/model_comparison/__init__.py
 ai-services/model-comparison/src/model_comparison/baseline.py
 ai-services/model-comparison/src/model_comparison/candidate.py
+ai-services/model-comparison/src/model_comparison/comparison.py
 ai-services/model-comparison/src/model_comparison/contract.py
 ai-services/model-comparison/src/model_comparison/data.py
 ai-services/model-comparison/src/model_comparison/gradient_boosting.py
@@ -125,6 +127,7 @@ docs/sprints/sprint-01-demand-insight/week-04/review.md
 docs/sprints/sprint-02-model-comparison/README.md
 docs/sprints/sprint-02-model-comparison/week-05/exploration.md
 docs/sprints/sprint-02-model-comparison/week-05/plan.md
+docs/sprints/sprint-02-model-comparison/week-05/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -144,6 +147,9 @@ labs/cloud-labs/.gitkeep
 labs/docs-labs/.gitkeep
 labs/product-labs/.gitkeep
 labs/tec-labs/.gitkeep
+labs/tec-labs/tec-baseline-vs-model-lab/README.md
+labs/tec-labs/tec-baseline-vs-model-lab/outputs/baseline_vs_model_lab.md
+labs/tec-labs/tec-baseline-vs-model-lab/src/run_lab.py
 labs/tec-labs/tec-sales-eda-lab/README.md
 labs/tec-labs/tec-sales-eda-lab/outputs/eda_flow_comparison.md
 labs/tec-labs/tec-sales-eda-lab/src/compare_eda_flows.py
@@ -161,6 +167,9 @@ reports/insight-cards/demand_insight_cards.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
+reports/outputs/model-comparison/initial_results.csv
+reports/outputs/model-comparison/initial_results.json
+reports/outputs/model-comparison/initial_results.md
 reports/outputs/model-comparison/predictions/gradient_boosting.csv
 reports/outputs/model-comparison/predictions/linear_regression.csv
 reports/outputs/model-comparison/predictions/random_forest.csv
@@ -201,7 +210,9 @@ reports/summaries/model-comparison/day_59_baseline_metrics_summary.md
 reports/summaries/model-comparison/day_60_linear_regression_summary.md
 reports/summaries/model-comparison/day_61_random_forest_summary.md
 reports/summaries/model-comparison/day_62_gradient_boosting_summary.md
+reports/summaries/model-comparison/day_63_week_05_close_summary.md
 scripts/check-backend-runtime.py
+scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1
 scripts/prepare-model-comparison.ps1
@@ -224,6 +235,7 @@ tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
+tests/ai-services/model-comparison/test_comparison.py
 tests/ai-services/model-comparison/test_experiment_split.py
 tests/ai-services/model-comparison/test_gradient_boosting.py
 tests/ai-services/model-comparison/test_linear_regression.py
