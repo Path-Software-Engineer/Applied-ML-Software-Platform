@@ -264,3 +264,44 @@ selection rule so that the recommended candidate can be explained and audited.
 `reports/model-cards/model-comparison/README.md`,
 `reports/outputs/model-comparison/model_comparison_report.json`,
 `reports/decision-cards/model-comparison/decision_cards.json`.
+
+### US-S2-005 — Read Model Comparison evidence through the platform
+
+**Story:** As a retail analyst, I want the completed comparison evidence through
+a versioned platform resource so that I can review it without repository access.
+
+**Value:** Makes the frozen analytical decision reusable without moving model
+training or metric ownership into the web request.
+
+**Acceptance criteria:**
+
+- A read-only resource returns exactly four candidates and three Decision Cards.
+- The response identifies its schema version and learning-only status.
+- Missing or invalid evidence returns an explicit unavailable response with no
+  partial values or local paths.
+- Demand Insight behavior remains unchanged.
+
+**Status:** Planned on global Day 71.
+
+**Evidence:** `docs/model-comparison-read-contract.md`,
+`docs/sprints/sprint-02-model-comparison/week-07/exploration.md`.
+
+### US-S2-006 — Review the model decision in the dashboard
+
+**Story:** As a retail analyst, I want a dedicated comparison view so that I can
+review candidates, the selected integration candidate and its limitations.
+
+**Value:** Presents technical evidence as an understandable decision surface
+without hiding the small-dataset boundary.
+
+**Acceptance criteria:**
+
+- The view distinguishes loading, connected and unavailable states.
+- Candidate metrics remain numeric API evidence formatted only for display.
+- Decision Cards show the observed leader, selected candidate and evidence limit.
+- The browser does not recalculate metrics or selection logic.
+
+**Status:** Planned on global Day 71.
+
+**Evidence:** `docs/model-comparison-read-contract.md`,
+`docs/sprints/sprint-02-model-comparison/week-07/plan.md`.
