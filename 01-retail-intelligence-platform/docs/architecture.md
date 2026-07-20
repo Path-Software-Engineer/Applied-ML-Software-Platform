@@ -207,3 +207,13 @@ model_comparison_report.json
 
 This flow is proposed on Day 71. The service, endpoint and frontend remain
 unimplemented until their assigned Days 72–75.
+
+### Day 72 implementation status
+
+`ModelComparisonService` is the internal read adapter. It validates one
+`model_comparison_report.json`, cross-checks experiment, candidate, decision and
+card identities, and maps only the fields proposed for the public resource.
+
+The service has no FastAPI or model-training dependency. It raises a controlled
+domain-specific read error when required evidence is missing or inconsistent.
+HTTP routing remains the Day 73 boundary.
