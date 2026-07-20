@@ -1092,3 +1092,26 @@ collection sizes fail validation, while internal paths and errors remain private
 ### Status
 
 Accepted and implemented on global Day 73.
+
+## Decision 046 — Isolate Model Comparison as a separate React feature
+
+### Context
+
+Demand Insight is stable and must not absorb model-specific request or
+presentation logic as the platform grows.
+
+### Decision
+
+Create a `model-comparison` frontend feature with its own API client, hook and
+view. Use hash navigation to preserve the current application shell and make
+loading, connected and unavailable states explicit.
+
+### Consequences
+
+Both modules remain independently testable. React consumes only the public
+resource, renders no fallback metrics and does not reproduce selection policy.
+Decision Card presentation remains a separate Day 75 responsibility.
+
+### Status
+
+Accepted and implemented on global Day 74.

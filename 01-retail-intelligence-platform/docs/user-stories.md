@@ -303,7 +303,9 @@ without hiding the small-dataset boundary.
 - Decision Cards show the observed leader, selected candidate and evidence limit.
 - The browser does not recalculate metrics or selection logic.
 
-**Status:** Planned on global Day 71.
+**Status:** In progress on global Day 74. The comparison view and request states
+are implemented; visual Decision Cards remain assigned to Day 75.
 
 **Evidence:** `docs/model-comparison-read-contract.md`,
-`docs/sprints/sprint-02-model-comparison/week-07/plan.md`.
+`frontend/dashboard-app/src/features/model-comparison/`,
+`frontend/dashboard-app/tests/modelComparisonApi.test.js`.

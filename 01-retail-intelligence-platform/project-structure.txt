@@ -163,9 +163,13 @@ frontend/dashboard-app/src/app/App.jsx
 frontend/dashboard-app/src/features/demand-summary/api/demandSummaryApi.js
 frontend/dashboard-app/src/features/demand-summary/components/DemandDashboard.jsx
 frontend/dashboard-app/src/features/demand-summary/hooks/useDemandSummary.js
+frontend/dashboard-app/src/features/model-comparison/api/modelComparisonApi.js
+frontend/dashboard-app/src/features/model-comparison/components/ModelComparisonDashboard.jsx
+frontend/dashboard-app/src/features/model-comparison/hooks/useModelComparison.js
 frontend/dashboard-app/src/main.jsx
 frontend/dashboard-app/src/styles.css
 frontend/dashboard-app/tests/demandSummaryApi.test.js
+frontend/dashboard-app/tests/modelComparisonApi.test.js
 frontend/dashboard-app/vite.config.js
 labs/.gitkeep
 labs/cloud-labs/.gitkeep
@@ -274,6 +278,7 @@ reports/summaries/model-comparison/day_70_week_06_close_summary.md
 reports/summaries/model-comparison/day_71_integration_exploration_summary.md
 reports/summaries/model-comparison/day_72_read_service_summary.md
 reports/summaries/model-comparison/day_73_api_summary.md
+reports/summaries/model-comparison/day_74_dashboard_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
