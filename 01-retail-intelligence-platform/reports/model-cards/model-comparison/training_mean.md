@@ -1,9 +1,9 @@
 # Model Card — Training Mean Baseline
 
-**Model ID:** `training_mean`  
-**Family:** `baseline`  
-**Decision role:** `comparison_baseline`  
-**Production status:** `not_production_ready`
+- **Model ID:** `training_mean`
+- **Family:** `baseline`
+- **Decision role:** `comparison_baseline`
+- **Production status:** `not_production_ready`
 
 ## Purpose
 

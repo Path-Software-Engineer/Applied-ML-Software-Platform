@@ -1,9 +1,9 @@
 # Model Card — Gradient Boosting
 
-**Model ID:** `gradient_boosting`  
-**Family:** `boosted_tree_ensemble`  
-**Decision role:** `measurement_leader_not_selected`  
-**Production status:** `not_production_ready`
+- **Model ID:** `gradient_boosting`
+- **Family:** `boosted_tree_ensemble`
+- **Decision role:** `measurement_leader_not_selected`
+- **Production status:** `not_production_ready`
 
 ## Purpose
 

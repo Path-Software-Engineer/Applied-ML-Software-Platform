@@ -1,9 +1,9 @@
 # Model Card — Linear Regression
 
-**Model ID:** `linear_regression`  
-**Family:** `linear_model`  
-**Decision role:** `evaluated_candidate`  
-**Production status:** `not_production_ready`
+- **Model ID:** `linear_regression`
+- **Family:** `linear_model`
+- **Decision role:** `evaluated_candidate`
+- **Production status:** `not_production_ready`
 
 ## Purpose
 

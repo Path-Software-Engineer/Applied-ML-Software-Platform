@@ -1,9 +1,9 @@
 # Model Card — Random Forest
 
-**Model ID:** `random_forest`  
-**Family:** `tree_ensemble`  
-**Decision role:** `selected_for_next_integration`  
-**Production status:** `not_production_ready`
+- **Model ID:** `random_forest`
+- **Family:** `tree_ensemble`
+- **Decision role:** `selected_for_next_integration`
+- **Production status:** `not_production_ready`
 
 ## Purpose
 
