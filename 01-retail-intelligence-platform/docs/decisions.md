@@ -1048,3 +1048,25 @@ on Day 72, not in the Day 71 exploration.
 ### Status
 
 Accepted as the Week 7 integration design on global Day 71.
+
+## Decision 044 — Validate and map one canonical comparison report
+
+### Context
+
+The public resource needs a smaller stable shape, while the full analytical
+report contains internal error and decision details that the UI does not need.
+
+### Decision
+
+Implement `ModelComparisonService` as a read-only adapter. It validates the
+canonical report and maps selected fields into the proposed public resource.
+It imports no training module and returns controlled internal errors.
+
+### Consequences
+
+The analytical artifact remains the source of truth, the API can use a narrow
+resource and inconsistent identities or metrics fail closed before transport.
+
+### Status
+
+Accepted and implemented on global Day 72.
