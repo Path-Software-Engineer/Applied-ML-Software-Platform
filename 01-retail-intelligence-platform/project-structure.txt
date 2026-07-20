@@ -48,6 +48,7 @@ ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
 ai-services/model-comparison/checks/check_baseline_metrics.py
 ai-services/model-comparison/checks/check_experiment_split.py
+ai-services/model-comparison/checks/check_gradient_boosting.py
 ai-services/model-comparison/checks/check_linear_regression.py
 ai-services/model-comparison/checks/check_random_forest.py
 ai-services/model-comparison/requirements.txt
@@ -56,6 +57,7 @@ ai-services/model-comparison/src/model_comparison/baseline.py
 ai-services/model-comparison/src/model_comparison/candidate.py
 ai-services/model-comparison/src/model_comparison/contract.py
 ai-services/model-comparison/src/model_comparison/data.py
+ai-services/model-comparison/src/model_comparison/gradient_boosting.py
 ai-services/model-comparison/src/model_comparison/linear_regression.py
 ai-services/model-comparison/src/model_comparison/metrics.py
 ai-services/model-comparison/src/model_comparison/preprocessing.py
@@ -159,9 +161,11 @@ reports/insight-cards/demand_insight_cards.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
+reports/outputs/model-comparison/predictions/gradient_boosting.csv
 reports/outputs/model-comparison/predictions/linear_regression.csv
 reports/outputs/model-comparison/predictions/random_forest.csv
 reports/outputs/model-comparison/predictions/training_mean.csv
+reports/outputs/model-comparison/results/gradient_boosting.json
 reports/outputs/model-comparison/results/linear_regression.json
 reports/outputs/model-comparison/results/random_forest.json
 reports/outputs/model-comparison/results/training_mean.json
@@ -196,6 +200,7 @@ reports/summaries/model-comparison/day_58_experiment_split_summary.md
 reports/summaries/model-comparison/day_59_baseline_metrics_summary.md
 reports/summaries/model-comparison/day_60_linear_regression_summary.md
 reports/summaries/model-comparison/day_61_random_forest_summary.md
+reports/summaries/model-comparison/day_62_gradient_boosting_summary.md
 scripts/check-backend-runtime.py
 scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1
@@ -203,6 +208,7 @@ scripts/prepare-model-comparison.ps1
 scripts/run-ai-service.ps1
 scripts/run-backend.ps1
 scripts/run-frontend.ps1
+scripts/run-gradient-boosting.ps1
 scripts/run-linear-regression.ps1
 scripts/run-model-comparison-baseline.ps1
 scripts/run-quality-gate.ps1
@@ -219,6 +225,7 @@ tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
 tests/ai-services/model-comparison/test_experiment_split.py
+tests/ai-services/model-comparison/test_gradient_boosting.py
 tests/ai-services/model-comparison/test_linear_regression.py
 tests/ai-services/model-comparison/test_random_forest.py
 tests/backend/test_demand_figure_service.py
