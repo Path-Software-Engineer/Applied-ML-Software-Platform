@@ -895,30 +895,44 @@ quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 Release notes:
 [`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
 
-Sprint 2 opened on global Day 57 with the Model Comparison exploration. The
-user decision, experiment boundary, fairness rules and Week 5 plan are
-documented. No model has been trained and no Sprint 1 contract has changed.
+Sprint 2 has advanced through global Day 68. The common experiment compares a
+training-mean baseline, Linear Regression, Random Forest and Gradient Boosting
+on one frozen chronological split. Gradient Boosting is the observed metric
+leader; Random Forest is selected only for the next integration step under the
+documented practical-equivalence rule. All evidence remains
+`not_production_ready`, and no Sprint 1 public contract has changed.
 
 ## Sprint 2
 
 ```txt
-Definir dataset para comparación [in progress]
-Crear baseline de comparación
-Entrenar modelos clásicos
-Calcular métricas
-Crear tabla comparativa
-Crear error notes
-Crear decision cards
-Crear visual report
-Actualizar dashboard
-Documentar labs
+[completed] Definir dataset y split para comparación
+[completed] Crear baseline de comparación
+[completed] Entrenar tres modelos clásicos
+[completed] Calcular métricas comunes
+[completed] Crear tabla comparativa
+[completed] Crear análisis de errores
+[completed] Aplicar criterio de selección reproducible
+[completed] Crear cuatro Model Cards
+[completed] Documentar labs asignados hasta el Día 68
+[pending] Crear Decision Cards y visual report desde el Día 69
+[pending] Actualizar API y dashboard desde Week 7
 ```
 
 Current evidence:
 
 - [`docs/sprints/sprint-02-model-comparison/README.md`](docs/sprints/sprint-02-model-comparison/README.md);
 - [`docs/model-comparison-experiment-contract.md`](docs/model-comparison-experiment-contract.md);
-- global Day 57 / Sprint 2 Day 1 completed as exploration only.
+- [`reports/outputs/model-comparison/comparison_table.md`](reports/outputs/model-comparison/comparison_table.md);
+- [`reports/outputs/model-comparison/error_analysis.md`](reports/outputs/model-comparison/error_analysis.md);
+- [`reports/outputs/model-comparison/model_decision.md`](reports/outputs/model-comparison/model_decision.md);
+- [`reports/model-cards/model-comparison/README.md`](reports/model-cards/model-comparison/README.md);
+- global Days 57–68 / Sprint 2 Days 1–12 completed.
+
+Install the pinned Model Comparison runtime before running its checks:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r ai-services\model-comparison\requirements.txt
+```
 
 ## Sprint 3
 
