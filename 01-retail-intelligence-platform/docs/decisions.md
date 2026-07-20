@@ -929,3 +929,29 @@ description and causal or stability claims.
 ### Status
 
 Accepted and implemented on global Day 66.
+
+## Decision 039 — Select Random Forest for the next integration step
+
+### Context
+
+Gradient Boosting has the lowest observed MAE, while Random Forest differs by
+only 0.0374 units and both candidates fall inside the frozen 0.25-unit
+practical-equivalence tolerance.
+
+### Decision
+
+Record Gradient Boosting as the measurement leader and select Random Forest for
+the next integration step. Apply the frozen lower-complexity tie-break after
+confirming that Random Forest improves baseline MAE by more than 10% and that
+its error evidence was reviewed.
+
+### Consequences
+
+Metric leadership and engineering selection remain distinct and auditable.
+Random Forest may proceed to later platform integration only after Week 6
+closes. The decision does not establish stability, generalization or production
+readiness.
+
+### Status
+
+Accepted and implemented on global Day 67.
