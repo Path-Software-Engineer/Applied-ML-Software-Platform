@@ -236,9 +236,12 @@ overinterpreted.
 - The largest misses are identified without inventing causal explanations.
 - The small synthetic dataset remains visible as a decision limitation.
 
-**Status:** Planned on global Day 57.
+**Status:** Completed on global Day 66.
 
-**Evidence:** `docs/sprints/sprint-02-model-comparison/week-05/plan.md`.
+**Evidence:** `reports/outputs/model-comparison/error_analysis.csv`,
+`reports/outputs/model-comparison/error_analysis.json`,
+`reports/outputs/model-comparison/error_analysis.md`,
+`ai-services/model-comparison/checks/check_error_analysis.py`.
 
 ### US-S2-004 — Receive an evidence-backed candidate rationale
 

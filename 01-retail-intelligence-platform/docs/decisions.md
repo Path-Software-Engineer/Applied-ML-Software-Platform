@@ -906,3 +906,26 @@ the complexity tie-break. Day 67 remains the only selection boundary.
 ### Status
 
 Accepted and implemented on global Day 65.
+
+## Decision 038 — Validate residuals before interpreting largest errors
+
+### Context
+
+Prediction files can contain stale, mismatched or incorrectly calculated
+residuals. Aggregate metrics do not show error direction or observation context.
+
+### Decision
+
+Validate every prediction row against the official test target, recompute
+residual and absolute error consistency, and attach date and product context.
+Describe largest errors and direction without assigning causes.
+
+### Consequences
+
+Day 67 receives auditable error evidence for all 24 candidate-row predictions.
+The analysis exposes observed misses while preserving the boundary between
+description and causal or stability claims.
+
+### Status
+
+Accepted and implemented on global Day 66.
