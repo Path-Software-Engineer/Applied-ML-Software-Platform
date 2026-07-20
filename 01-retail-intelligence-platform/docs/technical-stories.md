@@ -643,6 +643,8 @@ Completed on global Day 68.
 - `ai-services/model-comparison/src/model_comparison/model_cards.py`
 - `reports/outputs/model-comparison/model_decision.json`
 - `reports/model-cards/model-comparison/model_cards.json`
+- `reports/outputs/model-comparison/model_comparison_report.json`
+- `reports/decision-cards/model-comparison/decision_cards.json`
 
 ### Relación con User Stories
 
