@@ -215,10 +215,12 @@ surface.
 - R² is labeled as contextual and not used alone on the six-row test set.
 - Dataset, split and model identifiers accompany the metrics.
 
-**Status:** Planned on global Day 57.
+**Status:** Completed on global Day 65.
 
-**Evidence:** `docs/model-comparison-experiment-contract.md`,
-`docs/sprints/sprint-02-model-comparison/week-05/plan.md`.
+**Evidence:** `reports/outputs/model-comparison/comparison_table.csv`,
+`reports/outputs/model-comparison/comparison_table.json`,
+`reports/outputs/model-comparison/comparison_table.md`,
+`ai-services/model-comparison/checks/check_comparison_table.py`.
 
 ### US-S2-003 — Review errors before accepting a candidate
 

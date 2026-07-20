@@ -884,3 +884,25 @@ choice cannot be labeled production ready.
 ### Status
 
 Accepted on global Day 64; execution is scheduled for Day 67.
+
+## Decision 037 — Separate measurement ranking from model selection
+
+### Context
+
+A sorted metric table is necessary for comparison, but its first row cannot
+automatically encode the broader integration decision.
+
+### Decision
+
+Rank by MAE and calculate RMSE, contextual R², delta versus baseline and
+percentage improvement. Mark candidates inside the frozen 0.25-unit tolerance,
+while keeping the table's selection status explicitly `not_selected`.
+
+### Consequences
+
+The metric leader is visible and reproducible without bypassing error review or
+the complexity tie-break. Day 67 remains the only selection boundary.
+
+### Status
+
+Accepted and implemented on global Day 65.
