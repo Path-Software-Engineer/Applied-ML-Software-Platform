@@ -1,0 +1,75 @@
+# Sprint 2 — Model Comparison Module
+
+## Objective
+
+Compare a transparent baseline and three classical regression models under one
+reproducible experiment contract, then translate their metrics and errors into
+an auditable technical decision.
+
+## Scope
+
+```text
+validated Sprint 1 features
+    -> experiment contract
+    -> chronological train/test split
+    -> training-mean baseline
+    -> Linear Regression
+    -> Random Forest
+    -> Gradient Boosting
+    -> common metrics
+    -> error analysis
+    -> decision rule
+    -> model cards
+    -> comparison report
+    -> read service / API / dashboard
+```
+
+## User
+
+The primary user is a retail analyst reviewing which classical candidate is
+most defensible for continued platform development. A technical stakeholder
+needs traceable configuration, metrics, errors and limitations.
+
+## Current state
+
+- Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
+- Global Day 57 / Sprint 2 Day 1 is completed as exploration.
+- Target, features, split direction, metrics and fairness rules are documented.
+- No model, new dependency, endpoint or React feature exists yet.
+
+## Weeks
+
+| Week | Global days | Scope |
+|---|---:|---|
+| Week 5 | 57–63 | experiment setup, baseline and three candidates |
+| Week 6 | 64–70 | metrics, errors, decision, cards and report |
+| Week 7 | 71–77 | backend and dashboard integration |
+| Week 8 | 78–84 | hardening, evidence and Sprint 2 release |
+
+## Official outputs
+
+Planned output families:
+
+- prepared train/test partitions and split manifest;
+- prediction and metric evidence per candidate;
+- comparison table;
+- structured error notes;
+- selection decision;
+- model cards and Decision Cards;
+- technical and visual report;
+- versioned backend resource and frontend presentation in Week 7.
+
+## Limits
+
+- The dataset has only 18 synthetic observations.
+- The test partition has six observations.
+- Model quality cannot be generalized to real retail operations.
+- No hyperparameter search, forecasting or inventory action belongs here.
+- Backend and frontend work cannot begin before Week 7.
+- Sprint 3 remains inactive.
+
+## Closure criteria
+
+Sprint 2 closes only after the common experiment is reproducible, errors and
+limitations are visible, API and dashboard integration pass the repository gate
+and release `v0.2.0-sprint-02-model-comparison` is prepared through Gitflow.

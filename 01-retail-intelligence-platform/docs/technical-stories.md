@@ -520,3 +520,125 @@ US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-014 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `backend/api/app/services/demand_figure_service.py`, `tests/backend/test_demand_figure_service.py`, `frontend/dashboard-app/src/features/demand-summary/` |
 | TS-S1-015 | US-S1-006, US-S1-007, US-S1-008 | `scripts/run-quality-gate.ps1`, `frontend/dashboard-app/tests/demandSummaryApi.test.js`, `checks/check_sprint_01_hardening.py` |
 | TS-S1-016 | US-S1-006, US-S1-007, US-S1-008 | `docs/releases/v0.1.0-sprint-01-demand-insight.md`, `checks/check_sprint_01_close.py`, `reports/summaries/demand-insight/sprint_01_close_summary.md` |
+
+## Sprint 2 — Preliminary Technical Stories
+
+These stories define the Model Comparison direction on global Day 57. Their
+status remains Planned until implementation and verification exist.
+
+## TS-S2-001 — Establish a reproducible experiment contract
+
+### Necesidad técnica
+
+The system needs one validated dataset, feature contract and chronological
+train/test boundary before any model can be compared.
+
+### Criterios de aceptación
+
+- The target is `units_sold` and its unit is explicit.
+- Allowed and excluded features include leakage rationale.
+- One split manifest records row counts, dates, source checksum and seed.
+- Tests use controlled inputs and do not overwrite official evidence.
+
+### Estado
+
+Planned.
+
+### Evidencia
+
+- `docs/model-comparison-experiment-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-05/exploration.md`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-003.
+
+## TS-S2-002 — Register common metrics and baseline evidence
+
+### Necesidad técnica
+
+Every candidate needs the same result schema and evaluation functions so checks
+cannot change formulas or compare incompatible outputs.
+
+### Criterios de aceptación
+
+- The training-mean baseline predicts only the official test rows.
+- MAE, RMSE and R² share a versioned result contract.
+- Metric direction and units are recorded.
+- Tests verify formulas and invalid inputs.
+
+### Estado
+
+Planned.
+
+### Evidencia
+
+- `docs/model-comparison-experiment-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-002.
+
+## TS-S2-003 — Train comparable classical regression pipelines
+
+### Necesidad técnica
+
+The system needs reproducible Linear Regression, Random Forest and Gradient
+Boosting candidates behind one preprocessing and evaluation boundary.
+
+### Criterios de aceptación
+
+- Candidates consume the same train and test partitions.
+- Categorical values are encoded without using target data.
+- Stochastic candidates record `random_state`.
+- Predictions and metrics use the shared result contract.
+
+### Estado
+
+Planned.
+
+### Evidencia
+
+- `docs/model-comparison-experiment-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-002.
+
+## TS-S2-004 — Produce auditable error and decision evidence
+
+### Necesidad técnica
+
+Aggregate metrics need observation-level error evidence, an explicit selection
+rule and model cards before a backend can expose a recommendation.
+
+### Criterios de aceptación
+
+- Comparison outputs are deterministic CSV, JSON and Markdown artifacts.
+- Error analysis identifies largest misses without claiming causality.
+- Selection separates best metric from best candidate.
+- Model cards link configuration, metrics, strengths and limitations.
+
+### Estado
+
+Planned.
+
+### Evidencia
+
+- `docs/sprints/sprint-02-model-comparison/README.md`
+- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+
+### Relación con User Stories
+
+US-S2-002, US-S2-003, US-S2-004.
+
+## Sprint 2 preliminary traceability
+
+| Technical Story | User Stories relacionadas | Initial evidence |
+|---|---|---|
+| TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
+| TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
+| TS-S2-003 | US-S2-001, US-S2-002 | `docs/model-comparison-experiment-contract.md` |
+| TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `docs/sprints/sprint-02-model-comparison/README.md` |

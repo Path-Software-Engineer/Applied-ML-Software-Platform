@@ -687,3 +687,36 @@ explicitly authorized feature branch is opened.
 ### Status
 
 Accepted and implemented on Day 28.
+
+## Decision 029 — Open Sprint 2 behind a fair experiment contract
+
+### Context
+
+The platform must compare classical regression models without reopening Sprint
+1, leaking target-derived information or changing the dataset between
+candidates. The available dataset contains only 18 artificial observations.
+
+### Decision
+
+Use `units_sold` as a continuous target measured in units per sale record.
+Compare a training-mean baseline, Linear Regression, Random Forest and Gradient
+Boosting on one chronological split. Every candidate must receive the same
+rows, target, feature contract, preprocessing boundary and metrics.
+
+Allow `product_id`, `category`, `unit_price`, `day_of_week` and `is_weekend` as
+candidate features. Exclude identifiers, raw date, product-name duplication,
+constant columns, target-derived revenue and ambiguous post/near-sale stock.
+
+Use MAE as the primary metric, RMSE as a large-error diagnostic and R² only as
+context. A six-row test set and synthetic source cannot establish production
+generalization.
+
+### Consequences
+
+Sprint 2 gains an auditable comparison boundary before dependencies or models
+are added. Backend and React remain unchanged until Week 7. Model ranking may
+support an initial candidate decision, but cannot authorize production use.
+
+### Status
+
+Accepted as the global Day 57 exploration decision.
