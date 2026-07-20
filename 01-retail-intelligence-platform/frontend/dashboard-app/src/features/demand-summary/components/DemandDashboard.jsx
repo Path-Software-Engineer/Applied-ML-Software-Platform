@@ -52,6 +52,10 @@ function AppShell({ children }) {
             <span className="nav-index">04</span>
             Visual report
           </a>
+          <a className="nav-item" href="#model-comparison">
+            <span className="nav-index">05</span>
+            Model comparison
+          </a>
         </nav>
 
         <div className="sidebar-note">

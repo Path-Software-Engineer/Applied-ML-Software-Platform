@@ -229,3 +229,15 @@ The route owns only dependency resolution and translation of
 `ModelComparisonError` into a safe `503`. It performs no training, metric or
 selection work. The existing Demand Insight router remains registered without
 contract changes.
+
+### Day 74 implementation status
+
+`frontend/dashboard-app/src/features/model-comparison/` owns the new API client,
+request hook and presentation component. `App.jsx` selects the Demand Insight or
+Model Comparison feature through a small hash route without coupling their data
+lifecycle.
+
+The client rejects incompatible versions, missing candidates, inconsistent
+identities and incomplete Decision Cards before rendering. The view shows no
+fallback metrics in loading or unavailable states. Day 74 renders the
+comparison and rationale; Decision Card presentation remains Day 75 work.
