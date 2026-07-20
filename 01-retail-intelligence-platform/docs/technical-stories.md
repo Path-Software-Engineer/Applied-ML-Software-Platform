@@ -633,12 +633,16 @@ rule and model cards before a backend can expose a recommendation.
 
 ### Estado
 
-Planned.
+Completed on global Day 68.
 
 ### Evidencia
 
-- `docs/sprints/sprint-02-model-comparison/README.md`
-- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+- `ai-services/model-comparison/src/model_comparison/comparison_table.py`
+- `ai-services/model-comparison/src/model_comparison/error_analysis.py`
+- `ai-services/model-comparison/src/model_comparison/decision.py`
+- `ai-services/model-comparison/src/model_comparison/model_cards.py`
+- `reports/outputs/model-comparison/model_decision.json`
+- `reports/model-cards/model-comparison/model_cards.json`
 
 ### Relación con User Stories
 
@@ -651,4 +655,4 @@ US-S2-002, US-S2-003, US-S2-004.
 | TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
 | TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
 | TS-S2-003 | US-S2-001, US-S2-002 | `ai-services/model-comparison/src/model_comparison/candidate.py` |
-| TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `docs/sprints/sprint-02-model-comparison/README.md` |
+| TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |

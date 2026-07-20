@@ -256,7 +256,9 @@ selection rule so that the recommended candidate can be explained and audited.
 - Every candidate has purpose, configuration, metrics and limitations.
 - The recommendation is reproducible and does not claim production readiness.
 
-**Status:** Planned on global Day 57.
+**Status:** Completed on global Day 68.
 
-**Evidence:** `docs/sprints/sprint-02-model-comparison/README.md`,
-`docs/sprints/sprint-02-model-comparison/week-05/plan.md`.
+**Evidence:** `reports/outputs/model-comparison/model_decision.json`,
+`reports/outputs/model-comparison/model_decision.md`,
+`reports/model-cards/model-comparison/model_cards.json`,
+`reports/model-cards/model-comparison/README.md`.
