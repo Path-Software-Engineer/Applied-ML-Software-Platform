@@ -193,3 +193,17 @@ Future backend code may validate and map this report into a public resource. It
 must not import training modules, join separate analytical artifacts, retrain a
 candidate or recompute metrics during a request. React must consume the public
 resource and must not reproduce the selection rule.
+
+### Week 7 planned read flow
+
+```text
+model_comparison_report.json
+        -> ModelComparisonService validation and mapping
+        -> GET /api/v1/model-comparisons/summary
+        -> model-comparison frontend API client
+        -> request lifecycle hook
+        -> candidate view and Decision Cards
+```
+
+This flow is proposed on Day 71. The service, endpoint and frontend remain
+unimplemented until their assigned Days 72–75.

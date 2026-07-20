@@ -1024,3 +1024,27 @@ frozen evidence and cannot reinterpret selection as production readiness.
 ### Status
 
 Accepted and implemented on global Day 70.
+
+## Decision 043 — Integrate Model Comparison through one read-only resource
+
+### Context
+
+Week 7 needs to expose the completed comparison without coupling HTTP requests
+or React presentation to training and selection modules.
+
+### Decision
+
+Validate the canonical Day 69 report inside an internal service and map it to
+`GET /api/v1/model-comparisons/summary`. React will consume that resource with
+loading, connected and unavailable states. No layer may recalculate the model
+decision.
+
+### Consequences
+
+Demand Insight remains stable, analytical ownership stays in the AI service and
+the public contract can evolve by explicit schema version. Runtime work begins
+on Day 72, not in the Day 71 exploration.
+
+### Status
+
+Accepted as the Week 7 integration design on global Day 71.

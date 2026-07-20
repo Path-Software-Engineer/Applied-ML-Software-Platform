@@ -650,7 +650,61 @@ Completed on global Day 68.
 
 US-S2-002, US-S2-003, US-S2-004.
 
-## Sprint 2 preliminary traceability
+## TS-S2-005 — Expose a validated Model Comparison read resource
+
+### Necesidad técnica
+
+The platform needs a read-only service and strict HTTP contract over the
+canonical comparison report without importing training behavior.
+
+### Criterios de aceptación
+
+- One internal service validates the report version, identities and evidence.
+- One versioned endpoint delegates to the service and never trains models.
+- Public failures contain no artifact paths or internal exception details.
+- Isolated service and HTTP tests cover invalid evidence.
+
+### Estado
+
+Planned on global Day 71.
+
+### Evidencia
+
+- `docs/model-comparison-read-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-07/exploration.md`
+
+### Relación con User Stories
+
+US-S2-005.
+
+## TS-S2-006 — Consume Model Comparison evidence in React
+
+### Necesidad técnica
+
+The dashboard needs an isolated feature, API client and request lifecycle for
+comparison evidence without embedded fallback metrics or selection logic.
+
+### Criterios de aceptación
+
+- A dedicated client validates schema version and required collections.
+- A hook exposes loading, connected and unavailable states.
+- Presentation renders candidate evidence and API-provided Decision Cards.
+- Frontend contract tests reject incompatible or incomplete responses.
+
+### Estado
+
+Planned on global Day 71.
+
+### Evidencia
+
+- `docs/model-comparison-read-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-07/plan.md`
+
+### Relación con User Stories
+
+US-S2-005, US-S2-006.
+
+## Sprint 2 traceability
 
 | Technical Story | User Stories relacionadas | Initial evidence |
 |---|---|---|
@@ -658,3 +712,5 @@ US-S2-002, US-S2-003, US-S2-004.
 | TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
 | TS-S2-003 | US-S2-001, US-S2-002 | `ai-services/model-comparison/src/model_comparison/candidate.py` |
 | TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |
+| TS-S2-005 | US-S2-005 | `docs/model-comparison-read-contract.md` |
+| TS-S2-006 | US-S2-005, US-S2-006 | `docs/sprints/sprint-02-model-comparison/week-07/plan.md` |
