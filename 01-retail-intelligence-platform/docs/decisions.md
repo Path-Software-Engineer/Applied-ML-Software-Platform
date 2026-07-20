@@ -789,3 +789,26 @@ source still prevent production-readiness claims.
 ### Status
 
 Accepted and implemented on global Day 60.
+
+## Decision 033 — Bound and seed the Random Forest candidate
+
+### Context
+
+An unrestricted ensemble can memorize a 12-row training partition, while
+parallel execution and an unrecorded seed weaken reproducibility.
+
+### Decision
+
+Evaluate a 200-tree `RandomForestRegressor` with maximum depth 4, minimum leaf
+size 2, `random_state=42` and one worker. Reuse the common preprocessing,
+prediction and metric contracts without tuning on the test set.
+
+### Consequences
+
+The candidate is repeatable and its capacity is constrained, but the chosen
+parameters are experiment configuration rather than optimized values. The
+small holdout still prevents stability or production claims.
+
+### Status
+
+Accepted and implemented on global Day 61.
