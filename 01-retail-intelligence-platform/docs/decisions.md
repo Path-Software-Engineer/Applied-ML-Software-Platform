@@ -765,3 +765,27 @@ because six test observations cannot support a strong goodness-of-fit claim.
 ### Status
 
 Accepted and implemented on global Day 59.
+
+## Decision 032 — Fit preprocessing inside each candidate pipeline
+
+### Context
+
+Categorical encoding or numeric scaling performed before the experiment split
+would expose test-partition information and weaken comparison fairness.
+
+### Decision
+
+Use one scikit-learn `Pipeline` with a shared `ColumnTransformer`. Fit one-hot
+encoding and numeric standardization on the training partition only, then
+evaluate Linear Regression on the untouched test partition. Pin the local
+model-comparison dependencies to exact versions.
+
+### Consequences
+
+Later candidates reuse the same preprocessing and result boundaries. Unknown
+test categories remain processable, while the six-row test set and synthetic
+source still prevent production-readiness claims.
+
+### Status
+
+Accepted and implemented on global Day 60.
