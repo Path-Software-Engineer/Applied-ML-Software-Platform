@@ -261,4 +261,6 @@ selection rule so that the recommended candidate can be explained and audited.
 **Evidence:** `reports/outputs/model-comparison/model_decision.json`,
 `reports/outputs/model-comparison/model_decision.md`,
 `reports/model-cards/model-comparison/model_cards.json`,
-`reports/model-cards/model-comparison/README.md`.
+`reports/model-cards/model-comparison/README.md`,
+`reports/outputs/model-comparison/model_comparison_report.json`,
+`reports/decision-cards/model-comparison/decision_cards.json`.

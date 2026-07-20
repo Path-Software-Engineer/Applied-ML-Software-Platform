@@ -1002,3 +1002,25 @@ remains in `ai-services/model-comparison`.
 ### Status
 
 Accepted and implemented on global Day 69.
+
+## Decision 042 — Close Week 6 before platform integration
+
+### Context
+
+The comparison evidence is complete, but adding backend or frontend behavior
+before a documented closure would blur the analytical and integration phases.
+
+### Decision
+
+Close Week 6 with one review, one summary and a repository check that confirms
+the comparison report, Decision Cards, traceability and learning-only boundary.
+Begin platform integration only in Week 7.
+
+### Consequences
+
+Days 64–70 have a reproducible closure point. Later read layers inherit the
+frozen evidence and cannot reinterpret selection as production readiness.
+
+### Status
+
+Accepted and implemented on global Day 70.

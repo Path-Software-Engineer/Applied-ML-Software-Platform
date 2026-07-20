@@ -182,3 +182,14 @@ excluded because its before/after-sale timing is not sufficiently precise.
 
 Training, metrics and artifact implementation begin only on their assigned
 days. Day 57 creates documentation and traceability, not runtime capability.
+
+### Week 6 decision evidence boundary
+
+Week 6 closes with `model_comparison_report.json` as the canonical composite
+read artifact. It contains the frozen comparison, error review, decision and
+three presentation-ready Decision Cards under schema version `1.0`.
+
+Future backend code may validate and map this report into a public resource. It
+must not import training modules, join separate analytical artifacts, retrain a
+candidate or recompute metrics during a request. React must consume the public
+resource and must not reproduce the selection rule.

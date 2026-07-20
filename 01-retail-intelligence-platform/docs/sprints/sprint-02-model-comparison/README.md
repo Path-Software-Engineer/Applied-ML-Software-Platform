@@ -33,7 +33,7 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Days 57–69 / Sprint 2 Days 1–13 are complete.
+- Global Days 57–70 / Sprint 2 Days 1–14 are complete.
 - Target, features, metrics and fairness rules are documented.
 - The official 12-row training and 6-row test partitions are generated with a
   source checksum and explicit chronological boundary.
@@ -49,6 +49,7 @@ needs traceable configuration, metrics, errors and limitations.
 - Random Forest is selected for the next integration step under the frozen rule.
 - Four Model Cards connect configuration, metrics, errors, risks and decision roles.
 - A versioned comparison report and three Decision Cards are reusable by backend.
+- Week 6 is closed with its review, traceability and quality evidence.
 - The candidate is not production ready; no endpoint or React feature exists yet.
 
 ## Weeks
@@ -56,7 +57,7 @@ needs traceable configuration, metrics, errors and limitations.
 | Week | Global days | Scope |
 |---|---:|---|
 | Week 5 | 57–63 | completed: experiment setup, baseline and three candidates |
-| Week 6 | 64–70 | metrics, errors, decision, cards and report |
+| Week 6 | 64–70 | completed: metrics, errors, decision, cards and report |
 | Week 7 | 71–77 | backend and dashboard integration |
 | Week 8 | 78–84 | hardening, evidence and Sprint 2 release |
 

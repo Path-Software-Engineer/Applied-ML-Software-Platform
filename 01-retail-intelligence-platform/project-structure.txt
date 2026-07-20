@@ -92,6 +92,7 @@ backend/api/requirements.txt
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
+checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 codigo-completo-retail-intelligence-platform.txt
 data/.gitkeep
@@ -142,6 +143,7 @@ docs/sprints/sprint-02-model-comparison/week-05/plan.md
 docs/sprints/sprint-02-model-comparison/week-05/review.md
 docs/sprints/sprint-02-model-comparison/week-06/exploration.md
 docs/sprints/sprint-02-model-comparison/week-06/plan.md
+docs/sprints/sprint-02-model-comparison/week-06/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -259,6 +261,7 @@ reports/summaries/model-comparison/day_66_error_analysis_summary.md
 reports/summaries/model-comparison/day_67_model_decision_summary.md
 reports/summaries/model-comparison/day_68_model_cards_summary.md
 reports/summaries/model-comparison/day_69_comparison_report_summary.md
+reports/summaries/model-comparison/day_70_week_06_close_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
