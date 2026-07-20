@@ -835,3 +835,27 @@ stability or production performance.
 ### Status
 
 Accepted and implemented on global Day 62.
+
+## Decision 035 — Close Week 5 without selecting a model
+
+### Context
+
+The four candidates now have common metrics, but aggregate values alone do not
+cover practical equivalence, error concentration, simplicity, stability or
+interpretability.
+
+### Decision
+
+Consolidate all candidate results after validating shared experiment metadata.
+Do not rank, recommend or label a winner during Week 5. Reserve formal
+comparison, error analysis and selection for Week 6.
+
+### Consequences
+
+Week 5 has reviewable evidence without turning a small observed difference into
+an unsupported decision. The platform preserves a clear boundary between
+metric generation and decision reasoning.
+
+### Status
+
+Accepted and implemented on global Day 63.

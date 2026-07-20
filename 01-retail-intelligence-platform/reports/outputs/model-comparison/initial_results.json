@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "comparison_status": "observed_metrics_not_selection",
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "candidates": [
+    {
+      "model_id": "training_mean",
+      "model_name": "Training Mean Baseline",
+      "model_family": "baseline",
+      "mae_units": 4.305555555555556,
+      "rmse_units": 4.899688198696366,
+      "r2_contextual": -0.18066939890710398,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only"
+    },
+    {
+      "model_id": "linear_regression",
+      "model_name": "Linear Regression",
+      "model_family": "linear_model",
+      "mae_units": 3.563333333333335,
+      "rmse_units": 3.8418398370225346,
+      "r2_contextual": 0.27411147540983594,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only"
+    },
+    {
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "model_family": "tree_ensemble",
+      "mae_units": 3.125795965608463,
+      "rmse_units": 3.44125567901965,
+      "r2_contextual": 0.41759472221057414,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only"
+    },
+    {
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "model_family": "boosted_tree_ensemble",
+      "mae_units": 3.0884361955009996,
+      "rmse_units": 3.3322935379403216,
+      "r2_contextual": 0.4538927759180905,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only"
+    }
+  ],
+  "limitations": [
+    "18 synthetic observations",
+    "6 test observations",
+    "single chronological holdout",
+    "no production-readiness claim"
+  ]
+}
