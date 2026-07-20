@@ -33,7 +33,7 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Days 57–65 / Sprint 2 Days 1–9 are complete.
+- Global Days 57–66 / Sprint 2 Days 1–10 are complete.
 - Target, features, metrics and fairness rules are documented.
 - The official 12-row training and 6-row test partitions are generated with a
   source checksum and explicit chronological boundary.
@@ -45,6 +45,7 @@ needs traceable configuration, metrics, errors and limitations.
 - Week 5 closes with four validated, comparable result rows.
 - Week 6 decision criteria are frozen before formal selection evidence.
 - The formal comparison table records ranks and baseline-relative metrics.
+- Residuals and largest observed errors are documented without causal claims.
 - No model is selected; no endpoint or React feature exists yet.
 
 ## Weeks

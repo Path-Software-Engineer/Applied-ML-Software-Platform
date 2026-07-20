@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "prediction_rows": 24,
+  "residual_definition": "actual_units - predicted_units",
+  "interpretation_boundary": "descriptive_no_causal_claims",
+  "candidate_summaries": [
+    {
+      "model_id": "training_mean",
+      "model_name": "Training Mean Baseline",
+      "mean_signed_residual": -1.9166666666666679,
+      "under_prediction_count": 2,
+      "over_prediction_count": 4,
+      "exact_count": 0,
+      "largest_error": {
+        "sale_id": 16,
+        "date": "2026-01-08",
+        "product_id": "P004",
+        "product_name": "Coffee 250g",
+        "category": "Beverages",
+        "actual_units": 9.0,
+        "predicted_units": 16.916666666666668,
+        "residual": -7.916666666666668,
+        "absolute_error": 7.916666666666668,
+        "direction": "over_prediction"
+      },
+      "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+    },
+    {
+      "model_id": "linear_regression",
+      "model_name": "Linear Regression",
+      "mean_signed_residual": 0.6433333333333314,
+      "under_prediction_count": 3,
+      "over_prediction_count": 3,
+      "exact_count": 0,
+      "largest_error": {
+        "sale_id": 17,
+        "date": "2026-01-09",
+        "product_id": "P001",
+        "product_name": "Rice 1kg",
+        "category": "Food",
+        "actual_units": 19.0,
+        "predicted_units": 13.350000000000003,
+        "residual": 5.649999999999997,
+        "absolute_error": 5.649999999999997,
+        "direction": "under_prediction"
+      },
+      "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+    },
+    {
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "mean_signed_residual": -0.733653108465606,
+      "under_prediction_count": 2,
+      "over_prediction_count": 4,
+      "exact_count": 0,
+      "largest_error": {
+        "sale_id": 17,
+        "date": "2026-01-09",
+        "product_id": "P001",
+        "product_name": "Rice 1kg",
+        "category": "Food",
+        "actual_units": 19.0,
+        "predicted_units": 14.525077380952382,
+        "residual": 4.474922619047618,
+        "absolute_error": 4.474922619047618,
+        "direction": "under_prediction"
+      },
+      "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+    },
+    {
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "mean_signed_residual": -0.32474082745490396,
+      "under_prediction_count": 3,
+      "over_prediction_count": 3,
+      "exact_count": 0,
+      "largest_error": {
+        "sale_id": 17,
+        "date": "2026-01-09",
+        "product_id": "P001",
+        "product_name": "Rice 1kg",
+        "category": "Food",
+        "actual_units": 19.0,
+        "predicted_units": 13.89014617571663,
+        "residual": 5.10985382428337,
+        "absolute_error": 5.10985382428337,
+        "direction": "under_prediction"
+      },
+      "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+    }
+  ]
+}
