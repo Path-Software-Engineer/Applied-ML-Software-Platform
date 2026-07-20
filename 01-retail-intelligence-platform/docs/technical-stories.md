@@ -572,12 +572,15 @@ cannot change formulas or compare incompatible outputs.
 
 ### Estado
 
-Planned.
+Completed on global Day 59.
 
 ### Evidencia
 
-- `docs/model-comparison-experiment-contract.md`
-- `docs/sprints/sprint-02-model-comparison/week-05/plan.md`
+- `ai-services/model-comparison/src/model_comparison/metrics.py`
+- `ai-services/model-comparison/src/model_comparison/baseline.py`
+- `ai-services/model-comparison/src/model_comparison/results.py`
+- `reports/outputs/model-comparison/results/training_mean.json`
+- `tests/ai-services/model-comparison/test_baseline_metrics.py`
 
 ### Relación con User Stories
 
