@@ -859,3 +859,28 @@ metric generation and decision reasoning.
 ### Status
 
 Accepted and implemented on global Day 63.
+
+## Decision 036 — Freeze practical equivalence and selection criteria
+
+### Context
+
+The lowest observed MAE may differ only marginally from a more explainable
+candidate. A selection rule written after error review could be adjusted to
+justify a preferred outcome.
+
+### Decision
+
+Use MAE as primary metric, require at least 10% improvement over the baseline,
+and treat learned candidates within 0.25 MAE units of the measurement leader as
+practically equivalent. Prefer the lower-complexity eligible candidate inside
+that tolerance. Report RMSE, contextual R² and error evidence separately.
+
+### Consequences
+
+Day 67 can reproduce both the measurement leader and integration choice from a
+policy frozen on Day 64. Repeatability is not mislabeled as stability, and the
+choice cannot be labeled production ready.
+
+### Status
+
+Accepted on global Day 64; execution is scheduled for Day 67.

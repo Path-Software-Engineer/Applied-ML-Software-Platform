@@ -82,6 +82,7 @@ backend/api/requirements.txt
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
+checks/check_week_06_exploration.py
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -128,6 +129,8 @@ docs/sprints/sprint-02-model-comparison/README.md
 docs/sprints/sprint-02-model-comparison/week-05/exploration.md
 docs/sprints/sprint-02-model-comparison/week-05/plan.md
 docs/sprints/sprint-02-model-comparison/week-05/review.md
+docs/sprints/sprint-02-model-comparison/week-06/exploration.md
+docs/sprints/sprint-02-model-comparison/week-06/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -211,6 +214,7 @@ reports/summaries/model-comparison/day_60_linear_regression_summary.md
 reports/summaries/model-comparison/day_61_random_forest_summary.md
 reports/summaries/model-comparison/day_62_gradient_boosting_summary.md
 reports/summaries/model-comparison/day_63_week_05_close_summary.md
+reports/summaries/model-comparison/day_64_week_06_exploration_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
