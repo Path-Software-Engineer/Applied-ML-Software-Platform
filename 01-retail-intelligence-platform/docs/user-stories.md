@@ -171,7 +171,85 @@ same analytical contracts for future software integration.
 `backend/api/app/routes/demand_summary.py`,
 `frontend/dashboard-app/src/features/demand-summary/`.
 
-## Explicitly not completed
+## Explicitly not completed after Sprint 1
 
-Model comparison, inventory decisions, Sprint 2 and Sprint 3 are outside the
-completed evidence represented here.
+Inventory decisions and Sprint 3 remain outside completed evidence. Sprint 2
+starts below with planned stories; Day 57 does not mark model behavior complete.
+
+## Sprint 2 — Model Comparison User Stories
+
+### US-S2-001 — Compare models under the same experiment
+
+**Story:** As a retail analyst, I want a baseline and classical models compared
+under one data contract so that their metrics are technically comparable.
+
+**Value:** Prevents a recommendation from being driven by different rows,
+features, splits or evaluation rules.
+
+**Acceptance criteria:**
+
+- Every candidate uses the same validated dataset, target, features and split.
+- The experiment records its chronological boundary and random seed.
+- Target-derived and temporally ambiguous features are excluded explicitly.
+- Results identify the model configuration and prediction unit.
+
+**Status:** Planned on global Day 57.
+
+**Evidence:** `docs/model-comparison-experiment-contract.md`,
+`docs/sprints/sprint-02-model-comparison/week-05/exploration.md`.
+
+### US-S2-002 — Understand comparative model quality
+
+**Story:** As a retail analyst, I want baseline and model errors presented in a
+common table so that I can understand accuracy and large misses.
+
+**Value:** Translates several model outputs into one reviewable measurement
+surface.
+
+**Acceptance criteria:**
+
+- MAE is reported in units and lower values are identified as better.
+- RMSE is reported as a large-error diagnostic.
+- R² is labeled as contextual and not used alone on the six-row test set.
+- Dataset, split and model identifiers accompany the metrics.
+
+**Status:** Planned on global Day 57.
+
+**Evidence:** `docs/model-comparison-experiment-contract.md`,
+`docs/sprints/sprint-02-model-comparison/week-05/plan.md`.
+
+### US-S2-003 — Review errors before accepting a candidate
+
+**Story:** As a technical decision-maker, I want the largest prediction errors
+and dataset limitations documented so that a strong aggregate metric is not
+overinterpreted.
+
+**Value:** Connects numerical ranking with the observations and risks behind it.
+
+**Acceptance criteria:**
+
+- Prediction-level residual and absolute-error evidence is reproducible.
+- The largest misses are identified without inventing causal explanations.
+- The small synthetic dataset remains visible as a decision limitation.
+
+**Status:** Planned on global Day 57.
+
+**Evidence:** `docs/sprints/sprint-02-model-comparison/week-05/plan.md`.
+
+### US-S2-004 — Receive an evidence-backed candidate rationale
+
+**Story:** As a platform stakeholder, I want model cards and an explicit
+selection rule so that the recommended candidate can be explained and audited.
+
+**Value:** Separates “lowest metric” from a responsible technical decision.
+
+**Acceptance criteria:**
+
+- The rule considers primary error, simplicity, stability and interpretability.
+- Every candidate has purpose, configuration, metrics and limitations.
+- The recommendation is reproducible and does not claim production readiness.
+
+**Status:** Planned on global Day 57.
+
+**Evidence:** `docs/sprints/sprint-02-model-comparison/README.md`,
+`docs/sprints/sprint-02-model-comparison/week-05/plan.md`.

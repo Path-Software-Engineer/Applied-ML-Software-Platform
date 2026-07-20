@@ -62,6 +62,7 @@ backend/api/requirements-lock.txt
 backend/api/requirements.txt
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
+checks/check_sprint_02_day_57.py
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -86,6 +87,7 @@ docs/architecture.md
 docs/data-contract.md
 docs/decisions.md
 docs/insight-card-methodology.md
+docs/model-comparison-experiment-contract.md
 docs/releases/v0.1.0-sprint-01-demand-insight.md
 docs/sprints/sprint-01-demand-insight/README.md
 docs/sprints/sprint-01-demand-insight/retrospective.md
@@ -101,6 +103,9 @@ docs/sprints/sprint-01-demand-insight/week-03/review.md
 docs/sprints/sprint-01-demand-insight/week-04/exploration.md
 docs/sprints/sprint-01-demand-insight/week-04/plan.md
 docs/sprints/sprint-01-demand-insight/week-04/review.md
+docs/sprints/sprint-02-model-comparison/README.md
+docs/sprints/sprint-02-model-comparison/week-05/exploration.md
+docs/sprints/sprint-02-model-comparison/week-05/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -162,6 +167,7 @@ reports/summaries/demand-insight/week_02_technical_report.md
 reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
+reports/summaries/model-comparison/day_57_exploration_summary.md
 scripts/check-backend-runtime.py
 scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1

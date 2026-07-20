@@ -895,12 +895,14 @@ quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 Release notes:
 [`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
 
-Sprint 2 permanece sin iniciar.
+Sprint 2 opened on global Day 57 with the Model Comparison exploration. The
+user decision, experiment boundary, fairness rules and Week 5 plan are
+documented. No model has been trained and no Sprint 1 contract has changed.
 
 ## Sprint 2
 
 ```txt
-Definir dataset para comparación
+Definir dataset para comparación [in progress]
 Crear baseline de comparación
 Entrenar modelos clásicos
 Calcular métricas
@@ -911,6 +913,12 @@ Crear visual report
 Actualizar dashboard
 Documentar labs
 ```
+
+Current evidence:
+
+- [`docs/sprints/sprint-02-model-comparison/README.md`](docs/sprints/sprint-02-model-comparison/README.md);
+- [`docs/model-comparison-experiment-contract.md`](docs/model-comparison-experiment-contract.md);
+- global Day 57 / Sprint 2 Day 1 completed as exploration only.
 
 ## Sprint 3
 

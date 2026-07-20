@@ -154,3 +154,31 @@ feature/s1-d28-sprint-01-close
 `CHANGELOG.md` and the versioned release notes describe the same capability and
 limitations as the validated artifacts. No model-comparison or inventory
 responsibility is introduced by the release.
+
+## Sprint 2 Model Comparison boundary
+
+Global Day 57 opens Model Comparison without changing the stable Demand Insight
+flow. The new module owns experiment preparation, comparable evaluation,
+candidate models and decision evidence under `ai-services/model-comparison/`.
+
+The intended dependency direction is:
+
+```text
+scripts -> model-comparison production code -> prepared data / reports
+checks  -> model-comparison production code -> official evidence
+tests   -> model-comparison production code -> temporary paths
+backend -> future read service -> validated comparison evidence
+frontend -> future versioned API -> no local model calculations
+```
+
+Model Comparison may consume the validated Sprint 1 feature dataset as an input.
+It may not import React or FastAPI, mutate Demand Insight outputs, train from an
+HTTP request or define business values in presentation code.
+
+The initial experiment predicts `units_sold` per observed sale record. It is a
+small supervised-regression comparison, not a sales forecast. Revenue is
+excluded because it is derived from the target, and `stock_available` is
+excluded because its before/after-sale timing is not sufficiently precise.
+
+Training, metrics and artifact implementation begin only on their assigned
+days. Day 57 creates documentation and traceability, not runtime capability.
