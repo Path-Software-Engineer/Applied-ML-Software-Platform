@@ -720,3 +720,26 @@ support an initial candidate decision, but cannot authorize production use.
 ### Status
 
 Accepted as the global Day 57 exploration decision.
+
+## Decision 030 — Freeze one chronological split manifest
+
+### Context
+
+Every candidate needs identical training and test evidence. A random split could
+mix adjacent dates and make the already small result harder to audit.
+
+### Decision
+
+Train on observations through 2026-01-06 and test on observations from
+2026-01-07 through 2026-01-09. Persist the 12/6 row identifiers, source
+checksum, feature contract, excluded columns and seed in one JSON manifest.
+
+### Consequences
+
+Later candidates cannot choose more favorable rows or preprocessing inputs.
+The six-row holdout is sufficient for software-contract verification but not
+for a production generalization claim.
+
+### Status
+
+Accepted and implemented on global Day 58.

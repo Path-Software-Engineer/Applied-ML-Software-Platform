@@ -12,8 +12,12 @@ import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 AI_MODULE_ROOT = PROJECT_ROOT / "ai-services" / "demand-insight"
+MODEL_COMPARISON_SRC = (
+    PROJECT_ROOT / "ai-services" / "model-comparison" / "src"
+)
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(AI_MODULE_ROOT))
+sys.path.insert(0, str(MODEL_COMPARISON_SRC))
 
 
 @pytest.fixture

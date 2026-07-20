@@ -46,6 +46,11 @@ ai-services/demand-insight/src/visualization/.gitkeep
 ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
+ai-services/model-comparison/checks/check_experiment_split.py
+ai-services/model-comparison/requirements.txt
+ai-services/model-comparison/src/model_comparison/__init__.py
+ai-services/model-comparison/src/model_comparison/contract.py
+ai-services/model-comparison/src/model_comparison/data.py
 backend/api/app/__init__.py
 backend/api/app/main.py
 backend/api/app/routes/__init__.py
@@ -76,6 +81,8 @@ data/processed/demand-insight/sales_pipeline_ready.csv
 data/processed/demand-insight/sales_revenue.csv
 data/processed/demand-insight/sales_summary.csv
 data/processed/demand-insight/sales_temporal_features.csv
+data/processed/model-comparison/test.csv
+data/processed/model-comparison/train.csv
 data/raw/.gitkeep
 data/raw/demand-insight/sales.csv
 deployment/.gitkeep
@@ -142,6 +149,7 @@ reports/insight-cards/demand_insight_cards.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
+reports/outputs/model-comparison/split_manifest.json
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
@@ -168,9 +176,11 @@ reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
+reports/summaries/model-comparison/day_58_experiment_split_summary.md
 scripts/check-backend-runtime.py
 scripts/generate-demand-summary.ps1
 scripts/generate-report.ps1
+scripts/prepare-model-comparison.ps1
 scripts/run-ai-service.ps1
 scripts/run-backend.ps1
 scripts/run-frontend.ps1
@@ -185,6 +195,7 @@ tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
+tests/ai-services/model-comparison/test_experiment_split.py
 tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
