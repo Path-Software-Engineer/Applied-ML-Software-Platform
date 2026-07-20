@@ -3,14 +3,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.api.app.routes import demand_summary_router
+from backend.api.app.routes import demand_summary_router, model_comparison_router
 from backend.api.app.schemas.demand_summary import HealthResponse
 
 
 app = FastAPI(
     title="Retail Intelligence API",
     version="0.1.0",
-    description="Read-only Sprint 1 API for validated Demand Insight evidence.",
+    description=(
+        "Read-only API for validated Demand Insight and Model Comparison evidence."
+    ),
 )
 
 app.add_middleware(
@@ -22,6 +24,7 @@ app.add_middleware(
 )
 
 app.include_router(demand_summary_router)
+app.include_router(model_comparison_router)
 
 
 @app.get(

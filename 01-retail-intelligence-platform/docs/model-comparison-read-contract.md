@@ -2,8 +2,9 @@
 
 ## Status
 
-Proposed on global Day 71. No backend route or frontend behavior is implemented
-by this document. Days 72–75 must validate the design before statuses change.
+Proposed on global Day 71 and implemented through the internal service on Day
+72 and the versioned FastAPI endpoint on Day 73. Frontend behavior remains the
+Day 74–75 boundary.
 
 ## Resource
 

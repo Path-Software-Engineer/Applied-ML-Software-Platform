@@ -1070,3 +1070,25 @@ resource and inconsistent identities or metrics fail closed before transport.
 ### Status
 
 Accepted and implemented on global Day 72.
+
+## Decision 045 — Expose Model Comparison through strict FastAPI schemas
+
+### Context
+
+The read service is valid internally, but a public endpoint requires explicit
+types, compatibility rules and safe transport errors.
+
+### Decision
+
+Expose `GET /api/v1/model-comparisons/summary` through nested strict Pydantic
+schemas. Keep the route thin, return a generic `503` for invalid evidence and
+register the resource in the generated OpenAPI document.
+
+### Consequences
+
+Consumers receive one predictable versioned contract. Extra fields and invalid
+collection sizes fail validation, while internal paths and errors remain private.
+
+### Status
+
+Accepted and implemented on global Day 73.

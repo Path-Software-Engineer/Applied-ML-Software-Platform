@@ -162,3 +162,26 @@ resolved in `backend/api/requirements-lock.txt`.
 
 The local API listens on `http://127.0.0.1:8000` by default. Development CORS
 allows only `localhost:5173` and `127.0.0.1:5173`, the planned Vite origins.
+
+## Model Comparison resource
+
+```http
+GET /api/v1/model-comparisons/summary
+```
+
+Implemented on global Day 73. This read-only resource validates and maps the
+canonical Model Comparison report. It returns schema version `1.0`, the fixed
+experiment, exactly four candidates, the frozen decision, exactly three
+Decision Cards and explicit limitations.
+
+Invalid or unavailable evidence returns `503 Service Unavailable` with:
+
+```json
+{
+  "detail": "Model Comparison evidence is unavailable or invalid."
+}
+```
+
+The complete response shape and compatibility rules live in
+`docs/model-comparison-read-contract.md`. The route never trains models,
+calculates metrics or returns repository paths.

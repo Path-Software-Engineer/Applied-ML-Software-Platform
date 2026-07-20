@@ -281,10 +281,12 @@ training or metric ownership into the web request.
   partial values or local paths.
 - Demand Insight behavior remains unchanged.
 
-**Status:** Planned on global Day 71.
+**Status:** Completed on global Day 73.
 
 **Evidence:** `docs/model-comparison-read-contract.md`,
-`docs/sprints/sprint-02-model-comparison/week-07/exploration.md`.
+`backend/api/app/services/model_comparison_service.py`,
+`backend/api/app/routes/model_comparison.py`,
+`tests/backend/test_model_comparison_api.py`.
 
 ### US-S2-006 — Review the model decision in the dashboard
 
