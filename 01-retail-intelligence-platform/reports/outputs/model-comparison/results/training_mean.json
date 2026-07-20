@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "model_id": "training_mean",
+  "model_name": "Training Mean Baseline",
+  "model_family": "baseline",
+  "configuration": {
+    "strategy": "mean_of_training_target"
+  },
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "train_rows": 12,
+  "test_rows": 6,
+  "metrics": {
+    "mae": 4.305555555555556,
+    "rmse": 4.899688198696366,
+    "r2": -0.18066939890710398,
+    "metadata": {
+      "mae": {
+        "direction": "lower_is_better",
+        "unit": "units"
+      },
+      "rmse": {
+        "direction": "lower_is_better",
+        "unit": "units"
+      },
+      "r2": {
+        "direction": "higher_is_better",
+        "unit": "unitless"
+      }
+    }
+  },
+  "production_status": "learning_evidence_only"
+}

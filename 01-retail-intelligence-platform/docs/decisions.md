@@ -743,3 +743,25 @@ for a production generalization claim.
 ### Status
 
 Accepted and implemented on global Day 58.
+
+## Decision 031 — Evaluate every candidate through one metric registry
+
+### Context
+
+Checks and model-specific scripts must not use different formulas or result
+shapes. The Sprint 1 full-dataset baseline is not valid for the new holdout.
+
+### Decision
+
+Fit a fresh training-mean baseline on the 12 training targets only. Calculate
+MAE, RMSE and contextual R² in one production metric module and persist every
+candidate through the same result and prediction contracts.
+
+### Consequences
+
+Later models can be compared without formula drift. R² remains diagnostic
+because six test observations cannot support a strong goodness-of-fit claim.
+
+### Status
+
+Accepted and implemented on global Day 59.
