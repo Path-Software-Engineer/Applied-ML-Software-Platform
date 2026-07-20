@@ -698,8 +698,7 @@ comparison evidence without embedded fallback metrics or selection logic.
 
 ### Estado
 
-In progress on global Day 74. The isolated client, loading hook, comparison view
-and contract tests are implemented; visual Decision Cards remain Day 75 work.
+Completed on global Day 75.
 
 ### Evidencia
 
@@ -707,6 +706,8 @@ and contract tests are implemented; visual Decision Cards remain Day 75 work.
 - `docs/sprints/sprint-02-model-comparison/week-07/plan.md`
 - `frontend/dashboard-app/src/features/model-comparison/`
 - `frontend/dashboard-app/tests/modelComparisonApi.test.js`
+- `frontend/dashboard-app/tests/decisionCardViewModel.test.js`
+- `checks/check_model_comparison_decision_cards_frontend.py`
 
 ### Relación con User Stories
 

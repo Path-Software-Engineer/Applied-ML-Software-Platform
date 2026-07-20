@@ -5,7 +5,8 @@
 Proposed on global Day 71 and implemented through the internal service on Day
 72 and the versioned FastAPI endpoint on Day 73. Frontend behavior remains the
 Day 74–75 boundary. Day 74 implements the client, request lifecycle and
-comparison view; visual Decision Cards remain assigned to Day 75.
+comparison view. Day 75 renders all three API-provided Decision Cards without
+client-side ranking or selection logic.
 
 ## Resource
 
