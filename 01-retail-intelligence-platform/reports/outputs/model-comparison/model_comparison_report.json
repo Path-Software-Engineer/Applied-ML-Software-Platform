@@ -1,0 +1,355 @@
+{
+  "schema_version": "1.0",
+  "module": "model_comparison",
+  "report_status": "learning_evidence_only",
+  "experiment": {
+    "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+    "split_strategy": "chronological_holdout",
+    "target": "units_sold",
+    "target_unit": "units_per_sale_record",
+    "train_rows": 12,
+    "test_rows": 6
+  },
+  "comparison": {
+    "primary_metric": {
+      "id": "mae",
+      "unit": "units",
+      "direction": "lower_is_better"
+    },
+    "diagnostic_metrics": {
+      "rmse": {
+        "unit": "units",
+        "direction": "lower_is_better"
+      },
+      "r2": {
+        "unit": "unitless",
+        "direction": "higher_is_better",
+        "role": "contextual_only"
+      }
+    },
+    "policy": {
+      "practical_equivalence_units": 0.25,
+      "minimum_baseline_improvement_percent": 10.0
+    },
+    "rows": [
+      {
+        "model_id": "gradient_boosting",
+        "model_name": "Gradient Boosting",
+        "model_family": "boosted_tree_ensemble",
+        "mae_units": 3.0884361955009996,
+        "rmse_units": 3.3322935379403216,
+        "r2_contextual": 0.4538927759180905,
+        "test_rows": 6,
+        "production_status": "learning_evidence_only",
+        "mae_rank": 1,
+        "mae_delta_vs_baseline_units": 1.2171193600545567,
+        "mae_improvement_vs_baseline_percent": 28.268578685138085,
+        "within_practical_equivalence": true,
+        "meets_minimum_baseline_improvement": true
+      },
+      {
+        "model_id": "random_forest",
+        "model_name": "Random Forest",
+        "model_family": "tree_ensemble",
+        "mae_units": 3.125795965608463,
+        "rmse_units": 3.44125567901965,
+        "r2_contextual": 0.41759472221057414,
+        "test_rows": 6,
+        "production_status": "learning_evidence_only",
+        "mae_rank": 2,
+        "mae_delta_vs_baseline_units": 1.1797595899470932,
+        "mae_improvement_vs_baseline_percent": 27.40086789554538,
+        "within_practical_equivalence": true,
+        "meets_minimum_baseline_improvement": true
+      },
+      {
+        "model_id": "linear_regression",
+        "model_name": "Linear Regression",
+        "model_family": "linear_model",
+        "mae_units": 3.563333333333335,
+        "rmse_units": 3.8418398370225346,
+        "r2_contextual": 0.27411147540983594,
+        "test_rows": 6,
+        "production_status": "learning_evidence_only",
+        "mae_rank": 3,
+        "mae_delta_vs_baseline_units": 0.7422222222222215,
+        "mae_improvement_vs_baseline_percent": 17.238709677419333,
+        "within_practical_equivalence": false,
+        "meets_minimum_baseline_improvement": true
+      },
+      {
+        "model_id": "training_mean",
+        "model_name": "Training Mean Baseline",
+        "model_family": "baseline",
+        "mae_units": 4.305555555555556,
+        "rmse_units": 4.899688198696366,
+        "r2_contextual": -0.18066939890710398,
+        "test_rows": 6,
+        "production_status": "learning_evidence_only",
+        "mae_rank": 4,
+        "mae_delta_vs_baseline_units": 0.0,
+        "mae_improvement_vs_baseline_percent": 0.0,
+        "within_practical_equivalence": false,
+        "meets_minimum_baseline_improvement": false
+      }
+    ]
+  },
+  "error_review": {
+    "prediction_rows": 24,
+    "residual_definition": "actual_units - predicted_units",
+    "interpretation_boundary": "descriptive_no_causal_claims",
+    "candidate_summaries": [
+      {
+        "model_id": "training_mean",
+        "model_name": "Training Mean Baseline",
+        "mean_signed_residual": -1.9166666666666679,
+        "under_prediction_count": 2,
+        "over_prediction_count": 4,
+        "exact_count": 0,
+        "largest_error": {
+          "sale_id": 16,
+          "date": "2026-01-08",
+          "product_id": "P004",
+          "product_name": "Coffee 250g",
+          "category": "Beverages",
+          "actual_units": 9.0,
+          "predicted_units": 16.916666666666668,
+          "residual": -7.916666666666668,
+          "absolute_error": 7.916666666666668,
+          "direction": "over_prediction"
+        },
+        "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+      },
+      {
+        "model_id": "linear_regression",
+        "model_name": "Linear Regression",
+        "mean_signed_residual": 0.6433333333333314,
+        "under_prediction_count": 3,
+        "over_prediction_count": 3,
+        "exact_count": 0,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 13.350000000000003,
+          "residual": 5.649999999999997,
+          "absolute_error": 5.649999999999997,
+          "direction": "under_prediction"
+        },
+        "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+      },
+      {
+        "model_id": "random_forest",
+        "model_name": "Random Forest",
+        "mean_signed_residual": -0.733653108465606,
+        "under_prediction_count": 2,
+        "over_prediction_count": 4,
+        "exact_count": 0,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 14.525077380952382,
+          "residual": 4.474922619047618,
+          "absolute_error": 4.474922619047618,
+          "direction": "under_prediction"
+        },
+        "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+      },
+      {
+        "model_id": "gradient_boosting",
+        "model_name": "Gradient Boosting",
+        "mean_signed_residual": -0.32474082745490396,
+        "under_prediction_count": 3,
+        "over_prediction_count": 3,
+        "exact_count": 0,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 13.89014617571663,
+          "residual": 5.10985382428337,
+          "absolute_error": 5.10985382428337,
+          "direction": "under_prediction"
+        },
+        "interpretation": "Observed residual pattern on six test rows; no causal explanation or stability claim."
+      }
+    ]
+  },
+  "decision": {
+    "schema_version": "1.0",
+    "decision_status": "selected_for_next_integration",
+    "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+    "split_strategy": "chronological_holdout",
+    "target": "units_sold",
+    "target_unit": "units_per_sale_record",
+    "measurement_leader": {
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "mae_units": 3.0884361955009996,
+      "rmse_units": 3.3322935379403216,
+      "largest_observed_error_units": 5.10985382428337
+    },
+    "selected_candidate": {
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "mae_units": 3.125795965608463,
+      "rmse_units": 3.44125567901965,
+      "r2_contextual": 0.41759472221057414,
+      "mae_improvement_vs_baseline_percent": 27.40086789554538,
+      "complexity_order": 3,
+      "largest_observed_error_units": 4.474922619047618
+    },
+    "measurement_leader_is_selected_candidate": false,
+    "practically_equivalent_candidates": [
+      {
+        "model_id": "random_forest",
+        "model_name": "Random Forest",
+        "mae_units": 3.125795965608463,
+        "complexity_order": 3
+      },
+      {
+        "model_id": "gradient_boosting",
+        "model_name": "Gradient Boosting",
+        "mae_units": 3.0884361955009996,
+        "complexity_order": 4
+      }
+    ],
+    "policy": {
+      "primary_metric": "mae",
+      "primary_metric_direction": "lower_is_better",
+      "minimum_baseline_improvement_percent": 10.0,
+      "practical_equivalence_units": 0.25,
+      "tie_breaker": "lower_operational_and_explanation_complexity",
+      "complexity_order": {
+        "training_mean": 1,
+        "linear_regression": 2,
+        "random_forest": 3,
+        "gradient_boosting": 4
+      }
+    },
+    "error_review": {
+      "status": "reviewed",
+      "role": "descriptive_diagnostic_not_causal_override",
+      "selected_candidate_largest_error": {
+        "sale_id": 17,
+        "date": "2026-01-09",
+        "product_id": "P001",
+        "product_name": "Rice 1kg",
+        "category": "Food",
+        "actual_units": 19.0,
+        "predicted_units": 14.525077380952382,
+        "residual": 4.474922619047618,
+        "absolute_error": 4.474922619047618,
+        "direction": "under_prediction"
+      },
+      "measurement_leader_largest_error": {
+        "sale_id": 17,
+        "date": "2026-01-09",
+        "product_id": "P001",
+        "product_name": "Rice 1kg",
+        "category": "Food",
+        "actual_units": 19.0,
+        "predicted_units": 13.89014617571663,
+        "residual": 5.10985382428337,
+        "absolute_error": 5.10985382428337,
+        "direction": "under_prediction"
+      }
+    },
+    "stability_evidence": {
+      "status": "not_assessed",
+      "reason": "single_fixed_chronological_holdout",
+      "repeatability_is_not_stability": true
+    },
+    "rationale": [
+      "Gradient Boosting has the lowest observed MAE.",
+      "Random Forest and Gradient Boosting are within the frozen 0.25-unit practical-equivalence tolerance.",
+      "Random Forest has lower recorded complexity and is selected for the next integration step.",
+      "Largest-error evidence was reviewed descriptively and does not replace the frozen selection rule."
+    ],
+    "production_status": "not_production_ready",
+    "authorized_next_step": "week_7_platform_integration_after_week_6_close",
+    "prohibited_claims": [
+      "production readiness",
+      "stability",
+      "generalization to real retail operations",
+      "inventory action"
+    ]
+  },
+  "decision_cards": [
+    {
+      "card_id": "metric-leader",
+      "eyebrow": "Observed metric leader",
+      "title": "Gradient Boosting",
+      "status": "measurement_leader_not_selected",
+      "model_id": "gradient_boosting",
+      "primary_metric": {
+        "label": "MAE",
+        "value": 3.0884361955009996,
+        "unit": "units",
+        "direction": "lower_is_better"
+      },
+      "summary": "Lowest observed MAE on the fixed chronological holdout.",
+      "reasons": [
+        "Ranks first by the frozen primary metric.",
+        "Remains practically equivalent to Random Forest."
+      ],
+      "limitation": "Metric leadership on six test rows does not establish stability or production readiness."
+    },
+    {
+      "card_id": "integration-candidate",
+      "eyebrow": "Selected for next integration",
+      "title": "Random Forest",
+      "status": "selected_for_next_integration",
+      "model_id": "random_forest",
+      "primary_metric": {
+        "label": "MAE",
+        "value": 3.125795965608463,
+        "unit": "units",
+        "direction": "lower_is_better"
+      },
+      "summary": "Chosen by the frozen practical-equivalence and lower-complexity rule.",
+      "reasons": [
+        "Falls within 0.25 MAE units of the observed leader.",
+        "Improves baseline MAE by more than the required 10%.",
+        "Has lower recorded complexity than the equivalent leader."
+      ],
+      "limitation": "Selection authorizes a later read-only platform integration, not deployment or inventory action."
+    },
+    {
+      "card_id": "evidence-boundary",
+      "eyebrow": "Evidence boundary",
+      "title": "Learning evidence only",
+      "status": "not_production_ready",
+      "model_id": null,
+      "primary_metric": {
+        "label": "Test observations",
+        "value": 6,
+        "unit": "rows",
+        "direction": "context_only"
+      },
+      "summary": "Every comparison result comes from one small synthetic snapshot.",
+      "reasons": [
+        "The experiment contains 18 observations in total.",
+        "Only one chronological 12/6 split was evaluated.",
+        "Repeatability is not stability or external validation."
+      ],
+      "limitation": "No production, generalization, forecasting or inventory claim is supported."
+    }
+  ],
+  "limitations": [
+    "The source contains 18 synthetic observations.",
+    "Only one six-row chronological holdout was evaluated.",
+    "No cross-validation or external validation was performed.",
+    "The selected candidate is not production ready."
+  ]
+}

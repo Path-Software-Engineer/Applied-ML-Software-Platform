@@ -979,3 +979,26 @@ but it is not part of Day 68.
 ### Status
 
 Accepted and implemented on global Day 68.
+
+## Decision 041 — Expose one composite report to later read layers
+
+### Context
+
+Backend should not join several analytical artifacts or reproduce selection
+logic during an HTTP request.
+
+### Decision
+
+Generate one `schema_version: 1.0` Model Comparison report containing the
+experiment boundary, formal table, error review, frozen decision and three
+structured Decision Cards. Generate Markdown from the same report data.
+
+### Consequences
+
+Later services can validate and return one canonical artifact without importing
+training code. Presentation receives stable cards while analytical ownership
+remains in `ai-services/model-comparison`.
+
+### Status
+
+Accepted and implemented on global Day 69.

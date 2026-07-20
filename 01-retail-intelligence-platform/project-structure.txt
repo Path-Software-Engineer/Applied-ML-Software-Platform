@@ -47,6 +47,7 @@ ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/model-comparison/.gitkeep
 ai-services/model-comparison/checks/check_baseline_metrics.py
+ai-services/model-comparison/checks/check_comparison_report.py
 ai-services/model-comparison/checks/check_comparison_table.py
 ai-services/model-comparison/checks/check_error_analysis.py
 ai-services/model-comparison/checks/check_experiment_split.py
@@ -61,6 +62,7 @@ ai-services/model-comparison/src/model_comparison/__init__.py
 ai-services/model-comparison/src/model_comparison/baseline.py
 ai-services/model-comparison/src/model_comparison/candidate.py
 ai-services/model-comparison/src/model_comparison/comparison.py
+ai-services/model-comparison/src/model_comparison/comparison_report.py
 ai-services/model-comparison/src/model_comparison/comparison_table.py
 ai-services/model-comparison/src/model_comparison/contract.py
 ai-services/model-comparison/src/model_comparison/data.py
@@ -91,6 +93,7 @@ checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
 checks/check_week_06_exploration.py
+codigo-completo-retail-intelligence-platform.txt
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -156,6 +159,8 @@ frontend/dashboard-app/vite.config.js
 labs/.gitkeep
 labs/cloud-labs/.gitkeep
 labs/docs-labs/.gitkeep
+labs/docs-labs/docs-model-comparison-report-template-lab/README.md
+labs/docs-labs/docs-model-comparison-report-template-lab/outputs/template_evaluation.md
 labs/product-labs/.gitkeep
 labs/tec-labs/.gitkeep
 labs/tec-labs/tec-baseline-vs-model-lab/README.md
@@ -176,6 +181,7 @@ labs/tec-labs/tec-sales-eda-lab/src/compare_eda_flows.py
 models/.gitkeep
 reports/.gitkeep
 reports/decision-cards/.gitkeep
+reports/decision-cards/model-comparison/decision_cards.json
 reports/figures/.gitkeep
 reports/figures/demand-insight/.gitkeep
 reports/figures/demand-insight/daily_sales.png
@@ -202,6 +208,8 @@ reports/outputs/model-comparison/error_analysis.md
 reports/outputs/model-comparison/initial_results.csv
 reports/outputs/model-comparison/initial_results.json
 reports/outputs/model-comparison/initial_results.md
+reports/outputs/model-comparison/model_comparison_report.json
+reports/outputs/model-comparison/model_comparison_report.md
 reports/outputs/model-comparison/model_decision.json
 reports/outputs/model-comparison/model_decision.md
 reports/outputs/model-comparison/predictions/gradient_boosting.csv
@@ -250,10 +258,12 @@ reports/summaries/model-comparison/day_65_comparison_table_summary.md
 reports/summaries/model-comparison/day_66_error_analysis_summary.md
 reports/summaries/model-comparison/day_67_model_decision_summary.md
 reports/summaries/model-comparison/day_68_model_cards_summary.md
+reports/summaries/model-comparison/day_69_comparison_report_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
 scripts/generate-model-cards.ps1
+scripts/generate-model-comparison-report.ps1
 scripts/generate-model-comparison-table.ps1
 scripts/generate-model-decision.ps1
 scripts/generate-model-error-analysis.ps1
@@ -279,6 +289,7 @@ tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
 tests/ai-services/model-comparison/test_comparison.py
+tests/ai-services/model-comparison/test_comparison_report.py
 tests/ai-services/model-comparison/test_comparison_table.py
 tests/ai-services/model-comparison/test_decision.py
 tests/ai-services/model-comparison/test_error_analysis.py
