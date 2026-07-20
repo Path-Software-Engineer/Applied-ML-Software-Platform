@@ -52,6 +52,7 @@ ai-services/model-comparison/checks/check_error_analysis.py
 ai-services/model-comparison/checks/check_experiment_split.py
 ai-services/model-comparison/checks/check_gradient_boosting.py
 ai-services/model-comparison/checks/check_linear_regression.py
+ai-services/model-comparison/checks/check_model_cards.py
 ai-services/model-comparison/checks/check_model_decision.py
 ai-services/model-comparison/checks/check_random_forest.py
 ai-services/model-comparison/checks/check_week_05_close.py
@@ -68,6 +69,7 @@ ai-services/model-comparison/src/model_comparison/error_analysis.py
 ai-services/model-comparison/src/model_comparison/gradient_boosting.py
 ai-services/model-comparison/src/model_comparison/linear_regression.py
 ai-services/model-comparison/src/model_comparison/metrics.py
+ai-services/model-comparison/src/model_comparison/model_cards.py
 ai-services/model-comparison/src/model_comparison/preprocessing.py
 ai-services/model-comparison/src/model_comparison/random_forest.py
 ai-services/model-comparison/src/model_comparison/results.py
@@ -182,6 +184,12 @@ reports/figures/demand-insight/product_units_ranking.png
 reports/insight-cards/.gitkeep
 reports/insight-cards/demand_insight_cards.json
 reports/insight-cards/demand_insight_cards.md
+reports/model-cards/model-comparison/README.md
+reports/model-cards/model-comparison/gradient_boosting.md
+reports/model-cards/model-comparison/linear_regression.md
+reports/model-cards/model-comparison/model_cards.json
+reports/model-cards/model-comparison/random_forest.md
+reports/model-cards/model-comparison/training_mean.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
@@ -241,9 +249,11 @@ reports/summaries/model-comparison/day_64_week_06_exploration_summary.md
 reports/summaries/model-comparison/day_65_comparison_table_summary.md
 reports/summaries/model-comparison/day_66_error_analysis_summary.md
 reports/summaries/model-comparison/day_67_model_decision_summary.md
+reports/summaries/model-comparison/day_68_model_cards_summary.md
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
+scripts/generate-model-cards.ps1
 scripts/generate-model-comparison-table.ps1
 scripts/generate-model-decision.ps1
 scripts/generate-model-error-analysis.ps1
@@ -275,6 +285,7 @@ tests/ai-services/model-comparison/test_error_analysis.py
 tests/ai-services/model-comparison/test_experiment_split.py
 tests/ai-services/model-comparison/test_gradient_boosting.py
 tests/ai-services/model-comparison/test_linear_regression.py
+tests/ai-services/model-comparison/test_model_cards.py
 tests/ai-services/model-comparison/test_random_forest.py
 tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py

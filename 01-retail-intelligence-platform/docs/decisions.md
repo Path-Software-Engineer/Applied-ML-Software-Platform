@@ -955,3 +955,27 @@ readiness.
 ### Status
 
 Accepted and implemented on global Day 67.
+
+## Decision 040 — Build Model Cards from versioned evidence
+
+### Context
+
+Metrics and a selection document are insufficient when candidate purpose,
+configuration, error profile, limitations and risks remain scattered.
+
+### Decision
+
+Generate one versioned Model Card per candidate from result, comparison, error
+and decision artifacts. Distinguish comparison baseline, evaluated candidate,
+measurement leader and selected-for-integration roles. Mark every card
+`not_production_ready`.
+
+### Consequences
+
+All four candidates have consistent, reviewable documentation without copying
+unverified claims into prose. The Day 69 report can consume the same evidence,
+but it is not part of Day 68.
+
+### Status
+
+Accepted and implemented on global Day 68.
