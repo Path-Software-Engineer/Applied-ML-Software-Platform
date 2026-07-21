@@ -1138,3 +1138,25 @@ smoke validation.
 ### Status
 
 Accepted and implemented on global Day 75.
+
+## Decision 048 — Gate the complete Model Comparison read path
+
+### Context
+
+Layer-specific tests can pass while the canonical report, service mapping, HTTP
+resource and JavaScript client silently drift apart.
+
+### Decision
+
+Add one cross-layer check that compares report evidence with the internal
+resource, asserts exact API equality, passes the real response through the
+frontend validator and rechecks the stable Demand Insight endpoint.
+
+### Consequences
+
+The quality gate now detects contract drift across Python and JavaScript without
+training a model during a request or maintaining a second fixture as truth.
+
+### Status
+
+Accepted and implemented on global Day 76.

@@ -895,7 +895,7 @@ quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 Release notes:
 [`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
 
-Sprint 2 has advanced through global Day 75. The common experiment compares a
+Sprint 2 has advanced through global Day 76. The common experiment compares a
 training-mean baseline, Linear Regression, Random Forest and Gradient Boosting
 on one frozen chronological split. Gradient Boosting is the observed metric
 leader; Random Forest is selected only for the next integration step under the
@@ -921,7 +921,8 @@ documented practical-equivalence rule. All evidence remains
 [completed] Implementar el endpoint y OpenAPI del Día 73
 [completed] Implementar la vista comparativa del Día 74
 [completed] Presentar Decision Cards desde el API en el Día 75
-[pending] Ejecutar integración y smoke desde el Día 76
+[completed] Validar integración cross-layer y smoke en el Día 76
+[pending] Cerrar Week 7 en el Día 77
 ```
 
 Current evidence:
@@ -935,7 +936,7 @@ Current evidence:
 - [`reports/outputs/model-comparison/model_comparison_report.md`](reports/outputs/model-comparison/model_comparison_report.md);
 - [`docs/sprints/sprint-02-model-comparison/week-06/review.md`](docs/sprints/sprint-02-model-comparison/week-06/review.md);
 - [`docs/model-comparison-read-contract.md`](docs/model-comparison-read-contract.md);
-- global Days 57–75 / Sprint 2 Days 1–19 completed.
+- global Days 57–76 / Sprint 2 Days 1–20 completed.
 
 Install the pinned Model Comparison runtime before running its checks:
 
