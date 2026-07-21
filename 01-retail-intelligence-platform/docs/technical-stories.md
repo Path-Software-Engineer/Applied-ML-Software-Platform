@@ -701,6 +701,9 @@ comparison evidence without embedded fallback metrics or selection logic.
 
 Completed on global Day 75.
 
+Week 7 closure evidence: `docs/sprints/sprint-02-model-comparison/week-07/review.md`
+and `reports/quality/model-comparison/day_77_visual_contract_review.md`.
+
 ### Evidencia
 
 - `docs/model-comparison-read-contract.md`

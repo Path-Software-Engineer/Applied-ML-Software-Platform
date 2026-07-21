@@ -1160,3 +1160,26 @@ training a model during a request or maintaining a second fixture as truth.
 ### Status
 
 Accepted and implemented on global Day 76.
+
+## Decision 049 — Close Week 7 at the read-only integration boundary
+
+### Context
+
+The analytical evidence, backend resource and React presentation are connected,
+but a weekly close must not imply production readiness or browser evidence that
+was not captured.
+
+### Decision
+
+Close Week 7 after the complete quality gate and local HTTP smoke pass. Record
+the visual contract at source level and defer release-grade screenshots to the
+explicit Day 82 evidence gate.
+
+### Consequences
+
+Week 8 receives a frozen, integrated scope. The blocked browser capture is
+visible instead of being replaced by a mockup or unsupported success claim.
+
+### Status
+
+Accepted and implemented on global Day 77.

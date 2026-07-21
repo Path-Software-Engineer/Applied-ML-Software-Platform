@@ -263,3 +263,10 @@ The local smoke uses the compiled React shell, a narrow same-origin proxy and a
 live Uvicorn process. It verifies real HTTP responses and shuts both processes
 down. Browser-driven visual approval remains a separate evidence boundary and
 is not inferred from compilation or HTTP success.
+
+### Day 77 Week 7 closure
+
+Week 7 closes the read path without moving analytical responsibilities into
+transport or presentation. Source-level visual evidence covers request states,
+semantic comparison structure, Decision Cards, responsive rules and reduced
+motion. Browser screenshots remain a separately gated Day 82 artifact.
