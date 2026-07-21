@@ -9,7 +9,7 @@ from backend.api.app.schemas.demand_summary import HealthResponse
 
 app = FastAPI(
     title="Retail Intelligence API",
-    version="0.1.0",
+    version="0.2.0",
     description=(
         "Read-only API for validated Demand Insight and Model Comparison evidence."
     ),

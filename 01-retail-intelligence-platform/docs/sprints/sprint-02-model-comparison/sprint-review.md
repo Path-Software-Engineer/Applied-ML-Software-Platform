@@ -16,8 +16,8 @@ decision surface.
 | Model Cards and Decision Cards | passed | four cards and three cards |
 | read service, API and React integration | passed | cross-layer and HTTP smoke checks |
 | Sprint 1 compatibility | passed | Demand Insight endpoint and gate checks |
-| complete software quality gate | passed | 96 Python, 18 frontend and 50 manual checks |
-| real desktop, tablet and mobile captures | blocked | local URL rejected by browser policy |
+| complete software quality gate | passed | 96 Python, 18 frontend and 51 manual checks |
+| real desktop, tablet and mobile captures | accepted limitation | local URL rejected by browser policy |
 
 ## Product decision
 
@@ -28,9 +28,9 @@ complexity. Neither is production ready.
 
 ## Release readiness
 
-The software and documentation gates pass, but the release is blocked by the
-missing real-app screenshots. No release branch merge, `main` merge or tag may
-be created until that acceptance criterion is satisfied.
+The software and documentation gates pass. The user explicitly accepted the
+missing real-app screenshots as a known release limitation and authorized the
+release branch, `main` merge and annotated tag. No visual evidence is claimed.
 
 ## Next boundary
 

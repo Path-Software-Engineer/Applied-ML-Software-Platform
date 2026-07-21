@@ -19,6 +19,6 @@
 
 ## Status
 
-Week 8 remains open at Day 83. Software validation passes, but real desktop,
-tablet and mobile captures are blocked. Day 84 release mechanics may proceed
-only after that criterion is satisfied.
+Week 8 closes on Day 84 after the software gate passes and the user explicitly
+accepts the missing desktop, tablet and mobile captures as a documented release
+limitation. No visual evidence is claimed or substituted.

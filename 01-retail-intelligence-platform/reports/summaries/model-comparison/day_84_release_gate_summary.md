@@ -5,6 +5,7 @@ release sequence. All executable checks pass, but real desktop, tablet and
 mobile captures remain unavailable because the browser policy rejected the
 local URL.
 
-Accordingly, no release branch, `main` merge, annotated tag or synchronization
-merge was created. Sprint 2 remains open and Sprint 3 remains unstarted. This is
-an explicit acceptance block, not a failed software test or a hidden release.
+The user explicitly accepted the missing captures as a visible limitation and
+authorized the release. The release branch, `main` merge, annotated tag and
+`develop` synchronization follow the passing gate. Sprint 2 closes without
+claiming screenshots, and Sprint 3 remains unstarted.

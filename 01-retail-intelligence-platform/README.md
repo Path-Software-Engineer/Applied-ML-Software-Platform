@@ -895,7 +895,7 @@ quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 Release notes:
 [`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
 
-Sprint 2 has reached the global Day 84 release gate. The common experiment compares a
+Sprint 2 is released at the global Day 84 boundary. The common experiment compares a
 training-mean baseline, Linear Regression, Random Forest and Gradient Boosting
 on one frozen chronological split. Gradient Boosting is the observed metric
 leader; Random Forest is selected only for the next integration step under the
@@ -928,9 +928,9 @@ documented practical-equivalence rule. All evidence remains
 [completed] Ejecutar el gate completo y logs seguros en el Día 80
 [completed] Finalizar documentación y trazabilidad en el Día 81
 [completed] Empaquetar evidencia reproducible del Día 82
-[blocked] Capturar escritorio, tableta y móvil por política del navegador local
+[known limitation] Capturas responsivas no disponibles por política del navegador local
 [completed] Preparar review, retrospectiva y release notes del Día 83
-[blocked] Ejecutar release y cierre de Week 8 en el Día 84: faltan capturas reales
+[completed] Ejecutar release y cierre de Week 8 en el Día 84
 ```
 
 Current evidence:
@@ -947,7 +947,8 @@ Current evidence:
 - [`docs/model-comparison-release-scope.md`](docs/model-comparison-release-scope.md);
 - [`reports/quality/model-comparison/sprint_02_quality_gate.md`](reports/quality/model-comparison/sprint_02_quality_gate.md);
 - [`reports/portfolio/model-comparison/README.md`](reports/portfolio/model-comparison/README.md);
-- global Days 57–83 / Sprint 2 Days 1–27 completed; Day 84 audited and blocked.
+- [`docs/releases/v0.2.0-sprint-02-model-comparison.md`](docs/releases/v0.2.0-sprint-02-model-comparison.md);
+- global Days 57–84 / Sprint 2 Days 1–28 completed.
 
 Install the pinned Model Comparison runtime before running its checks:
 
