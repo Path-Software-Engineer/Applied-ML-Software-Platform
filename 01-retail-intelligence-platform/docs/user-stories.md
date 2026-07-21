@@ -308,4 +308,6 @@ without hiding the small-dataset boundary.
 **Evidence:** `docs/model-comparison-read-contract.md`,
 `frontend/dashboard-app/src/features/model-comparison/`,
 `frontend/dashboard-app/tests/modelComparisonApi.test.js`,
-`frontend/dashboard-app/tests/decisionCardViewModel.test.js`.
+`frontend/dashboard-app/tests/decisionCardViewModel.test.js`,
+`checks/check_model_comparison_integration.py`,
+`reports/quality/model-comparison/sprint_02_quality_gate.md`.

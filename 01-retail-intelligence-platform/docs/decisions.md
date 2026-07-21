@@ -1249,3 +1249,25 @@ the low-cardinality, non-sensitive log contract.
 ### Status
 
 Accepted and implemented on global Day 80.
+
+## Decision 053 — Finalize release documentation from implemented evidence
+
+### Context
+
+Sprint documents still contained planning language after the API, frontend and
+quality boundaries were implemented.
+
+### Decision
+
+Finalize the read contract, Model Card index and story traceability using only
+verified Sprint 2 artifacts. Preserve metric-leader versus selected-candidate
+semantics and every known data limitation.
+
+### Consequences
+
+Release documentation is usable without overstating model readiness or starting
+Sprint 3. Planned wording no longer conflicts with implemented status.
+
+### Status
+
+Accepted and implemented on global Day 81.
