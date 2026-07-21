@@ -33,7 +33,7 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Days 57–83 / Sprint 2 Days 1–27 are complete.
+- Global Days 57–83 / Sprint 2 Days 1–27 are complete; the Day 84 release gate is blocked.
 - Target, features, metrics and fairness rules are documented.
 - The official 12-row training and 6-row test partitions are generated with a
   source checksum and explicit chronological boundary.
@@ -62,6 +62,7 @@ needs traceable configuration, metrics, errors and limitations.
 - Release documentation, story traceability, Model Cards and API contract are final.
 - Portfolio evidence is reproducible; required screenshots remain explicitly blocked.
 - Sprint review, retrospective and blocked release notes are complete.
+- Day 84 software validation passes, but release mechanics have not executed.
 - The candidate is not production ready; no endpoint or React feature exists yet.
 
 ## Weeks
@@ -71,7 +72,7 @@ needs traceable configuration, metrics, errors and limitations.
 | Week 5 | 57–63 | completed: experiment setup, baseline and three candidates |
 | Week 6 | 64–70 | completed: metrics, errors, decision, cards and report |
 | Week 7 | 71–77 | completed: backend and dashboard integration |
-| Week 8 | 78–84 | in progress: hardening, evidence and Sprint 2 release |
+| Week 8 | 78–84 | blocked: software ready, real responsive captures missing |
 
 ## Official outputs
 
