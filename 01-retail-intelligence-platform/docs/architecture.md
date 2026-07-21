@@ -270,3 +270,10 @@ Week 7 closes the read path without moving analytical responsibilities into
 transport or presentation. Source-level visual evidence covers request states,
 semantic comparison structure, Decision Cards, responsive rules and reduced
 motion. Browser screenshots remain a separately gated Day 82 artifact.
+
+### Day 79 shared presentation shell
+
+`frontend/dashboard-app/src/shared/components/PlatformShell.jsx` owns the brand,
+primary navigation structure, platform breadcrumb and API-status presentation.
+Each feature supplies navigation configuration, evidence note and domain
+content. The shared layer contains no API call or analytical rule.

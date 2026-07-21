@@ -1204,3 +1204,26 @@ and browser-evidence limitations remain acceptance inputs, not hidden debt.
 ### Status
 
 Accepted as the Week 8 release boundary on global Day 78.
+
+## Decision 051 — Centralize the frontend platform shell
+
+### Context
+
+Demand Insight and Model Comparison duplicated brand, navigation, header and
+request-status markup, increasing visual and accessibility drift.
+
+### Decision
+
+Move those structural responsibilities to one shared React component. Keep
+feature navigation configuration and all domain presentation inside each
+feature module.
+
+### Consequences
+
+Routes, API contracts and evidence stay unchanged while shared presentation
+behavior has one owner. The shared component contains no data access or model
+decision logic.
+
+### Status
+
+Accepted and implemented on global Day 79.

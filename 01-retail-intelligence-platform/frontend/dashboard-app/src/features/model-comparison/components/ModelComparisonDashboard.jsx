@@ -2,6 +2,7 @@ import React from "react";
 
 import { DecisionCard } from "./DecisionCard.jsx";
 import { useModelComparison } from "../hooks/useModelComparison.js";
+import { PlatformShell } from "../../../shared/components/PlatformShell.jsx";
 
 
 const metricFormatter = new Intl.NumberFormat("en-US", {
@@ -11,50 +12,23 @@ const metricFormatter = new Intl.NumberFormat("en-US", {
 
 
 function ModelComparisonShell({ status, children }) {
+  const navigation = [
+    { href: "#demand-insight", label: "Demand insight" },
+    { href: "#model-comparison", label: "Model comparison" },
+  ];
   return (
-    <div className="app-shell comparison-shell">
-      <aside className="sidebar comparison-sidebar" aria-label="Primary navigation">
-        <a className="brand" href="#demand-insight" aria-label="Retail Intelligence home">
-          <span className="logo-mark comparison-logo" aria-hidden="true">
-            <span /><span /><span />
-          </span>
-          <span>
-            <strong>Retail</strong>
-            <small>Intelligence</small>
-          </span>
-        </a>
-        <nav className="nav-list">
-          <a className="nav-item" href="#demand-insight">
-            <span className="nav-index">01</span>
-            Demand insight
-          </a>
-          <a className="nav-item active" href="#model-comparison" aria-current="page">
-            <span className="nav-index">02</span>
-            Model comparison
-          </a>
-        </nav>
-        <div className="sidebar-note">
-          <span className="status-dot" />
-          <div>
-            <strong>Learning evidence</strong>
-            <small>Model Comparison · Sprint 2</small>
-          </div>
-        </div>
-      </aside>
-      <main className="main-content">
-        <header className="topbar">
-          <div>
-            <span className="eyebrow">Retail Intelligence Platform</span>
-            <span className="breadcrumb">/ Model Comparison</span>
-          </div>
-          <div className={`topbar-status topbar-status-${status}`} role="status">
-            <span className="status-dot" />
-            {status === "connected" ? "API connected" : status === "loading" ? "Connecting" : "API unavailable"}
-          </div>
-        </header>
-        {children}
-      </main>
-    </div>
+    <PlatformShell
+      activeHref="#model-comparison"
+      homeHref="#demand-insight"
+      moduleName="Model Comparison"
+      navigation={navigation}
+      noteTitle="Learning evidence"
+      noteSubtitle="Model Comparison · Sprint 2"
+      status={status}
+      variant="comparison"
+    >
+      {children}
+    </PlatformShell>
   );
 }
 
