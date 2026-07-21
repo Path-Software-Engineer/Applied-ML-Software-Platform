@@ -895,21 +895,65 @@ quedaron preparados para `v0.1.0-sprint-01-demand-insight`.
 Release notes:
 [`v0.1.0-sprint-01-demand-insight`](docs/releases/v0.1.0-sprint-01-demand-insight.md).
 
-Sprint 2 permanece sin iniciar.
+Sprint 2 is released at the global Day 84 boundary. The common experiment compares a
+training-mean baseline, Linear Regression, Random Forest and Gradient Boosting
+on one frozen chronological split. Gradient Boosting is the observed metric
+leader; Random Forest is selected only for the next integration step under the
+documented practical-equivalence rule. All evidence remains
+`not_production_ready`, and no Sprint 1 public contract has changed.
 
 ## Sprint 2
 
 ```txt
-Definir dataset para comparación
-Crear baseline de comparación
-Entrenar modelos clásicos
-Calcular métricas
-Crear tabla comparativa
-Crear error notes
-Crear decision cards
-Crear visual report
-Actualizar dashboard
-Documentar labs
+[completed] Definir dataset y split para comparación
+[completed] Crear baseline de comparación
+[completed] Entrenar tres modelos clásicos
+[completed] Calcular métricas comunes
+[completed] Crear tabla comparativa
+[completed] Crear análisis de errores
+[completed] Aplicar criterio de selección reproducible
+[completed] Crear cuatro Model Cards
+[completed] Documentar labs asignados hasta el Día 69
+[completed] Crear Decision Cards y comparison report
+[completed] Cerrar Week 6 con revisión y gate completo
+[completed] Definir el contrato y plan de integración de Week 7
+[completed] Implementar el servicio interno de lectura del Día 72
+[completed] Implementar el endpoint y OpenAPI del Día 73
+[completed] Implementar la vista comparativa del Día 74
+[completed] Presentar Decision Cards desde el API en el Día 75
+[completed] Validar integración cross-layer y smoke en el Día 76
+[completed] Cerrar Week 7 en el Día 77
+[completed] Congelar alcance y criterios de Week 8 en el Día 78
+[completed] Centralizar responsabilidades del shell en el Día 79
+[completed] Ejecutar el gate completo y logs seguros en el Día 80
+[completed] Finalizar documentación y trazabilidad en el Día 81
+[completed] Empaquetar evidencia reproducible del Día 82
+[known limitation] Capturas responsivas no disponibles por política del navegador local
+[completed] Preparar review, retrospectiva y release notes del Día 83
+[completed] Ejecutar release y cierre de Week 8 en el Día 84
+```
+
+Current evidence:
+
+- [`docs/sprints/sprint-02-model-comparison/README.md`](docs/sprints/sprint-02-model-comparison/README.md);
+- [`docs/model-comparison-experiment-contract.md`](docs/model-comparison-experiment-contract.md);
+- [`reports/outputs/model-comparison/comparison_table.md`](reports/outputs/model-comparison/comparison_table.md);
+- [`reports/outputs/model-comparison/error_analysis.md`](reports/outputs/model-comparison/error_analysis.md);
+- [`reports/outputs/model-comparison/model_decision.md`](reports/outputs/model-comparison/model_decision.md);
+- [`reports/model-cards/model-comparison/README.md`](reports/model-cards/model-comparison/README.md);
+- [`reports/outputs/model-comparison/model_comparison_report.md`](reports/outputs/model-comparison/model_comparison_report.md);
+- [`docs/sprints/sprint-02-model-comparison/week-06/review.md`](docs/sprints/sprint-02-model-comparison/week-06/review.md);
+- [`docs/model-comparison-read-contract.md`](docs/model-comparison-read-contract.md);
+- [`docs/model-comparison-release-scope.md`](docs/model-comparison-release-scope.md);
+- [`reports/quality/model-comparison/sprint_02_quality_gate.md`](reports/quality/model-comparison/sprint_02_quality_gate.md);
+- [`reports/portfolio/model-comparison/README.md`](reports/portfolio/model-comparison/README.md);
+- [`docs/releases/v0.2.0-sprint-02-model-comparison.md`](docs/releases/v0.2.0-sprint-02-model-comparison.md);
+- global Days 57–84 / Sprint 2 Days 1–28 completed.
+
+Install the pinned Model Comparison runtime before running its checks:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r ai-services\model-comparison\requirements.txt
 ```
 
 ## Sprint 3

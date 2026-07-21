@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+  "split_strategy": "chronological_holdout",
+  "target": "units_sold",
+  "target_unit": "units_per_sale_record",
+  "primary_metric": {
+    "id": "mae",
+    "unit": "units",
+    "direction": "lower_is_better"
+  },
+  "diagnostic_metrics": {
+    "rmse": {
+      "unit": "units",
+      "direction": "lower_is_better"
+    },
+    "r2": {
+      "unit": "unitless",
+      "direction": "higher_is_better",
+      "role": "contextual_only"
+    }
+  },
+  "policy": {
+    "practical_equivalence_units": 0.25,
+    "minimum_baseline_improvement_percent": 10.0
+  },
+  "selection_status": "not_selected",
+  "rows": [
+    {
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "model_family": "boosted_tree_ensemble",
+      "mae_units": 3.0884361955009996,
+      "rmse_units": 3.3322935379403216,
+      "r2_contextual": 0.4538927759180905,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only",
+      "mae_rank": 1,
+      "mae_delta_vs_baseline_units": 1.2171193600545567,
+      "mae_improvement_vs_baseline_percent": 28.268578685138085,
+      "within_practical_equivalence": true,
+      "meets_minimum_baseline_improvement": true
+    },
+    {
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "model_family": "tree_ensemble",
+      "mae_units": 3.125795965608463,
+      "rmse_units": 3.44125567901965,
+      "r2_contextual": 0.41759472221057414,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only",
+      "mae_rank": 2,
+      "mae_delta_vs_baseline_units": 1.1797595899470932,
+      "mae_improvement_vs_baseline_percent": 27.40086789554538,
+      "within_practical_equivalence": true,
+      "meets_minimum_baseline_improvement": true
+    },
+    {
+      "model_id": "linear_regression",
+      "model_name": "Linear Regression",
+      "model_family": "linear_model",
+      "mae_units": 3.563333333333335,
+      "rmse_units": 3.8418398370225346,
+      "r2_contextual": 0.27411147540983594,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only",
+      "mae_rank": 3,
+      "mae_delta_vs_baseline_units": 0.7422222222222215,
+      "mae_improvement_vs_baseline_percent": 17.238709677419333,
+      "within_practical_equivalence": false,
+      "meets_minimum_baseline_improvement": true
+    },
+    {
+      "model_id": "training_mean",
+      "model_name": "Training Mean Baseline",
+      "model_family": "baseline",
+      "mae_units": 4.305555555555556,
+      "rmse_units": 4.899688198696366,
+      "r2_contextual": -0.18066939890710398,
+      "test_rows": 6,
+      "production_status": "learning_evidence_only",
+      "mae_rank": 4,
+      "mae_delta_vs_baseline_units": 0.0,
+      "mae_improvement_vs_baseline_percent": 0.0,
+      "within_practical_equivalence": false,
+      "meets_minimum_baseline_improvement": false
+    }
+  ]
+}

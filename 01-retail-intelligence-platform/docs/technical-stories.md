@@ -520,3 +520,212 @@ US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-014 | US-S1-003, US-S1-004, US-S1-005, US-S1-007, US-S1-008 | `backend/api/app/services/demand_figure_service.py`, `tests/backend/test_demand_figure_service.py`, `frontend/dashboard-app/src/features/demand-summary/` |
 | TS-S1-015 | US-S1-006, US-S1-007, US-S1-008 | `scripts/run-quality-gate.ps1`, `frontend/dashboard-app/tests/demandSummaryApi.test.js`, `checks/check_sprint_01_hardening.py` |
 | TS-S1-016 | US-S1-006, US-S1-007, US-S1-008 | `docs/releases/v0.1.0-sprint-01-demand-insight.md`, `checks/check_sprint_01_close.py`, `reports/summaries/demand-insight/sprint_01_close_summary.md` |
+
+## Sprint 2 — Technical Stories
+
+These stories trace the Model Comparison implementation completed and validated
+through global Day 80. Evidence remains learning-only until broader data and
+production validation exist.
+
+## TS-S2-001 — Establish a reproducible experiment contract
+
+### Necesidad técnica
+
+The system needs one validated dataset, feature contract and chronological
+train/test boundary before any model can be compared.
+
+### Criterios de aceptación
+
+- The target is `units_sold` and its unit is explicit.
+- Allowed and excluded features include leakage rationale.
+- One split manifest records row counts, dates, source checksum and seed.
+- Tests use controlled inputs and do not overwrite official evidence.
+
+### Estado
+
+Completed on global Day 58.
+
+### Evidencia
+
+- `docs/model-comparison-experiment-contract.md`
+- `ai-services/model-comparison/src/model_comparison/contract.py`
+- `ai-services/model-comparison/src/model_comparison/data.py`
+- `reports/outputs/model-comparison/split_manifest.json`
+- `tests/ai-services/model-comparison/test_experiment_split.py`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-003.
+
+## TS-S2-002 — Register common metrics and baseline evidence
+
+### Necesidad técnica
+
+Every candidate needs the same result schema and evaluation functions so checks
+cannot change formulas or compare incompatible outputs.
+
+### Criterios de aceptación
+
+- The training-mean baseline predicts only the official test rows.
+- MAE, RMSE and R² share a versioned result contract.
+- Metric direction and units are recorded.
+- Tests verify formulas and invalid inputs.
+
+### Estado
+
+Completed on global Day 59.
+
+### Evidencia
+
+- `ai-services/model-comparison/src/model_comparison/metrics.py`
+- `ai-services/model-comparison/src/model_comparison/baseline.py`
+- `ai-services/model-comparison/src/model_comparison/results.py`
+- `reports/outputs/model-comparison/results/training_mean.json`
+- `tests/ai-services/model-comparison/test_baseline_metrics.py`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-002.
+
+## TS-S2-003 — Train comparable classical regression pipelines
+
+### Necesidad técnica
+
+The system needs reproducible Linear Regression, Random Forest and Gradient
+Boosting candidates behind one preprocessing and evaluation boundary.
+
+### Criterios de aceptación
+
+- Candidates consume the same train and test partitions.
+- Categorical values are encoded without using target data.
+- Stochastic candidates record `random_state`.
+- Predictions and metrics use the shared result contract.
+
+### Estado
+
+Completed on global Day 62.
+
+### Evidencia
+
+- `ai-services/model-comparison/src/model_comparison/candidate.py`
+- `ai-services/model-comparison/src/model_comparison/preprocessing.py`
+- `ai-services/model-comparison/src/model_comparison/linear_regression.py`
+- `ai-services/model-comparison/src/model_comparison/random_forest.py`
+- `ai-services/model-comparison/src/model_comparison/gradient_boosting.py`
+- `tests/ai-services/model-comparison/`
+
+### Relación con User Stories
+
+US-S2-001, US-S2-002.
+
+## TS-S2-004 — Produce auditable error and decision evidence
+
+### Necesidad técnica
+
+Aggregate metrics need observation-level error evidence, an explicit selection
+rule and model cards before a backend can expose a recommendation.
+
+### Criterios de aceptación
+
+- Comparison outputs are deterministic CSV, JSON and Markdown artifacts.
+- Error analysis identifies largest misses without claiming causality.
+- Selection separates best metric from best candidate.
+- Model cards link configuration, metrics, strengths and limitations.
+
+### Estado
+
+Completed on global Day 68.
+
+### Evidencia
+
+- `ai-services/model-comparison/src/model_comparison/comparison_table.py`
+- `ai-services/model-comparison/src/model_comparison/error_analysis.py`
+- `ai-services/model-comparison/src/model_comparison/decision.py`
+- `ai-services/model-comparison/src/model_comparison/model_cards.py`
+- `reports/outputs/model-comparison/model_decision.json`
+- `reports/model-cards/model-comparison/model_cards.json`
+- `reports/outputs/model-comparison/model_comparison_report.json`
+- `reports/decision-cards/model-comparison/decision_cards.json`
+
+### Relación con User Stories
+
+US-S2-002, US-S2-003, US-S2-004.
+
+## TS-S2-005 — Expose a validated Model Comparison read resource
+
+### Necesidad técnica
+
+The platform needs a read-only service and strict HTTP contract over the
+canonical comparison report without importing training behavior.
+
+### Criterios de aceptación
+
+- One internal service validates the report version, identities and evidence.
+- One versioned endpoint delegates to the service and never trains models.
+- Public failures contain no artifact paths or internal exception details.
+- Isolated service and HTTP tests cover invalid evidence.
+
+### Estado
+
+Completed on global Day 73.
+
+### Evidencia
+
+- `docs/model-comparison-read-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-07/exploration.md`
+- `backend/api/app/services/model_comparison_service.py`
+- `tests/backend/test_model_comparison_service.py`
+- `backend/api/app/schemas/model_comparison.py`
+- `backend/api/app/routes/model_comparison.py`
+- `tests/backend/test_model_comparison_api.py`
+- `checks/check_model_comparison_integration.py`
+
+### Relación con User Stories
+
+US-S2-005.
+
+## TS-S2-006 — Consume Model Comparison evidence in React
+
+### Necesidad técnica
+
+The dashboard needs an isolated feature, API client and request lifecycle for
+comparison evidence without embedded fallback metrics or selection logic.
+
+### Criterios de aceptación
+
+- A dedicated client validates schema version and required collections.
+- A hook exposes loading, connected and unavailable states.
+- Presentation renders candidate evidence and API-provided Decision Cards.
+- Frontend contract tests reject incompatible or incomplete responses.
+
+### Estado
+
+Completed on global Day 75.
+
+Week 7 closure evidence: `docs/sprints/sprint-02-model-comparison/week-07/review.md`
+and `reports/quality/model-comparison/day_77_visual_contract_review.md`.
+
+### Evidencia
+
+- `docs/model-comparison-read-contract.md`
+- `docs/sprints/sprint-02-model-comparison/week-07/plan.md`
+- `frontend/dashboard-app/src/features/model-comparison/`
+- `frontend/dashboard-app/tests/modelComparisonApi.test.js`
+- `frontend/dashboard-app/tests/decisionCardViewModel.test.js`
+- `checks/check_model_comparison_decision_cards_frontend.py`
+- `checks/check_model_comparison_integration.py`
+
+### Relación con User Stories
+
+US-S2-005, US-S2-006.
+
+## Sprint 2 traceability
+
+| Technical Story | User Stories relacionadas | Initial evidence |
+|---|---|---|
+| TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
+| TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
+| TS-S2-003 | US-S2-001, US-S2-002 | `ai-services/model-comparison/src/model_comparison/candidate.py` |
+| TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |
+| TS-S2-005 | US-S2-005 | `docs/model-comparison-read-contract.md` |
+| TS-S2-006 | US-S2-005, US-S2-006 | `frontend/dashboard-app/src/features/model-comparison/`, `checks/check_model_comparison_integration.py` |

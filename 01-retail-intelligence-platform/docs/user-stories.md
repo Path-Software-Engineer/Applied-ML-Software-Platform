@@ -171,7 +171,143 @@ same analytical contracts for future software integration.
 `backend/api/app/routes/demand_summary.py`,
 `frontend/dashboard-app/src/features/demand-summary/`.
 
-## Explicitly not completed
+## Explicitly not completed after Sprint 1
 
-Model comparison, inventory decisions, Sprint 2 and Sprint 3 are outside the
-completed evidence represented here.
+Inventory decisions and Sprint 3 remain outside completed evidence. Sprint 2
+starts below with planned stories; Day 57 does not mark model behavior complete.
+
+## Sprint 2 — Model Comparison User Stories
+
+### US-S2-001 — Compare models under the same experiment
+
+**Story:** As a retail analyst, I want a baseline and classical models compared
+under one data contract so that their metrics are technically comparable.
+
+**Value:** Prevents a recommendation from being driven by different rows,
+features, splits or evaluation rules.
+
+**Acceptance criteria:**
+
+- Every candidate uses the same validated dataset, target, features and split.
+- The experiment records its chronological boundary and random seed.
+- Target-derived and temporally ambiguous features are excluded explicitly.
+- Results identify the model configuration and prediction unit.
+
+**Status:** Completed on global Day 63.
+
+**Evidence:** `docs/model-comparison-experiment-contract.md`,
+`reports/outputs/model-comparison/split_manifest.json`,
+`reports/outputs/model-comparison/initial_results.json`,
+`docs/sprints/sprint-02-model-comparison/week-05/review.md`.
+
+### US-S2-002 — Understand comparative model quality
+
+**Story:** As a retail analyst, I want baseline and model errors presented in a
+common table so that I can understand accuracy and large misses.
+
+**Value:** Translates several model outputs into one reviewable measurement
+surface.
+
+**Acceptance criteria:**
+
+- MAE is reported in units and lower values are identified as better.
+- RMSE is reported as a large-error diagnostic.
+- R² is labeled as contextual and not used alone on the six-row test set.
+- Dataset, split and model identifiers accompany the metrics.
+
+**Status:** Completed on global Day 65.
+
+**Evidence:** `reports/outputs/model-comparison/comparison_table.csv`,
+`reports/outputs/model-comparison/comparison_table.json`,
+`reports/outputs/model-comparison/comparison_table.md`,
+`ai-services/model-comparison/checks/check_comparison_table.py`.
+
+### US-S2-003 — Review errors before accepting a candidate
+
+**Story:** As a technical decision-maker, I want the largest prediction errors
+and dataset limitations documented so that a strong aggregate metric is not
+overinterpreted.
+
+**Value:** Connects numerical ranking with the observations and risks behind it.
+
+**Acceptance criteria:**
+
+- Prediction-level residual and absolute-error evidence is reproducible.
+- The largest misses are identified without inventing causal explanations.
+- The small synthetic dataset remains visible as a decision limitation.
+
+**Status:** Completed on global Day 66.
+
+**Evidence:** `reports/outputs/model-comparison/error_analysis.csv`,
+`reports/outputs/model-comparison/error_analysis.json`,
+`reports/outputs/model-comparison/error_analysis.md`,
+`ai-services/model-comparison/checks/check_error_analysis.py`.
+
+### US-S2-004 — Receive an evidence-backed candidate rationale
+
+**Story:** As a platform stakeholder, I want model cards and an explicit
+selection rule so that the recommended candidate can be explained and audited.
+
+**Value:** Separates “lowest metric” from a responsible technical decision.
+
+**Acceptance criteria:**
+
+- The rule considers primary error, simplicity, stability and interpretability.
+- Every candidate has purpose, configuration, metrics and limitations.
+- The recommendation is reproducible and does not claim production readiness.
+
+**Status:** Completed on global Day 68.
+
+**Evidence:** `reports/outputs/model-comparison/model_decision.json`,
+`reports/outputs/model-comparison/model_decision.md`,
+`reports/model-cards/model-comparison/model_cards.json`,
+`reports/model-cards/model-comparison/README.md`,
+`reports/outputs/model-comparison/model_comparison_report.json`,
+`reports/decision-cards/model-comparison/decision_cards.json`.
+
+### US-S2-005 — Read Model Comparison evidence through the platform
+
+**Story:** As a retail analyst, I want the completed comparison evidence through
+a versioned platform resource so that I can review it without repository access.
+
+**Value:** Makes the frozen analytical decision reusable without moving model
+training or metric ownership into the web request.
+
+**Acceptance criteria:**
+
+- A read-only resource returns exactly four candidates and three Decision Cards.
+- The response identifies its schema version and learning-only status.
+- Missing or invalid evidence returns an explicit unavailable response with no
+  partial values or local paths.
+- Demand Insight behavior remains unchanged.
+
+**Status:** Completed on global Day 73.
+
+**Evidence:** `docs/model-comparison-read-contract.md`,
+`backend/api/app/services/model_comparison_service.py`,
+`backend/api/app/routes/model_comparison.py`,
+`tests/backend/test_model_comparison_api.py`.
+
+### US-S2-006 — Review the model decision in the dashboard
+
+**Story:** As a retail analyst, I want a dedicated comparison view so that I can
+review candidates, the selected integration candidate and its limitations.
+
+**Value:** Presents technical evidence as an understandable decision surface
+without hiding the small-dataset boundary.
+
+**Acceptance criteria:**
+
+- The view distinguishes loading, connected and unavailable states.
+- Candidate metrics remain numeric API evidence formatted only for display.
+- Decision Cards show the observed leader, selected candidate and evidence limit.
+- The browser does not recalculate metrics or selection logic.
+
+**Status:** Completed on global Day 75.
+
+**Evidence:** `docs/model-comparison-read-contract.md`,
+`frontend/dashboard-app/src/features/model-comparison/`,
+`frontend/dashboard-app/tests/modelComparisonApi.test.js`,
+`frontend/dashboard-app/tests/decisionCardViewModel.test.js`,
+`checks/check_model_comparison_integration.py`,
+`reports/quality/model-comparison/sprint_02_quality_gate.md`.

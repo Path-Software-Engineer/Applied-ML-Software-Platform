@@ -154,3 +154,133 @@ feature/s1-d28-sprint-01-close
 `CHANGELOG.md` and the versioned release notes describe the same capability and
 limitations as the validated artifacts. No model-comparison or inventory
 responsibility is introduced by the release.
+
+## Sprint 2 Model Comparison boundary
+
+Global Day 57 opens Model Comparison without changing the stable Demand Insight
+flow. The new module owns experiment preparation, comparable evaluation,
+candidate models and decision evidence under `ai-services/model-comparison/`.
+
+The intended dependency direction is:
+
+```text
+scripts -> model-comparison production code -> prepared data / reports
+checks  -> model-comparison production code -> official evidence
+tests   -> model-comparison production code -> temporary paths
+backend -> future read service -> validated comparison evidence
+frontend -> future versioned API -> no local model calculations
+```
+
+Model Comparison may consume the validated Sprint 1 feature dataset as an input.
+It may not import React or FastAPI, mutate Demand Insight outputs, train from an
+HTTP request or define business values in presentation code.
+
+The initial experiment predicts `units_sold` per observed sale record. It is a
+small supervised-regression comparison, not a sales forecast. Revenue is
+excluded because it is derived from the target, and `stock_available` is
+excluded because its before/after-sale timing is not sufficiently precise.
+
+Training, metrics and artifact implementation begin only on their assigned
+days. Day 57 creates documentation and traceability, not runtime capability.
+
+### Week 6 decision evidence boundary
+
+Week 6 closes with `model_comparison_report.json` as the canonical composite
+read artifact. It contains the frozen comparison, error review, decision and
+three presentation-ready Decision Cards under schema version `1.0`.
+
+Future backend code may validate and map this report into a public resource. It
+must not import training modules, join separate analytical artifacts, retrain a
+candidate or recompute metrics during a request. React must consume the public
+resource and must not reproduce the selection rule.
+
+### Week 7 planned read flow
+
+```text
+model_comparison_report.json
+        -> ModelComparisonService validation and mapping
+        -> GET /api/v1/model-comparisons/summary
+        -> model-comparison frontend API client
+        -> request lifecycle hook
+        -> candidate view and Decision Cards
+```
+
+This flow is proposed on Day 71. The service, endpoint and frontend remain
+unimplemented until their assigned Days 72–75.
+
+### Day 72 implementation status
+
+`ModelComparisonService` is the internal read adapter. It validates one
+`model_comparison_report.json`, cross-checks experiment, candidate, decision and
+card identities, and maps only the fields proposed for the public resource.
+
+The service has no FastAPI or model-training dependency. It raises a controlled
+domain-specific read error when required evidence is missing or inconsistent.
+HTTP routing remains the Day 73 boundary.
+
+### Day 73 implementation status
+
+`GET /api/v1/model-comparisons/summary` delegates to the internal service and
+returns a strict Pydantic resource. Extra response fields are forbidden,
+collection sizes are bounded and the experiment and evidence statuses are
+explicitly typed.
+
+The route owns only dependency resolution and translation of
+`ModelComparisonError` into a safe `503`. It performs no training, metric or
+selection work. The existing Demand Insight router remains registered without
+contract changes.
+
+### Day 74 implementation status
+
+`frontend/dashboard-app/src/features/model-comparison/` owns the new API client,
+request hook and presentation component. `App.jsx` selects the Demand Insight or
+Model Comparison feature through a small hash route without coupling their data
+lifecycle.
+
+The client rejects incompatible versions, missing candidates, inconsistent
+identities and incomplete Decision Cards before rendering. The view shows no
+fallback metrics in loading or unavailable states. Day 74 renders the
+comparison and rationale; Decision Card presentation remains Day 75 work.
+
+### Day 75 implementation status
+
+`DecisionCard.jsx` renders the three cards received in `decision_cards` with
+semantic articles, associated headings and limitations, status announcements,
+numeric `data` elements and reason lists. A small presentation mapper converts
+machine statuses to display copy while preserving raw identifiers and metrics.
+
+React does not sort candidates, compare MAE values or apply the practical-
+equivalence rule. Cross-layer smoke validation remains the Day 76 boundary.
+
+### Day 76 integration status
+
+The repository integration check compares the canonical report with the
+service resource, the in-process FastAPI response and the real JavaScript
+client validator. Any altered metric, candidate identity or Decision Card fails
+the same gate that protects Demand Insight compatibility.
+
+The local smoke uses the compiled React shell, a narrow same-origin proxy and a
+live Uvicorn process. It verifies real HTTP responses and shuts both processes
+down. Browser-driven visual approval remains a separate evidence boundary and
+is not inferred from compilation or HTTP success.
+
+### Day 77 Week 7 closure
+
+Week 7 closes the read path without moving analytical responsibilities into
+transport or presentation. Source-level visual evidence covers request states,
+semantic comparison structure, Decision Cards, responsive rules and reduced
+motion. Browser screenshots remain a separately gated Day 82 artifact.
+
+### Day 79 shared presentation shell
+
+`frontend/dashboard-app/src/shared/components/PlatformShell.jsx` owns the brand,
+primary navigation structure, platform breadcrumb and API-status presentation.
+Each feature supplies navigation configuration, evidence note and domain
+content. The shared layer contains no API call or analytical rule.
+
+### Day 80 observability boundary
+
+The Model Comparison read service logs one stable event after full report
+validation. It records schema version, collection counts and the declared
+production status; it does not record paths, checksums, metrics, rationale,
+headers, query values or request bodies.

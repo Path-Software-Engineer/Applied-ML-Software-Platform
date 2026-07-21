@@ -5,6 +5,7 @@ import {
   getDemandFigureUrl,
 } from "../api/demandSummaryApi.js";
 import { useDemandSummary } from "../hooks/useDemandSummary.js";
+import { LogoMark, PlatformShell } from "../../../shared/components/PlatformShell.jsx";
 
 
 const numberFormatter = new Intl.NumberFormat("en-US", {
@@ -12,84 +13,36 @@ const numberFormatter = new Intl.NumberFormat("en-US", {
 });
 
 
-function LogoMark() {
+const demandNavigation = [
+  { href: "#overview", label: "Overview" },
+  { href: "#leaders", label: "Leaders" },
+  { href: "#insights", label: "Insight cards" },
+  { href: "#visuals", label: "Visual report" },
+  { href: "#model-comparison", label: "Model comparison" },
+];
+
+
+function DemandShell({ status, children }) {
   return (
-    <span className="logo-mark" aria-hidden="true">
-      <span />
-      <span />
-      <span />
-    </span>
-  );
-}
-
-
-function AppShell({ children }) {
-  return (
-    <div className="app-shell">
-      <aside className="sidebar" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Retail Intelligence home">
-          <LogoMark />
-          <span>
-            <strong>Retail</strong>
-            <small>Intelligence</small>
-          </span>
-        </a>
-
-        <nav className="nav-list">
-          <a className="nav-item active" href="#overview" aria-current="page">
-            <span className="nav-index">01</span>
-            Overview
-          </a>
-          <a className="nav-item" href="#leaders">
-            <span className="nav-index">02</span>
-            Leaders
-          </a>
-          <a className="nav-item" href="#insights">
-            <span className="nav-index">03</span>
-            Insight cards
-          </a>
-          <a className="nav-item" href="#visuals">
-            <span className="nav-index">04</span>
-            Visual report
-          </a>
-        </nav>
-
-        <div className="sidebar-note">
-          <span className="status-dot" />
-          <div>
-            <strong>Observed evidence</strong>
-            <small>Demand Insight · Sprint 1</small>
-          </div>
-        </div>
-      </aside>
-      <main className="main-content" id="top">{children}</main>
-    </div>
-  );
-}
-
-
-function Header({ status }) {
-  const isConnected = status === "connected";
-
-  return (
-    <header className="topbar">
-      <div>
-        <span className="eyebrow">Retail Intelligence Platform</span>
-        <span className="breadcrumb">/ Demand Insight</span>
-      </div>
-      <div className={`topbar-status topbar-status-${status}`} role="status">
-        <span className="status-dot" />
-        {isConnected ? "API connected" : status === "loading" ? "Connecting" : "API unavailable"}
-      </div>
-    </header>
+    <PlatformShell
+      activeHref="#overview"
+      homeHref="#top"
+      mainId="top"
+      moduleName="Demand Insight"
+      navigation={demandNavigation}
+      noteTitle="Observed evidence"
+      noteSubtitle="Demand Insight · Sprint 1"
+      status={status}
+    >
+      {children}
+    </PlatformShell>
   );
 }
 
 
 function LoadingState() {
   return (
-    <AppShell>
-      <Header status="loading" />
+    <DemandShell status="loading">
       <div className="dashboard loading-state" aria-live="polite" aria-busy="true">
         <div className="skeleton hero-skeleton" />
         <div className="metric-grid">
@@ -99,15 +52,14 @@ function LoadingState() {
         </div>
         <p>Loading validated demand evidence…</p>
       </div>
-    </AppShell>
+    </DemandShell>
   );
 }
 
 
 function ErrorState({ message, onRetry }) {
   return (
-    <AppShell>
-      <Header status="unavailable" />
+    <DemandShell status="unavailable">
       <section className="state-card" role="alert">
         <span className="state-code">503</span>
         <p className="section-kicker">Evidence unavailable</p>
@@ -116,7 +68,7 @@ function ErrorState({ message, onRetry }) {
         <button type="button" onClick={onRetry}>Try again</button>
         <small>No fallback business values are shown when evidence is unavailable.</small>
       </section>
-    </AppShell>
+    </DemandShell>
   );
 }
 
@@ -201,8 +153,7 @@ function FigureCard({ figure }) {
 function DashboardContent({ data }) {
   const { period, sales_summary: sales, baseline, leaders, insight_cards: cards } = data;
   return (
-    <AppShell>
-      <Header status="connected" />
+    <DemandShell status="connected">
       <div className="dashboard">
         <section className="hero" id="overview">
           <div className="hero-copy">
@@ -284,7 +235,7 @@ function DashboardContent({ data }) {
           <span>Demand Insight · Sprint 1</span>
         </footer>
       </div>
-    </AppShell>
+    </DemandShell>
   );
 }
 

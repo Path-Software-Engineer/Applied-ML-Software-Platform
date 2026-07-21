@@ -687,3 +687,676 @@ explicitly authorized feature branch is opened.
 ### Status
 
 Accepted and implemented on Day 28.
+
+## Decision 029 — Open Sprint 2 behind a fair experiment contract
+
+### Context
+
+The platform must compare classical regression models without reopening Sprint
+1, leaking target-derived information or changing the dataset between
+candidates. The available dataset contains only 18 artificial observations.
+
+### Decision
+
+Use `units_sold` as a continuous target measured in units per sale record.
+Compare a training-mean baseline, Linear Regression, Random Forest and Gradient
+Boosting on one chronological split. Every candidate must receive the same
+rows, target, feature contract, preprocessing boundary and metrics.
+
+Allow `product_id`, `category`, `unit_price`, `day_of_week` and `is_weekend` as
+candidate features. Exclude identifiers, raw date, product-name duplication,
+constant columns, target-derived revenue and ambiguous post/near-sale stock.
+
+Use MAE as the primary metric, RMSE as a large-error diagnostic and R² only as
+context. A six-row test set and synthetic source cannot establish production
+generalization.
+
+### Consequences
+
+Sprint 2 gains an auditable comparison boundary before dependencies or models
+are added. Backend and React remain unchanged until Week 7. Model ranking may
+support an initial candidate decision, but cannot authorize production use.
+
+### Status
+
+Accepted as the global Day 57 exploration decision.
+
+## Decision 030 — Freeze one chronological split manifest
+
+### Context
+
+Every candidate needs identical training and test evidence. A random split could
+mix adjacent dates and make the already small result harder to audit.
+
+### Decision
+
+Train on observations through 2026-01-06 and test on observations from
+2026-01-07 through 2026-01-09. Persist the 12/6 row identifiers, source
+checksum, feature contract, excluded columns and seed in one JSON manifest.
+
+### Consequences
+
+Later candidates cannot choose more favorable rows or preprocessing inputs.
+The six-row holdout is sufficient for software-contract verification but not
+for a production generalization claim.
+
+### Status
+
+Accepted and implemented on global Day 58.
+
+## Decision 031 — Evaluate every candidate through one metric registry
+
+### Context
+
+Checks and model-specific scripts must not use different formulas or result
+shapes. The Sprint 1 full-dataset baseline is not valid for the new holdout.
+
+### Decision
+
+Fit a fresh training-mean baseline on the 12 training targets only. Calculate
+MAE, RMSE and contextual R² in one production metric module and persist every
+candidate through the same result and prediction contracts.
+
+### Consequences
+
+Later models can be compared without formula drift. R² remains diagnostic
+because six test observations cannot support a strong goodness-of-fit claim.
+
+### Status
+
+Accepted and implemented on global Day 59.
+
+## Decision 032 — Fit preprocessing inside each candidate pipeline
+
+### Context
+
+Categorical encoding or numeric scaling performed before the experiment split
+would expose test-partition information and weaken comparison fairness.
+
+### Decision
+
+Use one scikit-learn `Pipeline` with a shared `ColumnTransformer`. Fit one-hot
+encoding and numeric standardization on the training partition only, then
+evaluate Linear Regression on the untouched test partition. Pin the local
+model-comparison dependencies to exact versions.
+
+### Consequences
+
+Later candidates reuse the same preprocessing and result boundaries. Unknown
+test categories remain processable, while the six-row test set and synthetic
+source still prevent production-readiness claims.
+
+### Status
+
+Accepted and implemented on global Day 60.
+
+## Decision 033 — Bound and seed the Random Forest candidate
+
+### Context
+
+An unrestricted ensemble can memorize a 12-row training partition, while
+parallel execution and an unrecorded seed weaken reproducibility.
+
+### Decision
+
+Evaluate a 200-tree `RandomForestRegressor` with maximum depth 4, minimum leaf
+size 2, `random_state=42` and one worker. Reuse the common preprocessing,
+prediction and metric contracts without tuning on the test set.
+
+### Consequences
+
+The candidate is repeatable and its capacity is constrained, but the chosen
+parameters are experiment configuration rather than optimized values. The
+small holdout still prevents stability or production claims.
+
+### Status
+
+Accepted and implemented on global Day 61.
+
+## Decision 034 — Add Gradient Boosting without test-driven tuning
+
+### Context
+
+The third learned candidate must represent sequential boosting while remaining
+comparable and bounded on the 12-row training partition.
+
+### Decision
+
+Evaluate `GradientBoostingRegressor` with 100 stages, learning rate 0.05,
+maximum tree depth 2, minimum leaf size 2, squared-error loss and
+`random_state=42`. Do not search parameters against the official test rows.
+
+### Consequences
+
+The experiment now contains the baseline and all three planned model families.
+Configuration is reproducible, but it is not optimized and cannot establish
+stability or production performance.
+
+### Status
+
+Accepted and implemented on global Day 62.
+
+## Decision 035 — Close Week 5 without selecting a model
+
+### Context
+
+The four candidates now have common metrics, but aggregate values alone do not
+cover practical equivalence, error concentration, simplicity, stability or
+interpretability.
+
+### Decision
+
+Consolidate all candidate results after validating shared experiment metadata.
+Do not rank, recommend or label a winner during Week 5. Reserve formal
+comparison, error analysis and selection for Week 6.
+
+### Consequences
+
+Week 5 has reviewable evidence without turning a small observed difference into
+an unsupported decision. The platform preserves a clear boundary between
+metric generation and decision reasoning.
+
+### Status
+
+Accepted and implemented on global Day 63.
+
+## Decision 036 — Freeze practical equivalence and selection criteria
+
+### Context
+
+The lowest observed MAE may differ only marginally from a more explainable
+candidate. A selection rule written after error review could be adjusted to
+justify a preferred outcome.
+
+### Decision
+
+Use MAE as primary metric, require at least 10% improvement over the baseline,
+and treat learned candidates within 0.25 MAE units of the measurement leader as
+practically equivalent. Prefer the lower-complexity eligible candidate inside
+that tolerance. Report RMSE, contextual R² and error evidence separately.
+
+### Consequences
+
+Day 67 can reproduce both the measurement leader and integration choice from a
+policy frozen on Day 64. Repeatability is not mislabeled as stability, and the
+choice cannot be labeled production ready.
+
+### Status
+
+Accepted on global Day 64; execution is scheduled for Day 67.
+
+## Decision 037 — Separate measurement ranking from model selection
+
+### Context
+
+A sorted metric table is necessary for comparison, but its first row cannot
+automatically encode the broader integration decision.
+
+### Decision
+
+Rank by MAE and calculate RMSE, contextual R², delta versus baseline and
+percentage improvement. Mark candidates inside the frozen 0.25-unit tolerance,
+while keeping the table's selection status explicitly `not_selected`.
+
+### Consequences
+
+The metric leader is visible and reproducible without bypassing error review or
+the complexity tie-break. Day 67 remains the only selection boundary.
+
+### Status
+
+Accepted and implemented on global Day 65.
+
+## Decision 038 — Validate residuals before interpreting largest errors
+
+### Context
+
+Prediction files can contain stale, mismatched or incorrectly calculated
+residuals. Aggregate metrics do not show error direction or observation context.
+
+### Decision
+
+Validate every prediction row against the official test target, recompute
+residual and absolute error consistency, and attach date and product context.
+Describe largest errors and direction without assigning causes.
+
+### Consequences
+
+Day 67 receives auditable error evidence for all 24 candidate-row predictions.
+The analysis exposes observed misses while preserving the boundary between
+description and causal or stability claims.
+
+### Status
+
+Accepted and implemented on global Day 66.
+
+## Decision 039 — Select Random Forest for the next integration step
+
+### Context
+
+Gradient Boosting has the lowest observed MAE, while Random Forest differs by
+only 0.0374 units and both candidates fall inside the frozen 0.25-unit
+practical-equivalence tolerance.
+
+### Decision
+
+Record Gradient Boosting as the measurement leader and select Random Forest for
+the next integration step. Apply the frozen lower-complexity tie-break after
+confirming that Random Forest improves baseline MAE by more than 10% and that
+its error evidence was reviewed.
+
+### Consequences
+
+Metric leadership and engineering selection remain distinct and auditable.
+Random Forest may proceed to later platform integration only after Week 6
+closes. The decision does not establish stability, generalization or production
+readiness.
+
+### Status
+
+Accepted and implemented on global Day 67.
+
+## Decision 040 — Build Model Cards from versioned evidence
+
+### Context
+
+Metrics and a selection document are insufficient when candidate purpose,
+configuration, error profile, limitations and risks remain scattered.
+
+### Decision
+
+Generate one versioned Model Card per candidate from result, comparison, error
+and decision artifacts. Distinguish comparison baseline, evaluated candidate,
+measurement leader and selected-for-integration roles. Mark every card
+`not_production_ready`.
+
+### Consequences
+
+All four candidates have consistent, reviewable documentation without copying
+unverified claims into prose. The Day 69 report can consume the same evidence,
+but it is not part of Day 68.
+
+### Status
+
+Accepted and implemented on global Day 68.
+
+## Decision 041 — Expose one composite report to later read layers
+
+### Context
+
+Backend should not join several analytical artifacts or reproduce selection
+logic during an HTTP request.
+
+### Decision
+
+Generate one `schema_version: 1.0` Model Comparison report containing the
+experiment boundary, formal table, error review, frozen decision and three
+structured Decision Cards. Generate Markdown from the same report data.
+
+### Consequences
+
+Later services can validate and return one canonical artifact without importing
+training code. Presentation receives stable cards while analytical ownership
+remains in `ai-services/model-comparison`.
+
+### Status
+
+Accepted and implemented on global Day 69.
+
+## Decision 042 — Close Week 6 before platform integration
+
+### Context
+
+The comparison evidence is complete, but adding backend or frontend behavior
+before a documented closure would blur the analytical and integration phases.
+
+### Decision
+
+Close Week 6 with one review, one summary and a repository check that confirms
+the comparison report, Decision Cards, traceability and learning-only boundary.
+Begin platform integration only in Week 7.
+
+### Consequences
+
+Days 64–70 have a reproducible closure point. Later read layers inherit the
+frozen evidence and cannot reinterpret selection as production readiness.
+
+### Status
+
+Accepted and implemented on global Day 70.
+
+## Decision 043 — Integrate Model Comparison through one read-only resource
+
+### Context
+
+Week 7 needs to expose the completed comparison without coupling HTTP requests
+or React presentation to training and selection modules.
+
+### Decision
+
+Validate the canonical Day 69 report inside an internal service and map it to
+`GET /api/v1/model-comparisons/summary`. React will consume that resource with
+loading, connected and unavailable states. No layer may recalculate the model
+decision.
+
+### Consequences
+
+Demand Insight remains stable, analytical ownership stays in the AI service and
+the public contract can evolve by explicit schema version. Runtime work begins
+on Day 72, not in the Day 71 exploration.
+
+### Status
+
+Accepted as the Week 7 integration design on global Day 71.
+
+## Decision 044 — Validate and map one canonical comparison report
+
+### Context
+
+The public resource needs a smaller stable shape, while the full analytical
+report contains internal error and decision details that the UI does not need.
+
+### Decision
+
+Implement `ModelComparisonService` as a read-only adapter. It validates the
+canonical report and maps selected fields into the proposed public resource.
+It imports no training module and returns controlled internal errors.
+
+### Consequences
+
+The analytical artifact remains the source of truth, the API can use a narrow
+resource and inconsistent identities or metrics fail closed before transport.
+
+### Status
+
+Accepted and implemented on global Day 72.
+
+## Decision 045 — Expose Model Comparison through strict FastAPI schemas
+
+### Context
+
+The read service is valid internally, but a public endpoint requires explicit
+types, compatibility rules and safe transport errors.
+
+### Decision
+
+Expose `GET /api/v1/model-comparisons/summary` through nested strict Pydantic
+schemas. Keep the route thin, return a generic `503` for invalid evidence and
+register the resource in the generated OpenAPI document.
+
+### Consequences
+
+Consumers receive one predictable versioned contract. Extra fields and invalid
+collection sizes fail validation, while internal paths and errors remain private.
+
+### Status
+
+Accepted and implemented on global Day 73.
+
+## Decision 046 — Isolate Model Comparison as a separate React feature
+
+### Context
+
+Demand Insight is stable and must not absorb model-specific request or
+presentation logic as the platform grows.
+
+### Decision
+
+Create a `model-comparison` frontend feature with its own API client, hook and
+view. Use hash navigation to preserve the current application shell and make
+loading, connected and unavailable states explicit.
+
+### Consequences
+
+Both modules remain independently testable. React consumes only the public
+resource, renders no fallback metrics and does not reproduce selection policy.
+Decision Card presentation remains a separate Day 75 responsibility.
+
+### Status
+
+Accepted and implemented on global Day 74.
+
+## Decision 047 — Render Decision Cards from API evidence only
+
+### Context
+
+Decision Cards need a clear visual hierarchy, but recreating the ranking or
+selection rule in React would create a second source of truth.
+
+### Decision
+
+Render the three `decision_cards` returned by the API. Preserve identifiers,
+metrics, reasons and limitations; map only status codes to human-readable
+presentation labels. Use semantic articles and associated accessible text.
+
+### Consequences
+
+The dashboard explains the observed leader, integration candidate and evidence
+boundary without client-side analytical logic. Day 76 still owns cross-layer
+smoke validation.
+
+### Status
+
+Accepted and implemented on global Day 75.
+
+## Decision 048 — Gate the complete Model Comparison read path
+
+### Context
+
+Layer-specific tests can pass while the canonical report, service mapping, HTTP
+resource and JavaScript client silently drift apart.
+
+### Decision
+
+Add one cross-layer check that compares report evidence with the internal
+resource, asserts exact API equality, passes the real response through the
+frontend validator and rechecks the stable Demand Insight endpoint.
+
+### Consequences
+
+The quality gate now detects contract drift across Python and JavaScript without
+training a model during a request or maintaining a second fixture as truth.
+
+### Status
+
+Accepted and implemented on global Day 76.
+
+## Decision 049 — Close Week 7 at the read-only integration boundary
+
+### Context
+
+The analytical evidence, backend resource and React presentation are connected,
+but a weekly close must not imply production readiness or browser evidence that
+was not captured.
+
+### Decision
+
+Close Week 7 after the complete quality gate and local HTTP smoke pass. Record
+the visual contract at source level and defer release-grade screenshots to the
+explicit Day 82 evidence gate.
+
+### Consequences
+
+Week 8 receives a frozen, integrated scope. The blocked browser capture is
+visible instead of being replaced by a mockup or unsupported success claim.
+
+### Status
+
+Accepted and implemented on global Day 77.
+
+## Decision 050 — Freeze Sprint 2 before release hardening
+
+### Context
+
+Week 8 could easily turn release preparation into new modeling or product scope.
+
+### Decision
+
+Freeze the four candidates, analytical metrics, selection rule, API schema and
+visible product flow. Permit only responsibility cleanup, tests, safe logs,
+documentation, evidence and release mechanics through Day 84.
+
+### Consequences
+
+Hardening remains reviewable and Sprint 3 cannot begin accidentally. Known data
+and browser-evidence limitations remain acceptance inputs, not hidden debt.
+
+### Status
+
+Accepted as the Week 8 release boundary on global Day 78.
+
+## Decision 051 — Centralize the frontend platform shell
+
+### Context
+
+Demand Insight and Model Comparison duplicated brand, navigation, header and
+request-status markup, increasing visual and accessibility drift.
+
+### Decision
+
+Move those structural responsibilities to one shared React component. Keep
+feature navigation configuration and all domain presentation inside each
+feature module.
+
+### Consequences
+
+Routes, API contracts and evidence stay unchanged while shared presentation
+behavior has one owner. The shared component contains no data access or model
+decision logic.
+
+### Status
+
+Accepted and implemented on global Day 79.
+
+## Decision 052 — Log safe read-resource metadata only
+
+### Context
+
+The release needs useful operational evidence without exposing local paths,
+analytical details or future request data.
+
+### Decision
+
+Emit one service event only after successful validation. Include schema version,
+candidate count, Decision Card count and production status; exclude checksums,
+metrics, rationale, headers and bodies.
+
+### Consequences
+
+Operators can confirm that the read resource was assembled while tests protect
+the low-cardinality, non-sensitive log contract.
+
+### Status
+
+Accepted and implemented on global Day 80.
+
+## Decision 053 — Finalize release documentation from implemented evidence
+
+### Context
+
+Sprint documents still contained planning language after the API, frontend and
+quality boundaries were implemented.
+
+### Decision
+
+Finalize the read contract, Model Card index and story traceability using only
+verified Sprint 2 artifacts. Preserve metric-leader versus selected-candidate
+semantics and every known data limitation.
+
+### Consequences
+
+Release documentation is usable without overstating model readiness or starting
+Sprint 3. Planned wording no longer conflicts with implemented status.
+
+### Status
+
+Accepted and implemented on global Day 81.
+
+## Decision 054 — Block visual acceptance instead of fabricating evidence
+
+### Context
+
+Day 82 requires real desktop, tablet and mobile evidence, but the in-app browser
+policy rejected the local application URL.
+
+### Decision
+
+Package reproducible demo instructions and hashed canonical artifacts. Record
+each required viewport as blocked with a null path; do not create a mockup,
+synthetic screenshot or unsupported browser-success statement.
+
+### Consequences
+
+Portfolio evidence is reproducible and honest, but visual release acceptance
+remains blocked until a permitted real-app capture is available.
+
+### Status
+
+Accepted on global Day 82; capture remains blocked.
+
+## Decision 055 — Keep the Sprint 2 release candidate blocked
+
+### Context
+
+All software and documentation evidence can pass while one explicit visual
+acceptance criterion remains incomplete.
+
+### Decision
+
+Prepare the review, retrospective and release notes, but prohibit the release
+branch merge, `main` merge and annotated tag until real responsive screenshots
+exist and the final gate passes again.
+
+### Consequences
+
+Day 83 is complete without falsely releasing Sprint 2. Sprint 3 remains
+registered only as a future planning boundary.
+
+### Status
+
+Accepted on global Day 83; release remains blocked.
+
+## Decision 056 — Stop the Day 84 release at the acceptance gate
+
+### Context
+
+The complete software gate passes, but real responsive captures remain missing.
+Executing the Git release sequence would contradict the frozen acceptance rules.
+
+### Decision
+
+Record the passing software evidence and exact visual blocker. Do not create the
+release branch, merge to `main`, tag the repository or synchronize `main` back
+to `develop` until visual acceptance is satisfied.
+
+### Consequences
+
+Sprint 2 remains open without corrupting Git release semantics. Sprint 3 remains
+unstarted, and the remaining work is narrow and verifiable.
+
+### Status
+
+Accepted on global Day 84; release remains blocked.
+
+## Decision 057 — Release with an explicit visual-evidence limitation
+
+### Context
+
+The user explicitly requested the release and remote tag after reviewing the
+passing software gate and the missing responsive captures.
+
+### Decision
+
+Accept the visual-capture gap as a declared release limitation. Complete the
+Gitflow release while preserving null screenshot paths and the prohibition on
+mockups or unsupported browser claims.
+
+### Consequences
+
+Sprint 2 can close as a learning release without hiding the evidence gap. The
+analytical, API and frontend scope remains fully validated and Sprint 3 remains
+unstarted.
+
+### Status
+
+Accepted during Day 84 release preparation.

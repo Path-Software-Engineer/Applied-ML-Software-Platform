@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "card_count": 3,
+  "cards": [
+    {
+      "card_id": "metric-leader",
+      "eyebrow": "Observed metric leader",
+      "title": "Gradient Boosting",
+      "status": "measurement_leader_not_selected",
+      "model_id": "gradient_boosting",
+      "primary_metric": {
+        "label": "MAE",
+        "value": 3.0884361955009996,
+        "unit": "units",
+        "direction": "lower_is_better"
+      },
+      "summary": "Lowest observed MAE on the fixed chronological holdout.",
+      "reasons": [
+        "Ranks first by the frozen primary metric.",
+        "Remains practically equivalent to Random Forest."
+      ],
+      "limitation": "Metric leadership on six test rows does not establish stability or production readiness."
+    },
+    {
+      "card_id": "integration-candidate",
+      "eyebrow": "Selected for next integration",
+      "title": "Random Forest",
+      "status": "selected_for_next_integration",
+      "model_id": "random_forest",
+      "primary_metric": {
+        "label": "MAE",
+        "value": 3.125795965608463,
+        "unit": "units",
+        "direction": "lower_is_better"
+      },
+      "summary": "Chosen by the frozen practical-equivalence and lower-complexity rule.",
+      "reasons": [
+        "Falls within 0.25 MAE units of the observed leader.",
+        "Improves baseline MAE by more than the required 10%.",
+        "Has lower recorded complexity than the equivalent leader."
+      ],
+      "limitation": "Selection authorizes a later read-only platform integration, not deployment or inventory action."
+    },
+    {
+      "card_id": "evidence-boundary",
+      "eyebrow": "Evidence boundary",
+      "title": "Learning evidence only",
+      "status": "not_production_ready",
+      "model_id": null,
+      "primary_metric": {
+        "label": "Test observations",
+        "value": 6,
+        "unit": "rows",
+        "direction": "context_only"
+      },
+      "summary": "Every comparison result comes from one small synthetic snapshot.",
+      "reasons": [
+        "The experiment contains 18 observations in total.",
+        "Only one chronological 12/6 split was evaluated.",
+        "Repeatability is not stability or external validation."
+      ],
+      "limitation": "No production, generalization, forecasting or inventory claim is supported."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+model_id,model_name,model_family,mae_units,rmse_units,r2_contextual,test_rows,production_status
+training_mean,Training Mean Baseline,baseline,4.305555555555556,4.899688198696366,-0.18066939890710398,6,learning_evidence_only
+linear_regression,Linear Regression,linear_model,3.563333333333335,3.8418398370225346,0.27411147540983594,6,learning_evidence_only
+random_forest,Random Forest,tree_ensemble,3.125795965608463,3.44125567901965,0.41759472221057414,6,learning_evidence_only
+gradient_boosting,Gradient Boosting,boosted_tree_ensemble,3.0884361955009996,3.3322935379403216,0.4538927759180905,6,learning_evidence_only

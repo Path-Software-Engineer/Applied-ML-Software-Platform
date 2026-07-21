@@ -2,6 +2,39 @@
 
 All notable changes to the Retail Intelligence Platform are documented here.
 
+## [v0.2.0-sprint-02-model-comparison] — 2026-07-20
+
+### Added
+
+- reproducible chronological experiment for one baseline and three classical regressors;
+- common MAE, RMSE and contextual R² result contract;
+- comparison table, residual analysis and explicit selection policy;
+- four Model Cards and three Decision Cards;
+- validated Model Comparison read service and FastAPI endpoint;
+- dedicated React comparison experience with honest request states;
+- cross-layer contract gate, live HTTP smoke and safe operational logging;
+- shared frontend platform shell and final Sprint 2 traceability.
+
+### Decision
+
+Gradient Boosting is the observed MAE leader at 3.0884 units. Random Forest is
+selected for the next integration step at 3.1258 MAE under the frozen 0.25-unit
+practical-equivalence and lower-complexity rule.
+
+### Validation
+
+- 96 Python tests passed;
+- 18 frontend contract tests passed;
+- deterministic frontend compilation passed;
+- 51 manual repository checks passed.
+
+### Limitations
+
+The evidence uses 18 synthetic observations and a six-row chronological
+holdout. It does not establish generalization, stability or production
+readiness. Responsive browser captures remain unavailable and are explicitly
+recorded as a known visual-evidence limitation; no mockups were substituted.
+
 ## [v0.1.0-sprint-01-demand-insight] — 2026-07-17
 
 ### Added

@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0",
+  "card_count": 4,
+  "production_status": "not_production_ready",
+  "cards": [
+    {
+      "schema_version": "1.0",
+      "model_id": "training_mean",
+      "model_name": "Training Mean Baseline",
+      "model_family": "baseline",
+      "purpose": "Provide a transparent reference that predicts the mean training target for every test observation.",
+      "experiment": {
+        "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+        "split_strategy": "chronological_holdout",
+        "target": "units_sold",
+        "target_unit": "units_per_sale_record",
+        "train_rows": 12,
+        "test_rows": 6
+      },
+      "configuration": {
+        "strategy": "mean_of_training_target"
+      },
+      "observed_performance": {
+        "mae_units": 4.305555555555556,
+        "mae_rank": 4,
+        "rmse_units": 4.899688198696366,
+        "r2_contextual": -0.18066939890710398,
+        "mae_improvement_vs_baseline_percent": 0.0,
+        "within_practical_equivalence": false
+      },
+      "observed_error_profile": {
+        "mean_signed_residual": -1.9166666666666679,
+        "under_prediction_count": 2,
+        "over_prediction_count": 4,
+        "largest_error": {
+          "sale_id": 16,
+          "date": "2026-01-08",
+          "product_id": "P004",
+          "product_name": "Coffee 250g",
+          "category": "Beverages",
+          "actual_units": 9.0,
+          "predicted_units": 16.916666666666668,
+          "residual": -7.916666666666668,
+          "absolute_error": 7.916666666666668,
+          "direction": "over_prediction"
+        },
+        "interpretation_boundary": "observed_six_row_holdout_no_causal_claims"
+      },
+      "decision_role": "comparison_baseline",
+      "observed_strengths": [
+        "Creates a minimum comparison reference with no learned feature use.",
+        "Configuration and prediction behavior are directly explainable."
+      ],
+      "limitations": [
+        "Cannot represent product, category, price or temporal differences.",
+        "Uses one constant prediction for every observation.",
+        "18 synthetic observations with 12 training and 6 test rows.",
+        "One chronological holdout and no cross-validation or external validation.",
+        "No stability, confidence interval or real-retail generalization evidence.",
+        "No model authorizes forecasting, inventory action or production deployment."
+      ],
+      "risks": [
+        "May underfit structured demand variation.",
+        "A simple reference must not be presented as a deployment candidate."
+      ],
+      "production_status": "not_production_ready",
+      "evidence": [
+        "reports/outputs/model-comparison/results/training_mean.json",
+        "reports/outputs/model-comparison/predictions/training_mean.csv",
+        "reports/outputs/model-comparison/comparison_table.json",
+        "reports/outputs/model-comparison/error_analysis.json",
+        "reports/outputs/model-comparison/model_decision.json"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "model_id": "linear_regression",
+      "model_name": "Linear Regression",
+      "model_family": "linear_model",
+      "purpose": "Test whether one transparent linear relationship over the shared encoded features improves the training-mean reference.",
+      "experiment": {
+        "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+        "split_strategy": "chronological_holdout",
+        "target": "units_sold",
+        "target_unit": "units_per_sale_record",
+        "train_rows": 12,
+        "test_rows": 6
+      },
+      "configuration": {
+        "estimator_parameters": {
+          "fit_intercept": true,
+          "positive": false
+        },
+        "preprocessing": {
+          "categorical": {
+            "columns": [
+              "product_id",
+              "category"
+            ],
+            "strategy": "one_hot_encode",
+            "unknown_values": "ignore"
+          },
+          "numeric": {
+            "columns": [
+              "unit_price",
+              "day_of_week",
+              "is_weekend"
+            ],
+            "strategy": "standard_scale"
+          },
+          "fit_scope": "training_partition_only"
+        }
+      },
+      "observed_performance": {
+        "mae_units": 3.563333333333335,
+        "mae_rank": 3,
+        "rmse_units": 3.8418398370225346,
+        "r2_contextual": 0.27411147540983594,
+        "mae_improvement_vs_baseline_percent": 17.238709677419333,
+        "within_practical_equivalence": false
+      },
+      "observed_error_profile": {
+        "mean_signed_residual": 0.6433333333333314,
+        "under_prediction_count": 3,
+        "over_prediction_count": 3,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 13.350000000000003,
+          "residual": 5.649999999999997,
+          "absolute_error": 5.649999999999997,
+          "direction": "under_prediction"
+        },
+        "interpretation_boundary": "observed_six_row_holdout_no_causal_claims"
+      },
+      "decision_role": "evaluated_candidate",
+      "observed_strengths": [
+        "Improves observed MAE over the baseline on the fixed holdout.",
+        "Has the lowest recorded complexity among learned candidates."
+      ],
+      "limitations": [
+        "Represents additive linear relationships after preprocessing.",
+        "Was evaluated with one fixed configuration and no tuning.",
+        "18 synthetic observations with 12 training and 6 test rows.",
+        "One chronological holdout and no cross-validation or external validation.",
+        "No stability, confidence interval or real-retail generalization evidence.",
+        "No model authorizes forecasting, inventory action or production deployment."
+      ],
+      "risks": [
+        "Linear assumptions may miss interactions in future data.",
+        "Coefficients are not stable or generalizable from 12 training rows."
+      ],
+      "production_status": "not_production_ready",
+      "evidence": [
+        "reports/outputs/model-comparison/results/linear_regression.json",
+        "reports/outputs/model-comparison/predictions/linear_regression.csv",
+        "reports/outputs/model-comparison/comparison_table.json",
+        "reports/outputs/model-comparison/error_analysis.json",
+        "reports/outputs/model-comparison/model_decision.json"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "model_id": "random_forest",
+      "model_name": "Random Forest",
+      "model_family": "tree_ensemble",
+      "purpose": "Test a bounded bagged-tree ensemble that can represent nonlinear feature interactions under a reproducible seed.",
+      "experiment": {
+        "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+        "split_strategy": "chronological_holdout",
+        "target": "units_sold",
+        "target_unit": "units_per_sale_record",
+        "train_rows": 12,
+        "test_rows": 6
+      },
+      "configuration": {
+        "estimator_parameters": {
+          "n_estimators": 200,
+          "max_depth": 4,
+          "min_samples_leaf": 2,
+          "random_state": 42,
+          "n_jobs": 1
+        },
+        "preprocessing": {
+          "categorical": {
+            "columns": [
+              "product_id",
+              "category"
+            ],
+            "strategy": "one_hot_encode",
+            "unknown_values": "ignore"
+          },
+          "numeric": {
+            "columns": [
+              "unit_price",
+              "day_of_week",
+              "is_weekend"
+            ],
+            "strategy": "standard_scale"
+          },
+          "fit_scope": "training_partition_only"
+        }
+      },
+      "observed_performance": {
+        "mae_units": 3.125795965608463,
+        "mae_rank": 2,
+        "rmse_units": 3.44125567901965,
+        "r2_contextual": 0.41759472221057414,
+        "mae_improvement_vs_baseline_percent": 27.40086789554538,
+        "within_practical_equivalence": true
+      },
+      "observed_error_profile": {
+        "mean_signed_residual": -0.733653108465606,
+        "under_prediction_count": 2,
+        "over_prediction_count": 4,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 14.525077380952382,
+          "residual": 4.474922619047618,
+          "absolute_error": 4.474922619047618,
+          "direction": "under_prediction"
+        },
+        "interpretation_boundary": "observed_six_row_holdout_no_causal_claims"
+      },
+      "decision_role": "selected_for_next_integration",
+      "observed_strengths": [
+        "Falls inside the best candidate's practical-equivalence tolerance.",
+        "Improves observed MAE over the baseline by more than 10%.",
+        "Has lower recorded complexity than the equivalent boosted ensemble."
+      ],
+      "limitations": [
+        "Uses a fixed, untuned 200-tree configuration.",
+        "Feature effects are less direct than in Linear Regression.",
+        "18 synthetic observations with 12 training and 6 test rows.",
+        "One chronological holdout and no cross-validation or external validation.",
+        "No stability, confidence interval or real-retail generalization evidence.",
+        "No model authorizes forecasting, inventory action or production deployment."
+      ],
+      "risks": [
+        "A tree ensemble can still overfit a 12-row training partition.",
+        "Selection for integration does not establish production readiness."
+      ],
+      "production_status": "not_production_ready",
+      "evidence": [
+        "reports/outputs/model-comparison/results/random_forest.json",
+        "reports/outputs/model-comparison/predictions/random_forest.csv",
+        "reports/outputs/model-comparison/comparison_table.json",
+        "reports/outputs/model-comparison/error_analysis.json",
+        "reports/outputs/model-comparison/model_decision.json"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "model_id": "gradient_boosting",
+      "model_name": "Gradient Boosting",
+      "model_family": "boosted_tree_ensemble",
+      "purpose": "Test a bounded sequential tree ensemble as the third learned candidate under the common comparison contract.",
+      "experiment": {
+        "dataset_sha256": "5db700f851c1ab73a7b3c0706582115c80b51e6c21fcf6f76f4ff5a3b1e0ec86",
+        "split_strategy": "chronological_holdout",
+        "target": "units_sold",
+        "target_unit": "units_per_sale_record",
+        "train_rows": 12,
+        "test_rows": 6
+      },
+      "configuration": {
+        "estimator_parameters": {
+          "n_estimators": 100,
+          "learning_rate": 0.05,
+          "max_depth": 2,
+          "min_samples_leaf": 2,
+          "loss": "squared_error",
+          "random_state": 42
+        },
+        "preprocessing": {
+          "categorical": {
+            "columns": [
+              "product_id",
+              "category"
+            ],
+            "strategy": "one_hot_encode",
+            "unknown_values": "ignore"
+          },
+          "numeric": {
+            "columns": [
+              "unit_price",
+              "day_of_week",
+              "is_weekend"
+            ],
+            "strategy": "standard_scale"
+          },
+          "fit_scope": "training_partition_only"
+        }
+      },
+      "observed_performance": {
+        "mae_units": 3.0884361955009996,
+        "mae_rank": 1,
+        "rmse_units": 3.3322935379403216,
+        "r2_contextual": 0.4538927759180905,
+        "mae_improvement_vs_baseline_percent": 28.268578685138085,
+        "within_practical_equivalence": true
+      },
+      "observed_error_profile": {
+        "mean_signed_residual": -0.32474082745490396,
+        "under_prediction_count": 3,
+        "over_prediction_count": 3,
+        "largest_error": {
+          "sale_id": 17,
+          "date": "2026-01-09",
+          "product_id": "P001",
+          "product_name": "Rice 1kg",
+          "category": "Food",
+          "actual_units": 19.0,
+          "predicted_units": 13.89014617571663,
+          "residual": 5.10985382428337,
+          "absolute_error": 5.10985382428337,
+          "direction": "under_prediction"
+        },
+        "interpretation_boundary": "observed_six_row_holdout_no_causal_claims"
+      },
+      "decision_role": "measurement_leader_not_selected",
+      "observed_strengths": [
+        "Has the lowest observed MAE and RMSE in the fixed holdout.",
+        "Improves observed MAE over the baseline by more than 10%."
+      ],
+      "limitations": [
+        "Uses a fixed configuration without hyperparameter search.",
+        "Sequential boosting has higher recorded explanation complexity.",
+        "18 synthetic observations with 12 training and 6 test rows.",
+        "One chronological holdout and no cross-validation or external validation.",
+        "No stability, confidence interval or real-retail generalization evidence.",
+        "No model authorizes forecasting, inventory action or production deployment."
+      ],
+      "risks": [
+        "Small-sample metric leadership may not persist on new data.",
+        "The lowest observed metric is not evidence of production readiness."
+      ],
+      "production_status": "not_production_ready",
+      "evidence": [
+        "reports/outputs/model-comparison/results/gradient_boosting.json",
+        "reports/outputs/model-comparison/predictions/gradient_boosting.csv",
+        "reports/outputs/model-comparison/comparison_table.json",
+        "reports/outputs/model-comparison/error_analysis.json",
+        "reports/outputs/model-comparison/model_decision.json"
+      ]
+    }
+  ]
+}
