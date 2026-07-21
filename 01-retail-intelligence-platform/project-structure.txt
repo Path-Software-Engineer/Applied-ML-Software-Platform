@@ -105,6 +105,7 @@ checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
 checks/check_sprint_02_quality_gate.py
 checks/check_sprint_02_release_documentation.py
+checks/check_sprint_02_review.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
@@ -140,6 +141,7 @@ docs/model-comparison-experiment-contract.md
 docs/model-comparison-read-contract.md
 docs/model-comparison-release-scope.md
 docs/releases/v0.1.0-sprint-01-demand-insight.md
+docs/releases/v0.2.0-sprint-02-model-comparison.md
 docs/sprints/sprint-01-demand-insight/README.md
 docs/sprints/sprint-01-demand-insight/retrospective.md
 docs/sprints/sprint-01-demand-insight/week-01/exploration.md
@@ -155,6 +157,8 @@ docs/sprints/sprint-01-demand-insight/week-04/exploration.md
 docs/sprints/sprint-01-demand-insight/week-04/plan.md
 docs/sprints/sprint-01-demand-insight/week-04/review.md
 docs/sprints/sprint-02-model-comparison/README.md
+docs/sprints/sprint-02-model-comparison/retrospective.md
+docs/sprints/sprint-02-model-comparison/sprint-review.md
 docs/sprints/sprint-02-model-comparison/week-05/exploration.md
 docs/sprints/sprint-02-model-comparison/week-05/plan.md
 docs/sprints/sprint-02-model-comparison/week-05/review.md
@@ -166,6 +170,7 @@ docs/sprints/sprint-02-model-comparison/week-07/plan.md
 docs/sprints/sprint-02-model-comparison/week-07/review.md
 docs/sprints/sprint-02-model-comparison/week-08/exploration.md
 docs/sprints/sprint-02-model-comparison/week-08/plan.md
+docs/sprints/sprint-02-model-comparison/week-08/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -309,6 +314,7 @@ reports/summaries/model-comparison/day_79_frontend_refactor_summary.md
 reports/summaries/model-comparison/day_80_quality_gate_summary.md
 reports/summaries/model-comparison/day_81_release_documentation_summary.md
 reports/summaries/model-comparison/day_82_portfolio_evidence_summary.md
+reports/summaries/model-comparison/day_83_sprint_review_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
