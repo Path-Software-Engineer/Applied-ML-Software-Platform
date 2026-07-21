@@ -98,6 +98,7 @@ checks/check_model_comparison_decision_cards_frontend.py
 checks/check_model_comparison_integration.py
 checks/check_model_comparison_integration_exploration.py
 checks/check_model_comparison_local_smoke.py
+checks/check_model_comparison_portfolio_evidence.py
 checks/check_shared_platform_shell.py
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
@@ -253,6 +254,8 @@ reports/outputs/model-comparison/results/linear_regression.json
 reports/outputs/model-comparison/results/random_forest.json
 reports/outputs/model-comparison/results/training_mean.json
 reports/outputs/model-comparison/split_manifest.json
+reports/portfolio/model-comparison/README.md
+reports/portfolio/model-comparison/evidence_manifest.json
 reports/quality/model-comparison/day_77_visual_contract_review.md
 reports/quality/model-comparison/sprint_02_quality_gate.md
 reports/recommendation-cards/.gitkeep
@@ -305,6 +308,7 @@ reports/summaries/model-comparison/day_78_week_08_exploration_summary.md
 reports/summaries/model-comparison/day_79_frontend_refactor_summary.md
 reports/summaries/model-comparison/day_80_quality_gate_summary.md
 reports/summaries/model-comparison/day_81_release_documentation_summary.md
+reports/summaries/model-comparison/day_82_portfolio_evidence_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1

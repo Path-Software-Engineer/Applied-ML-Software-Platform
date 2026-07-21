@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "module": "model_comparison",
+  "release_candidate": "v0.2.0-sprint-02-model-comparison",
+  "evidence_status": "blocked_visual_capture",
+  "canonical_artifacts": [
+    {
+      "path": "reports/outputs/model-comparison/model_comparison_report.json",
+      "sha256": "77cd0f2755acd694fdcd886e27c09f1bbf23fcc8c879c579b7a685d69db7d4ae"
+    },
+    {
+      "path": "reports/decision-cards/model-comparison/decision_cards.json",
+      "sha256": "81cea08c936a8aaae27e929f5529eb634cf63ace4a19676d6e1ff5a380e4cb90"
+    },
+    {
+      "path": "reports/model-cards/model-comparison/model_cards.json",
+      "sha256": "fe77ae4a06bd6c24e0cc01d988b351f764a4eb769cb3dd9747bf8a9a0ac8b739"
+    },
+    {
+      "path": "reports/outputs/model-comparison/comparison_table.csv",
+      "sha256": "6ec56dcba75d5eb22d1162195c00e93ec52899e0f146ebc28e030fb64d22345b"
+    }
+  ],
+  "required_views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    }
+  ],
+  "capture_note": "The in-app browser rejected the local URL. No mockup or synthetic screenshot was substituted."
+}

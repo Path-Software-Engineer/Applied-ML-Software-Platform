@@ -1271,3 +1271,25 @@ Sprint 3. Planned wording no longer conflicts with implemented status.
 ### Status
 
 Accepted and implemented on global Day 81.
+
+## Decision 054 — Block visual acceptance instead of fabricating evidence
+
+### Context
+
+Day 82 requires real desktop, tablet and mobile evidence, but the in-app browser
+policy rejected the local application URL.
+
+### Decision
+
+Package reproducible demo instructions and hashed canonical artifacts. Record
+each required viewport as blocked with a null path; do not create a mockup,
+synthetic screenshot or unsupported browser-success statement.
+
+### Consequences
+
+Portfolio evidence is reproducible and honest, but visual release acceptance
+remains blocked until a permitted real-app capture is available.
+
+### Status
+
+Accepted on global Day 82; capture remains blocked.
