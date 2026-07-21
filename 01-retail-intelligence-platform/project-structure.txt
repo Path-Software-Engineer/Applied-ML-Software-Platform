@@ -98,6 +98,7 @@ checks/check_model_comparison_decision_cards_frontend.py
 checks/check_model_comparison_integration.py
 checks/check_model_comparison_integration_exploration.py
 checks/check_model_comparison_local_smoke.py
+checks/check_shared_platform_shell.py
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
@@ -179,6 +180,7 @@ frontend/dashboard-app/src/features/model-comparison/components/ModelComparisonD
 frontend/dashboard-app/src/features/model-comparison/hooks/useModelComparison.js
 frontend/dashboard-app/src/features/model-comparison/presentation/decisionCardViewModel.js
 frontend/dashboard-app/src/main.jsx
+frontend/dashboard-app/src/shared/components/PlatformShell.jsx
 frontend/dashboard-app/src/styles.css
 frontend/dashboard-app/tests/decisionCardViewModel.test.js
 frontend/dashboard-app/tests/demandSummaryApi.test.js
@@ -297,6 +299,7 @@ reports/summaries/model-comparison/day_75_decision_cards_summary.md
 reports/summaries/model-comparison/day_76_integration_summary.md
 reports/summaries/model-comparison/day_77_week_07_close_summary.md
 reports/summaries/model-comparison/day_78_week_08_exploration_summary.md
+reports/summaries/model-comparison/day_79_frontend_refactor_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
