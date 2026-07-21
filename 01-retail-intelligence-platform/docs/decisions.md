@@ -1183,3 +1183,24 @@ visible instead of being replaced by a mockup or unsupported success claim.
 ### Status
 
 Accepted and implemented on global Day 77.
+
+## Decision 050 — Freeze Sprint 2 before release hardening
+
+### Context
+
+Week 8 could easily turn release preparation into new modeling or product scope.
+
+### Decision
+
+Freeze the four candidates, analytical metrics, selection rule, API schema and
+visible product flow. Permit only responsibility cleanup, tests, safe logs,
+documentation, evidence and release mechanics through Day 84.
+
+### Consequences
+
+Hardening remains reviewable and Sprint 3 cannot begin accidentally. Known data
+and browser-evidence limitations remain acceptance inputs, not hidden debt.
+
+### Status
+
+Accepted as the Week 8 release boundary on global Day 78.
