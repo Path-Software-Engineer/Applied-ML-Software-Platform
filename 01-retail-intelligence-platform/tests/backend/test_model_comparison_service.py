@@ -172,3 +172,39 @@ def test_service_rejects_duplicate_decision_card(tmp_path: Path) -> None:
 
     with pytest.raises(ModelComparisonError, match="identifiers"):
         ModelComparisonService(tmp_path).get_summary()
+
+
+def test_service_logs_safe_summary_metadata(
+    tmp_path: Path,
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    report = make_report()
+    write_report(tmp_path, report)
+
+    with caplog.at_level("INFO", logger="retail_intelligence.model_comparison"):
+        ModelComparisonService(tmp_path).get_summary()
+
+    assert len(caplog.records) == 1
+    message = caplog.records[0].getMessage()
+    assert "model_comparison_summary_ready" in message
+    assert "schema_version=1.0" in message
+    assert "candidates=4" in message
+    assert "decision_cards=3" in message
+    assert "production_status=not_production_ready" in message
+
+
+def test_service_log_excludes_paths_checksums_and_candidate_metrics(
+    tmp_path: Path,
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    report = make_report()
+    write_report(tmp_path, report)
+
+    with caplog.at_level("INFO", logger="retail_intelligence.model_comparison"):
+        ModelComparisonService(tmp_path).get_summary()
+
+    message = caplog.records[0].getMessage()
+    assert str(tmp_path) not in message
+    assert report["experiment"]["dataset_sha256"] not in message
+    assert "mae_units" not in message
+    assert "rationale" not in message

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 import json
+import logging
 from math import isclose
 from pathlib import Path
 from typing import Any
@@ -62,6 +63,7 @@ PUBLIC_CANDIDATE_FIELDS = (
     "within_practical_equivalence",
     "production_status",
 )
+LOGGER = logging.getLogger("retail_intelligence.model_comparison")
 CARD_FIELDS = {
     "card_id",
     "eyebrow",
@@ -105,7 +107,7 @@ class ModelComparisonService:
             decision["stability_evidence"], "stability evidence"
         )
 
-        return {
+        resource = {
             "schema_version": report["schema_version"],
             "module": report["module"],
             "report_status": report["report_status"],
@@ -141,6 +143,15 @@ class ModelComparisonService:
             "decision_cards": deepcopy(report["decision_cards"]),
             "limitations": deepcopy(report["limitations"]),
         }
+        LOGGER.info(
+            "model_comparison_summary_ready schema_version=%s "
+            "candidates=%d decision_cards=%d production_status=%s",
+            resource["schema_version"],
+            len(resource["candidates"]),
+            len(resource["decision_cards"]),
+            resource["decision"]["production_status"],
+        )
+        return resource
 
     def _read_report(self) -> dict[str, Any]:
         path = self.report_path

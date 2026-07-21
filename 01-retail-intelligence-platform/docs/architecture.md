@@ -277,3 +277,10 @@ motion. Browser screenshots remain a separately gated Day 82 artifact.
 primary navigation structure, platform breadcrumb and API-status presentation.
 Each feature supplies navigation configuration, evidence note and domain
 content. The shared layer contains no API call or analytical rule.
+
+### Day 80 observability boundary
+
+The Model Comparison read service logs one stable event after full report
+validation. It records schema version, collection counts and the declared
+production status; it does not record paths, checksums, metrics, rationale,
+headers, query values or request bodies.
