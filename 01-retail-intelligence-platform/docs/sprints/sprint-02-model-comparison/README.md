@@ -33,7 +33,7 @@ needs traceable configuration, metrics, errors and limitations.
 ## Current state
 
 - Sprint 1 remains closed at `v0.1.0-sprint-01-demand-insight`.
-- Global Days 57–75 / Sprint 2 Days 1–19 are complete.
+- Global Days 57–76 / Sprint 2 Days 1–20 are complete.
 - Target, features, metrics and fairness rules are documented.
 - The official 12-row training and 6-row test partitions are generated with a
   source checksum and explicit chronological boundary.
@@ -54,7 +54,8 @@ needs traceable configuration, metrics, errors and limitations.
 - The versioned Model Comparison endpoint and OpenAPI contract are implemented.
 - A separate React comparison view consumes the API with honest request states.
 - Three accessible Decision Cards render directly from the API resource.
-- Day 76 cross-layer smoke and Day 77 Week 7 close have not started.
+- The report-to-service-to-API-to-React contract is validated cross-layer.
+- Day 77 Week 7 review and close have not started.
 - The candidate is not production ready; no endpoint or React feature exists yet.
 
 ## Weeks

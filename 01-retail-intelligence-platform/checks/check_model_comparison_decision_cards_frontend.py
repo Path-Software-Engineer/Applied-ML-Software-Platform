@@ -52,7 +52,7 @@ def main() -> None:
     print("API-driven cards: 3")
     print("Accessible labels and status: confirmed")
     print("Client-side decision recomputation: absent")
-    print("Day 76 smoke validation: not started")
+    print("Day 76 smoke validation: covered by the cross-layer gate")
 
 
 if __name__ == "__main__":

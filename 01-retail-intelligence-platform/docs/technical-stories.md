@@ -677,6 +677,7 @@ Completed on global Day 73.
 - `backend/api/app/schemas/model_comparison.py`
 - `backend/api/app/routes/model_comparison.py`
 - `tests/backend/test_model_comparison_api.py`
+- `checks/check_model_comparison_integration.py`
 
 ### Relación con User Stories
 
@@ -708,6 +709,7 @@ Completed on global Day 75.
 - `frontend/dashboard-app/tests/modelComparisonApi.test.js`
 - `frontend/dashboard-app/tests/decisionCardViewModel.test.js`
 - `checks/check_model_comparison_decision_cards_frontend.py`
+- `checks/check_model_comparison_integration.py`
 
 ### Relación con User Stories
 

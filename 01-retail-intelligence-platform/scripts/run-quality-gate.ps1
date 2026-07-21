@@ -21,11 +21,11 @@ try {
     $env:MPLCONFIGDIR = Join-Path $RuntimeRoot "matplotlib"
     New-Item -ItemType Directory -Force -Path $env:MPLCONFIGDIR | Out-Null
 
-    Write-Host "[1/6] Verifying the repository structure inventory"
+    Write-Host "[1/7] Verifying the repository structure inventory"
     & $Python "scripts/update-project-structure.py" --check
     if ($LASTEXITCODE -ne 0) { throw "Project structure inventory is stale." }
 
-    Write-Host "[2/6] Compiling Python sources and checks"
+    Write-Host "[2/7] Compiling Python sources and checks"
     & $Python -m compileall -q `
         "ai-services/demand-insight/src" `
         "ai-services/demand-insight/checks" `
@@ -40,11 +40,11 @@ try {
         "scripts"
     if ($LASTEXITCODE -ne 0) { throw "Python compilation failed." }
 
-    Write-Host "[3/6] Running automated Python tests"
+    Write-Host "[3/7] Running automated Python tests"
     & $Python -m pytest -q
     if ($LASTEXITCODE -ne 0) { throw "Automated tests failed." }
 
-    Write-Host "[4/6] Running frontend contract tests"
+    Write-Host "[4/7] Running frontend contract tests"
     Push-Location $FrontendRoot
     try {
         & npm test
@@ -54,7 +54,7 @@ try {
         Pop-Location
     }
 
-    Write-Host "[5/6] Compiling the frontend bundle"
+    Write-Host "[5/7] Compiling the frontend bundle"
     $FrontendOutput = Join-Path $RuntimeRoot "quality-gate\dashboard.js"
     New-Item -ItemType Directory -Force -Path (Split-Path -Parent $FrontendOutput) | Out-Null
     & $FrontendCompiler `
@@ -67,7 +67,11 @@ try {
         "--define:import.meta.env={}"
     if ($LASTEXITCODE -ne 0) { throw "Frontend bundle compilation failed." }
 
-    Write-Host "[6/6] Running manual end-to-end checks"
+    Write-Host "[6/7] Building the local smoke dashboard"
+    & (Join-Path $ProjectRoot "scripts\build-smoke-dashboard.ps1")
+    if ($LASTEXITCODE -ne 0) { throw "Smoke dashboard compilation failed." }
+
+    Write-Host "[7/7] Running manual end-to-end checks"
     $Checks = @(
         Get-ChildItem "ai-services/demand-insight/checks/check_*.py"
         Get-ChildItem "ai-services/model-comparison/checks/check_*.py"

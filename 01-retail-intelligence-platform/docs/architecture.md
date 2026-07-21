@@ -251,3 +251,15 @@ machine statuses to display copy while preserving raw identifiers and metrics.
 
 React does not sort candidates, compare MAE values or apply the practical-
 equivalence rule. Cross-layer smoke validation remains the Day 76 boundary.
+
+### Day 76 integration status
+
+The repository integration check compares the canonical report with the
+service resource, the in-process FastAPI response and the real JavaScript
+client validator. Any altered metric, candidate identity or Decision Card fails
+the same gate that protects Demand Insight compatibility.
+
+The local smoke uses the compiled React shell, a narrow same-origin proxy and a
+live Uvicorn process. It verifies real HTTP responses and shuts both processes
+down. Browser-driven visual approval remains a separate evidence boundary and
+is not inferred from compilation or HTTP success.

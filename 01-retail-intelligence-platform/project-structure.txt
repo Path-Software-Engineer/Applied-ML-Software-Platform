@@ -95,7 +95,9 @@ backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
 checks/check_model_comparison_decision_cards_frontend.py
+checks/check_model_comparison_integration.py
 checks/check_model_comparison_integration_exploration.py
+checks/check_model_comparison_local_smoke.py
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
@@ -157,6 +159,7 @@ docs/sprints/sprint-02-model-comparison/week-07/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
+frontend/dashboard-app/checks/checkModelComparisonContract.js
 frontend/dashboard-app/index.html
 frontend/dashboard-app/package-lock.json
 frontend/dashboard-app/package.json
@@ -284,6 +287,8 @@ reports/summaries/model-comparison/day_72_read_service_summary.md
 reports/summaries/model-comparison/day_73_api_summary.md
 reports/summaries/model-comparison/day_74_dashboard_summary.md
 reports/summaries/model-comparison/day_75_decision_cards_summary.md
+reports/summaries/model-comparison/day_76_integration_summary.md
+scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
@@ -302,6 +307,7 @@ scripts/run-linear-regression.ps1
 scripts/run-model-comparison-baseline.ps1
 scripts/run-quality-gate.ps1
 scripts/run-random-forest.ps1
+scripts/serve-smoke-dashboard.py
 scripts/update-project-structure.py
 tests/.gitkeep
 tests/ai-services/.gitkeep
