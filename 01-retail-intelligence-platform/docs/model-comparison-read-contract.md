@@ -2,11 +2,10 @@
 
 ## Status
 
-Proposed on global Day 71 and implemented through the internal service on Day
-72 and the versioned FastAPI endpoint on Day 73. Frontend behavior remains the
-Day 74–75 boundary. Day 74 implements the client, request lifecycle and
-comparison view. Day 75 renders all three API-provided Decision Cards without
-client-side ranking or selection logic.
+Finalized for Sprint 2 on global Day 81. The internal service, versioned FastAPI
+endpoint, React request lifecycle, comparison view and three API-provided
+Decision Cards are implemented and cross-layer validated. No request-time
+training or client-side ranking belongs to this contract.
 
 ## Resource
 
@@ -17,7 +16,7 @@ GET /api/v1/model-comparisons/summary
 Version 1 accepts no query parameters and returns only evidence already frozen
 in `reports/outputs/model-comparison/model_comparison_report.json`.
 
-## Proposed success resource
+## Success resource
 
 ```json
 {
@@ -91,7 +90,7 @@ runtime response must contain exactly four unique candidates and three stable
 card identifiers: `metric-leader`, `integration-candidate` and
 `evidence-boundary`.
 
-## Proposed unavailable response
+## Unavailable response
 
 Status: `503 Service Unavailable`
 
@@ -111,3 +110,11 @@ metrics.
 - numeric measures remain numeric;
 - the service maps validated evidence but does not recalculate metrics;
 - the frontend renders the resource and does not re-run selection policy.
+
+## Verification
+
+- `tests/backend/test_model_comparison_service.py`;
+- `tests/backend/test_model_comparison_api.py`;
+- `frontend/dashboard-app/tests/modelComparisonApi.test.js`;
+- `checks/check_model_comparison_integration.py`;
+- `checks/check_model_comparison_local_smoke.py`.

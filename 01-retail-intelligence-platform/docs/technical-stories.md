@@ -521,10 +521,11 @@ US-S1-006, US-S1-007, US-S1-008.
 | TS-S1-015 | US-S1-006, US-S1-007, US-S1-008 | `scripts/run-quality-gate.ps1`, `frontend/dashboard-app/tests/demandSummaryApi.test.js`, `checks/check_sprint_01_hardening.py` |
 | TS-S1-016 | US-S1-006, US-S1-007, US-S1-008 | `docs/releases/v0.1.0-sprint-01-demand-insight.md`, `checks/check_sprint_01_close.py`, `reports/summaries/demand-insight/sprint_01_close_summary.md` |
 
-## Sprint 2 — Preliminary Technical Stories
+## Sprint 2 — Technical Stories
 
-These stories define the Model Comparison direction on global Day 57. Their
-status remains Planned until implementation and verification exist.
+These stories trace the Model Comparison implementation completed and validated
+through global Day 80. Evidence remains learning-only until broader data and
+production validation exist.
 
 ## TS-S2-001 — Establish a reproducible experiment contract
 
@@ -727,4 +728,4 @@ US-S2-005, US-S2-006.
 | TS-S2-003 | US-S2-001, US-S2-002 | `ai-services/model-comparison/src/model_comparison/candidate.py` |
 | TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |
 | TS-S2-005 | US-S2-005 | `docs/model-comparison-read-contract.md` |
-| TS-S2-006 | US-S2-005, US-S2-006 | `docs/sprints/sprint-02-model-comparison/week-07/plan.md` |
+| TS-S2-006 | US-S2-005, US-S2-006 | `frontend/dashboard-app/src/features/model-comparison/`, `checks/check_model_comparison_integration.py` |
