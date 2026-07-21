@@ -104,6 +104,7 @@ checks/check_sprint_02_day_57.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
+checks/check_week_08_exploration.py
 codigo-completo-retail-intelligence-platform.txt
 data/.gitkeep
 data/processed/.gitkeep
@@ -133,6 +134,7 @@ docs/decisions.md
 docs/insight-card-methodology.md
 docs/model-comparison-experiment-contract.md
 docs/model-comparison-read-contract.md
+docs/model-comparison-release-scope.md
 docs/releases/v0.1.0-sprint-01-demand-insight.md
 docs/sprints/sprint-01-demand-insight/README.md
 docs/sprints/sprint-01-demand-insight/retrospective.md
@@ -158,6 +160,8 @@ docs/sprints/sprint-02-model-comparison/week-06/review.md
 docs/sprints/sprint-02-model-comparison/week-07/exploration.md
 docs/sprints/sprint-02-model-comparison/week-07/plan.md
 docs/sprints/sprint-02-model-comparison/week-07/review.md
+docs/sprints/sprint-02-model-comparison/week-08/exploration.md
+docs/sprints/sprint-02-model-comparison/week-08/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -292,6 +296,7 @@ reports/summaries/model-comparison/day_74_dashboard_summary.md
 reports/summaries/model-comparison/day_75_decision_cards_summary.md
 reports/summaries/model-comparison/day_76_integration_summary.md
 reports/summaries/model-comparison/day_77_week_07_close_summary.md
+reports/summaries/model-comparison/day_78_week_08_exploration_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
