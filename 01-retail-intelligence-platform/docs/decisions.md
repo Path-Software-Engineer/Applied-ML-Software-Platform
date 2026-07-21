@@ -1227,3 +1227,25 @@ decision logic.
 ### Status
 
 Accepted and implemented on global Day 79.
+
+## Decision 052 — Log safe read-resource metadata only
+
+### Context
+
+The release needs useful operational evidence without exposing local paths,
+analytical details or future request data.
+
+### Decision
+
+Emit one service event only after successful validation. Include schema version,
+candidate count, Decision Card count and production status; exclude checksums,
+metrics, rationale, headers and bodies.
+
+### Consequences
+
+Operators can confirm that the read resource was assembled while tests protect
+the low-cardinality, non-sensitive log contract.
+
+### Status
+
+Accepted and implemented on global Day 80.

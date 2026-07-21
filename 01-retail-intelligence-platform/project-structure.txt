@@ -102,6 +102,7 @@ checks/check_shared_platform_shell.py
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
+checks/check_sprint_02_quality_gate.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
@@ -252,6 +253,7 @@ reports/outputs/model-comparison/results/random_forest.json
 reports/outputs/model-comparison/results/training_mean.json
 reports/outputs/model-comparison/split_manifest.json
 reports/quality/model-comparison/day_77_visual_contract_review.md
+reports/quality/model-comparison/sprint_02_quality_gate.md
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
@@ -300,6 +302,7 @@ reports/summaries/model-comparison/day_76_integration_summary.md
 reports/summaries/model-comparison/day_77_week_07_close_summary.md
 reports/summaries/model-comparison/day_78_week_08_exploration_summary.md
 reports/summaries/model-comparison/day_79_frontend_refactor_summary.md
+reports/summaries/model-comparison/day_80_quality_gate_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
