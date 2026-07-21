@@ -1293,3 +1293,25 @@ remains blocked until a permitted real-app capture is available.
 ### Status
 
 Accepted on global Day 82; capture remains blocked.
+
+## Decision 055 — Keep the Sprint 2 release candidate blocked
+
+### Context
+
+All software and documentation evidence can pass while one explicit visual
+acceptance criterion remains incomplete.
+
+### Decision
+
+Prepare the review, retrospective and release notes, but prohibit the release
+branch merge, `main` merge and annotated tag until real responsive screenshots
+exist and the final gate passes again.
+
+### Consequences
+
+Day 83 is complete without falsely releasing Sprint 2. Sprint 3 remains
+registered only as a future planning boundary.
+
+### Status
+
+Accepted on global Day 83; release remains blocked.

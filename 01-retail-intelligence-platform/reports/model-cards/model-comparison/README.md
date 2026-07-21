@@ -11,9 +11,7 @@ These cards describe evidence from 18 synthetic observations and
 one six-row holdout. They do not establish stability,
 generalization or production readiness.
 
-Random Forest is selected only for the next integration step. Gradient Boosting
-remains the observed MAE leader. The difference is intentional and follows the
-frozen practical-equivalence and lower-complexity rule.
+Random Forest is selected only for the next integration step. Gradient Boosting remains the observed MAE leader. The difference is intentional and follows the frozen practical-equivalence and lower-complexity rule.
 
 For platform consumption and final verification, see:
 
@@ -22,5 +20,4 @@ For platform consumption and final verification, see:
 - `frontend/dashboard-app/src/features/model-comparison/`;
 - `reports/quality/model-comparison/sprint_02_quality_gate.md`.
 
-These are final Sprint 2 learning cards. They are not deployment approval,
-production monitoring evidence or a claim about real retail generalization.
+These are final Sprint 2 learning cards. They are not deployment approval, production monitoring evidence or a claim about real retail generalization.
