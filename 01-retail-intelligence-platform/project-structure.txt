@@ -105,6 +105,7 @@ checks/check_sprint_01_hardening.py
 checks/check_sprint_02_day_57.py
 checks/check_sprint_02_quality_gate.py
 checks/check_sprint_02_release_documentation.py
+checks/check_sprint_02_release_gate.py
 checks/check_sprint_02_review.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
@@ -262,6 +263,7 @@ reports/outputs/model-comparison/split_manifest.json
 reports/portfolio/model-comparison/README.md
 reports/portfolio/model-comparison/evidence_manifest.json
 reports/quality/model-comparison/day_77_visual_contract_review.md
+reports/quality/model-comparison/day_84_release_gate.md
 reports/quality/model-comparison/sprint_02_quality_gate.md
 reports/recommendation-cards/.gitkeep
 reports/summaries/.gitkeep
@@ -315,6 +317,7 @@ reports/summaries/model-comparison/day_80_quality_gate_summary.md
 reports/summaries/model-comparison/day_81_release_documentation_summary.md
 reports/summaries/model-comparison/day_82_portfolio_evidence_summary.md
 reports/summaries/model-comparison/day_83_sprint_review_summary.md
+reports/summaries/model-comparison/day_84_release_gate_summary.md
 scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1

@@ -1315,3 +1315,25 @@ registered only as a future planning boundary.
 ### Status
 
 Accepted on global Day 83; release remains blocked.
+
+## Decision 056 — Stop the Day 84 release at the acceptance gate
+
+### Context
+
+The complete software gate passes, but real responsive captures remain missing.
+Executing the Git release sequence would contradict the frozen acceptance rules.
+
+### Decision
+
+Record the passing software evidence and exact visual blocker. Do not create the
+release branch, merge to `main`, tag the repository or synchronize `main` back
+to `develop` until visual acceptance is satisfied.
+
+### Consequences
+
+Sprint 2 remains open without corrupting Git release semantics. Sprint 3 remains
+unstarted, and the remaining work is narrow and verifiable.
+
+### Status
+
+Accepted on global Day 84; release remains blocked.
