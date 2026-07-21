@@ -34,8 +34,9 @@ and validates those sources before release.
 
 Desktop 1440×900, tablet 768×1024 and mobile 390×844 captures are required.
 They are currently blocked because the in-app browser policy rejected the local
-URL. No screenshot, mockup or browser approval is claimed. This is a release
-blocker, not a reason to fabricate evidence.
+URL. No screenshot, mockup or browser approval is claimed. The user accepted
+this as a known release limitation; the evidence gap remains public and can be
+resolved later without rewriting the analytical release.
 
 ## Limitations
 

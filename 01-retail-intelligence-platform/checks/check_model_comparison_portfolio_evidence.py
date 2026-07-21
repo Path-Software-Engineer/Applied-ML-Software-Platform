@@ -40,12 +40,12 @@ def main() -> None:
         assert view["path"] is None
         assert view["status"] == "blocked_by_browser_policy"
     assert "No screenshot, mockup or browser approval is claimed" in readme
-    assert "release" in readme and "blocker" in readme
+    assert "known release limitation" in readme
 
     print("OK - Sprint 2 Day 82 portfolio evidence check passed")
     print("Canonical artifact hashes: 4 confirmed")
     print("Required viewports: desktop | tablet | mobile")
-    print("Visual capture status: blocked and honestly recorded")
+    print("Visual capture status: unavailable and honestly recorded")
 
 
 if __name__ == "__main__":

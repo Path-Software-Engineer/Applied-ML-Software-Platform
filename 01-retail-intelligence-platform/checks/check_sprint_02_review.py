@@ -1,4 +1,4 @@
-"""Validate Day 83 review, retrospective and blocked release notes."""
+"""Validate Sprint 2 review, retrospective and release notes."""
 
 from pathlib import Path
 
@@ -22,20 +22,20 @@ def main() -> None:
     for phrase in (
         "96 Python",
         "18 frontend",
-        "50 manual checks",
+        "51 manual checks",
         "real desktop, tablet and mobile captures",
         "Sprint 3 is registered",
     ):
         assert phrase in review
     assert "portfolio manifest" in retrospective
-    assert "Week 8 remains open at Day 83" in week_review
-    assert "BLOCKED — visual acceptance incomplete" in release
-    assert "Do not merge a release branch" in release
+    assert "Week 8 closes on Day 84" in week_review
+    assert "RELEASED — visual capture remains a documented limitation" in release
+    assert "release/sprint-02-model-comparison" in release
     assert "must not merge to `main`" in summary
 
     print("OK - Sprint 2 Day 83 review and release-readiness check passed")
     print("Software acceptance: passed")
-    print("Visual acceptance: blocked")
+    print("Visual capture: accepted documented limitation")
     print("Release notes: prepared | Sprint 3: not started")
 
 

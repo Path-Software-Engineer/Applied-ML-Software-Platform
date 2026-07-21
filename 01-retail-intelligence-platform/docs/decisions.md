@@ -1337,3 +1337,26 @@ unstarted, and the remaining work is narrow and verifiable.
 ### Status
 
 Accepted on global Day 84; release remains blocked.
+
+## Decision 057 — Release with an explicit visual-evidence limitation
+
+### Context
+
+The user explicitly requested the release and remote tag after reviewing the
+passing software gate and the missing responsive captures.
+
+### Decision
+
+Accept the visual-capture gap as a declared release limitation. Complete the
+Gitflow release while preserving null screenshot paths and the prohibition on
+mockups or unsupported browser claims.
+
+### Consequences
+
+Sprint 2 can close as a learning release without hiding the evidence gap. The
+analytical, API and frontend scope remains fully validated and Sprint 3 remains
+unstarted.
+
+### Status
+
+Accepted during Day 84 release preparation.
