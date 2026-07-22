@@ -90,6 +90,7 @@ export function PlatformShell({
 
   return (
     <div className={`app-shell${shellClass}`}>
+      <a className="skip-link" href={`#${mainId}`}>Skip to main content</a>
       <aside
         className={`sidebar${sidebarClass}`}
         aria-label="Primary navigation"
@@ -161,7 +162,7 @@ export function PlatformShell({
           </div>
         </div>
       </aside>
-      <main className="main-content" id={mainId}>
+      <main className="main-content" id={mainId} tabIndex="-1">
         <PlatformHeader moduleName={moduleName} status={status} />
         {children}
       </main>
