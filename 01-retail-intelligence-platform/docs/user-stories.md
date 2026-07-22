@@ -353,9 +353,12 @@ decisions.
 - Inventory and signal product sets join one-to-one or fail visibly.
 - No Sprint 2 candidate is presented as a production forecast.
 
-**Status:** Planned for global Day 117.
+**Status:** Completed on global Day 117.
 
-**Evidence:** `docs/demand-signal-contract.md`.
+**Evidence:** `docs/demand-signal-contract.md`,
+`ai-services/inventory-decision/src/inventory_decision/signals/`,
+`data/processed/inventory-decision/demand_signals.csv`, and
+`data/processed/inventory-decision/integration_manifest.json`.
 
 ### US-S3-003 — Prioritize products for inventory review
 
