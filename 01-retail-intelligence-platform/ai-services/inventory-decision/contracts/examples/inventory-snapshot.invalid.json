@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "inventory_snapshot",
+  "evidence_status": "synthetic_learning_snapshot",
+  "records": [
+    {
+      "snapshot_id": "invalid-negative-stock",
+      "snapshot_as_of_date": "2026-01-09",
+      "observed_at": "2026-01-10",
+      "product_id": "P001",
+      "product_name": "Rice 1kg",
+      "stock_on_hand": -1,
+      "stock_unit": "cases",
+      "source_type": "invalid_example"
+    }
+  ]
+}

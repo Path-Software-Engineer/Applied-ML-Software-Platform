@@ -15,9 +15,13 @@ AI_MODULE_ROOT = PROJECT_ROOT / "ai-services" / "demand-insight"
 MODEL_COMPARISON_SRC = (
     PROJECT_ROOT / "ai-services" / "model-comparison" / "src"
 )
+INVENTORY_DECISION_SRC = (
+    PROJECT_ROOT / "ai-services" / "inventory-decision" / "src"
+)
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(AI_MODULE_ROOT))
 sys.path.insert(0, str(MODEL_COMPARISON_SRC))
+sys.path.insert(0, str(INVENTORY_DECISION_SRC))
 
 
 @pytest.fixture

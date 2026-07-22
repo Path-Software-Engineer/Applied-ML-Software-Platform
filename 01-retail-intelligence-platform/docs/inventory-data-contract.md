@@ -1,6 +1,6 @@
 # Inventory Snapshot Data Contract
 
-Status: preliminary on global Day 113; frozen and machine-validated on Day 114.
+Status: frozen and machine-validated on global Day 114.
 
 ## Identity
 
@@ -38,4 +38,11 @@ default and must expose `lead_time_source=policy_default`.
 
 The first repository snapshot is derived learning evidence, not a live stock
 ledger. Normalization must not overwrite the raw file.
+
+## Machine-readable evidence
+
+- `ai-services/inventory-decision/contracts/inventory-snapshot.schema.json`;
+- valid and invalid examples under `contracts/examples/`;
+- official learning source at `data/raw/inventory/inventory_snapshot.csv`;
+- pure record validation in `inventory_decision.contract`.
 
