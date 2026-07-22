@@ -136,7 +136,9 @@ backend/api/checks/check_model_comparison_api.py
 backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
+checks/check_final_demo_evidence.py
 checks/check_final_documentation.py
+checks/check_final_platform_smoke.py
 checks/check_final_runtime_security.py
 checks/check_inventory_adversarial_contracts.py
 checks/check_inventory_decision_integration.py
@@ -369,6 +371,9 @@ reports/outputs/model-comparison/results/training_mean.json
 reports/outputs/model-comparison/split_manifest.json
 reports/portfolio/model-comparison/README.md
 reports/portfolio/model-comparison/evidence_manifest.json
+reports/portfolio/retail-intelligence-platform/README.md
+reports/portfolio/retail-intelligence-platform/demo-script.md
+reports/portfolio/retail-intelligence-platform/evidence_manifest.json
 reports/quality/final-runtime-security.md
 reports/quality/inventory-decision/adversarial_contracts.md
 reports/quality/model-comparison/day_77_visual_contract_review.md
@@ -434,6 +439,7 @@ reports/summaries/inventory-decision/day_141_final_close_exploration_summary.md
 reports/summaries/inventory-decision/day_142_platform_integration_summary.md
 reports/summaries/inventory-decision/day_143_final_security_gate_summary.md
 reports/summaries/inventory-decision/day_144_final_documentation_summary.md
+reports/summaries/inventory-decision/day_145_demo_evidence_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
