@@ -111,7 +111,6 @@ checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
 checks/check_week_08_exploration.py
-codigo-completo-retail-intelligence-platform.txt
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -190,10 +189,12 @@ frontend/dashboard-app/src/features/model-comparison/hooks/useModelComparison.js
 frontend/dashboard-app/src/features/model-comparison/presentation/decisionCardViewModel.js
 frontend/dashboard-app/src/main.jsx
 frontend/dashboard-app/src/shared/components/PlatformShell.jsx
+frontend/dashboard-app/src/shared/navigation/platformNavigation.js
 frontend/dashboard-app/src/styles.css
 frontend/dashboard-app/tests/decisionCardViewModel.test.js
 frontend/dashboard-app/tests/demandSummaryApi.test.js
 frontend/dashboard-app/tests/modelComparisonApi.test.js
+frontend/dashboard-app/tests/platformNavigation.test.js
 frontend/dashboard-app/vite.config.js
 labs/.gitkeep
 labs/cloud-labs/.gitkeep
