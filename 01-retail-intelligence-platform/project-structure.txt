@@ -49,6 +49,7 @@ ai-services/inventory-decision/checks/check_demand_signal_join.py
 ai-services/inventory-decision/checks/check_inventory_cleaning.py
 ai-services/inventory-decision/checks/check_inventory_contract.py
 ai-services/inventory-decision/checks/check_inventory_loading.py
+ai-services/inventory-decision/checks/check_inventory_snapshot_summary.py
 ai-services/inventory-decision/contracts/demand-signal.schema.json
 ai-services/inventory-decision/contracts/examples/inventory-snapshot.invalid.json
 ai-services/inventory-decision/contracts/examples/inventory-snapshot.valid.json
@@ -59,6 +60,8 @@ ai-services/inventory-decision/src/inventory_decision/contract.py
 ai-services/inventory-decision/src/inventory_decision/data/__init__.py
 ai-services/inventory-decision/src/inventory_decision/data/cleaner.py
 ai-services/inventory-decision/src/inventory_decision/data/loader.py
+ai-services/inventory-decision/src/inventory_decision/reporting/__init__.py
+ai-services/inventory-decision/src/inventory_decision/reporting/snapshot_summary.py
 ai-services/inventory-decision/src/inventory_decision/signals/__init__.py
 ai-services/inventory-decision/src/inventory_decision/signals/observed_demand.py
 ai-services/model-comparison/.gitkeep
@@ -324,6 +327,9 @@ reports/summaries/inventory-decision/day_114_inventory_contract_summary.md
 reports/summaries/inventory-decision/day_115_inventory_loading_summary.md
 reports/summaries/inventory-decision/day_116_inventory_cleaning_summary.md
 reports/summaries/inventory-decision/day_117_demand_signal_summary.md
+reports/summaries/inventory-decision/day_118_snapshot_summary.md
+reports/summaries/inventory-decision/inventory_snapshot_summary.json
+reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
 reports/summaries/model-comparison/day_58_experiment_split_summary.md
 reports/summaries/model-comparison/day_59_baseline_metrics_summary.md
@@ -386,6 +392,7 @@ tests/ai-services/inventory-decision/test_demand_signals.py
 tests/ai-services/inventory-decision/test_inventory_cleaner.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
 tests/ai-services/inventory-decision/test_inventory_loader.py
+tests/ai-services/inventory-decision/test_snapshot_summary.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
 tests/ai-services/model-comparison/test_comparison.py
 tests/ai-services/model-comparison/test_comparison_report.py
