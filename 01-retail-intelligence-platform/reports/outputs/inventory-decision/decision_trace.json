@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "module": "inventory_decision",
+  "evidence_as_of_date": "2026-01-09",
+  "policy_version": "inventory-review-policy/1.0",
+  "risk_score_meaning": "priority_index_not_probability",
+  "decision_count": 6,
+  "decisions": [
+    {
+      "priority_rank": 1,
+      "product": {
+        "product_id": "P003",
+        "product_name": "Bread"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 0,
+        "observed_daily_demand": 11.666667,
+        "coverage_days": 0.0,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 35,
+        "target_stock_units": 70,
+        "risk_score": 100.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "critical",
+        "recommended_action": "replenish_now",
+        "suggested_quantity_units": 70
+      },
+      "reason": "Observed stock is zero while observed demand is positive.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    },
+    {
+      "priority_rank": 2,
+      "product": {
+        "product_id": "P002",
+        "product_name": "Milk 1L"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 9,
+        "observed_daily_demand": 6.0,
+        "coverage_days": 1.5,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 18,
+        "target_stock_units": 36,
+        "risk_score": 50.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "high",
+        "recommended_action": "replenish_soon",
+        "suggested_quantity_units": 27
+      },
+      "reason": "Observed stock covers 1.50 days, below the 3-day protected horizon.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    },
+    {
+      "priority_rank": 3,
+      "product": {
+        "product_id": "P004",
+        "product_name": "Coffee 250g"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 10,
+        "observed_daily_demand": 2.555556,
+        "coverage_days": 3.913,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 8,
+        "target_stock_units": 16,
+        "risk_score": 0.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "healthy",
+        "recommended_action": "monitor",
+        "suggested_quantity_units": 0
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    },
+    {
+      "priority_rank": 4,
+      "product": {
+        "product_id": "P001",
+        "product_name": "Rice 1kg"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 29,
+        "observed_daily_demand": 7.0,
+        "coverage_days": 4.1429,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 21,
+        "target_stock_units": 42,
+        "risk_score": 0.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "healthy",
+        "recommended_action": "monitor",
+        "suggested_quantity_units": 0
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    },
+    {
+      "priority_rank": 5,
+      "product": {
+        "product_id": "P006",
+        "product_name": "Eggs 12 pack"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 24,
+        "observed_daily_demand": 2.777778,
+        "coverage_days": 8.64,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 9,
+        "target_stock_units": 17,
+        "risk_score": 0.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "healthy",
+        "recommended_action": "monitor",
+        "suggested_quantity_units": 0
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    },
+    {
+      "priority_rank": 6,
+      "product": {
+        "product_id": "P005",
+        "product_name": "Orange Juice"
+      },
+      "observed_inputs": {
+        "snapshot_as_of_date": "2026-01-09",
+        "current_stock_units": 27,
+        "observed_daily_demand": 2.555556,
+        "coverage_days": 10.5652,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default"
+      },
+      "policy_calculations": {
+        "reorder_point_units": 8,
+        "target_stock_units": 16,
+        "risk_score": 0.0,
+        "risk_score_meaning": "priority_index_not_probability"
+      },
+      "review_outcome": {
+        "risk_label": "healthy",
+        "recommended_action": "monitor",
+        "suggested_quantity_units": 0
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting."
+    }
+  ]
+}
