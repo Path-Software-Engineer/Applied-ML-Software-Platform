@@ -25,7 +25,9 @@ Status: policy `inventory-review-policy/1.0` frozen on global Day 120.
 
 Risk score weights shortage ratio at 70% and coverage pressure at 30%. Labels
 are `critical` from 75, `high` from 50, `watch` from 25 and `healthy` below 25.
-The index is not a calibrated probability.
+The index is not a calibrated probability. A product that meets the inclusive
+reorder trigger receives a minimum score of 25 so the exact reorder boundary
+cannot be labeled healthy.
 
 ## Recommendation language
 
