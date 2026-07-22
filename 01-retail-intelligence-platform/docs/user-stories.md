@@ -374,9 +374,12 @@ explainable risk labels so that I can review the most urgent products first.
 - Risk labels and tie-breaking are deterministic.
 - Risk score is explicitly described as a priority index, not a probability.
 
-**Status:** Planned for global Days 121–123.
+**Status:** Completed on global Day 123.
 
-**Evidence:** `docs/inventory-decision-policy.md`.
+**Evidence:** `docs/inventory-decision-policy.md`,
+`ai-services/inventory-decision/src/inventory_decision/policies/`,
+`ai-services/inventory-decision/src/inventory_decision/risk/`, and
+`reports/metrics/inventory-decision/risk_ranking.csv`.
 
 ### US-S3-004 — Review explainable inventory recommendations
 
