@@ -19,12 +19,20 @@ def main() -> None:
         / "components"
         / "ModelComparisonDashboard.jsx"
     )
+    inventory_path = (
+        FRONTEND
+        / "features"
+        / "inventory-decision"
+        / "components"
+        / "InventoryDecisionDashboard.jsx"
+    )
     navigation_path = (
         FRONTEND / "shared" / "navigation" / "platformNavigation.js"
     )
     shared = shared_path.read_text(encoding="utf-8")
     demand = demand_path.read_text(encoding="utf-8")
     comparison = comparison_path.read_text(encoding="utf-8")
+    inventory = inventory_path.read_text(encoding="utf-8")
     navigation = navigation_path.read_text(encoding="utf-8")
 
     for phrase in (
@@ -40,7 +48,7 @@ def main() -> None:
         'role="status"',
     ):
         assert phrase in shared
-    for feature in (demand, comparison):
+    for feature in (demand, comparison, inventory):
         assert "<PlatformShell" in feature
         assert '<aside className="sidebar' not in feature
         assert "function LogoMark" not in feature
@@ -49,13 +57,18 @@ def main() -> None:
     assert 'homeHref="#demand-insight"' in comparison
     assert 'activeStageId="demand-insight"' in demand
     assert 'activeStageId="model-comparison"' in comparison
+    assert 'activeStageId="inventory-decision"' in inventory
     for label in (
         "Demand insight",
         "Model comparison",
+        "Inventory decision",
         "Insight cards",
         "Candidates",
         "Decision rationale",
         "Evidence boundary",
+        "Priority ranking",
+        "Recommendations",
+        "Policy trace",
     ):
         assert label in navigation
 
