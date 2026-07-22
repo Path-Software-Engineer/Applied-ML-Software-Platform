@@ -6,3 +6,9 @@ from .demand_summary_service import (
 )
 
 __all__ = ["DemandSummaryError", "DemandSummaryService"]
+from .inventory_decision_service import (
+    InventoryDecisionError,
+    InventoryDecisionService,
+)
+
+__all__ = ["InventoryDecisionError", "InventoryDecisionService"]

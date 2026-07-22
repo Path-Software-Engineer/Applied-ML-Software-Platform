@@ -721,7 +721,7 @@ US-S2-005, US-S2-006.
 
 ## Sprint 2 traceability
 
-| Technical Story | User Stories relacionadas | Initial evidence |
+| Technical Story | User Stories relacionadas | Evidencia principal |
 |---|---|---|
 | TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
 | TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
@@ -729,3 +729,261 @@ US-S2-005, US-S2-006.
 | TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |
 | TS-S2-005 | US-S2-005 | `docs/model-comparison-read-contract.md` |
 | TS-S2-006 | US-S2-005, US-S2-006 | `frontend/dashboard-app/src/features/model-comparison/`, `checks/check_model_comparison_integration.py` |
+
+## Sprint 3 — Inventory Decision Technical Stories
+
+These stories trace the completed Sprint 3 architecture through the final
+integration and release gate. All completed states point to repository evidence.
+
+## TS-S3-001 — Validate and normalize inventory evidence
+
+### Necesidad técnica
+
+The platform needs a strict inventory snapshot boundary before any decision rule
+can consume stock values.
+
+### Criterios de aceptación
+
+- A versioned contract validates identity, dates, provenance, units and stock.
+- Loading and cleaning are separate from policy code.
+- Raw evidence remains unchanged and processed output is reproducible.
+- Controlled tests cover missing, duplicate, incompatible and negative values.
+
+### Estado
+
+Completed on global Day 116.
+
+### Evidencia
+
+- `docs/inventory-data-contract.md`
+- `ai-services/inventory-decision/src/inventory_decision/contract.py`
+- `ai-services/inventory-decision/src/inventory_decision/data/loader.py`
+- `ai-services/inventory-decision/src/inventory_decision/data/cleaner.py`
+- `data/processed/inventory-decision/inventory_snapshot_clean.csv`
+- `tests/ai-services/inventory-decision/`
+
+### Relación con User Stories
+
+US-S3-001.
+
+## TS-S3-002 — Build an identified observed-demand signal
+
+### Necesidad técnica
+
+Inventory decisions need one product-level signal whose type, source, period and
+unit remain auditable.
+
+### Criterios de aceptación
+
+- The signal is descriptive and never mislabeled as forecast.
+- Its source checksum and period are recorded.
+- Inventory and signal joins reject incomplete product coverage.
+- One manifest records source identities and join coverage.
+
+### Estado
+
+Completed on global Day 117.
+
+### Evidencia
+
+- `docs/demand-signal-contract.md`
+- `ai-services/inventory-decision/src/inventory_decision/signals/observed_demand.py`
+- `data/processed/inventory-decision/integration_manifest.json`
+- `tests/ai-services/inventory-decision/test_demand_signals.py`
+
+### Relación con User Stories
+
+US-S3-001, US-S3-002.
+
+## TS-S3-003 — Apply a versioned replenishment policy
+
+### Necesidad técnica
+
+The system needs pure, deterministic reorder and target-stock calculations with
+explicit defaults and units.
+
+### Criterios de aceptación
+
+- Formula, rounding, safety horizon and lead-time source are traceable.
+- Suggested quantities are integers and non-negative.
+- Zero demand and missing optional lead time have explicit behavior.
+- Tests cover policy boundaries without HTTP or React.
+
+### Estado
+
+Completed on global Day 121.
+
+### Evidencia
+
+- `docs/inventory-decision-policy.md`
+- `ai-services/inventory-decision/src/inventory_decision/policies/replenishment.py`
+- `data/processed/inventory-decision/inventory_replenishment.csv`
+- `tests/ai-services/inventory-decision/test_replenishment_policy.py`
+
+### Relación con User Stories
+
+US-S3-003.
+
+## TS-S3-004 — Produce explainable risk and recommendation evidence
+
+### Necesidad técnica
+
+Policy results need deterministic priority, labels, reasons and limitations
+before they become a public resource.
+
+### Criterios de aceptación
+
+- Coverage, score, label and priority use one policy version.
+- The score is not presented as a probability.
+- Recommendation Cards preserve inputs, action, quantity and limitation.
+- JSON, CSV and Markdown artifacts are reproducible.
+
+### Estado
+
+Completed on global Day 125.
+
+### Evidencia
+
+- `docs/inventory-decision-policy.md`
+- `ai-services/inventory-decision/src/inventory_decision/risk/`
+- `ai-services/inventory-decision/src/inventory_decision/recommendations/cards.py`
+- `ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py`
+- `reports/outputs/inventory-decision/inventory_decision_report.json`
+
+### Relación con User Stories
+
+US-S3-003, US-S3-004.
+
+## TS-S3-005 — Expose a validated inventory read resource
+
+### Necesidad técnica
+
+The backend needs to read canonical inventory evidence without importing or
+executing decision policy code during a request.
+
+### Criterios de aceptación
+
+- A read service validates the report identity, content and freshness.
+- A strict Pydantic schema exposes the resource under a versioned route.
+- Public failures contain no path or internal exception detail.
+- HTTP and service tests cover invalid and unavailable evidence.
+
+### Estado
+
+Completed on global Day 129.
+
+### Evidencia
+
+- `docs/inventory-decision-read-contract.md`
+- `backend/api/app/services/inventory_decision_service.py`
+- `backend/api/app/schemas/inventory_decision.py`
+- `backend/api/app/routes/inventory_decision.py`
+- `tests/backend/test_inventory_decision_api.py`
+- `checks/check_inventory_decision_integration.py`
+
+### Relación con User Stories
+
+US-S3-005.
+
+## TS-S3-006 — Present inventory evidence in React
+
+### Necesidad técnica
+
+The platform needs a third isolated feature and staged navigation without moving
+inventory calculations into the browser.
+
+### Criterios de aceptación
+
+- A dedicated API client validates the public contract.
+- A hook owns loading, connected, unavailable and stale lifecycle states.
+- Components render API-provided cards, ranking and limitations.
+- Contract and cross-layer tests reject recomputation and drift.
+
+### Estado
+
+Completed on global Day 139.
+
+### Evidencia
+
+- `frontend/dashboard-app/src/features/inventory-decision/`
+- `frontend/dashboard-app/src/shared/navigation/platformNavigation.js`
+- `frontend/dashboard-app/tests/inventoryDecisionApi.test.js`
+- `frontend/dashboard-app/tests/inventoryDecisionViewModel.test.js`
+- `checks/check_sprint_03_ui_readme_polish.py`
+
+### Relación con User Stories
+
+US-S3-005, US-S3-006.
+
+## TS-S3-007 — Harden scenarios and publish decision trace
+
+### Necesidad técnica
+
+The completed policy needs deterministic scenario oracles, adversarial failure
+coverage and an auditable trace before release.
+
+### Criterios de aceptación
+
+- Five scenario classes preserve explicit expected outcomes.
+- Invalid records, joins, units, reports and HTTP states fail closed.
+- Every product trace includes inputs, policy calculations, outcome and limitation.
+- Three report-driven figures preserve units and interpretation boundaries.
+
+### Estado
+
+Completed on global Day 138.
+
+### Evidencia
+
+- `reports/scenarios/inventory-decision/policy_scenarios.json`
+- `tests/ai-services/inventory-decision/test_adversarial_contracts.py`
+- `reports/outputs/inventory-decision/decision_trace.json`
+- `docs/inventory-decision-policy-card.md`
+- `reports/outputs/inventory-decision/inventory_visual_report.md`
+
+### Relación con User Stories
+
+US-S3-003, US-S3-004, US-S3-006.
+
+## TS-S3-008 — Integrate and gate the three-module platform
+
+### Necesidad técnica
+
+The repository needs one reproducible generation command and one release gate
+that protects all module, HTTP, frontend and security boundaries together.
+
+### Criterios de aceptación
+
+- One command regenerates official evidence in dependency order.
+- All three schema 1.0 resources remain compatible.
+- The API remains read-only with controlled path, size and error boundaries.
+- The root gate runs Python, frontend, bundle, smoke and manual checks.
+
+### Estado
+
+Completed on global Day 143.
+
+### Evidencia
+
+- `scripts/generate-platform-evidence.ps1`
+- `scripts/run-quality-gate.ps1`
+- `checks/check_platform_integration.py`
+- `checks/check_final_runtime_security.py`
+- `reports/quality/final-runtime-security.md`
+
+### Relación con User Stories
+
+US-S3-001, US-S3-002, US-S3-003, US-S3-004, US-S3-005, US-S3-006.
+
+## Sprint 3 final traceability
+
+| Technical Story | User Stories relacionadas | Evidencia principal |
+|---|---|---|
+| TS-S3-001 | US-S3-001 | `docs/inventory-data-contract.md` |
+| TS-S3-002 | US-S3-001, US-S3-002 | `docs/demand-signal-contract.md` |
+| TS-S3-003 | US-S3-003 | `docs/inventory-decision-policy.md` |
+| TS-S3-004 | US-S3-003, US-S3-004 | `docs/inventory-decision-policy.md` |
+| TS-S3-005 | US-S3-005 | `docs/sprints/sprint-03-inventory-decision/README.md` |
+| TS-S3-006 | US-S3-005, US-S3-006 | `docs/sprints/sprint-03-inventory-decision/README.md` |
+| TS-S3-007 | US-S3-003, US-S3-004, US-S3-006 | `reports/outputs/inventory-decision/decision_trace.json` |
+| TS-S3-008 | US-S3-001, US-S3-002, US-S3-003, US-S3-004, US-S3-005, US-S3-006 | `scripts/run-quality-gate.ps1` |

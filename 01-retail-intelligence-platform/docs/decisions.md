@@ -1360,3 +1360,96 @@ unstarted.
 ### Status
 
 Accepted during Day 84 release preparation.
+
+## Decision 058 — Separate observed demand from inventory recommendation
+
+### Context
+
+Sprint 3 needs a demand input, but Sprint 2 produced learning-only model evidence
+on a six-row holdout and did not validate a production forecast.
+
+### Decision
+
+Use an explicitly named `observed_daily_average` signal derived from the complete
+Demand Insight period. Join it to a traceable synthetic learning inventory
+snapshot through `product_id`. Keep policy calculations in a new Inventory
+Decision production module; backend reads artifacts and React presents them.
+
+### Consequences
+
+The module can support an explainable inventory-review workflow without
+misrepresenting historical averages or a Sprint 2 candidate as forecasts.
+Lead-time defaults, risk thresholds and safety horizon must be versioned policy
+assumptions, not invented source facts.
+
+### Status
+
+Accepted as the Sprint 3 boundary on global Day 113.
+
+## Decision 059 — Freeze a simple replenishment policy before implementation
+
+### Context
+
+The source has no supplier lead time, cost, service-level target or validated
+demand distribution. A sophisticated optimization formula would invent evidence.
+
+### Decision
+
+Freeze `inventory-review-policy/1.0` with a two-day default lead time, one safety
+demand day, three-day review period, ceiling rounding and an inclusive reorder
+trigger. Use a weighted shortage and coverage index only for priority.
+
+### Consequences
+
+Every output is deterministic and traceable, and missing lead time remains
+visible as a policy default. The resulting risk score cannot be called a
+probability, and suggested quantities remain review recommendations rather than
+executed purchase orders.
+
+### Status
+
+Accepted on global Day 120 before runtime policy implementation.
+
+## Decision 060 — Keep inventory recommendations human-reviewed and traceable
+
+### Context
+
+Sprint 3 produces deterministic quantities, but the source has historical stock,
+an observed-average demand signal and a policy-default lead time.
+
+### Decision
+
+Publish one trace per product with observed inputs, policy calculations, action,
+reason and limitation. Show stale evidence prominently and never create an order
+or describe the priority index as probability.
+
+### Consequences
+
+The dashboard supports a useful review queue while preserving the difference
+between decision support and automated execution.
+
+### Status
+
+Accepted and implemented on global Day 137.
+
+## Decision 061 — Release one integrated read-only platform
+
+### Context
+
+All three modules are complete and independently validated. Combining their
+business calculations or opening a fourth feature would weaken the final scope.
+
+### Decision
+
+Release the modules behind one FastAPI process and one staged React shell while
+retaining separate canonical artifacts, service validators and feature adapters.
+Use one generation command and one repository gate for reproducibility.
+
+### Consequences
+
+The final release is cohesive without erasing domain boundaries. Synthetic data,
+validation and deployment limitations remain explicit.
+
+### Status
+
+Accepted on global Day 142 for `v1.0.0-retail-intelligence-platform`.

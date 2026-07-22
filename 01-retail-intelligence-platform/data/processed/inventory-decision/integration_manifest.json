@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "module": "inventory_decision",
+  "join_key": "product_id",
+  "join_strategy": "strict_one_to_one",
+  "inventory_source": "data/processed/inventory-decision/inventory_snapshot_clean.csv",
+  "inventory_sha256": "25e83d59f3df563a1c50aae4cf3a5e001f66bb1cd651c49d31de21cf02898d03",
+  "demand_source": "data/processed/demand-insight/sales_clean.csv",
+  "demand_source_sha256": "7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5",
+  "signal_type": "observed_daily_average",
+  "signal_unit": "units_per_day",
+  "inventory_products": 6,
+  "signal_products": 6,
+  "joined_products": 6,
+  "inventory_only": [],
+  "signal_only": [],
+  "evidence_status": "descriptive_learning_evidence"
+}

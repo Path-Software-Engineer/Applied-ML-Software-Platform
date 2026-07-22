@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "module": "inventory_decision",
+  "policy_version": "inventory-review-policy/1.0",
+  "cards": [
+    {
+      "card_id": "inventory-P003",
+      "priority_rank": 1,
+      "product": {
+        "product_id": "P003",
+        "product_name": "Bread"
+      },
+      "risk": {
+        "label": "critical",
+        "score": 100.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 0,
+        "observed_daily_demand": 11.666667,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 0.0,
+        "reorder_point_units": 35,
+        "target_stock_units": 70,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "replenish_now",
+        "suggested_quantity_units": 70,
+        "unit": "units"
+      },
+      "reason": "Observed stock is zero while observed demand is positive.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    },
+    {
+      "card_id": "inventory-P002",
+      "priority_rank": 2,
+      "product": {
+        "product_id": "P002",
+        "product_name": "Milk 1L"
+      },
+      "risk": {
+        "label": "high",
+        "score": 50.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 9,
+        "observed_daily_demand": 6.0,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 1.5,
+        "reorder_point_units": 18,
+        "target_stock_units": 36,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "replenish_soon",
+        "suggested_quantity_units": 27,
+        "unit": "units"
+      },
+      "reason": "Observed stock covers 1.50 days, below the 3-day protected horizon.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    },
+    {
+      "card_id": "inventory-P004",
+      "priority_rank": 3,
+      "product": {
+        "product_id": "P004",
+        "product_name": "Coffee 250g"
+      },
+      "risk": {
+        "label": "healthy",
+        "score": 0.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 10,
+        "observed_daily_demand": 2.555556,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 3.913,
+        "reorder_point_units": 8,
+        "target_stock_units": 16,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "monitor",
+        "suggested_quantity_units": 0,
+        "unit": "units"
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    },
+    {
+      "card_id": "inventory-P001",
+      "priority_rank": 4,
+      "product": {
+        "product_id": "P001",
+        "product_name": "Rice 1kg"
+      },
+      "risk": {
+        "label": "healthy",
+        "score": 0.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 29,
+        "observed_daily_demand": 7.0,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 4.1429,
+        "reorder_point_units": 21,
+        "target_stock_units": 42,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "monitor",
+        "suggested_quantity_units": 0,
+        "unit": "units"
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    },
+    {
+      "card_id": "inventory-P006",
+      "priority_rank": 5,
+      "product": {
+        "product_id": "P006",
+        "product_name": "Eggs 12 pack"
+      },
+      "risk": {
+        "label": "healthy",
+        "score": 0.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 24,
+        "observed_daily_demand": 2.777778,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 8.64,
+        "reorder_point_units": 9,
+        "target_stock_units": 17,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "monitor",
+        "suggested_quantity_units": 0,
+        "unit": "units"
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    },
+    {
+      "card_id": "inventory-P005",
+      "priority_rank": 6,
+      "product": {
+        "product_id": "P005",
+        "product_name": "Orange Juice"
+      },
+      "risk": {
+        "label": "healthy",
+        "score": 0.0,
+        "meaning": "priority_index_not_probability"
+      },
+      "evidence": {
+        "current_stock_units": 27,
+        "observed_daily_demand": 2.555556,
+        "demand_signal_type": "observed_daily_average",
+        "coverage_days": 10.5652,
+        "reorder_point_units": 8,
+        "target_stock_units": 16,
+        "lead_time_days": 2,
+        "lead_time_source": "policy_default",
+        "observed_period": {
+          "start": "2026-01-01",
+          "end": "2026-01-09"
+        },
+        "snapshot_as_of_date": "2026-01-09"
+      },
+      "action": {
+        "code": "monitor",
+        "suggested_quantity_units": 0,
+        "unit": "units"
+      },
+      "reason": "Observed stock remains above the policy reorder point.",
+      "limitation": "Learning evidence from a small synthetic period; review current stock, supplier lead time and recent demand before acting.",
+      "policy_version": "inventory-review-policy/1.0"
+    }
+  ]
+}

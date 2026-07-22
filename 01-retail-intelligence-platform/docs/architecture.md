@@ -284,3 +284,58 @@ The Model Comparison read service logs one stable event after full report
 validation. It records schema version, collection counts and the declared
 production status; it does not record paths, checksums, metrics, rationale,
 headers, query values or request bodies.
+
+## Sprint 3 Inventory Decision boundary
+
+Global Day 113 opens a third production module without changing Demand Insight
+or Model Comparison contracts. Its dependency direction is:
+
+```text
+inventory source + validated Demand Insight evidence
+        -> inventory_decision.contract / data / signals
+        -> normalized stock + identified observed-demand signal
+        -> policy / risk / recommendations / canonical report
+        -> validated backend read service and FastAPI resource
+        -> isolated React Inventory Decision presentation
+```
+
+Week 9 implements only facts. Contract validation owns field semantics, loading
+owns file and collection structure, cleaning owns deterministic normalization,
+and signals own descriptive aggregation plus the strict one-to-one product join.
+
+`observed_daily_average` includes its source checksum, full nine-day period and
+unit. It is not a forecast. Missing source lead time is preserved as
+`missing_policy_input`; no replenishment policy is allowed to hide that
+provenance. The factual snapshot summary declares `decision_status` as
+`not_calculated` until Week 10.
+
+### Final Inventory Decision flow
+
+```text
+inventory_snapshot.csv + Demand Insight sales_clean.csv
+    -> inventory contract / loading / cleaning
+    -> observed_daily_average + strict product join
+    -> inventory-review-policy/1.0
+    -> coverage / priority / ranking / Recommendation Cards
+    -> canonical report / decision trace / visual report
+    -> InventoryDecisionService validation + freshness
+    -> GET /api/v1/inventory-decisions/summary
+    -> strict React client + Inventory Decision presentation
+```
+
+The analytical module owns all decision calculations. The backend performs
+bounded artifact validation and mapping only. React validates the public
+contract, manages request state and presents evidence without calculating
+reorder, target, score, label, rank or quantity.
+
+### Final platform integration
+
+Demand Insight, Model Comparison and Inventory Decision keep independent source
+artifacts, services, response schemas and frontend feature folders. They share
+only the FastAPI process, platform shell, staged navigation and repository gate.
+`scripts/generate-platform-evidence.ps1` respects the dependency order while
+`scripts/run-quality-gate.ps1` verifies all modules together.
+
+The public API is read-only. Canonical reports are size-bounded, figure access
+is allowlisted and errors do not expose filesystem paths. These controls support
+the local learning release; they do not establish production security.
