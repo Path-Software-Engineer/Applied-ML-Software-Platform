@@ -143,6 +143,47 @@ footer p { margin: 0; }
 .inventory-hero h1 { margin: 0; max-width: 850px; font-size: clamp(48px, 6vw, 86px); line-height: .98; letter-spacing: -.065em; font-weight: 500; }
 .inventory-hero h1 em { color: var(--accent); font-style: normal; }
 .inventory-hero > div > p:last-child { max-width: 620px; margin: 28px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.freshness-warning { margin-top: 18px; padding: 16px 20px; display: flex; gap: 18px; border: 1px solid rgba(255,189,110,.3); border-radius: 12px; color: #dfc39e; background: rgba(255,163,69,.08); font-size: 11px; line-height: 1.55; }
+.freshness-warning strong { color: var(--accent); white-space: nowrap; }
+.inventory-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.inventory-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.inventory-table caption { padding: 15px 18px; color: var(--muted); text-align: left; border-bottom: 1px solid var(--line); }
+.inventory-table th, .inventory-table td { padding: 17px 15px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.inventory-table tbody tr:last-child th, .inventory-table tbody tr:last-child td { border-bottom: 0; }
+.inventory-table thead th { color: var(--muted); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.inventory-table tbody th strong, .inventory-table tbody th small { display: block; }
+.inventory-table tbody th small { margin-top: 5px; color: var(--muted); font-weight: 400; }
+.risk-pill { display: inline-flex; padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.risk-critical { --risk: #ff7e68; }
+.risk-high { --risk: #ffbd6e; }
+.risk-watch { --risk: #f2da75; }
+.risk-healthy { --risk: #82d6a4; }
+.risk-pill.risk-critical, .risk-pill.risk-high, .risk-pill.risk-watch, .risk-pill.risk-healthy { color: var(--risk); border-color: color-mix(in srgb, var(--risk) 35%, transparent); background: color-mix(in srgb, var(--risk) 8%, transparent); }
+.risk-meter { width: 70px; height: 3px; margin-top: 8px; display: block; overflow: hidden; border-radius: 999px; background: #29302d; }
+.risk-meter > span { display: block; height: 100%; border-radius: inherit; background: var(--risk, var(--accent)); }
+.inventory-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.inventory-card { min-height: 390px; padding: 24px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, var(--surface), #111714); }
+.inventory-card::before { content: ""; height: 2px; margin: -24px -24px 22px; background: var(--risk); opacity: .9; }
+.inventory-card header { display: flex; align-items: center; justify-content: space-between; }
+.inventory-card header > span:first-child { color: var(--risk); font-size: 10px; }
+.inventory-card > div > small { color: var(--muted); font-size: 9px; letter-spacing: .1em; }
+.inventory-card h3 { margin: 7px 0 0; font-size: 24px; font-weight: 500; letter-spacing: -.035em; }
+.inventory-card dl { margin: 24px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.inventory-card dl div { padding: 16px 8px 16px 0; }
+.inventory-card dt { color: var(--muted); font-size: 8px; text-transform: uppercase; }
+.inventory-card dd { margin: 7px 0 0; font-size: 10px; font-weight: 600; }
+.inventory-card-action { margin-top: 22px; display: flex; justify-content: space-between; gap: 15px; color: var(--risk); }
+.inventory-card-action span { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.inventory-card-action strong { font-size: 14px; }
+.inventory-card > p { color: #b4c2bc; font-size: 11px; line-height: 1.6; }
+.inventory-card-limit { margin-top: auto; padding-top: 15px; color: #687b73; font-size: 8px; line-height: 1.5; }
+.policy-trace { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; }
+.policy-trace h2 { margin: 0; font-size: clamp(30px, 3.5vw, 48px); line-height: 1.05; letter-spacing: -.045em; font-weight: 500; }
+.policy-trace dl { margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+.policy-trace dl div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.policy-trace dt { color: var(--muted); font-size: 9px; text-transform: uppercase; }
+.policy-trace dd { margin: 7px 0 0; font-size: 11px; }
+.inventory-limit { margin-top: 90px; }
 .comparison-hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 64px; align-items: end; padding: 20px 0 54px; scroll-margin-top: 30px; }
 .comparison-hero h1 { margin: 0; max-width: 850px; font-size: clamp(48px, 6vw, 86px); line-height: .98; letter-spacing: -.065em; font-weight: 500; }
 .comparison-hero h1 em { color: var(--accent); font-style: normal; }
@@ -218,6 +259,7 @@ footer p { margin: 0; }
   .dashboard { width: min(100% - 56px, 900px); }
   .hero { grid-template-columns: 1fr; gap: 36px; }
   .comparison-hero { grid-template-columns: 1fr; gap: 36px; }
+  .inventory-hero { grid-template-columns: 1fr; gap: 36px; }
   .period-card { min-height: auto; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   .metric-card:nth-child(2) { border-right: 0; }
@@ -227,6 +269,8 @@ footer p { margin: 0; }
   .figure-grid { grid-template-columns: 1fr; }
   .figure-card:first-child { grid-column: auto; }
   .decision-card-grid { grid-template-columns: 1fr; }
+  .inventory-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .policy-trace { grid-template-columns: 1fr; }
   .evidence-limit { grid-template-columns: 1fr; gap: 26px; }
 }
 
@@ -251,6 +295,9 @@ footer p { margin: 0; }
   .insight-grid { grid-template-columns: 1fr; }
   .insight-card, .insight-card:nth-child(4), .insight-card:nth-child(5), .insight-card:last-child { grid-column: 1; }
   .comparison-hero h1 { font-size: 46px; }
+  .inventory-hero h1 { font-size: 46px; }
+  .freshness-warning { display: grid; gap: 4px; }
+  .inventory-card-grid { grid-template-columns: 1fr; }
   .selection-strip { grid-template-columns: 1fr; }
   .selection-strip > i { transform: rotate(90deg); }
   .rationale-grid { grid-template-columns: 1fr; }
