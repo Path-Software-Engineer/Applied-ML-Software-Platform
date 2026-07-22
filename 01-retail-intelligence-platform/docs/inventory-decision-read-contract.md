@@ -1,6 +1,6 @@
 # Inventory Decision Read Contract
 
-Status: proposed on global Day 127.
+Status: implemented and validated on global Day 129.
 
 ## Endpoint
 
@@ -26,4 +26,12 @@ internal field name or partial business value is exposed.
 
 The endpoint does not run the inventory pipeline. The frontend does not read
 CSV or Markdown and does not reproduce policy calculations.
+
+## Implementation evidence
+
+- `backend/api/app/services/inventory_decision_service.py`;
+- `backend/api/app/schemas/inventory_decision.py`;
+- `backend/api/app/routes/inventory_decision.py`;
+- `tests/backend/test_inventory_decision_service.py`;
+- `tests/backend/test_inventory_decision_api.py`.
 
