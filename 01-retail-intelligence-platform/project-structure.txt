@@ -107,6 +107,7 @@ checks/check_sprint_02_quality_gate.py
 checks/check_sprint_02_release_documentation.py
 checks/check_sprint_02_release_gate.py
 checks/check_sprint_02_review.py
+checks/check_sprint_03_day_113.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
@@ -136,7 +137,10 @@ docs/api-contract.md
 docs/architecture.md
 docs/data-contract.md
 docs/decisions.md
+docs/demand-signal-contract.md
 docs/insight-card-methodology.md
+docs/inventory-data-contract.md
+docs/inventory-decision-policy.md
 docs/model-comparison-experiment-contract.md
 docs/model-comparison-read-contract.md
 docs/model-comparison-release-scope.md
@@ -171,6 +175,9 @@ docs/sprints/sprint-02-model-comparison/week-07/review.md
 docs/sprints/sprint-02-model-comparison/week-08/exploration.md
 docs/sprints/sprint-02-model-comparison/week-08/plan.md
 docs/sprints/sprint-02-model-comparison/week-08/review.md
+docs/sprints/sprint-03-inventory-decision/README.md
+docs/sprints/sprint-03-inventory-decision/week-09/exploration.md
+docs/sprints/sprint-03-inventory-decision/week-09/plan.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -291,6 +298,7 @@ reports/summaries/demand-insight/week_02_technical_report.md
 reports/summaries/demand-insight/week_03_close_summary.md
 reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
+reports/summaries/inventory-decision/day_113_exploration_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
 reports/summaries/model-comparison/day_58_experiment_split_summary.md
 reports/summaries/model-comparison/day_59_baseline_metrics_summary.md

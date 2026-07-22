@@ -1360,3 +1360,28 @@ unstarted.
 ### Status
 
 Accepted during Day 84 release preparation.
+
+## Decision 058 — Separate observed demand from inventory recommendation
+
+### Context
+
+Sprint 3 needs a demand input, but Sprint 2 produced learning-only model evidence
+on a six-row holdout and did not validate a production forecast.
+
+### Decision
+
+Use an explicitly named `observed_daily_average` signal derived from the complete
+Demand Insight period. Join it to a traceable synthetic learning inventory
+snapshot through `product_id`. Keep policy calculations in a new Inventory
+Decision production module; backend reads artifacts and React presents them.
+
+### Consequences
+
+The module can support an explainable inventory-review workflow without
+misrepresenting historical averages or a Sprint 2 candidate as forecasts.
+Lead-time defaults, risk thresholds and safety horizon must be versioned policy
+assumptions, not invented source facts.
+
+### Status
+
+Accepted as the Sprint 3 boundary on global Day 113.

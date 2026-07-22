@@ -311,3 +311,119 @@ without hiding the small-dataset boundary.
 `frontend/dashboard-app/tests/decisionCardViewModel.test.js`,
 `checks/check_model_comparison_integration.py`,
 `reports/quality/model-comparison/sprint_02_quality_gate.md`.
+
+## Sprint 3 — Inventory Decision User Stories
+
+### US-S3-001 — Receive a valid inventory snapshot
+
+**Story:** As an inventory analyst, I want stock observations validated against
+one versioned contract so that recommendations do not start from ambiguous or
+invalid quantities.
+
+**Value:** Establishes stable product identity, units, timing and provenance.
+
+**Acceptance criteria:**
+
+- Duplicate or missing product identifiers are rejected.
+- Stock is a non-negative integer in `units`.
+- Observation date, snapshot cutoff and source type remain visible.
+- Raw evidence is never overwritten by normalization.
+
+**Status:** Planned for global Days 114–116.
+
+**Evidence:** `docs/inventory-data-contract.md` and
+`docs/sprints/sprint-03-inventory-decision/week-09/plan.md`.
+
+### US-S3-002 — Understand the demand signal used for inventory
+
+**Story:** As an inventory analyst, I want each product's demand signal to name
+its type, source, period and unit so that I can distinguish observation from
+forecasting.
+
+**Value:** Prevents unsupported prediction claims from entering replenishment
+decisions.
+
+**Acceptance criteria:**
+
+- The signal is named `observed_daily_average`.
+- Its period, unit, source path and checksum are recorded.
+- Inventory and signal product sets join one-to-one or fail visibly.
+- No Sprint 2 candidate is presented as a production forecast.
+
+**Status:** Planned for global Day 117.
+
+**Evidence:** `docs/demand-signal-contract.md`.
+
+### US-S3-003 — Prioritize products for inventory review
+
+**Story:** As an inventory analyst, I want stock coverage, reorder points and
+explainable risk labels so that I can review the most urgent products first.
+
+**Value:** Converts compatible facts into a deterministic review queue.
+
+**Acceptance criteria:**
+
+- Reorder and target-stock formulas identify their policy version.
+- Suggested quantities are integers and never negative.
+- Risk labels and tie-breaking are deterministic.
+- Risk score is explicitly described as a priority index, not a probability.
+
+**Status:** Planned for global Days 121–123.
+
+**Evidence:** `docs/inventory-decision-policy.md`.
+
+### US-S3-004 — Review explainable inventory recommendations
+
+**Story:** As an inventory analyst, I want Recommendation Cards with a reason,
+action, quantity and limitation so that I can review rather than blindly accept
+the system output.
+
+**Value:** Makes policy results auditable and usable without hiding uncertainty.
+
+**Acceptance criteria:**
+
+- Every card includes stock, demand, reorder point and policy version.
+- Every card includes a review action, reason and limitation.
+- Cards never claim that an order was created or that service is guaranteed.
+- Structured and human-readable artifacts remain consistent.
+
+**Status:** Planned for global Days 124–125.
+
+**Evidence:** `docs/sprints/sprint-03-inventory-decision/week-10/`.
+
+### US-S3-005 — Read inventory decisions through the platform
+
+**Story:** As an inventory analyst, I want one versioned read resource so that I
+can consume validated inventory evidence without running the analytical pipeline.
+
+**Value:** Separates production evidence from HTTP transport and presentation.
+
+**Acceptance criteria:**
+
+- Backend validates one canonical report and exposes freshness metadata.
+- The endpoint never calculates policies or mutates evidence.
+- Missing, stale or invalid evidence returns a safe unavailable response.
+- Existing Demand Insight and Model Comparison endpoints remain compatible.
+
+**Status:** Planned for global Days 128–129.
+
+**Evidence:** `docs/sprints/sprint-03-inventory-decision/week-11/`.
+
+### US-S3-006 — Review inventory decisions in the dashboard
+
+**Story:** As an inventory analyst, I want a dedicated responsive inventory view
+so that I can inspect risk, quantities, reasons and limitations alongside the
+other platform stages.
+
+**Value:** Completes the three-stage product experience.
+
+**Acceptance criteria:**
+
+- The view exposes loading, connected, unavailable and stale states.
+- Recommendation Cards, ranking and factual inventory measures come from API data.
+- React performs no policy, risk or reorder calculation.
+- Keyboard navigation, responsive layout and reduced motion are supported.
+
+**Status:** Planned for global Days 130–139.
+
+**Evidence:** `frontend/dashboard-app/src/features/inventory-decision/` when implemented.

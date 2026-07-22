@@ -729,3 +729,176 @@ US-S2-005, US-S2-006.
 | TS-S2-004 | US-S2-002, US-S2-003, US-S2-004 | `reports/model-cards/model-comparison/model_cards.json` |
 | TS-S2-005 | US-S2-005 | `docs/model-comparison-read-contract.md` |
 | TS-S2-006 | US-S2-005, US-S2-006 | `frontend/dashboard-app/src/features/model-comparison/`, `checks/check_model_comparison_integration.py` |
+
+## Sprint 3 — Inventory Decision Technical Stories
+
+These stories define the initial Sprint 3 architecture. A story changes to
+Completed only after its listed implementation and validation evidence exists.
+
+## TS-S3-001 — Validate and normalize inventory evidence
+
+### Necesidad técnica
+
+The platform needs a strict inventory snapshot boundary before any decision rule
+can consume stock values.
+
+### Criterios de aceptación
+
+- A versioned contract validates identity, dates, provenance, units and stock.
+- Loading and cleaning are separate from policy code.
+- Raw evidence remains unchanged and processed output is reproducible.
+- Controlled tests cover missing, duplicate, incompatible and negative values.
+
+### Estado
+
+Planned for global Days 114–116.
+
+### Evidencia
+
+- `docs/inventory-data-contract.md`
+- `docs/sprints/sprint-03-inventory-decision/week-09/plan.md`
+
+### Relación con User Stories
+
+US-S3-001.
+
+## TS-S3-002 — Build an identified observed-demand signal
+
+### Necesidad técnica
+
+Inventory decisions need one product-level signal whose type, source, period and
+unit remain auditable.
+
+### Criterios de aceptación
+
+- The signal is descriptive and never mislabeled as forecast.
+- Its source checksum and period are recorded.
+- Inventory and signal joins reject incomplete product coverage.
+- One manifest records source identities and join coverage.
+
+### Estado
+
+Planned for global Day 117.
+
+### Evidencia
+
+- `docs/demand-signal-contract.md`
+
+### Relación con User Stories
+
+US-S3-001, US-S3-002.
+
+## TS-S3-003 — Apply a versioned replenishment policy
+
+### Necesidad técnica
+
+The system needs pure, deterministic reorder and target-stock calculations with
+explicit defaults and units.
+
+### Criterios de aceptación
+
+- Formula, rounding, safety horizon and lead-time source are traceable.
+- Suggested quantities are integers and non-negative.
+- Zero demand and missing optional lead time have explicit behavior.
+- Tests cover policy boundaries without HTTP or React.
+
+### Estado
+
+Planned for global Days 120–121.
+
+### Evidencia
+
+- `docs/inventory-decision-policy.md`
+
+### Relación con User Stories
+
+US-S3-003.
+
+## TS-S3-004 — Produce explainable risk and recommendation evidence
+
+### Necesidad técnica
+
+Policy results need deterministic priority, labels, reasons and limitations
+before they become a public resource.
+
+### Criterios de aceptación
+
+- Coverage, score, label and priority use one policy version.
+- The score is not presented as a probability.
+- Recommendation Cards preserve inputs, action, quantity and limitation.
+- JSON, CSV and Markdown artifacts are reproducible.
+
+### Estado
+
+Planned for global Days 122–125.
+
+### Evidencia
+
+- `docs/inventory-decision-policy.md`
+
+### Relación con User Stories
+
+US-S3-003, US-S3-004.
+
+## TS-S3-005 — Expose a validated inventory read resource
+
+### Necesidad técnica
+
+The backend needs to read canonical inventory evidence without importing or
+executing decision policy code during a request.
+
+### Criterios de aceptación
+
+- A read service validates the report identity, content and freshness.
+- A strict Pydantic schema exposes the resource under a versioned route.
+- Public failures contain no path or internal exception detail.
+- HTTP and service tests cover invalid and unavailable evidence.
+
+### Estado
+
+Planned for global Days 127–129.
+
+### Evidencia
+
+- `docs/sprints/sprint-03-inventory-decision/week-11/` when implemented.
+
+### Relación con User Stories
+
+US-S3-005.
+
+## TS-S3-006 — Present inventory evidence in React
+
+### Necesidad técnica
+
+The platform needs a third isolated feature and staged navigation without moving
+inventory calculations into the browser.
+
+### Criterios de aceptación
+
+- A dedicated API client validates the public contract.
+- A hook owns loading, connected, unavailable and stale lifecycle states.
+- Components render API-provided cards, ranking and limitations.
+- Contract and cross-layer tests reject recomputation and drift.
+
+### Estado
+
+Planned for global Days 130–139.
+
+### Evidencia
+
+- `frontend/dashboard-app/src/features/inventory-decision/` when implemented.
+
+### Relación con User Stories
+
+US-S3-005, US-S3-006.
+
+## Sprint 3 initial traceability
+
+| Technical Story | User Stories relacionadas | Initial evidence |
+|---|---|---|
+| TS-S3-001 | US-S3-001 | `docs/inventory-data-contract.md` |
+| TS-S3-002 | US-S3-001, US-S3-002 | `docs/demand-signal-contract.md` |
+| TS-S3-003 | US-S3-003 | `docs/inventory-decision-policy.md` |
+| TS-S3-004 | US-S3-003, US-S3-004 | `docs/inventory-decision-policy.md` |
+| TS-S3-005 | US-S3-005 | `docs/sprints/sprint-03-inventory-decision/README.md` |
+| TS-S3-006 | US-S3-005, US-S3-006 | `docs/sprints/sprint-03-inventory-decision/README.md` |
