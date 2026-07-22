@@ -37,6 +37,7 @@ function PlatformHeader({ moduleName, status }) {
 
 export function PlatformShell({
   activeHref,
+  activeStageId,
   children,
   homeHref,
   mainId,
@@ -48,6 +49,29 @@ export function PlatformShell({
   variant = "demand",
 }) {
   const comparison = variant === "comparison";
+  const [expandedStageId, setExpandedStageId] = React.useState(activeStageId);
+  const [currentHref, setCurrentHref] = React.useState(() => (
+    window.location.hash || activeHref
+  ));
+
+  React.useEffect(() => {
+    setExpandedStageId(activeStageId);
+  }, [activeStageId]);
+
+  React.useEffect(() => {
+    const updateCurrentHref = () => setCurrentHref(window.location.hash || activeHref);
+    window.addEventListener("hashchange", updateCurrentHref);
+    return () => window.removeEventListener("hashchange", updateCurrentHref);
+  }, [activeHref]);
+
+  const selectStage = (stage) => {
+    if (stage.id !== activeStageId) {
+      setExpandedStageId(stage.id);
+      window.location.hash = stage.href;
+      return;
+    }
+    setExpandedStageId(expandedStageId === stage.id ? null : stage.id);
+  };
 
   return (
     <div className={`app-shell${comparison ? " comparison-shell" : ""}`}>
@@ -62,19 +86,55 @@ export function PlatformShell({
             <small>Intelligence</small>
           </span>
         </a>
-        <nav className="nav-list">
-          {navigation.map((item, index) => {
-            const active = item.href === activeHref;
+        <nav className="nav-list" aria-label="Platform stages">
+          {navigation.map((stage, stageIndex) => {
+            const active = stage.id === activeStageId;
+            const expanded = stage.id === expandedStageId;
+            const panelId = `stage-panel-${stage.id}`;
             return (
-              <a
-                className={`nav-item${active ? " active" : ""}`}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                key={item.href}
+              <section
+                className={`nav-stage${active ? " active" : ""}`}
+                key={stage.id}
               >
-                <span className="nav-index">{String(index + 1).padStart(2, "0")}</span>
-                {item.label}
-              </a>
+                <button
+                  className="nav-stage-trigger"
+                  type="button"
+                  aria-controls={panelId}
+                  aria-current={active ? "page" : undefined}
+                  aria-expanded={expanded}
+                  onClick={() => selectStage(stage)}
+                >
+                  <span className="nav-stage-index">
+                    {String(stageIndex + 1).padStart(2, "0")}
+                  </span>
+                  <span>{stage.label}</span>
+                  <span className="nav-stage-chevron" aria-hidden="true" />
+                </button>
+                {expanded && (
+                  <div className="nav-stage-panel" id={panelId}>
+                    {stage.sections.map((section, sectionIndex) => {
+                      const sectionActive = (
+                        active
+                        && (currentHref === section.href
+                          || (currentHref === stage.href && section.href === activeHref))
+                      );
+                      return (
+                        <a
+                          className={`nav-subitem${sectionActive ? " active" : ""}`}
+                          href={section.href}
+                          aria-current={sectionActive ? "location" : undefined}
+                          key={section.href}
+                        >
+                          <span className="nav-subindex">
+                            {String(sectionIndex + 1).padStart(2, "0")}
+                          </span>
+                          {section.label}
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+              </section>
             );
           })}
         </nav>

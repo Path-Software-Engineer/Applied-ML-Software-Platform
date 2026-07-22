@@ -6,6 +6,7 @@ import {
 } from "../api/demandSummaryApi.js";
 import { useDemandSummary } from "../hooks/useDemandSummary.js";
 import { LogoMark, PlatformShell } from "../../../shared/components/PlatformShell.jsx";
+import { PLATFORM_STAGES } from "../../../shared/navigation/platformNavigation.js";
 
 
 const numberFormatter = new Intl.NumberFormat("en-US", {
@@ -13,23 +14,15 @@ const numberFormatter = new Intl.NumberFormat("en-US", {
 });
 
 
-const demandNavigation = [
-  { href: "#overview", label: "Overview" },
-  { href: "#leaders", label: "Leaders" },
-  { href: "#insights", label: "Insight cards" },
-  { href: "#visuals", label: "Visual report" },
-  { href: "#model-comparison", label: "Model comparison" },
-];
-
-
 function DemandShell({ status, children }) {
   return (
     <PlatformShell
       activeHref="#overview"
+      activeStageId="demand-insight"
       homeHref="#top"
       mainId="top"
       moduleName="Demand Insight"
-      navigation={demandNavigation}
+      navigation={PLATFORM_STAGES}
       noteTitle="Observed evidence"
       noteSubtitle="Demand Insight · Sprint 1"
       status={status}
@@ -154,7 +147,7 @@ function DashboardContent({ data }) {
   const { period, sales_summary: sales, baseline, leaders, insight_cards: cards } = data;
   return (
     <DemandShell status="connected">
-      <div className="dashboard">
+      <div className="dashboard" id="demand-insight">
         <section className="hero" id="overview">
           <div className="hero-copy">
             <p className="section-kicker">Demand overview</p>

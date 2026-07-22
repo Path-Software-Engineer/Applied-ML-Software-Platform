@@ -3,6 +3,7 @@ import React from "react";
 import { DecisionCard } from "./DecisionCard.jsx";
 import { useModelComparison } from "../hooks/useModelComparison.js";
 import { PlatformShell } from "../../../shared/components/PlatformShell.jsx";
+import { PLATFORM_STAGES } from "../../../shared/navigation/platformNavigation.js";
 
 
 const metricFormatter = new Intl.NumberFormat("en-US", {
@@ -12,16 +13,13 @@ const metricFormatter = new Intl.NumberFormat("en-US", {
 
 
 function ModelComparisonShell({ status, children }) {
-  const navigation = [
-    { href: "#demand-insight", label: "Demand insight" },
-    { href: "#model-comparison", label: "Model comparison" },
-  ];
   return (
     <PlatformShell
       activeHref="#model-comparison"
+      activeStageId="model-comparison"
       homeHref="#demand-insight"
       moduleName="Model Comparison"
-      navigation={navigation}
+      navigation={PLATFORM_STAGES}
       noteTitle="Learning evidence"
       noteSubtitle="Model Comparison · Sprint 2"
       status={status}
@@ -103,7 +101,7 @@ function ConnectedView({ data }) {
   return (
     <ModelComparisonShell status="connected">
       <div className="dashboard comparison-dashboard">
-        <section className="comparison-hero">
+        <section className="comparison-hero" id="model-comparison">
           <div>
             <p className="section-kicker">Classical model review</p>
             <h1>Choose with evidence,<br /><em>not a leaderboard alone.</em></h1>
@@ -137,7 +135,7 @@ function ConnectedView({ data }) {
           </div>
         </section>
 
-        <section className="section-block comparison-section">
+        <section className="section-block comparison-section" id="comparison-candidates">
           <div className="section-header">
             <div>
               <p className="section-kicker">Comparable evidence</p>
@@ -148,7 +146,7 @@ function ConnectedView({ data }) {
           <CandidateTable candidates={candidates} />
         </section>
 
-        <section className="section-block comparison-section">
+        <section className="section-block comparison-section" id="comparison-rationale">
           <div className="section-header">
             <div>
               <p className="section-kicker">Decision rationale</p>
@@ -165,7 +163,11 @@ function ConnectedView({ data }) {
           </div>
         </section>
 
-        <section className="section-block comparison-section" aria-labelledby="decision-cards-title">
+        <section
+          className="section-block comparison-section"
+          id="comparison-decisions"
+          aria-labelledby="decision-cards-title"
+        >
           <div className="section-header">
             <div>
               <p className="section-kicker">Decision cards</p>
@@ -183,7 +185,11 @@ function ConnectedView({ data }) {
           </div>
         </section>
 
-        <section className="evidence-limit" aria-labelledby="evidence-limit-title">
+        <section
+          className="evidence-limit"
+          id="comparison-boundary"
+          aria-labelledby="evidence-limit-title"
+        >
           <div>
             <p className="section-kicker">Evidence boundary</p>
             <h2 id="evidence-limit-title">Not production ready.</h2>
