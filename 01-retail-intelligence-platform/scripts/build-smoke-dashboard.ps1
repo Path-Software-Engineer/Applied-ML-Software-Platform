@@ -28,9 +28,9 @@ $Html = @"
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Retail Intelligence Model Comparison dashboard" />
+    <meta name="description" content="Retail Intelligence decision support platform" />
     <meta name="theme-color" content="#07110f" />
-    <title>Model Comparison | Retail Intelligence</title>
+    <title>Retail Intelligence Platform</title>
     <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
