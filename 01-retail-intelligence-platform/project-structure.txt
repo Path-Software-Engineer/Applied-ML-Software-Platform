@@ -48,6 +48,7 @@ ai-services/inventory-decision/.gitkeep
 ai-services/inventory-decision/checks/check_demand_signal_join.py
 ai-services/inventory-decision/checks/check_inventory_cleaning.py
 ai-services/inventory-decision/checks/check_inventory_contract.py
+ai-services/inventory-decision/checks/check_inventory_decision_report.py
 ai-services/inventory-decision/checks/check_inventory_loading.py
 ai-services/inventory-decision/checks/check_inventory_ranking.py
 ai-services/inventory-decision/checks/check_inventory_risk.py
@@ -70,6 +71,7 @@ ai-services/inventory-decision/src/inventory_decision/policies/replenishment.py
 ai-services/inventory-decision/src/inventory_decision/recommendations/__init__.py
 ai-services/inventory-decision/src/inventory_decision/recommendations/cards.py
 ai-services/inventory-decision/src/inventory_decision/reporting/__init__.py
+ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py
 ai-services/inventory-decision/src/inventory_decision/reporting/snapshot_summary.py
 ai-services/inventory-decision/src/inventory_decision/risk/__init__.py
 ai-services/inventory-decision/src/inventory_decision/risk/ranking.py
@@ -290,6 +292,9 @@ reports/model-cards/model-comparison/training_mean.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
+reports/outputs/inventory-decision/inventory_decision_report.json
+reports/outputs/inventory-decision/inventory_decision_report.md
+reports/outputs/inventory-decision/inventory_decisions.csv
 reports/outputs/model-comparison/comparison_table.csv
 reports/outputs/model-comparison/comparison_table.json
 reports/outputs/model-comparison/comparison_table.md
@@ -356,6 +361,7 @@ reports/summaries/inventory-decision/day_121_replenishment_policy_summary.md
 reports/summaries/inventory-decision/day_122_inventory_risk_summary.md
 reports/summaries/inventory-decision/day_123_inventory_ranking_summary.md
 reports/summaries/inventory-decision/day_124_recommendation_cards_summary.md
+reports/summaries/inventory-decision/day_125_decision_report_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -419,6 +425,7 @@ tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/inventory-decision/test_demand_signals.py
 tests/ai-services/inventory-decision/test_inventory_cleaner.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
+tests/ai-services/inventory-decision/test_inventory_decision_report.py
 tests/ai-services/inventory-decision/test_inventory_loader.py
 tests/ai-services/inventory-decision/test_recommendation_cards.py
 tests/ai-services/inventory-decision/test_replenishment_policy.py

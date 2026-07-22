@@ -840,11 +840,15 @@ before they become a public resource.
 
 ### Estado
 
-Planned for global Days 122–125.
+Completed on global Day 125.
 
 ### Evidencia
 
 - `docs/inventory-decision-policy.md`
+- `ai-services/inventory-decision/src/inventory_decision/risk/`
+- `ai-services/inventory-decision/src/inventory_decision/recommendations/cards.py`
+- `ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py`
+- `reports/outputs/inventory-decision/inventory_decision_report.json`
 
 ### Relación con User Stories
 
