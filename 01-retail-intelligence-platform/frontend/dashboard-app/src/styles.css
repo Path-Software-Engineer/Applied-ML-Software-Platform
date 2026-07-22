@@ -20,6 +20,10 @@ body { margin: 0; min-width: 320px; min-height: 100vh; background: #07110f; }
 body, button { font-family: inherit; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; }
+.skip-link { position: fixed; z-index: 20; top: 10px; left: 10px; padding: 10px 14px; border-radius: 8px; color: #07110f; background: var(--accent); font-size: 11px; font-weight: 700; transform: translateY(-160%); transition: transform .15s ease; }
+.skip-link:focus { transform: translateY(0); }
+.main-content:focus { outline: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .app-shell { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100vh; }
 .sidebar { position: sticky; top: 0; height: 100vh; padding: 32px 22px 24px; border-right: 1px solid var(--line); background: #081210; display: flex; flex-direction: column; }
@@ -253,7 +257,7 @@ footer p { margin: 0; }
   .app-shell { grid-template-columns: 1fr; }
   .sidebar { position: static; width: 100%; height: auto; padding: 20px 28px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px 30px; border-right: 0; border-bottom: 1px solid var(--line); }
   .brand { margin: 0; }
-  .nav-list { grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-list { grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sidebar-note { display: none; }
   .topbar { padding: 0 28px; }
   .dashboard { width: min(100% - 56px, 900px); }
