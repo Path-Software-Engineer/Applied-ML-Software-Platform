@@ -284,3 +284,27 @@ The Model Comparison read service logs one stable event after full report
 validation. It records schema version, collection counts and the declared
 production status; it does not record paths, checksums, metrics, rationale,
 headers, query values or request bodies.
+
+## Sprint 3 Inventory Decision boundary
+
+Global Day 113 opens a third production module without changing Demand Insight
+or Model Comparison contracts. Its dependency direction is:
+
+```text
+inventory source + validated Demand Insight evidence
+        -> inventory_decision.contract / data / signals
+        -> normalized stock + identified observed-demand signal
+        -> future policy / risk / recommendations / report
+        -> future backend read service
+        -> future React presentation
+```
+
+Week 9 implements only facts. Contract validation owns field semantics, loading
+owns file and collection structure, cleaning owns deterministic normalization,
+and signals own descriptive aggregation plus the strict one-to-one product join.
+
+`observed_daily_average` includes its source checksum, full nine-day period and
+unit. It is not a forecast. Missing source lead time is preserved as
+`missing_policy_input`; no replenishment policy is allowed to hide that
+provenance. The factual snapshot summary declares `decision_status` as
+`not_calculated` until Week 10.
