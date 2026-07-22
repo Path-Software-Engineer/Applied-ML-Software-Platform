@@ -1,7 +1,6 @@
 # Inventory Decision Policy
 
-Status: preliminary on global Day 113; alternatives and final version are
-frozen during Week 10.
+Status: policy `inventory-review-policy/1.0` frozen on global Day 120.
 
 ## Candidate policy
 
@@ -12,6 +11,21 @@ frozen during Week 10.
 - all integer quantities round upward;
 - suggested quantity is never negative;
 - risk score ranks attention and is not a probability.
+
+## Frozen parameters and formulas
+
+- default lead time: `2` days when the source value is missing;
+- safety horizon: `1` demand day;
+- review period: `3` days;
+- rounding: mathematical ceiling to whole units;
+- reorder trigger: stock at or below reorder point;
+- reorder point: `ceil(daily_demand × (lead_time + safety_days))`;
+- target stock: `ceil(daily_demand × (lead_time + safety_days + review_period))`;
+- suggested quantity: `max(0, target_stock - stock)` only when triggered.
+
+Risk score weights shortage ratio at 70% and coverage pressure at 30%. Labels
+are `critical` from 75, `high` from 50, `watch` from 25 and `healthy` below 25.
+The index is not a calibrated probability.
 
 ## Recommendation language
 
