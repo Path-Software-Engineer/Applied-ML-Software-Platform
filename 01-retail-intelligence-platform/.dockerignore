@@ -1,0 +1,13 @@
+.git
+.github
+.venv
+.runtime
+.pytest_cache
+.pytest-tmp
+**/__pycache__
+**/*.pyc
+frontend/dashboard-app/node_modules
+frontend/dashboard-app/dist
+tests
+labs
+codigo-completo-retail-intelligence-platform.txt

@@ -45,7 +45,7 @@ Responsibilities remain separated:
 - `checks/`, `tests/` and `reports/` preserve reproducible acceptance evidence;
 - `docs/` records contracts, decisions, stories, sprint plans and limitations.
 
-See [architecture.md](docs/architecture.md), [decisions.md](docs/decisions.md)
+See [architecture.md](docs/architecture.md), [decisions.md](docs/decisions.md),
 [runbook.md](docs/runbook.md) and [project-structure.txt](project-structure.txt)
 for the detailed boundary and operating procedure.
 
@@ -89,6 +89,21 @@ Terminal 2 — dashboard on `http://127.0.0.1:5173`:
 
 The Vite proxy forwards same-origin `/api` requests to the local FastAPI
 service. Use the expandable sidebar to move between all three modules.
+
+## Prepare a GCP deployment
+
+The repository includes two non-root container images, Cloud Build definitions
+and an idempotent PowerShell workflow for Artifact Registry and Cloud Run. The
+workflow does not store credentials and is not executed by the quality gate.
+
+After configuring an authorized GCP project, follow
+[deployment/gcp/README.md](deployment/gcp/README.md). The deployment command is:
+
+```powershell
+.\deployment\gcp\deploy.ps1 -ProjectId "YOUR_GCP_PROJECT_ID"
+```
+
+Do not run it before reviewing billing, IAM and public-access policy.
 
 ## Public read endpoints
 

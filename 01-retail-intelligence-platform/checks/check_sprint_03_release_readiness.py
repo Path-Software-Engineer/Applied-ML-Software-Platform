@@ -20,7 +20,7 @@ def main() -> None:
 
     for phrase in (
         "not a production deployment approval",
-        "empty placeholders",
+        "not an executable deployment definition",
         "No credentials",
         "Production gaps",
     ):
@@ -44,7 +44,7 @@ def main() -> None:
     assert "Day 147" in week
 
     assert (PROJECT_ROOT / "docker-compose.yml").stat().st_size == 0
-    assert not list((PROJECT_ROOT / "deployment").rglob("Dockerfile"))
+    assert (PROJECT_ROOT / "deployment/gcp/README.md").is_file()
 
     print("OK - Sprint 3 Day 146 release readiness check passed")
     print("Review and retrospective: complete")

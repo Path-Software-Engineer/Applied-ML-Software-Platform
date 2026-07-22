@@ -2,6 +2,22 @@
 
 All notable changes to the Retail Intelligence Platform are documented here.
 
+## [Unreleased]
+
+### Added
+
+- production-oriented backend and frontend container definitions for Cloud Run;
+- separate Cloud Build pipelines with immutable Artifact Registry image tags;
+- a guided GCP deployment script with exact-origin CORS and remote smoke checks;
+- formal deployment checks plus backend and frontend runtime contract tests;
+- an operational GCP runbook covering prerequisites, IAM, cost controls and cleanup.
+
+### Deployment status
+
+The deployment path is prepared and locally validated, but no GCP resources
+have been created yet. A Google Cloud project with billing and an authenticated
+Google Cloud CLI session are required before running the deployment script.
+
 ## [v1.0.0-retail-intelligence-platform] — 2026-07-22
 
 ### Added

@@ -56,7 +56,7 @@ production functions, but production code remains independent from verification.
 - `data/`: raw inputs and processed production artifacts.
 - `labs/`: explicit technical experiments with their own evidence.
 - `docs/`: architecture, decisions, contracts and sprint documentation.
-- `deployment/`: future deployment material.
+- `deployment/`: versioned Docker, Cloud Build and Cloud Run deployment material.
 
 ## Week 4 integration boundary
 
@@ -339,3 +339,32 @@ only the FastAPI process, platform shell, staged navigation and repository gate.
 The public API is read-only. Canonical reports are size-bounded, figure access
 is allowlisted and errors do not expose filesystem paths. These controls support
 the local learning release; they do not establish production security.
+
+## GCP deployment boundary
+
+The prepared cloud topology preserves the existing runtime split:
+
+```text
+Cloud Build
+  -> Artifact Registry / retail-intelligence-api:<git-sha>
+  -> Artifact Registry / retail-intelligence-web:<git-sha>
+
+Browser -> React Cloud Run service -> FastAPI Cloud Run service
+                                      -> packaged read-only evidence
+```
+
+The API image contains only the backend, pinned Python runtime dependencies and
+the canonical data/report paths required by read services. The frontend image
+contains a minified React build and a non-root Node static server. Its API origin
+is immutable build input rather than runtime browser configuration.
+
+Both services listen on `0.0.0.0:$PORT`, scale to zero and run with a dedicated
+service account that receives no project role. The public boundary is explicit:
+unauthenticated access is necessary for the current portfolio website because
+the product has no identity context. CORS narrows browser API access to the exact
+deployed frontend origin and never accepts `*`.
+
+The deployment script creates infrastructure and performs remote health and
+schema smoke checks, but the repository gate validates only its static and local
+contracts. No GCP deployment is claimed until the script succeeds against an
+authorized project.

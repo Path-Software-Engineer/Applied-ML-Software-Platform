@@ -4,7 +4,9 @@ Current UTF-8 file paths relative to the repository root.
 Excluded: `.git`, `.venv`, `.runtime`, generated `dist`, Python caches and `node_modules`.
 
 ```text
+.dockerignore
 .env.example
+.gcloudignore
 .gitignore
 CHANGELOG.md
 README.md
@@ -127,6 +129,7 @@ backend/api/app/services/demand_figure_service.py
 backend/api/app/services/demand_summary_service.py
 backend/api/app/services/inventory_decision_service.py
 backend/api/app/services/model_comparison_service.py
+backend/api/app/settings.py
 backend/api/checks/check_backend_dependencies.py
 backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
@@ -140,6 +143,7 @@ checks/check_final_demo_evidence.py
 checks/check_final_documentation.py
 checks/check_final_platform_smoke.py
 checks/check_final_runtime_security.py
+checks/check_gcp_deployment.py
 checks/check_inventory_adversarial_contracts.py
 checks/check_inventory_decision_integration.py
 checks/check_inventory_scenarios.py
@@ -197,9 +201,14 @@ data/processed/model-comparison/train.csv
 data/raw/.gitkeep
 data/raw/demand-insight/sales.csv
 data/raw/inventory/inventory_snapshot.csv
-deployment/.gitkeep
-deployment/docker/.gitkeep
-deployment/gcp/.gitkeep
+deployment/docker/backend.Dockerfile
+deployment/docker/frontend.Dockerfile
+deployment/docker/serve-frontend.mjs
+deployment/docker/start-backend.py
+deployment/gcp/README.md
+deployment/gcp/cloudbuild-backend.yaml
+deployment/gcp/cloudbuild-frontend.yaml
+deployment/gcp/deploy.ps1
 docker-compose.yml
 docs/api-contract.md
 docs/architecture.md
@@ -295,6 +304,7 @@ frontend/dashboard-app/src/shared/navigation/platformNavigation.js
 frontend/dashboard-app/src/styles.css
 frontend/dashboard-app/tests/decisionCardViewModel.test.js
 frontend/dashboard-app/tests/demandSummaryApi.test.js
+frontend/dashboard-app/tests/deploymentServer.test.js
 frontend/dashboard-app/tests/inventoryDecisionApi.test.js
 frontend/dashboard-app/tests/inventoryDecisionViewModel.test.js
 frontend/dashboard-app/tests/modelComparisonApi.test.js
@@ -535,6 +545,7 @@ tests/ai-services/model-comparison/test_gradient_boosting.py
 tests/ai-services/model-comparison/test_linear_regression.py
 tests/ai-services/model-comparison/test_model_cards.py
 tests/ai-services/model-comparison/test_random_forest.py
+tests/backend/test_cloud_run_runtime.py
 tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
@@ -542,6 +553,7 @@ tests/backend/test_inventory_decision_api.py
 tests/backend/test_inventory_decision_service.py
 tests/backend/test_model_comparison_api.py
 tests/backend/test_model_comparison_service.py
+tests/backend/test_settings.py
 tests/conftest.py
 tests/frontend/.gitkeep
 tools/export-core-code.ps1

@@ -160,8 +160,11 @@ resolved in `backend/api/requirements-lock.txt`.
 .\scripts\run-backend.ps1
 ```
 
-The local API listens on `http://127.0.0.1:8000` by default. Development CORS
-allows only `localhost:5173` and `127.0.0.1:5173`, the planned Vite origins.
+The local API listens on `http://127.0.0.1:8000` by default. When
+`CORS_ALLOWED_ORIGINS` is not set, development CORS allows only
+`http://localhost:5173` and `http://127.0.0.1:5173`. A deployment must provide
+the exact HTTPS web origin through that environment variable; wildcard origins
+and origins containing paths, credentials, queries or fragments are rejected.
 
 ## Model Comparison resource
 

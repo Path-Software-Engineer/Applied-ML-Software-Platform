@@ -1,0 +1,17 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --file
+      - deployment/docker/backend.Dockerfile
+      - --tag
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/retail-intelligence-api:${_TAG}
+      - .
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/retail-intelligence-api:${_TAG}
+
+substitutions:
+  _REGION: us-central1
+  _REPOSITORY: retail-intelligence
+  _TAG: manual
