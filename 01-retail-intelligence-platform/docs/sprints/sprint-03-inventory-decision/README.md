@@ -64,7 +64,7 @@ Day 113 exploration.
 | Week 10 | 120–126 | policies, risk, recommendations and report | completed |
 | Week 11 | 127–133 | read service, API and React dashboard | completed |
 | Week 12 | 134–140 | adversarial scenarios, traceability and polish | completed |
-| Week 13 | 141–147 | final integration, evidence and release | release candidate |
+| Week 13 | 141–147 | final integration, evidence and release | completed |
 
 ## Definition of Done
 

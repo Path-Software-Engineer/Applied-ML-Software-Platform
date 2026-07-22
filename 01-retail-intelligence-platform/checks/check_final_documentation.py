@@ -44,7 +44,14 @@ def main() -> None:
         assert phrase in architecture
     for phrase in ("Clean setup", "Regenerate evidence", "Start locally", "Validate", "Shutdown"):
         assert phrase in runbook
-    assert "release candidate" in release
+    assert any(
+        status in release
+        for status in (
+            "release candidate",
+            "release-ready",
+            "Status: **released**",
+        )
+    )
     assert "v1.0.0-retail-intelligence-platform" in changelog
 
     print("OK - Sprint 3 Day 144 final documentation check passed")

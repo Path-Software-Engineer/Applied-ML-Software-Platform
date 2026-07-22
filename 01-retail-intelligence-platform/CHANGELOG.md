@@ -27,7 +27,7 @@ All notable changes to the Retail Intelligence Platform are documented here.
 
 - 181 Python tests passed;
 - 31 frontend contract tests passed;
-- 80 manual checks passed;
+- 85 manual checks passed at the final release gate;
 - frontend bundle and local smoke dashboard compiled.
 
 ### Limitations
