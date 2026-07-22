@@ -13,8 +13,26 @@ test("keeps product stages separate and ordered", () => {
     [
       { id: "demand-insight", label: "Demand insight" },
       { id: "model-comparison", label: "Model comparison" },
+      { id: "inventory-decision", label: "Inventory decision" },
     ],
   );
+});
+
+
+test("assigns inventory-specific sections to the third stage", () => {
+  assert.deepEqual(
+    PLATFORM_STAGES[2].sections.map(({ label }) => label),
+    [
+      "Overview",
+      "Priority ranking",
+      "Recommendations",
+      "Policy trace",
+      "Evidence boundary",
+    ],
+  );
+  for (const section of PLATFORM_STAGES[2].sections) {
+    assert.equal(resolvePlatformView(section.href), "inventory-decision");
+  }
 });
 
 
