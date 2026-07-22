@@ -14,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[4]
 REPORT_RELATIVE_PATH = Path(
     "reports/outputs/model-comparison/model_comparison_report.json"
 )
+MAX_REPORT_BYTES = 2 * 1024 * 1024
 EXPECTED_MODEL_IDS = {
     "training_mean",
     "linear_regression",
@@ -158,7 +159,11 @@ class ModelComparisonService:
         if not path.is_file():
             raise ModelComparisonError("Model Comparison report is missing.")
         try:
+            if path.stat().st_size > MAX_REPORT_BYTES:
+                raise ModelComparisonError("Model Comparison report exceeds the size boundary.")
             payload = json.loads(path.read_text(encoding="utf-8"))
+        except ModelComparisonError:
+            raise
         except (OSError, UnicodeError, json.JSONDecodeError) as error:
             raise ModelComparisonError(
                 "Model Comparison report cannot be read."

@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from backend.api.app.services.model_comparison_service import (
+    MAX_REPORT_BYTES,
     ModelComparisonError,
     ModelComparisonService,
 )
@@ -143,6 +144,16 @@ def test_service_rejects_invalid_json(tmp_path: Path) -> None:
     path.write_text("{broken", encoding="utf-8")
 
     with pytest.raises(ModelComparisonError, match="cannot be read"):
+        ModelComparisonService(tmp_path).get_summary()
+
+
+def test_service_rejects_oversized_report(tmp_path: Path) -> None:
+    path = tmp_path / "reports/outputs/model-comparison/model_comparison_report.json"
+    path.parent.mkdir(parents=True)
+    with path.open("wb") as report:
+        report.truncate(MAX_REPORT_BYTES + 1)
+
+    with pytest.raises(ModelComparisonError, match="size boundary"):
         ModelComparisonService(tmp_path).get_summary()
 
 
