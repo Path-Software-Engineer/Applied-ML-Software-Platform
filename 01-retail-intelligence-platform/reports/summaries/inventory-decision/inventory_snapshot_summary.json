@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "module": "inventory_decision",
+  "summary_type": "validated_snapshot_facts",
+  "snapshot": {
+    "snapshot_id": "learning-2026-01-09",
+    "as_of_date": "2026-01-09",
+    "products": 6,
+    "stock_on_hand_units": 99,
+    "zero_stock_products": 1,
+    "oldest_observation_date": "2026-01-07",
+    "maximum_freshness_days": 2,
+    "products_missing_source_lead_time": 6
+  },
+  "demand_signal": {
+    "signal_type": "observed_daily_average",
+    "signal_unit": "units_per_day",
+    "period_start": "2026-01-01",
+    "period_end": "2026-01-09",
+    "products": 6
+  },
+  "coverage": {
+    "inventory_products": 6,
+    "signal_products": 6,
+    "joined_products": 6,
+    "unmatched_products": 0
+  },
+  "anomalies": [
+    {
+      "code": "SOURCE_LEAD_TIME_MISSING",
+      "products": 6,
+      "meaning": "A later versioned policy must declare any default lead time."
+    },
+    {
+      "code": "ZERO_STOCK_OBSERVED",
+      "products": 1,
+      "meaning": "Observed fact only; risk and action are not assigned in this summary."
+    }
+  ],
+  "decision_status": "not_calculated",
+  "evidence_status": "descriptive_learning_evidence"
+}
