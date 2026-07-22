@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "inventory_snapshot",
+  "evidence_status": "synthetic_learning_snapshot",
+  "records": [
+    {
+      "snapshot_id": "learning-2026-01-09",
+      "snapshot_as_of_date": "2026-01-09",
+      "observed_at": "2026-01-09",
+      "product_id": "P001",
+      "product_name": "Rice 1kg",
+      "stock_on_hand": 29,
+      "stock_unit": "units",
+      "source_type": "latest_observed_stock",
+      "lead_time_days": null
+    }
+  ]
+}

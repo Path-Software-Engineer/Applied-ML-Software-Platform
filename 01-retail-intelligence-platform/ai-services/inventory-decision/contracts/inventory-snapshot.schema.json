@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://retail-intelligence.local/contracts/inventory-snapshot/1.0",
+  "title": "Inventory Snapshot Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contract_id", "evidence_status", "records"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "contract_id": {"const": "inventory_snapshot"},
+    "evidence_status": {"const": "synthetic_learning_snapshot"},
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "x-unique-key": "product_id",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "snapshot_id",
+          "snapshot_as_of_date",
+          "observed_at",
+          "product_id",
+          "product_name",
+          "stock_on_hand",
+          "stock_unit",
+          "source_type"
+        ],
+        "properties": {
+          "snapshot_id": {"type": "string", "minLength": 1},
+          "snapshot_as_of_date": {"type": "string", "format": "date"},
+          "observed_at": {"type": "string", "format": "date"},
+          "product_id": {"type": "string", "pattern": "^[A-Z0-9_-]+$"},
+          "product_name": {"type": "string", "minLength": 1},
+          "stock_on_hand": {"type": "integer", "minimum": 0},
+          "stock_unit": {"const": "units"},
+          "source_type": {"type": "string", "minLength": 1},
+          "lead_time_days": {"type": ["integer", "null"], "minimum": 1}
+        }
+      }
+    }
+  }
+}
