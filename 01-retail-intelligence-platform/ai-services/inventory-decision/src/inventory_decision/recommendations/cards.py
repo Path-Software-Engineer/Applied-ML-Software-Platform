@@ -20,6 +20,15 @@ def _optional_number(value: object) -> float | None:
     return None if pd.isna(value) else float(value)
 
 
+def _iso_date(value: object) -> str:
+    """Serialize date-like evidence without inventing a time component."""
+    if isinstance(value, pd.Timestamp):
+        return value.date().isoformat()
+    if hasattr(value, "isoformat"):
+        return str(value.isoformat()).split("T", maxsplit=1)[0]
+    return str(value).split("T", maxsplit=1)[0]
+
+
 def build_recommendation_cards(ranked: pd.DataFrame) -> dict[str, Any]:
     """Map ranked policy evidence into an auditable presentation contract."""
     required = {
@@ -79,11 +88,7 @@ def build_recommendation_cards(ranked: pd.DataFrame) -> dict[str, Any]:
                         "start": record["period_start"],
                         "end": record["period_end"],
                     },
-                    "snapshot_as_of_date": (
-                        record["snapshot_as_of_date"].isoformat()
-                        if hasattr(record["snapshot_as_of_date"], "isoformat")
-                        else str(record["snapshot_as_of_date"])
-                    ),
+                    "snapshot_as_of_date": _iso_date(record["snapshot_as_of_date"]),
                 },
                 "action": {
                     "code": record["recommended_action"],

@@ -28,7 +28,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "replenish_now",
@@ -64,7 +64,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "replenish_soon",
@@ -100,7 +100,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "monitor",
@@ -136,7 +136,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "monitor",
@@ -172,7 +172,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "monitor",
@@ -208,7 +208,7 @@
           "start": "2026-01-01",
           "end": "2026-01-09"
         },
-        "snapshot_as_of_date": "2026-01-09T00:00:00"
+        "snapshot_as_of_date": "2026-01-09"
       },
       "action": {
         "code": "monitor",

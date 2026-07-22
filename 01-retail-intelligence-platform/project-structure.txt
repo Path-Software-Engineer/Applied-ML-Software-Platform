@@ -45,6 +45,7 @@ ai-services/demand-insight/src/pipelines/first_data_pipeline.py
 ai-services/demand-insight/src/visualization/.gitkeep
 ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
+ai-services/inventory-decision/checks/check_decision_trace.py
 ai-services/inventory-decision/checks/check_demand_signal_join.py
 ai-services/inventory-decision/checks/check_inventory_cleaning.py
 ai-services/inventory-decision/checks/check_inventory_contract.py
@@ -72,6 +73,7 @@ ai-services/inventory-decision/src/inventory_decision/recommendations/__init__.p
 ai-services/inventory-decision/src/inventory_decision/recommendations/cards.py
 ai-services/inventory-decision/src/inventory_decision/reporting/__init__.py
 ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py
+ai-services/inventory-decision/src/inventory_decision/reporting/decision_trace.py
 ai-services/inventory-decision/src/inventory_decision/reporting/snapshot_summary.py
 ai-services/inventory-decision/src/inventory_decision/risk/__init__.py
 ai-services/inventory-decision/src/inventory_decision/risk/ranking.py
@@ -194,6 +196,7 @@ docs/decisions.md
 docs/demand-signal-contract.md
 docs/insight-card-methodology.md
 docs/inventory-data-contract.md
+docs/inventory-decision-policy-card.md
 docs/inventory-decision-policy.md
 docs/inventory-decision-read-contract.md
 docs/model-comparison-experiment-contract.md
@@ -319,6 +322,8 @@ reports/model-cards/model-comparison/training_mean.md
 reports/outputs/.gitkeep
 reports/outputs/demand-insight/demand_summary.json
 reports/outputs/demand-insight/sales_visual_report.md
+reports/outputs/inventory-decision/decision_trace.json
+reports/outputs/inventory-decision/decision_trace.md
 reports/outputs/inventory-decision/inventory_decision_report.json
 reports/outputs/inventory-decision/inventory_decision_report.md
 reports/outputs/inventory-decision/inventory_decisions.csv
@@ -402,6 +407,7 @@ reports/summaries/inventory-decision/day_133_week_11_close_summary.md
 reports/summaries/inventory-decision/day_134_scenario_exploration_summary.md
 reports/summaries/inventory-decision/day_135_scenario_tests_summary.md
 reports/summaries/inventory-decision/day_136_adversarial_contracts_summary.md
+reports/summaries/inventory-decision/day_137_decision_trace_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -463,6 +469,7 @@ tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/inventory-decision/test_adversarial_contracts.py
+tests/ai-services/inventory-decision/test_decision_trace.py
 tests/ai-services/inventory-decision/test_demand_signals.py
 tests/ai-services/inventory-decision/test_inventory_cleaner.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
