@@ -131,6 +131,7 @@ checks/check_week_06_close.py
 checks/check_week_06_exploration.py
 checks/check_week_07_close.py
 checks/check_week_08_exploration.py
+checks/check_week_09_close.py
 data/.gitkeep
 data/processed/.gitkeep
 data/processed/demand-insight/daily_sales_summary.csv
@@ -202,6 +203,7 @@ docs/sprints/sprint-02-model-comparison/week-08/review.md
 docs/sprints/sprint-03-inventory-decision/README.md
 docs/sprints/sprint-03-inventory-decision/week-09/exploration.md
 docs/sprints/sprint-03-inventory-decision/week-09/plan.md
+docs/sprints/sprint-03-inventory-decision/week-09/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -328,6 +330,7 @@ reports/summaries/inventory-decision/day_115_inventory_loading_summary.md
 reports/summaries/inventory-decision/day_116_inventory_cleaning_summary.md
 reports/summaries/inventory-decision/day_117_demand_signal_summary.md
 reports/summaries/inventory-decision/day_118_snapshot_summary.md
+reports/summaries/inventory-decision/day_119_week_09_close_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
