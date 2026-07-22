@@ -133,6 +133,7 @@ backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
 checks/check_inventory_decision_integration.py
+checks/check_inventory_scenarios.py
 checks/check_model_comparison_decision_cards_frontend.py
 checks/check_model_comparison_integration.py
 checks/check_model_comparison_integration_exploration.py
@@ -350,6 +351,7 @@ reports/quality/model-comparison/sprint_02_quality_gate.md
 reports/recommendation-cards/.gitkeep
 reports/recommendation-cards/inventory-decision/recommendation_cards.json
 reports/recommendation-cards/inventory-decision/recommendation_cards.md
+reports/scenarios/inventory-decision/policy_scenarios.json
 reports/summaries/.gitkeep
 reports/summaries/demand-insight/baseline_mae_summary.md
 reports/summaries/demand-insight/dashboard_visual_integration_summary.md
@@ -396,6 +398,7 @@ reports/summaries/inventory-decision/day_131_inventory_decision_ui_summary.md
 reports/summaries/inventory-decision/day_132_inventory_integration_summary.md
 reports/summaries/inventory-decision/day_133_week_11_close_summary.md
 reports/summaries/inventory-decision/day_134_scenario_exploration_summary.md
+reports/summaries/inventory-decision/day_135_scenario_tests_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -461,6 +464,7 @@ tests/ai-services/inventory-decision/test_inventory_cleaner.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
 tests/ai-services/inventory-decision/test_inventory_decision_report.py
 tests/ai-services/inventory-decision/test_inventory_loader.py
+tests/ai-services/inventory-decision/test_inventory_scenarios.py
 tests/ai-services/inventory-decision/test_recommendation_cards.py
 tests/ai-services/inventory-decision/test_replenishment_policy.py
 tests/ai-services/inventory-decision/test_risk_ranking.py
