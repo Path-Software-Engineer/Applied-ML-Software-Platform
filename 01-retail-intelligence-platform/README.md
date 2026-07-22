@@ -46,7 +46,8 @@ Responsibilities remain separated:
 - `docs/` records contracts, decisions, stories, sprint plans and limitations.
 
 See [architecture.md](docs/architecture.md), [decisions.md](docs/decisions.md)
-and [project-structure.txt](project-structure.txt) for the detailed boundary.
+[runbook.md](docs/runbook.md) and [project-structure.txt](project-structure.txt)
+for the detailed boundary and operating procedure.
 
 ## Requirements
 

@@ -417,9 +417,14 @@ can consume validated inventory evidence without running the analytical pipeline
 - Missing, stale or invalid evidence returns a safe unavailable response.
 - Existing Demand Insight and Model Comparison endpoints remain compatible.
 
-**Status:** Planned for global Days 128–129.
+**Status:** Completed on global Day 129.
 
-**Evidence:** `docs/sprints/sprint-03-inventory-decision/week-11/`.
+**Evidence:** `docs/inventory-decision-read-contract.md`,
+`backend/api/app/services/inventory_decision_service.py`,
+`backend/api/app/routes/inventory_decision.py`,
+`backend/api/app/schemas/inventory_decision.py`,
+`tests/backend/test_inventory_decision_service.py`, and
+`tests/backend/test_inventory_decision_api.py`.
 
 ### US-S3-006 — Review inventory decisions in the dashboard
 
@@ -436,6 +441,10 @@ other platform stages.
 - React performs no policy, risk or reorder calculation.
 - Keyboard navigation, responsive layout and reduced motion are supported.
 
-**Status:** Planned for global Days 130–139.
+**Status:** Completed on global Day 139.
 
-**Evidence:** `frontend/dashboard-app/src/features/inventory-decision/` when implemented.
+**Evidence:** `frontend/dashboard-app/src/features/inventory-decision/`,
+`frontend/dashboard-app/tests/inventoryDecisionApi.test.js`,
+`frontend/dashboard-app/tests/inventoryDecisionViewModel.test.js`,
+`checks/check_inventory_decision_integration.py`, and
+`checks/check_sprint_03_ui_readme_polish.py`.
