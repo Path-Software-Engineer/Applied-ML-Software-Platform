@@ -163,6 +163,7 @@ checks/check_week_10_close.py
 checks/check_week_10_exploration.py
 checks/check_week_11_close.py
 checks/check_week_11_exploration.py
+checks/check_week_12_close.py
 checks/check_week_12_exploration.py
 data/.gitkeep
 data/processed/.gitkeep
@@ -202,6 +203,7 @@ docs/inventory-data-contract.md
 docs/inventory-decision-policy-card.md
 docs/inventory-decision-policy.md
 docs/inventory-decision-read-contract.md
+docs/inventory-decision-release-scope.md
 docs/model-comparison-experiment-contract.md
 docs/model-comparison-read-contract.md
 docs/model-comparison-release-scope.md
@@ -248,6 +250,7 @@ docs/sprints/sprint-03-inventory-decision/week-11/plan.md
 docs/sprints/sprint-03-inventory-decision/week-11/review.md
 docs/sprints/sprint-03-inventory-decision/week-12/exploration.md
 docs/sprints/sprint-03-inventory-decision/week-12/plan.md
+docs/sprints/sprint-03-inventory-decision/week-12/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -417,6 +420,7 @@ reports/summaries/inventory-decision/day_136_adversarial_contracts_summary.md
 reports/summaries/inventory-decision/day_137_decision_trace_summary.md
 reports/summaries/inventory-decision/day_138_visual_report_summary.md
 reports/summaries/inventory-decision/day_139_ui_readme_polish_summary.md
+reports/summaries/inventory-decision/day_140_week_12_close_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
