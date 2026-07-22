@@ -396,9 +396,12 @@ the system output.
 - Cards never claim that an order was created or that service is guaranteed.
 - Structured and human-readable artifacts remain consistent.
 
-**Status:** Planned for global Days 124–125.
+**Status:** Completed on global Day 125.
 
-**Evidence:** `docs/sprints/sprint-03-inventory-decision/week-10/`.
+**Evidence:** `reports/recommendation-cards/inventory-decision/`,
+`reports/outputs/inventory-decision/inventory_decision_report.json`,
+`ai-services/inventory-decision/src/inventory_decision/recommendations/`, and
+`ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py`.
 
 ### US-S3-005 — Read inventory decisions through the platform
 
