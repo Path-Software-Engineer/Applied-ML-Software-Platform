@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "policy_version": "inventory-review-policy/1.0",
+  "observation_days": 9,
+  "scenarios": [
+    {"id": "sufficient_stock", "stock": 50, "observed_units": 90, "reorder_point": 30, "target_stock": 60, "suggested_quantity": 0, "risk_score": 0.0, "risk_label": "healthy", "action": "monitor"},
+    {"id": "low_stock", "stock": 15, "observed_units": 90, "reorder_point": 30, "target_stock": 60, "suggested_quantity": 45, "risk_score": 50.0, "risk_label": "high", "action": "replenish_soon"},
+    {"id": "stockout", "stock": 0, "observed_units": 90, "reorder_point": 30, "target_stock": 60, "suggested_quantity": 60, "risk_score": 100.0, "risk_label": "critical", "action": "replenish_now"},
+    {"id": "zero_demand", "stock": 0, "observed_units": 0, "reorder_point": 0, "target_stock": 0, "suggested_quantity": 0, "risk_score": 0.0, "risk_label": "healthy", "action": "monitor"},
+    {"id": "high_demand", "stock": 20, "observed_units": 180, "reorder_point": 60, "target_stock": 120, "suggested_quantity": 100, "risk_score": 66.7, "risk_label": "high", "action": "replenish_soon"}
+  ],
+  "interpretation": "Deterministic learning scenarios. Risk score is a priority index, not a probability."
+}
