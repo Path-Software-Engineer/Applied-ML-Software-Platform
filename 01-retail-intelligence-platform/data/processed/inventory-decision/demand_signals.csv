@@ -1,0 +1,7 @@
+product_id,product_name,signal_type,signal_value,signal_unit,period_start,period_end,observation_days,observed_units,source_artifact,source_sha256
+P001,Rice 1kg,observed_daily_average,7.0,units_per_day,2026-01-01,2026-01-09,9,63,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5
+P002,Milk 1L,observed_daily_average,6.0,units_per_day,2026-01-01,2026-01-09,9,54,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5
+P003,Bread,observed_daily_average,11.666667,units_per_day,2026-01-01,2026-01-09,9,105,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5
+P004,Coffee 250g,observed_daily_average,2.555556,units_per_day,2026-01-01,2026-01-09,9,23,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5
+P005,Orange Juice,observed_daily_average,2.555556,units_per_day,2026-01-01,2026-01-09,9,23,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5
+P006,Eggs 12 pack,observed_daily_average,2.777778,units_per_day,2026-01-01,2026-01-09,9,25,data/processed/demand-insight/sales_clean.csv,7d19949de849a54e4c1cd58d78b0bdb04e0e6dfa6e9be44e27c8887967dbffa5

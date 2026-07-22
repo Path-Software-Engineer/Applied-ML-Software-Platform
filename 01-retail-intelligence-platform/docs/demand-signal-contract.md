@@ -1,6 +1,6 @@
 # Demand Signal Contract
 
-Status: preliminary on global Day 113; implemented on Day 117.
+Status: implemented and validated on global Day 117.
 
 ## Identity
 
@@ -33,4 +33,12 @@ the product appears. The result is descriptive and is never named forecast.
 Inventory and signal product identifiers must form an exact one-to-one set.
 Unmatched identifiers fail the official pipeline and are recorded in the
 integration manifest for controlled diagnostic runs.
+
+## Machine-readable evidence
+
+- `ai-services/inventory-decision/contracts/demand-signal.schema.json`;
+- production implementation in `inventory_decision.signals`;
+- `data/processed/inventory-decision/demand_signals.csv`;
+- `data/processed/inventory-decision/inventory_signal_snapshot.csv`;
+- `data/processed/inventory-decision/integration_manifest.json`.
 

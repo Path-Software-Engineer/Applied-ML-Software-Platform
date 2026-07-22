@@ -782,11 +782,14 @@ unit remain auditable.
 
 ### Estado
 
-Planned for global Day 117.
+Completed on global Day 117.
 
 ### Evidencia
 
 - `docs/demand-signal-contract.md`
+- `ai-services/inventory-decision/src/inventory_decision/signals/observed_demand.py`
+- `data/processed/inventory-decision/integration_manifest.json`
+- `tests/ai-services/inventory-decision/test_demand_signals.py`
 
 ### Relación con User Stories
 
