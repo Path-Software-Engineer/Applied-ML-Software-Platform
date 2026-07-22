@@ -15,6 +15,7 @@ REPORT_RELATIVE_PATH = Path(
     "reports/outputs/inventory-decision/inventory_decision_report.json"
 )
 STALE_AFTER_DAYS = 7
+MAX_REPORT_BYTES = 2 * 1024 * 1024
 LOGGER = logging.getLogger("retail_intelligence.inventory_decision")
 
 
@@ -81,7 +82,11 @@ class InventoryDecisionService:
         if not self.report_path.is_file():
             raise InventoryDecisionError("Inventory Decision report is missing.")
         try:
+            if self.report_path.stat().st_size > MAX_REPORT_BYTES:
+                raise InventoryDecisionError("Inventory Decision report exceeds the size boundary.")
             payload = json.loads(self.report_path.read_text(encoding="utf-8"))
+        except InventoryDecisionError:
+            raise
         except (OSError, UnicodeError, json.JSONDecodeError) as error:
             raise InventoryDecisionError(
                 "Inventory Decision report cannot be read."

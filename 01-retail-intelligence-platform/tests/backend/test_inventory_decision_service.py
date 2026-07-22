@@ -12,6 +12,7 @@ import pytest
 from backend.api.app.services.inventory_decision_service import (
     InventoryDecisionError,
     InventoryDecisionService,
+    MAX_REPORT_BYTES,
     REPORT_RELATIVE_PATH,
 )
 
@@ -64,6 +65,16 @@ def test_service_rejects_corrupt_json(tmp_path: Path) -> None:
     target.write_text("{broken", encoding="utf-8")
 
     with pytest.raises(InventoryDecisionError, match="cannot be read"):
+        InventoryDecisionService(tmp_path).get_summary()
+
+
+def test_service_rejects_oversized_report(tmp_path: Path) -> None:
+    target = tmp_path / REPORT_RELATIVE_PATH
+    target.parent.mkdir(parents=True)
+    with target.open("wb") as report:
+        report.truncate(MAX_REPORT_BYTES + 1)
+
+    with pytest.raises(InventoryDecisionError, match="size boundary"):
         InventoryDecisionService(tmp_path).get_summary()
 
 
