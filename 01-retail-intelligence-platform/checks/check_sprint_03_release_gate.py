@@ -27,7 +27,13 @@ def main() -> None:
     assert lock["version"] == "1.0.0"
     assert lock["packages"][""]["version"] == "1.0.0"
     assert "Week 13 | 141–147 | final integration, evidence and release | completed" in sprint
-    assert "release-ready — Gitflow mechanics authorized" in release
+    assert any(
+        status in release
+        for status in (
+            "release-ready — Gitflow mechanics authorized",
+            "Status: **released**",
+        )
+    )
     assert "85 manual checks passed" in release
     assert "85 manual checks passed at the final release gate" in changelog
     assert manifest["release_candidate"] == "v1.0.0-retail-intelligence-platform"
