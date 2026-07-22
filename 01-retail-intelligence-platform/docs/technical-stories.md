@@ -721,7 +721,7 @@ US-S2-005, US-S2-006.
 
 ## Sprint 2 traceability
 
-| Technical Story | User Stories relacionadas | Initial evidence |
+| Technical Story | User Stories relacionadas | Evidencia principal |
 |---|---|---|
 | TS-S2-001 | US-S2-001, US-S2-003 | `docs/model-comparison-experiment-contract.md` |
 | TS-S2-002 | US-S2-001, US-S2-002 | `docs/sprints/sprint-02-model-comparison/week-05/plan.md` |
@@ -732,8 +732,8 @@ US-S2-005, US-S2-006.
 
 ## Sprint 3 — Inventory Decision Technical Stories
 
-These stories define the initial Sprint 3 architecture. A story changes to
-Completed only after its listed implementation and validation evidence exists.
+These stories trace the completed Sprint 3 architecture through the final
+integration and release gate. All completed states point to repository evidence.
 
 ## TS-S3-001 — Validate and normalize inventory evidence
 
@@ -870,11 +870,16 @@ executing decision policy code during a request.
 
 ### Estado
 
-Planned for global Days 127–129.
+Completed on global Day 129.
 
 ### Evidencia
 
-- `docs/sprints/sprint-03-inventory-decision/week-11/` when implemented.
+- `docs/inventory-decision-read-contract.md`
+- `backend/api/app/services/inventory_decision_service.py`
+- `backend/api/app/schemas/inventory_decision.py`
+- `backend/api/app/routes/inventory_decision.py`
+- `tests/backend/test_inventory_decision_api.py`
+- `checks/check_inventory_decision_integration.py`
 
 ### Relación con User Stories
 
@@ -896,19 +901,83 @@ inventory calculations into the browser.
 
 ### Estado
 
-Planned for global Days 130–139.
+Completed on global Day 139.
 
 ### Evidencia
 
-- `frontend/dashboard-app/src/features/inventory-decision/` when implemented.
+- `frontend/dashboard-app/src/features/inventory-decision/`
+- `frontend/dashboard-app/src/shared/navigation/platformNavigation.js`
+- `frontend/dashboard-app/tests/inventoryDecisionApi.test.js`
+- `frontend/dashboard-app/tests/inventoryDecisionViewModel.test.js`
+- `checks/check_sprint_03_ui_readme_polish.py`
 
 ### Relación con User Stories
 
 US-S3-005, US-S3-006.
 
-## Sprint 3 initial traceability
+## TS-S3-007 — Harden scenarios and publish decision trace
 
-| Technical Story | User Stories relacionadas | Initial evidence |
+### Necesidad técnica
+
+The completed policy needs deterministic scenario oracles, adversarial failure
+coverage and an auditable trace before release.
+
+### Criterios de aceptación
+
+- Five scenario classes preserve explicit expected outcomes.
+- Invalid records, joins, units, reports and HTTP states fail closed.
+- Every product trace includes inputs, policy calculations, outcome and limitation.
+- Three report-driven figures preserve units and interpretation boundaries.
+
+### Estado
+
+Completed on global Day 138.
+
+### Evidencia
+
+- `reports/scenarios/inventory-decision/policy_scenarios.json`
+- `tests/ai-services/inventory-decision/test_adversarial_contracts.py`
+- `reports/outputs/inventory-decision/decision_trace.json`
+- `docs/inventory-decision-policy-card.md`
+- `reports/outputs/inventory-decision/inventory_visual_report.md`
+
+### Relación con User Stories
+
+US-S3-003, US-S3-004, US-S3-006.
+
+## TS-S3-008 — Integrate and gate the three-module platform
+
+### Necesidad técnica
+
+The repository needs one reproducible generation command and one release gate
+that protects all module, HTTP, frontend and security boundaries together.
+
+### Criterios de aceptación
+
+- One command regenerates official evidence in dependency order.
+- All three schema 1.0 resources remain compatible.
+- The API remains read-only with controlled path, size and error boundaries.
+- The root gate runs Python, frontend, bundle, smoke and manual checks.
+
+### Estado
+
+Completed on global Day 143.
+
+### Evidencia
+
+- `scripts/generate-platform-evidence.ps1`
+- `scripts/run-quality-gate.ps1`
+- `checks/check_platform_integration.py`
+- `checks/check_final_runtime_security.py`
+- `reports/quality/final-runtime-security.md`
+
+### Relación con User Stories
+
+US-S3-001, US-S3-002, US-S3-003, US-S3-004, US-S3-005, US-S3-006.
+
+## Sprint 3 final traceability
+
+| Technical Story | User Stories relacionadas | Evidencia principal |
 |---|---|---|
 | TS-S3-001 | US-S3-001 | `docs/inventory-data-contract.md` |
 | TS-S3-002 | US-S3-001, US-S3-002 | `docs/demand-signal-contract.md` |
@@ -916,3 +985,5 @@ US-S3-005, US-S3-006.
 | TS-S3-004 | US-S3-003, US-S3-004 | `docs/inventory-decision-policy.md` |
 | TS-S3-005 | US-S3-005 | `docs/sprints/sprint-03-inventory-decision/README.md` |
 | TS-S3-006 | US-S3-005, US-S3-006 | `docs/sprints/sprint-03-inventory-decision/README.md` |
+| TS-S3-007 | US-S3-003, US-S3-004, US-S3-006 | `reports/outputs/inventory-decision/decision_trace.json` |
+| TS-S3-008 | US-S3-001, US-S3-002, US-S3-003, US-S3-004, US-S3-005, US-S3-006 | `scripts/run-quality-gate.ps1` |

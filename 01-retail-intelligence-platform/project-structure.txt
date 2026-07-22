@@ -136,6 +136,7 @@ backend/api/checks/check_model_comparison_api.py
 backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
 backend/api/requirements.txt
+checks/check_final_documentation.py
 checks/check_final_runtime_security.py
 checks/check_inventory_adversarial_contracts.py
 checks/check_inventory_decision_integration.py
@@ -212,6 +213,8 @@ docs/model-comparison-read-contract.md
 docs/model-comparison-release-scope.md
 docs/releases/v0.1.0-sprint-01-demand-insight.md
 docs/releases/v0.2.0-sprint-02-model-comparison.md
+docs/releases/v1.0.0-retail-intelligence-platform.md
+docs/runbook.md
 docs/sprints/sprint-01-demand-insight/README.md
 docs/sprints/sprint-01-demand-insight/retrospective.md
 docs/sprints/sprint-01-demand-insight/week-01/exploration.md
@@ -430,6 +433,7 @@ reports/summaries/inventory-decision/day_140_week_12_close_summary.md
 reports/summaries/inventory-decision/day_141_final_close_exploration_summary.md
 reports/summaries/inventory-decision/day_142_platform_integration_summary.md
 reports/summaries/inventory-decision/day_143_final_security_gate_summary.md
+reports/summaries/inventory-decision/day_144_final_documentation_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md

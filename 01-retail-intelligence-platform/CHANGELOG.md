@@ -2,6 +2,40 @@
 
 All notable changes to the Retail Intelligence Platform are documented here.
 
+## [v1.0.0-retail-intelligence-platform] — 2026-07-22
+
+### Added
+
+- versioned inventory snapshot and observed-demand signal contracts;
+- strict one-to-one product integration with traceable source checksums;
+- deterministic replenishment policy, priority index and ranking;
+- six Inventory Recommendation Cards and a canonical read report;
+- product-level decision trace, scenario matrix and adversarial contract suite;
+- three inventory figures and a human-readable visual report;
+- validated Inventory Decision service, FastAPI endpoint and React stage;
+- unified three-module evidence command, final runtime hardening and local runbook.
+
+### Evidence
+
+- six inventory products and 99 observed stock units;
+- Bread: critical priority, zero observed stock and 70 suggested review units;
+- Milk 1L: high priority and 27 suggested review units;
+- total review queue: two products and 97 suggested review units;
+- risk remains a priority index, not a stockout probability.
+
+### Validation
+
+- 181 Python tests passed;
+- 31 frontend contract tests passed;
+- 80 manual checks passed;
+- frontend bundle and local smoke dashboard compiled.
+
+### Limitations
+
+The release uses 18 synthetic sales observations, one historical inventory
+snapshot and one six-row model holdout. It has no live inventory, external
+validation, authentication, production deployment or automatic ordering.
+
 ## [v0.2.0-sprint-02-model-comparison] — 2026-07-20
 
 ### Added

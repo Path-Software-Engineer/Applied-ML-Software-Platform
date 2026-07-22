@@ -1409,3 +1409,47 @@ executed purchase orders.
 ### Status
 
 Accepted on global Day 120 before runtime policy implementation.
+
+## Decision 060 — Keep inventory recommendations human-reviewed and traceable
+
+### Context
+
+Sprint 3 produces deterministic quantities, but the source has historical stock,
+an observed-average demand signal and a policy-default lead time.
+
+### Decision
+
+Publish one trace per product with observed inputs, policy calculations, action,
+reason and limitation. Show stale evidence prominently and never create an order
+or describe the priority index as probability.
+
+### Consequences
+
+The dashboard supports a useful review queue while preserving the difference
+between decision support and automated execution.
+
+### Status
+
+Accepted and implemented on global Day 137.
+
+## Decision 061 — Release one integrated read-only platform
+
+### Context
+
+All three modules are complete and independently validated. Combining their
+business calculations or opening a fourth feature would weaken the final scope.
+
+### Decision
+
+Release the modules behind one FastAPI process and one staged React shell while
+retaining separate canonical artifacts, service validators and feature adapters.
+Use one generation command and one repository gate for reproducibility.
+
+### Consequences
+
+The final release is cohesive without erasing domain boundaries. Synthetic data,
+validation and deployment limitations remain explicit.
+
+### Status
+
+Accepted on global Day 142 for `v1.0.0-retail-intelligence-platform`.
