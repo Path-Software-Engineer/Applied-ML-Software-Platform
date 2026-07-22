@@ -811,11 +811,14 @@ explicit defaults and units.
 
 ### Estado
 
-Planned for global Days 120–121.
+Completed on global Day 121.
 
 ### Evidencia
 
 - `docs/inventory-decision-policy.md`
+- `ai-services/inventory-decision/src/inventory_decision/policies/replenishment.py`
+- `data/processed/inventory-decision/inventory_replenishment.csv`
+- `tests/ai-services/inventory-decision/test_replenishment_policy.py`
 
 ### Relación con User Stories
 
