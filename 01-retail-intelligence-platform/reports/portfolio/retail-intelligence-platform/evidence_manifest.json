@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "release_candidate": "v1.0.0-retail-intelligence-platform",
+  "evidence_status": "runtime_verified_visual_capture_blocked",
+  "stages": [
+    {
+      "name": "Demand Insight",
+      "route": "#demand-insight",
+      "endpoint": "/api/v1/demand-insights/summary"
+    },
+    {
+      "name": "Model Comparison",
+      "route": "#model-comparison",
+      "endpoint": "/api/v1/model-comparisons/summary"
+    },
+    {
+      "name": "Inventory Decision",
+      "route": "#inventory-decision",
+      "endpoint": "/api/v1/inventory-decisions/summary"
+    }
+  ],
+  "canonical_artifacts": [
+    {
+      "path": "reports/outputs/demand-insight/demand_summary.json",
+      "sha256": "d4011a157588f569cad6990f117f87f57f8d3a8220ff2284435afb46631cb069"
+    },
+    {
+      "path": "reports/outputs/model-comparison/model_comparison_report.json",
+      "sha256": "77cd0f2755acd694fdcd886e27c09f1bbf23fcc8c879c579b7a685d69db7d4ae"
+    },
+    {
+      "path": "reports/outputs/inventory-decision/inventory_decision_report.json",
+      "sha256": "f90bbe7751bc6e6a479a371993d287f3f4eeb7946a137b7346f7850a44f3296b"
+    }
+  ],
+  "required_views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": null,
+      "status": "blocked_by_browser_policy"
+    }
+  ],
+  "capture_note": "The in-app browser policy rejects the local application URL. No mockup or synthetic screenshot was substituted."
+}
