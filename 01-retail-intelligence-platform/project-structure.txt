@@ -119,10 +119,12 @@ backend/api/app/schemas/model_comparison.py
 backend/api/app/services/__init__.py
 backend/api/app/services/demand_figure_service.py
 backend/api/app/services/demand_summary_service.py
+backend/api/app/services/inventory_decision_service.py
 backend/api/app/services/model_comparison_service.py
 backend/api/checks/check_backend_dependencies.py
 backend/api/checks/check_demand_summary_api.py
 backend/api/checks/check_demand_summary_service.py
+backend/api/checks/check_inventory_decision_service.py
 backend/api/checks/check_model_comparison_api.py
 backend/api/checks/check_model_comparison_service.py
 backend/api/requirements-lock.txt
@@ -370,6 +372,7 @@ reports/summaries/inventory-decision/day_124_recommendation_cards_summary.md
 reports/summaries/inventory-decision/day_125_decision_report_summary.md
 reports/summaries/inventory-decision/day_126_week_10_close_summary.md
 reports/summaries/inventory-decision/day_127_integration_exploration_summary.md
+reports/summaries/inventory-decision/day_128_read_service_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -454,6 +457,7 @@ tests/ai-services/model-comparison/test_random_forest.py
 tests/backend/test_demand_figure_service.py
 tests/backend/test_demand_summary_api.py
 tests/backend/test_demand_summary_service.py
+tests/backend/test_inventory_decision_service.py
 tests/backend/test_model_comparison_api.py
 tests/backend/test_model_comparison_service.py
 tests/conftest.py
