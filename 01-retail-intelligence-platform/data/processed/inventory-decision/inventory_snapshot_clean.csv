@@ -1,0 +1,7 @@
+snapshot_id,snapshot_as_of_date,observed_at,freshness_days,product_id,product_name,stock_on_hand,stock_unit,source_type,lead_time_days,lead_time_source
+learning-2026-01-09,2026-01-09,2026-01-09,0,P001,Rice 1kg,29,units,latest_observed_stock,,missing_policy_input
+learning-2026-01-09,2026-01-09,2026-01-07,2,P002,Milk 1L,9,units,latest_observed_stock,,missing_policy_input
+learning-2026-01-09,2026-01-09,2026-01-09,0,P003,Bread,0,units,latest_observed_stock,,missing_policy_input
+learning-2026-01-09,2026-01-09,2026-01-08,1,P004,Coffee 250g,10,units,latest_observed_stock,,missing_policy_input
+learning-2026-01-09,2026-01-09,2026-01-07,2,P005,Orange Juice,27,units,latest_observed_stock,,missing_policy_input
+learning-2026-01-09,2026-01-09,2026-01-08,1,P006,Eggs 12 pack,24,units,latest_observed_stock,,missing_policy_input

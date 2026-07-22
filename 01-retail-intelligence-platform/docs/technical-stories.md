@@ -751,12 +751,16 @@ can consume stock values.
 
 ### Estado
 
-Planned for global Days 114–116.
+Completed on global Day 116.
 
 ### Evidencia
 
 - `docs/inventory-data-contract.md`
-- `docs/sprints/sprint-03-inventory-decision/week-09/plan.md`
+- `ai-services/inventory-decision/src/inventory_decision/contract.py`
+- `ai-services/inventory-decision/src/inventory_decision/data/loader.py`
+- `ai-services/inventory-decision/src/inventory_decision/data/cleaner.py`
+- `data/processed/inventory-decision/inventory_snapshot_clean.csv`
+- `tests/ai-services/inventory-decision/`
 
 ### Relación con User Stories
 

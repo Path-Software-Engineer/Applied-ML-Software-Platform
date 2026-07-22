@@ -329,10 +329,13 @@ invalid quantities.
 - Observation date, snapshot cutoff and source type remain visible.
 - Raw evidence is never overwritten by normalization.
 
-**Status:** Planned for global Days 114–116.
+**Status:** Completed on global Day 116.
 
-**Evidence:** `docs/inventory-data-contract.md` and
-`docs/sprints/sprint-03-inventory-decision/week-09/plan.md`.
+**Evidence:** `docs/inventory-data-contract.md`,
+`data/raw/inventory/inventory_snapshot.csv`,
+`data/processed/inventory-decision/inventory_snapshot_clean.csv`,
+`ai-services/inventory-decision/src/inventory_decision/data/`, and
+`tests/ai-services/inventory-decision/`.
 
 ### US-S3-002 — Understand the demand signal used for inventory
 
