@@ -113,6 +113,12 @@ The root gate verifies the structure inventory, compiles Python, runs all
 Python and frontend tests, compiles the React bundle, builds the local smoke
 dashboard and executes every manual check.
 
+Regenerate every official module artifact in dependency order with:
+
+```powershell
+.\scripts\generate-platform-evidence.ps1
+```
+
 ## Evidence and traceability
 
 - Demand output: `reports/outputs/demand-insight/`

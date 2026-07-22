@@ -144,6 +144,7 @@ checks/check_model_comparison_integration.py
 checks/check_model_comparison_integration_exploration.py
 checks/check_model_comparison_local_smoke.py
 checks/check_model_comparison_portfolio_evidence.py
+checks/check_platform_integration.py
 checks/check_shared_platform_shell.py
 checks/check_sprint_01_close.py
 checks/check_sprint_01_hardening.py
@@ -425,6 +426,7 @@ reports/summaries/inventory-decision/day_138_visual_report_summary.md
 reports/summaries/inventory-decision/day_139_ui_readme_polish_summary.md
 reports/summaries/inventory-decision/day_140_week_12_close_summary.md
 reports/summaries/inventory-decision/day_141_final_close_exploration_summary.md
+reports/summaries/inventory-decision/day_142_platform_integration_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -459,11 +461,13 @@ scripts/build-smoke-dashboard.ps1
 scripts/check-backend-runtime.py
 scripts/consolidate-model-comparison.ps1
 scripts/generate-demand-summary.ps1
+scripts/generate-inventory-decision.ps1
 scripts/generate-model-cards.ps1
 scripts/generate-model-comparison-report.ps1
 scripts/generate-model-comparison-table.ps1
 scripts/generate-model-decision.ps1
 scripts/generate-model-error-analysis.ps1
+scripts/generate-platform-evidence.ps1
 scripts/generate-report.ps1
 scripts/prepare-model-comparison.ps1
 scripts/run-ai-service.ps1
