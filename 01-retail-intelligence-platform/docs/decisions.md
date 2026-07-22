@@ -1385,3 +1385,27 @@ assumptions, not invented source facts.
 ### Status
 
 Accepted as the Sprint 3 boundary on global Day 113.
+
+## Decision 059 — Freeze a simple replenishment policy before implementation
+
+### Context
+
+The source has no supplier lead time, cost, service-level target or validated
+demand distribution. A sophisticated optimization formula would invent evidence.
+
+### Decision
+
+Freeze `inventory-review-policy/1.0` with a two-day default lead time, one safety
+demand day, three-day review period, ceiling rounding and an inclusive reorder
+trigger. Use a weighted shortage and coverage index only for priority.
+
+### Consequences
+
+Every output is deterministic and traceable, and missing lead time remains
+visible as a policy default. The resulting risk score cannot be called a
+probability, and suggested quantities remain review recommendations rather than
+executed purchase orders.
+
+### Status
+
+Accepted on global Day 120 before runtime policy implementation.
