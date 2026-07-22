@@ -158,6 +158,7 @@ checks/check_sprint_02_release_documentation.py
 checks/check_sprint_02_release_gate.py
 checks/check_sprint_02_review.py
 checks/check_sprint_03_day_113.py
+checks/check_sprint_03_release_gate.py
 checks/check_sprint_03_release_readiness.py
 checks/check_sprint_03_ui_readme_polish.py
 checks/check_week_06_close.py
@@ -446,6 +447,7 @@ reports/summaries/inventory-decision/day_143_final_security_gate_summary.md
 reports/summaries/inventory-decision/day_144_final_documentation_summary.md
 reports/summaries/inventory-decision/day_145_demo_evidence_summary.md
 reports/summaries/inventory-decision/day_146_release_readiness_summary.md
+reports/summaries/inventory-decision/day_147_final_release_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
