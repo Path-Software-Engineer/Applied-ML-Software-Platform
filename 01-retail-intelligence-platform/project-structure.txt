@@ -46,12 +46,15 @@ ai-services/demand-insight/src/visualization/.gitkeep
 ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
 ai-services/inventory-decision/checks/check_inventory_contract.py
+ai-services/inventory-decision/checks/check_inventory_loading.py
 ai-services/inventory-decision/contracts/examples/inventory-snapshot.invalid.json
 ai-services/inventory-decision/contracts/examples/inventory-snapshot.valid.json
 ai-services/inventory-decision/contracts/inventory-snapshot.schema.json
 ai-services/inventory-decision/requirements.txt
 ai-services/inventory-decision/src/inventory_decision/__init__.py
 ai-services/inventory-decision/src/inventory_decision/contract.py
+ai-services/inventory-decision/src/inventory_decision/data/__init__.py
+ai-services/inventory-decision/src/inventory_decision/data/loader.py
 ai-services/model-comparison/.gitkeep
 ai-services/model-comparison/checks/check_baseline_metrics.py
 ai-services/model-comparison/checks/check_comparison_report.py
@@ -308,6 +311,7 @@ reports/summaries/demand-insight/week_03_exploration_summary.md
 reports/summaries/demand-insight/week_04_exploration_summary.md
 reports/summaries/inventory-decision/day_113_exploration_summary.md
 reports/summaries/inventory-decision/day_114_inventory_contract_summary.md
+reports/summaries/inventory-decision/day_115_inventory_loading_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
 reports/summaries/model-comparison/day_58_experiment_split_summary.md
 reports/summaries/model-comparison/day_59_baseline_metrics_summary.md
@@ -367,6 +371,7 @@ tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
+tests/ai-services/inventory-decision/test_inventory_loader.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
 tests/ai-services/model-comparison/test_comparison.py
 tests/ai-services/model-comparison/test_comparison_report.py
