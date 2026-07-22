@@ -45,6 +45,7 @@ ai-services/demand-insight/src/pipelines/first_data_pipeline.py
 ai-services/demand-insight/src/visualization/.gitkeep
 ai-services/demand-insight/src/visualization/sales_visual_report.py
 ai-services/inventory-decision/.gitkeep
+ai-services/inventory-decision/checks/check_inventory_cleaning.py
 ai-services/inventory-decision/checks/check_inventory_contract.py
 ai-services/inventory-decision/checks/check_inventory_loading.py
 ai-services/inventory-decision/contracts/examples/inventory-snapshot.invalid.json
@@ -54,6 +55,7 @@ ai-services/inventory-decision/requirements.txt
 ai-services/inventory-decision/src/inventory_decision/__init__.py
 ai-services/inventory-decision/src/inventory_decision/contract.py
 ai-services/inventory-decision/src/inventory_decision/data/__init__.py
+ai-services/inventory-decision/src/inventory_decision/data/cleaner.py
 ai-services/inventory-decision/src/inventory_decision/data/loader.py
 ai-services/model-comparison/.gitkeep
 ai-services/model-comparison/checks/check_baseline_metrics.py
@@ -135,6 +137,7 @@ data/processed/demand-insight/sales_pipeline_ready.csv
 data/processed/demand-insight/sales_revenue.csv
 data/processed/demand-insight/sales_summary.csv
 data/processed/demand-insight/sales_temporal_features.csv
+data/processed/inventory-decision/inventory_snapshot_clean.csv
 data/processed/model-comparison/test.csv
 data/processed/model-comparison/train.csv
 data/raw/.gitkeep
@@ -312,6 +315,7 @@ reports/summaries/demand-insight/week_04_exploration_summary.md
 reports/summaries/inventory-decision/day_113_exploration_summary.md
 reports/summaries/inventory-decision/day_114_inventory_contract_summary.md
 reports/summaries/inventory-decision/day_115_inventory_loading_summary.md
+reports/summaries/inventory-decision/day_116_inventory_cleaning_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
 reports/summaries/model-comparison/day_58_experiment_split_summary.md
 reports/summaries/model-comparison/day_59_baseline_metrics_summary.md
@@ -370,6 +374,7 @@ tests/ai-services/demand-insight/test_pipelines.py
 tests/ai-services/demand-insight/test_product_ranking.py
 tests/ai-services/demand-insight/test_sales_visual_report.py
 tests/ai-services/demand-insight/test_temporal_sales_analysis.py
+tests/ai-services/inventory-decision/test_inventory_cleaner.py
 tests/ai-services/inventory-decision/test_inventory_contract.py
 tests/ai-services/inventory-decision/test_inventory_loader.py
 tests/ai-services/model-comparison/test_baseline_metrics.py
