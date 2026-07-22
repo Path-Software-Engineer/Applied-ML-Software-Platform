@@ -54,6 +54,7 @@ ai-services/inventory-decision/checks/check_inventory_loading.py
 ai-services/inventory-decision/checks/check_inventory_ranking.py
 ai-services/inventory-decision/checks/check_inventory_risk.py
 ai-services/inventory-decision/checks/check_inventory_snapshot_summary.py
+ai-services/inventory-decision/checks/check_inventory_visual_report.py
 ai-services/inventory-decision/checks/check_recommendation_cards.py
 ai-services/inventory-decision/checks/check_replenishment_policy.py
 ai-services/inventory-decision/contracts/demand-signal.schema.json
@@ -75,6 +76,7 @@ ai-services/inventory-decision/src/inventory_decision/reporting/__init__.py
 ai-services/inventory-decision/src/inventory_decision/reporting/decision_report.py
 ai-services/inventory-decision/src/inventory_decision/reporting/decision_trace.py
 ai-services/inventory-decision/src/inventory_decision/reporting/snapshot_summary.py
+ai-services/inventory-decision/src/inventory_decision/reporting/visual_report.py
 ai-services/inventory-decision/src/inventory_decision/risk/__init__.py
 ai-services/inventory-decision/src/inventory_decision/risk/ranking.py
 ai-services/inventory-decision/src/inventory_decision/risk/scoring.py
@@ -309,6 +311,9 @@ reports/figures/demand-insight/.gitkeep
 reports/figures/demand-insight/daily_sales.png
 reports/figures/demand-insight/product_revenue_ranking.png
 reports/figures/demand-insight/product_units_ranking.png
+reports/figures/inventory-decision/inventory_coverage_days.png
+reports/figures/inventory-decision/inventory_priority_index.png
+reports/figures/inventory-decision/inventory_stock_policy_levels.png
 reports/insight-cards/.gitkeep
 reports/insight-cards/demand_insight_cards.json
 reports/insight-cards/demand_insight_cards.md
@@ -327,6 +332,7 @@ reports/outputs/inventory-decision/decision_trace.md
 reports/outputs/inventory-decision/inventory_decision_report.json
 reports/outputs/inventory-decision/inventory_decision_report.md
 reports/outputs/inventory-decision/inventory_decisions.csv
+reports/outputs/inventory-decision/inventory_visual_report.md
 reports/outputs/model-comparison/comparison_table.csv
 reports/outputs/model-comparison/comparison_table.json
 reports/outputs/model-comparison/comparison_table.md
@@ -408,6 +414,7 @@ reports/summaries/inventory-decision/day_134_scenario_exploration_summary.md
 reports/summaries/inventory-decision/day_135_scenario_tests_summary.md
 reports/summaries/inventory-decision/day_136_adversarial_contracts_summary.md
 reports/summaries/inventory-decision/day_137_decision_trace_summary.md
+reports/summaries/inventory-decision/day_138_visual_report_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
@@ -476,6 +483,7 @@ tests/ai-services/inventory-decision/test_inventory_contract.py
 tests/ai-services/inventory-decision/test_inventory_decision_report.py
 tests/ai-services/inventory-decision/test_inventory_loader.py
 tests/ai-services/inventory-decision/test_inventory_scenarios.py
+tests/ai-services/inventory-decision/test_inventory_visual_report.py
 tests/ai-services/inventory-decision/test_recommendation_cards.py
 tests/ai-services/inventory-decision/test_replenishment_policy.py
 tests/ai-services/inventory-decision/test_risk_ranking.py
