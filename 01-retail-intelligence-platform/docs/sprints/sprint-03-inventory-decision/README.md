@@ -62,7 +62,7 @@ Day 113 exploration.
 |---|---:|---|---|
 | Week 9 | 113–119 | contracts, inventory data and observed-demand signal | completed |
 | Week 10 | 120–126 | policies, risk, recommendations and report | completed |
-| Week 11 | 127–133 | read service, API and React dashboard | planned |
+| Week 11 | 127–133 | read service, API and React dashboard | completed |
 | Week 12 | 134–140 | adversarial scenarios, traceability and polish | planned |
 | Week 13 | 141–147 | final integration, evidence and release | planned |
 
