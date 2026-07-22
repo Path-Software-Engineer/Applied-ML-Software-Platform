@@ -136,6 +136,13 @@ footer p { margin: 0; }
 .comparison-shell { --accent: #9de7ff; --accent-soft: rgba(78, 191, 228, .11); }
 .comparison-sidebar { background: #071116; }
 .comparison-logo { border-color: rgba(157, 231, 255, .38); }
+.inventory-shell { --accent: #ffbd6e; --accent-soft: rgba(255, 163, 69, .12); }
+.inventory-sidebar { background: #151006; }
+.inventory-logo { border-color: rgba(255, 189, 110, .4); }
+.inventory-hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 64px; align-items: end; padding: 20px 0 54px; scroll-margin-top: 30px; }
+.inventory-hero h1 { margin: 0; max-width: 850px; font-size: clamp(48px, 6vw, 86px); line-height: .98; letter-spacing: -.065em; font-weight: 500; }
+.inventory-hero h1 em { color: var(--accent); font-style: normal; }
+.inventory-hero > div > p:last-child { max-width: 620px; margin: 28px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 .comparison-hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 64px; align-items: end; padding: 20px 0 54px; scroll-margin-top: 30px; }
 .comparison-hero h1 { margin: 0; max-width: 850px; font-size: clamp(48px, 6vw, 86px); line-height: .98; letter-spacing: -.065em; font-weight: 500; }
 .comparison-hero h1 em { color: var(--accent); font-style: normal; }

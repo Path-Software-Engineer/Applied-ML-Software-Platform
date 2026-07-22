@@ -2,7 +2,11 @@ import React from "react";
 
 
 export function LogoMark({ variant = "demand" }) {
-  const variantClass = variant === "comparison" ? " comparison-logo" : "";
+  const variantClass = variant === "comparison"
+    ? " comparison-logo"
+    : variant === "inventory"
+      ? " inventory-logo"
+      : "";
   return (
     <span className={`logo-mark${variantClass}`} aria-hidden="true">
       <span />
@@ -49,6 +53,17 @@ export function PlatformShell({
   variant = "demand",
 }) {
   const comparison = variant === "comparison";
+  const inventory = variant === "inventory";
+  const shellClass = comparison
+    ? " comparison-shell"
+    : inventory
+      ? " inventory-shell"
+      : "";
+  const sidebarClass = comparison
+    ? " comparison-sidebar"
+    : inventory
+      ? " inventory-sidebar"
+      : "";
   const [expandedStageId, setExpandedStageId] = React.useState(activeStageId);
   const [currentHref, setCurrentHref] = React.useState(() => (
     window.location.hash || activeHref
@@ -74,9 +89,9 @@ export function PlatformShell({
   };
 
   return (
-    <div className={`app-shell${comparison ? " comparison-shell" : ""}`}>
+    <div className={`app-shell${shellClass}`}>
       <aside
-        className={`sidebar${comparison ? " comparison-sidebar" : ""}`}
+        className={`sidebar${sidebarClass}`}
         aria-label="Primary navigation"
       >
         <a className="brand" href={homeHref} aria-label="Retail Intelligence home">
