@@ -158,6 +158,7 @@ checks/check_sprint_02_release_documentation.py
 checks/check_sprint_02_release_gate.py
 checks/check_sprint_02_review.py
 checks/check_sprint_03_day_113.py
+checks/check_sprint_03_release_readiness.py
 checks/check_sprint_03_ui_readme_polish.py
 checks/check_week_06_close.py
 checks/check_week_06_exploration.py
@@ -204,6 +205,7 @@ docs/architecture.md
 docs/data-contract.md
 docs/decisions.md
 docs/demand-signal-contract.md
+docs/deployment-readiness.md
 docs/insight-card-methodology.md
 docs/inventory-data-contract.md
 docs/inventory-decision-policy-card.md
@@ -247,6 +249,8 @@ docs/sprints/sprint-02-model-comparison/week-08/exploration.md
 docs/sprints/sprint-02-model-comparison/week-08/plan.md
 docs/sprints/sprint-02-model-comparison/week-08/review.md
 docs/sprints/sprint-03-inventory-decision/README.md
+docs/sprints/sprint-03-inventory-decision/retrospective.md
+docs/sprints/sprint-03-inventory-decision/sprint-review.md
 docs/sprints/sprint-03-inventory-decision/week-09/exploration.md
 docs/sprints/sprint-03-inventory-decision/week-09/plan.md
 docs/sprints/sprint-03-inventory-decision/week-09/review.md
@@ -261,6 +265,7 @@ docs/sprints/sprint-03-inventory-decision/week-12/plan.md
 docs/sprints/sprint-03-inventory-decision/week-12/review.md
 docs/sprints/sprint-03-inventory-decision/week-13/exploration.md
 docs/sprints/sprint-03-inventory-decision/week-13/plan.md
+docs/sprints/sprint-03-inventory-decision/week-13/review.md
 docs/technical-stories.md
 docs/user-stories.md
 frontend/dashboard-app/README.md
@@ -440,6 +445,7 @@ reports/summaries/inventory-decision/day_142_platform_integration_summary.md
 reports/summaries/inventory-decision/day_143_final_security_gate_summary.md
 reports/summaries/inventory-decision/day_144_final_documentation_summary.md
 reports/summaries/inventory-decision/day_145_demo_evidence_summary.md
+reports/summaries/inventory-decision/day_146_release_readiness_summary.md
 reports/summaries/inventory-decision/inventory_snapshot_summary.json
 reports/summaries/inventory-decision/inventory_snapshot_summary.md
 reports/summaries/model-comparison/day_57_exploration_summary.md
