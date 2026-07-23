@@ -15,6 +15,8 @@ param(
 
     [switch]$ReusePublishedImages,
 
+    [switch]$SmokeOnly,
+
     [ValidatePattern("^[a-z][a-z0-9-]{0,47}[a-z0-9]$")]
     [string]$ApiService = "retail-intelligence-api",
 
@@ -99,6 +101,52 @@ function Wait-GCloudCommand {
     }
 }
 
+function Invoke-RestMethodWithRetry {
+    param(
+        [Parameter(Mandatory = $true)][string]$Label,
+        [Parameter(Mandatory = $true)][string]$Uri,
+        [ValidateRange(1, 30)][int]$Attempts = 12,
+        [ValidateRange(1, 30)][int]$DelaySeconds = 5
+    )
+
+    for ($Attempt = 1; $Attempt -le $Attempts; $Attempt++) {
+        try {
+            return Invoke-RestMethod -Uri $Uri -Method Get -TimeoutSec 30 -ErrorAction Stop
+        }
+        catch {
+            if ($Attempt -eq $Attempts) {
+                throw "$Label did not become reachable after $Attempts attempts. Last error: $($_.Exception.Message)"
+            }
+            Write-Host "$Label is not reachable yet ($Attempt/$Attempts); retrying in $DelaySeconds seconds."
+            Start-Sleep -Seconds $DelaySeconds
+        }
+    }
+}
+
+function Test-RemoteDeployment {
+    param(
+        [Parameter(Mandatory = $true)][string]$ApiUrl,
+        [Parameter(Mandatory = $true)][string]$WebUrl
+    )
+
+    $ApiHealth = Invoke-RestMethodWithRetry -Label "API health endpoint" -Uri "$ApiUrl/health"
+    $WebHealth = Invoke-RestMethodWithRetry -Label "Frontend health endpoint" -Uri "$WebUrl/healthz"
+    $Demand = Invoke-RestMethodWithRetry -Label "Demand Insight endpoint" -Uri "$ApiUrl/api/v1/demand-insights/summary"
+    $Comparison = Invoke-RestMethodWithRetry -Label "Model Comparison endpoint" -Uri "$ApiUrl/api/v1/model-comparisons/summary"
+    $Inventory = Invoke-RestMethodWithRetry -Label "Inventory Decision endpoint" -Uri "$ApiUrl/api/v1/inventory-decisions/summary"
+
+    if ($ApiHealth.status -ne "ok" -or $WebHealth.status -ne "ok") {
+        throw "A deployed health endpoint returned an unexpected payload."
+    }
+    if (
+        $Demand.schema_version -ne "1.0" -or
+        $Comparison.schema_version -ne "1.0" -or
+        $Inventory.schema_version -ne "1.0"
+    ) {
+        throw "A deployed resource returned an unsupported schema version."
+    }
+}
+
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     throw "Git is required to derive and verify the immutable image tag."
 }
@@ -127,6 +175,31 @@ try {
     )
     if (-not $Account) {
         throw "No active gcloud account was found. Run gcloud auth login first."
+    }
+
+    if ($SmokeOnly) {
+        Write-Host "Verifying the existing Cloud Run deployment without changing resources"
+        $ApiUrl = Read-GCloudValue @(
+            "run", "services", "describe", $ApiService,
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--format=value(status.url)"
+        )
+        $WebUrl = Read-GCloudValue @(
+            "run", "services", "describe", $WebService,
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--format=value(status.url)"
+        )
+        if ($ApiUrl -notmatch "^https://[^/]+$" -or $WebUrl -notmatch "^https://[^/]+$") {
+            throw "Cloud Run did not return valid HTTPS service origins."
+        }
+
+        Test-RemoteDeployment -ApiUrl $ApiUrl -WebUrl $WebUrl
+        Write-Host "Deployment verified."
+        Write-Host "Frontend: $WebUrl"
+        Write-Host "API:      $ApiUrl"
+        return
     }
 
     Write-Host "[1/9] Selecting project and enabling required APIs"
@@ -339,22 +412,7 @@ try {
     )
 
     Write-Host "[9/9] Running remote smoke checks"
-    $ApiHealth = Invoke-RestMethod -Uri "$ApiUrl/health" -Method Get -TimeoutSec 30
-    $WebHealth = Invoke-RestMethod -Uri "$WebUrl/healthz" -Method Get -TimeoutSec 30
-    $Demand = Invoke-RestMethod -Uri "$ApiUrl/api/v1/demand-insights/summary" -Method Get -TimeoutSec 30
-    $Comparison = Invoke-RestMethod -Uri "$ApiUrl/api/v1/model-comparisons/summary" -Method Get -TimeoutSec 30
-    $Inventory = Invoke-RestMethod -Uri "$ApiUrl/api/v1/inventory-decisions/summary" -Method Get -TimeoutSec 30
-
-    if ($ApiHealth.status -ne "ok" -or $WebHealth.status -ne "ok") {
-        throw "A deployed health endpoint returned an unexpected payload."
-    }
-    if (
-        $Demand.schema_version -ne "1.0" -or
-        $Comparison.schema_version -ne "1.0" -or
-        $Inventory.schema_version -ne "1.0"
-    ) {
-        throw "A deployed resource returned an unsupported schema version."
-    }
+    Test-RemoteDeployment -ApiUrl $ApiUrl -WebUrl $WebUrl
 
     Write-Host "Deployment verified."
     Write-Host "Frontend: $WebUrl"

@@ -85,6 +85,20 @@ Resume mode verifies that both tagged images exist in Artifact Registry before
 it updates Cloud Run. Use it only when the API and frontend builds for that tag
 both completed successfully.
 
+To repeat only the read-only health and schema checks after a transient
+Cloud Run routing or cold-start error:
+
+```powershell
+.\deployment\gcp\deploy.ps1 `
+  -ProjectId "YOUR_GCP_PROJECT_ID" `
+  -Region "us-central1" `
+  -SmokeOnly
+```
+
+This mode reads the existing service URLs and does not build images, deploy
+revisions, update configuration or create resources. Endpoint checks use
+bounded retries so a newly created hostname has time to become reachable.
+
 The script waits for newly enabled Google APIs to become queryable and stops on
 the first non-transient failed command. A successful run prints the two Cloud
 Run URLs only after health and schema smoke checks pass.

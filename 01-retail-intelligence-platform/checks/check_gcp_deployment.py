@@ -54,6 +54,9 @@ def main() -> None:
         "Get-Command gcloud.cmd",
         "$script:GCloudCommand",
         "ReusePublishedImages",
+        "SmokeOnly",
+        "Invoke-RestMethodWithRetry",
+        "Test-RemoteDeployment",
         "artifacts\", \"docker\", \"images\", \"describe",
     ):
         assert phrase in deploy
