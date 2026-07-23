@@ -69,8 +69,9 @@ Optional parameters:
   -ImageTag "v1.0.0"
 ```
 
-The script stops on the first failed command. A successful run prints the two
-Cloud Run URLs only after health and schema smoke checks pass.
+The script waits for newly enabled Google APIs to become queryable and stops on
+the first non-transient failed command. A successful run prints the two Cloud
+Run URLs only after health and schema smoke checks pass.
 
 ## Security boundary
 

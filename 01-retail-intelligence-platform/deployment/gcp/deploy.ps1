@@ -44,6 +44,28 @@ function Read-GCloudValue {
     return ($value | Out-String).Trim()
 }
 
+function Wait-GCloudCommand {
+    param(
+        [Parameter(Mandatory = $true)][string]$Label,
+        [Parameter(Mandatory = $true)][string[]]$Arguments,
+        [ValidateRange(1, 60)][int]$Attempts = 24,
+        [ValidateRange(1, 30)][int]$DelaySeconds = 5
+    )
+
+    for ($Attempt = 1; $Attempt -le $Attempts; $Attempt++) {
+        $Output = & gcloud @Arguments 2>&1
+        if ($LASTEXITCODE -eq 0) {
+            return
+        }
+        if ($Attempt -eq $Attempts) {
+            $Detail = ($Output | Out-String).Trim()
+            throw "$Label did not become ready after $Attempts attempts. Last response: $Detail"
+        }
+        Write-Host "$Label is still propagating ($Attempt/$Attempts); retrying in $DelaySeconds seconds."
+        Start-Sleep -Seconds $DelaySeconds
+    }
+}
+
 if (-not (Get-Command gcloud -ErrorAction SilentlyContinue)) {
     throw "Google Cloud CLI is not installed or is not available in PATH."
 }
@@ -82,6 +104,29 @@ try {
         "run.googleapis.com",
         "--project=$ProjectId",
         "--quiet"
+    )
+
+    Write-Host "Waiting for enabled APIs to become queryable"
+    Wait-GCloudCommand -Label "Artifact Registry API" -Arguments @(
+        "artifacts", "repositories", "list",
+        "--project=$ProjectId",
+        "--location=$Region",
+        "--limit=1",
+        "--format=value(name)"
+    )
+    Wait-GCloudCommand -Label "Cloud Build API" -Arguments @(
+        "builds", "list",
+        "--project=$ProjectId",
+        "--region=$Region",
+        "--limit=1",
+        "--format=value(id)"
+    )
+    Wait-GCloudCommand -Label "Cloud Run API" -Arguments @(
+        "run", "services", "list",
+        "--project=$ProjectId",
+        "--region=$Region",
+        "--limit=1",
+        "--format=value(metadata.name)"
     )
 
     Write-Host "[2/9] Ensuring the Artifact Registry repository exists"

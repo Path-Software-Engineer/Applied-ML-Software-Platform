@@ -49,6 +49,8 @@ def main() -> None:
         "--service-account",
         "Invoke-RestMethod",
         "git status --porcelain",
+        "Wait-GCloudCommand",
+        "still propagating",
     ):
         assert phrase in deploy
     for endpoint in (
