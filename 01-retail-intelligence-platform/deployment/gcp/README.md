@@ -69,6 +69,22 @@ Optional parameters:
   -ImageTag "v1.0.0"
 ```
 
+If both Cloud Build jobs succeeded but a later deployment step failed, resume
+with the exact published tag instead of paying the time and storage cost of two
+unnecessary rebuilds:
+
+```powershell
+.\deployment\gcp\deploy.ps1 `
+  -ProjectId "YOUR_GCP_PROJECT_ID" `
+  -Region "us-central1" `
+  -ImageTag "PUBLISHED_IMAGE_TAG" `
+  -ReusePublishedImages
+```
+
+Resume mode verifies that both tagged images exist in Artifact Registry before
+it updates Cloud Run. Use it only when the API and frontend builds for that tag
+both completed successfully.
+
 The script waits for newly enabled Google APIs to become queryable and stops on
 the first non-transient failed command. A successful run prints the two Cloud
 Run URLs only after health and schema smoke checks pass.

@@ -53,6 +53,8 @@ def main() -> None:
         "still propagating",
         "Get-Command gcloud.cmd",
         "$script:GCloudCommand",
+        "ReusePublishedImages",
+        "artifacts\", \"docker\", \"images\", \"describe",
     ):
         assert phrase in deploy
     for endpoint in (
@@ -68,6 +70,8 @@ def main() -> None:
     assert deploy.count('"--max=1"') == 2
     assert deploy.count('"--cpu-throttling"') == 2
     assert deploy.count('"--no-cpu-boost"') == 2
+    assert deploy.count('"--memory=512Mi"') == 2
+    assert '"--memory=256Mi"' not in deploy
     assert '"--max=3"' not in deploy
     assert '"--filter=metadata.name=$WebService"' in deploy
     assert "run services describe $WebService" not in deploy

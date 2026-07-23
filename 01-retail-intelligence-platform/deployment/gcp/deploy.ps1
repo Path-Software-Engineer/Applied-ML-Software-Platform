@@ -13,6 +13,8 @@ param(
     [ValidatePattern("^[A-Za-z0-9_.-]+$")]
     [string]$ImageTag = "",
 
+    [switch]$ReusePublishedImages,
+
     [ValidatePattern("^[a-z][a-z0-9-]{0,47}[a-z0-9]$")]
     [string]$ApiService = "retail-intelligence-api",
 
@@ -109,6 +111,10 @@ try {
         throw "Deployment requires a clean working tree. Commit and validate first."
     }
 
+    if ($ReusePublishedImages -and -not $ImageTag) {
+        throw "ReusePublishedImages requires the explicit ImageTag that completed both builds."
+    }
+
     if (-not $ImageTag) {
         $ImageTag = (git rev-parse --short=12 HEAD).Trim()
         if ($LASTEXITCODE -ne 0 -or -not $ImageTag) {
@@ -202,15 +208,28 @@ try {
     $ApiImage = "$Registry/retail-intelligence-api:$ImageTag"
     $WebImage = "$Registry/retail-intelligence-web:$ImageTag"
 
-    Write-Host "[4/9] Building and publishing the API image with Cloud Build"
-    Invoke-GCloud @(
-        "builds", "submit", ".",
-        "--project=$ProjectId",
-        "--region=$Region",
-        "--config=deployment/gcp/cloudbuild-backend.yaml",
-        "--substitutions=_REGION=$Region,_REPOSITORY=$Repository,_TAG=$ImageTag",
-        "--quiet"
-    )
+    if ($ReusePublishedImages) {
+        Write-Host "[4/9] Verifying the published API image"
+        $ApiDigest = Read-GCloudValue @(
+            "artifacts", "docker", "images", "describe", $ApiImage,
+            "--project=$ProjectId",
+            "--format=value(image_summary.digest)"
+        )
+        if (-not $ApiDigest) {
+            throw "Artifact Registry did not return a digest for $ApiImage."
+        }
+    }
+    else {
+        Write-Host "[4/9] Building and publishing the API image with Cloud Build"
+        Invoke-GCloud @(
+            "builds", "submit", ".",
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--config=deployment/gcp/cloudbuild-backend.yaml",
+            "--substitutions=_REGION=$Region,_REPOSITORY=$Repository,_TAG=$ImageTag",
+            "--quiet"
+        )
+    }
 
     $ExistingWebOrigin = Read-GCloudValue @(
         "run", "services", "list",
@@ -257,15 +276,28 @@ try {
         throw "Cloud Run did not return a valid HTTPS API origin."
     }
 
-    Write-Host "[6/9] Building and publishing the frontend image with Cloud Build"
-    Invoke-GCloud @(
-        "builds", "submit", ".",
-        "--project=$ProjectId",
-        "--region=$Region",
-        "--config=deployment/gcp/cloudbuild-frontend.yaml",
-        "--substitutions=_REGION=$Region,_REPOSITORY=$Repository,_TAG=$ImageTag,_API_BASE_URL=$ApiUrl",
-        "--quiet"
-    )
+    if ($ReusePublishedImages) {
+        Write-Host "[6/9] Verifying the published frontend image"
+        $WebDigest = Read-GCloudValue @(
+            "artifacts", "docker", "images", "describe", $WebImage,
+            "--project=$ProjectId",
+            "--format=value(image_summary.digest)"
+        )
+        if (-not $WebDigest) {
+            throw "Artifact Registry did not return a digest for $WebImage."
+        }
+    }
+    else {
+        Write-Host "[6/9] Building and publishing the frontend image with Cloud Build"
+        Invoke-GCloud @(
+            "builds", "submit", ".",
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--config=deployment/gcp/cloudbuild-frontend.yaml",
+            "--substitutions=_REGION=$Region,_REPOSITORY=$Repository,_TAG=$ImageTag,_API_BASE_URL=$ApiUrl",
+            "--quiet"
+        )
+    }
 
     Write-Host "[7/9] Deploying the frontend to Cloud Run"
     Invoke-GCloud @(
@@ -276,7 +308,7 @@ try {
         "--service-account=$RuntimeServiceAccount",
         "--port=8080",
         "--cpu=1",
-        "--memory=256Mi",
+        "--memory=512Mi",
         "--cpu-throttling",
         "--no-cpu-boost",
         "--concurrency=80",
