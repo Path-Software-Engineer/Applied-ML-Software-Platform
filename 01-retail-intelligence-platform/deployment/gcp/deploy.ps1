@@ -20,10 +20,10 @@ param(
     [switch]$SmokeOnly,
 
     [ValidatePattern("^[a-z][a-z0-9-]{0,47}[a-z0-9]$")]
-    [string]$ApiService = "retail-intelligence-api",
+    [string]$ApiService = "sf-01-retail-intelligence-api",
 
     [ValidatePattern("^[a-z][a-z0-9-]{0,47}[a-z0-9]$")]
-    [string]$WebService = "retail-intelligence-web"
+    [string]$WebService = "sf-01-retail-intelligence-web"
 )
 
 $ErrorActionPreference = "Stop"
