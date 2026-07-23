@@ -81,6 +81,10 @@ def main() -> None:
     assert "run services describe $WebService" not in deploy
     assert '"--filter=name~/$Repository$"' not in deploy
     assert '.EndsWith("/$Repository")' in deploy
+    assert '[string]$ApiService = "sf-01-retail-intelligence-api"' in deploy
+    assert '[string]$WebService = "sf-01-retail-intelligence-web"' in deploy
+    assert "$Registry/retail-intelligence-api:$ImageTag" in deploy
+    assert "$Registry/retail-intelligence-web:$ImageTag" in deploy
 
     assert 'origin == "*"' in settings
     assert "exact HTTP(S) origins" in settings

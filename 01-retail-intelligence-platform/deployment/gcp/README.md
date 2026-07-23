@@ -4,9 +4,9 @@
 
 ```text
 Browser
-  -> retail-intelligence-web (Cloud Run, public)
+  -> sf-01-retail-intelligence-web (Cloud Run, public)
        static React build with immutable API origin
-  -> retail-intelligence-api (Cloud Run, public GET API)
+  -> sf-01-retail-intelligence-api (Cloud Run, public GET API)
        validated repository evidence packaged read-only in the image
 
 Cloud Build -> Artifact Registry -> immutable Cloud Run revisions
@@ -16,6 +16,9 @@ The frontend and API are separate services so they can scale and release
 independently. The frontend image receives the exact API HTTPS origin at build
 time. The API accepts browser requests only from the deployed frontend origin.
 No wildcard CORS policy, database, secret or writable runtime volume is used.
+Cloud Run service names follow the portfolio convention
+`sf-<plan>-<project>-<component>`. Existing Artifact Registry image names remain
+stable and are not coupled to the service display names.
 
 ## Provisioned resources
 
@@ -146,8 +149,8 @@ the script.
 To remove the two runtime services after a demonstration:
 
 ```powershell
-gcloud run services delete retail-intelligence-web --region us-central1
-gcloud run services delete retail-intelligence-api --region us-central1
+gcloud run services delete sf-01-retail-intelligence-web --region us-central1
+gcloud run services delete sf-01-retail-intelligence-api --region us-central1
 ```
 
 Delete the Artifact Registry repository only if its stored release images are
