@@ -73,6 +73,10 @@ The script waits for newly enabled Google APIs to become queryable and stops on
 the first non-transient failed command. A successful run prints the two Cloud
 Run URLs only after health and schema smoke checks pass.
 
+On Windows, the script resolves `gcloud.cmd` before the PowerShell wrapper so
+informational CLI output cannot be misclassified as a terminating PowerShell
+error.
+
 ## Security boundary
 
 - Both services are public because this release has no identity module.

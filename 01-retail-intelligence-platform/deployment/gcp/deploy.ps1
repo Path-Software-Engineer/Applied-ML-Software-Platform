@@ -24,12 +24,28 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $RuntimeServiceAccountName = "retail-platform-runtime"
 $RuntimeServiceAccount = "$RuntimeServiceAccountName@$ProjectId.iam.gserviceaccount.com"
+$GCloudCommandInfo = Get-Command gcloud.cmd -ErrorAction SilentlyContinue
+if (-not $GCloudCommandInfo) {
+    $GCloudCommandInfo = Get-Command gcloud -ErrorAction SilentlyContinue
+}
+if (-not $GCloudCommandInfo) {
+    throw "Google Cloud CLI is not installed or is not available in PATH."
+}
+$GCloudCommand = $GCloudCommandInfo.Source
 
 function Invoke-GCloud {
     param([Parameter(Mandatory = $true)][string[]]$Arguments)
 
-    & gcloud @Arguments
-    if ($LASTEXITCODE -ne 0) {
+    $PreviousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        & $script:GCloudCommand @Arguments
+        $ExitCode = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $PreviousErrorActionPreference
+    }
+    if ($ExitCode -ne 0) {
         throw "gcloud command failed: gcloud $($Arguments -join ' ')"
     }
 }
@@ -37,11 +53,19 @@ function Invoke-GCloud {
 function Read-GCloudValue {
     param([Parameter(Mandatory = $true)][string[]]$Arguments)
 
-    $value = & gcloud @Arguments
-    if ($LASTEXITCODE -ne 0) {
+    $PreviousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        $Value = & $script:GCloudCommand @Arguments
+        $ExitCode = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $PreviousErrorActionPreference
+    }
+    if ($ExitCode -ne 0) {
         throw "gcloud query failed: gcloud $($Arguments -join ' ')"
     }
-    return ($value | Out-String).Trim()
+    return ($Value | Out-String).Trim()
 }
 
 function Wait-GCloudCommand {
@@ -53,22 +77,26 @@ function Wait-GCloudCommand {
     )
 
     for ($Attempt = 1; $Attempt -le $Attempts; $Attempt++) {
-        $Output = & gcloud @Arguments 2>&1
-        if ($LASTEXITCODE -eq 0) {
+        $PreviousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        try {
+            & $script:GCloudCommand @Arguments *> $null
+            $ExitCode = $LASTEXITCODE
+        }
+        finally {
+            $ErrorActionPreference = $PreviousErrorActionPreference
+        }
+        if ($ExitCode -eq 0) {
             return
         }
         if ($Attempt -eq $Attempts) {
-            $Detail = ($Output | Out-String).Trim()
-            throw "$Label did not become ready after $Attempts attempts. Last response: $Detail"
+            throw "$Label did not become ready after $Attempts attempts."
         }
         Write-Host "$Label is still propagating ($Attempt/$Attempts); retrying in $DelaySeconds seconds."
         Start-Sleep -Seconds $DelaySeconds
     }
 }
 
-if (-not (Get-Command gcloud -ErrorAction SilentlyContinue)) {
-    throw "Google Cloud CLI is not installed or is not available in PATH."
-}
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     throw "Git is required to derive and verify the immutable image tag."
 }
@@ -180,7 +208,7 @@ try {
     )
 
     $ExistingWebOrigin = ""
-    & gcloud run services describe $WebService `
+    & $GCloudCommand run services describe $WebService `
         --project=$ProjectId `
         --region=$Region `
         --format="value(status.url)" 2>$null | ForEach-Object {

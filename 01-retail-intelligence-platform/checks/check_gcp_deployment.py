@@ -51,6 +51,8 @@ def main() -> None:
         "git status --porcelain",
         "Wait-GCloudCommand",
         "still propagating",
+        "Get-Command gcloud.cmd",
+        "$script:GCloudCommand",
     ):
         assert phrase in deploy
     for endpoint in (
