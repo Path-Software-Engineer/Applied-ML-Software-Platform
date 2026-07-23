@@ -69,6 +69,8 @@ def main() -> None:
     assert deploy.count('"--cpu-throttling"') == 2
     assert deploy.count('"--no-cpu-boost"') == 2
     assert '"--max=3"' not in deploy
+    assert '"--filter=metadata.name=$WebService"' in deploy
+    assert "run services describe $WebService" not in deploy
 
     assert 'origin == "*"' in settings
     assert "exact HTTP(S) origins" in settings

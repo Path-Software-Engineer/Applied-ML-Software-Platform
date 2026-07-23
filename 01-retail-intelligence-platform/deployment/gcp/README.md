@@ -77,6 +77,10 @@ On Windows, the script resolves `gcloud.cmd` before the PowerShell wrapper so
 informational CLI output cannot be misclassified as a terminating PowerShell
 error.
 
+An absent frontend service is treated as the expected first-deployment state;
+the API temporarily receives a non-routable CORS origin until the web service
+exists.
+
 ## Security boundary
 
 - Both services are public because this release has no identity module.

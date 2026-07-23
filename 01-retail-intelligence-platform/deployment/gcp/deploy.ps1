@@ -207,13 +207,13 @@ try {
         "--quiet"
     )
 
-    $ExistingWebOrigin = ""
-    & $GCloudCommand run services describe $WebService `
-        --project=$ProjectId `
-        --region=$Region `
-        --format="value(status.url)" 2>$null | ForEach-Object {
-            $ExistingWebOrigin = $_.Trim()
-        }
+    $ExistingWebOrigin = Read-GCloudValue @(
+        "run", "services", "list",
+        "--project=$ProjectId",
+        "--region=$Region",
+        "--filter=metadata.name=$WebService",
+        "--format=value(status.url)"
+    )
     $CorsOrigin = if ($ExistingWebOrigin) {
         $ExistingWebOrigin
     }
