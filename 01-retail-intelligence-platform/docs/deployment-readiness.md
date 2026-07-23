@@ -16,10 +16,26 @@ browser :5173
 ```
 
 The API is read-only. It does not require a database, message broker, object
-store, cloud account or secret. `docker-compose.yml` and the `deployment/`
-subdirectories are empty placeholders inherited from the initial repository
-scaffold; they are not an executable deployment definition and are excluded
-from the release claim.
+store, cloud account or secret. The zero-byte `docker-compose.yml` remains an
+unused initial placeholder and is not an executable deployment definition.
+
+## Prepared GCP topology
+
+```text
+Cloud Build -> Artifact Registry
+                  -> FastAPI image -> public API Cloud Run service
+                  -> React image   -> public web Cloud Run service
+```
+
+Both Cloud Run services use request-based scaling with zero minimum instances
+and one maximum instance for the initial portfolio deployment. CPU throttling
+is explicit and startup CPU boost is disabled.
+
+`deployment/gcp/deploy.ps1` provisions and updates this topology. The frontend
+is built with the exact API HTTPS origin, and the backend validates an exact
+`CORS_ALLOWED_ORIGINS` value. A dedicated runtime service account receives no
+project role. This configuration is deployment-ready but remains unverified in
+GCP until an authorized project and billing account are supplied.
 
 ## Configuration and startup
 
@@ -27,6 +43,7 @@ from the release claim.
 - Frontend dependencies and package-manager version are pinned in
   `frontend/dashboard-app/package-lock.json` and `package.json`.
 - API and frontend startup commands are documented in `docs/runbook.md`.
+- GCP build and deployment commands are documented in `deployment/gcp/README.md`.
 - Canonical evidence is regenerated with `scripts/generate-platform-evidence.ps1`.
 - Release acceptance is executed with `scripts/run-quality-gate.ps1`.
 
@@ -46,8 +63,8 @@ the supported local flow.
 
 ## Production gaps
 
-- choose and document a real hosting target;
-- add production container images and orchestration only for that target;
+- execute and verify the prepared deployment in an authorized GCP project;
+- configure budgets, ownership, retention and operational alerting;
 - introduce identity, authorization and tenant isolation;
 - replace synthetic evidence with governed retail data;
 - add external model validation and production monitoring;

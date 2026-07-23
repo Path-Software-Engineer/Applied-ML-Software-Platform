@@ -9,6 +9,7 @@ from backend.api.app.routes import (
     model_comparison_router,
 )
 from backend.api.app.schemas.demand_summary import HealthResponse
+from backend.api.app.settings import cors_allowed_origins
 
 
 app = FastAPI(
@@ -22,7 +23,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=cors_allowed_origins(),
     allow_credentials=False,
     allow_methods=["GET"],
     allow_headers=["Accept", "Content-Type"],

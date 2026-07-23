@@ -1453,3 +1453,32 @@ validation and deployment limitations remain explicit.
 ### Status
 
 Accepted on global Day 142 for `v1.0.0-retail-intelligence-platform`.
+
+## Decision 062 — Deploy the stateless platform as two Cloud Run services
+
+### Context
+
+The final application has an independently built React frontend and a read-only
+FastAPI service. It has no database, asynchronous worker or runtime secret, and
+the browser clients already accept a build-time API origin.
+
+### Decision
+
+Build two non-root images with Cloud Build, store commit-tagged images in one
+regional Artifact Registry repository and deploy separate public Cloud Run web
+and API services. Build the frontend with the resulting API HTTPS origin, then
+restrict backend CORS to the exact deployed web origin. Use a dedicated runtime
+service account with no project roles.
+
+### Consequences
+
+The services can scale and release independently without introducing a proxy,
+database or secret-management dependency. First deployment is sequential
+because the frontend image needs the API URL. Public invocation remains an
+explicit limitation until an identity bounded context exists. GCP billing, IAM
+and organization policy must be reviewed before execution.
+
+### Status
+
+Accepted for deployment preparation after the Sprint 3 release. Configuration
+is implemented; a remote deployment is not yet claimed.

@@ -36,6 +36,7 @@ try {
         "backend/api/app" `
         "backend/api/checks" `
         "checks" `
+        "deployment/docker" `
         "tests/ai-services/demand-insight" `
         "tests/ai-services/model-comparison" `
         "tests/ai-services/inventory-decision" `
