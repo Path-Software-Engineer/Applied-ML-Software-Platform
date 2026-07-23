@@ -79,7 +79,7 @@ export function createFrontendServer({ staticRoot } = {}) {
   return createServer(async (request, response) => {
     securityHeaders(response);
 
-    if (request.url === "/healthz") {
+    if (request.url === "/health") {
       respond(response, 200, JSON.stringify({ status: "ok", service: "retail-intelligence-web" }), "application/json; charset=utf-8");
       return;
     }

@@ -32,7 +32,8 @@ def main() -> None:
     assert "VITE_API_BASE_URL" in frontend
     assert "frame-ancestors 'none'" in server
     assert 'server.listen(port, "0.0.0.0"' in server
-    assert "healthz" in server
+    assert 'request.url === "/health"' in server
+    assert 'request.url === "/healthz"' not in server
 
     for build in (backend_build, frontend_build):
         assert "$PROJECT_ID" in build
@@ -54,6 +55,7 @@ def main() -> None:
         "Get-Command gcloud.cmd",
         "$script:GCloudCommand",
         "ReusePublishedImages",
+        "ReuseExistingApi",
         "SmokeOnly",
         "Invoke-RestMethodWithRetry",
         "Test-RemoteDeployment",
@@ -62,7 +64,6 @@ def main() -> None:
         assert phrase in deploy
     for endpoint in (
         "/health",
-        "/healthz",
         "/api/v1/demand-insights/summary",
         "/api/v1/model-comparisons/summary",
         "/api/v1/inventory-decisions/summary",

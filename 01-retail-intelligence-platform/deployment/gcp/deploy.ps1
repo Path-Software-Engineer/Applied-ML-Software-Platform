@@ -15,6 +15,8 @@ param(
 
     [switch]$ReusePublishedImages,
 
+    [switch]$ReuseExistingApi,
+
     [switch]$SmokeOnly,
 
     [ValidatePattern("^[a-z][a-z0-9-]{0,47}[a-z0-9]$")]
@@ -130,7 +132,7 @@ function Test-RemoteDeployment {
     )
 
     $ApiHealth = Invoke-RestMethodWithRetry -Label "API health endpoint" -Uri "$ApiUrl/health"
-    $WebHealth = Invoke-RestMethodWithRetry -Label "Frontend health endpoint" -Uri "$WebUrl/healthz"
+    $WebHealth = Invoke-RestMethodWithRetry -Label "Frontend health endpoint" -Uri "$WebUrl/health"
     $Demand = Invoke-RestMethodWithRetry -Label "Demand Insight endpoint" -Uri "$ApiUrl/api/v1/demand-insights/summary"
     $Comparison = Invoke-RestMethodWithRetry -Label "Model Comparison endpoint" -Uri "$ApiUrl/api/v1/model-comparisons/summary"
     $Inventory = Invoke-RestMethodWithRetry -Label "Inventory Decision endpoint" -Uri "$ApiUrl/api/v1/inventory-decisions/summary"
@@ -161,6 +163,9 @@ try {
 
     if ($ReusePublishedImages -and -not $ImageTag) {
         throw "ReusePublishedImages requires the explicit ImageTag that completed both builds."
+    }
+    if ($ReusePublishedImages -and $ReuseExistingApi) {
+        throw "ReusePublishedImages and ReuseExistingApi are mutually exclusive."
     }
 
     if (-not $ImageTag) {
@@ -281,7 +286,19 @@ try {
     $ApiImage = "$Registry/retail-intelligence-api:$ImageTag"
     $WebImage = "$Registry/retail-intelligence-web:$ImageTag"
 
-    if ($ReusePublishedImages) {
+    if ($ReuseExistingApi) {
+        Write-Host "[4/9] Reading the existing API service"
+        $ApiUrl = Read-GCloudValue @(
+            "run", "services", "describe", $ApiService,
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--format=value(status.url)"
+        )
+        if ($ApiUrl -notmatch "^https://[^/]+$") {
+            throw "Cloud Run did not return a valid existing API origin."
+        }
+    }
+    elseif ($ReusePublishedImages) {
         Write-Host "[4/9] Verifying the published API image"
         $ApiDigest = Read-GCloudValue @(
             "artifacts", "docker", "images", "describe", $ApiImage,
@@ -304,49 +321,54 @@ try {
         )
     }
 
-    $ExistingWebOrigin = Read-GCloudValue @(
-        "run", "services", "list",
-        "--project=$ProjectId",
-        "--region=$Region",
-        "--filter=metadata.name=$WebService",
-        "--format=value(status.url)"
-    )
-    $CorsOrigin = if ($ExistingWebOrigin) {
-        $ExistingWebOrigin
+    if ($ReuseExistingApi) {
+        Write-Host "[5/9] Keeping the existing API revision"
     }
     else {
-        "https://placeholder.invalid"
-    }
+        $ExistingWebOrigin = Read-GCloudValue @(
+            "run", "services", "list",
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--filter=metadata.name=$WebService",
+            "--format=value(status.url)"
+        )
+        $CorsOrigin = if ($ExistingWebOrigin) {
+            $ExistingWebOrigin
+        }
+        else {
+            "https://placeholder.invalid"
+        }
 
-    Write-Host "[5/9] Deploying the API to Cloud Run"
-    Invoke-GCloud @(
-        "run", "deploy", $ApiService,
-        "--project=$ProjectId",
-        "--region=$Region",
-        "--image=$ApiImage",
-        "--service-account=$RuntimeServiceAccount",
-        "--port=8080",
-        "--cpu=1",
-        "--memory=512Mi",
-        "--cpu-throttling",
-        "--no-cpu-boost",
-        "--concurrency=40",
-        "--min=0",
-        "--max=1",
-        "--timeout=60",
-        "--execution-environment=gen2",
-        "--set-env-vars=CORS_ALLOWED_ORIGINS=$CorsOrigin",
-        "--allow-unauthenticated",
-        "--quiet"
-    )
-    $ApiUrl = Read-GCloudValue @(
-        "run", "services", "describe", $ApiService,
-        "--project=$ProjectId",
-        "--region=$Region",
-        "--format=value(status.url)"
-    )
-    if ($ApiUrl -notmatch "^https://[^/]+$") {
-        throw "Cloud Run did not return a valid HTTPS API origin."
+        Write-Host "[5/9] Deploying the API to Cloud Run"
+        Invoke-GCloud @(
+            "run", "deploy", $ApiService,
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--image=$ApiImage",
+            "--service-account=$RuntimeServiceAccount",
+            "--port=8080",
+            "--cpu=1",
+            "--memory=512Mi",
+            "--cpu-throttling",
+            "--no-cpu-boost",
+            "--concurrency=40",
+            "--min=0",
+            "--max=1",
+            "--timeout=60",
+            "--execution-environment=gen2",
+            "--set-env-vars=CORS_ALLOWED_ORIGINS=$CorsOrigin",
+            "--allow-unauthenticated",
+            "--quiet"
+        )
+        $ApiUrl = Read-GCloudValue @(
+            "run", "services", "describe", $ApiService,
+            "--project=$ProjectId",
+            "--region=$Region",
+            "--format=value(status.url)"
+        )
+        if ($ApiUrl -notmatch "^https://[^/]+$") {
+            throw "Cloud Run did not return a valid HTTPS API origin."
+        }
     }
 
     if ($ReusePublishedImages) {

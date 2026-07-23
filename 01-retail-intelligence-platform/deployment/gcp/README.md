@@ -99,6 +99,19 @@ This mode reads the existing service URLs and does not build images, deploy
 revisions, update configuration or create resources. Endpoint checks use
 bounded retries so a newly created hostname has time to become reachable.
 
+If the API is already healthy and only the frontend source must be rebuilt,
+reuse the existing API service instead of spending another backend build:
+
+```powershell
+.\deployment\gcp\deploy.ps1 `
+  -ProjectId "YOUR_GCP_PROJECT_ID" `
+  -Region "us-central1" `
+  -ReuseExistingApi
+```
+
+The frontend health endpoint is `/health`. Cloud Run reserves some paths ending
+in `z`, so `/healthz` must not be used for this deployment target.
+
 The script waits for newly enabled Google APIs to become queryable and stops on
 the first non-transient failed command. A successful run prints the two Cloud
 Run URLs only after health and schema smoke checks pass.

@@ -20,7 +20,7 @@ test("serves the production shell with health and security boundaries", async ()
 
   try {
     const origin = `http://127.0.0.1:${port}`;
-    const health = await fetch(`${origin}/healthz`);
+    const health = await fetch(`${origin}/health`);
     assert.equal(health.status, 200);
     assert.deepEqual(await health.json(), {
       status: "ok",
