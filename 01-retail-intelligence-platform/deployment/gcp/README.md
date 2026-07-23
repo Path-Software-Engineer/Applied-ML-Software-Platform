@@ -24,8 +24,8 @@ The deployment script creates or updates:
 - the required Artifact Registry, Cloud Build and Cloud Run APIs;
 - one regional Docker repository in Artifact Registry;
 - one dedicated runtime service account without project roles;
-- one public API service with zero minimum instances;
-- one public frontend service with zero minimum instances;
+- one public API service with zero minimum instances and one maximum instance;
+- one public frontend service with zero minimum instances and one maximum instance;
 - immutable images tagged with the current Git commit by default.
 
 Cloud Run revisions resolve image tags to immutable digests. Artifact Registry
@@ -83,10 +83,11 @@ Cloud Run URLs only after health and schema smoke checks pass.
 
 ## Cost and cleanup
 
-Both services use request-based scaling with zero minimum instances, but Cloud
-Build, Artifact Registry storage, network traffic and Cloud Run requests may
-still incur charges. Review current GCP pricing and budgets before running the
-script.
+Both services use request-based scaling with zero minimum instances and one
+maximum instance. This sharply limits exposure but cannot guarantee a zero
+invoice: Cloud Build, Artifact Registry storage, network traffic, logging and
+Cloud Run requests may still incur charges after their applicable allowances.
+Review current GCP pricing and budgets before running the script.
 
 To remove the two runtime services after a demonstration:
 

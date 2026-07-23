@@ -60,6 +60,10 @@ def main() -> None:
     ):
         assert endpoint in deploy
 
+    assert deploy.count('"--min=0"') == 2
+    assert deploy.count('"--max=1"') == 2
+    assert '"--max=3"' not in deploy
+
     assert 'origin == "*"' in settings
     assert "exact HTTP(S) origins" in settings
     assert "No wildcard CORS policy" in guide

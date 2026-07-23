@@ -27,6 +27,9 @@ Cloud Build -> Artifact Registry
                   -> React image   -> public web Cloud Run service
 ```
 
+Both Cloud Run services use request-based scaling with zero minimum instances
+and one maximum instance for the initial portfolio deployment.
+
 `deployment/gcp/deploy.ps1` provisions and updates this topology. The frontend
 is built with the exact API HTTPS origin, and the backend validates an exact
 `CORS_ALLOWED_ORIGINS` value. A dedicated runtime service account receives no
