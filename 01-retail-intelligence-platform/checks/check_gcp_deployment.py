@@ -71,6 +71,8 @@ def main() -> None:
     assert '"--max=3"' not in deploy
     assert '"--filter=metadata.name=$WebService"' in deploy
     assert "run services describe $WebService" not in deploy
+    assert '"--filter=name~/$Repository$"' not in deploy
+    assert '.EndsWith("/$Repository")' in deploy
 
     assert 'origin == "*"' in settings
     assert "exact HTTP(S) origins" in settings

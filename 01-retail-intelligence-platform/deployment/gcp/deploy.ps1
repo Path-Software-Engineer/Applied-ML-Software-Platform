@@ -158,14 +158,19 @@ try {
     )
 
     Write-Host "[2/9] Ensuring the Artifact Registry repository exists"
-    $Repositories = Read-GCloudValue @(
+    $RepositoryNames = Read-GCloudValue @(
         "artifacts", "repositories", "list",
         "--project=$ProjectId",
         "--location=$Region",
-        "--filter=name~/$Repository$",
         "--format=value(name)"
     )
-    if (-not $Repositories) {
+    $RepositoryExists = @(
+        $RepositoryNames -split "`r?`n" | Where-Object {
+            $Name = $_.Trim()
+            $Name -eq $Repository -or $Name.EndsWith("/$Repository")
+        }
+    ).Count -gt 0
+    if (-not $RepositoryExists) {
         Invoke-GCloud @(
             "artifacts", "repositories", "create", $Repository,
             "--project=$ProjectId",
