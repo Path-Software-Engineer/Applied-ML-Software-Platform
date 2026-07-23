@@ -84,10 +84,12 @@ Cloud Run URLs only after health and schema smoke checks pass.
 ## Cost and cleanup
 
 Both services use request-based scaling with zero minimum instances and one
-maximum instance. This sharply limits exposure but cannot guarantee a zero
-invoice: Cloud Build, Artifact Registry storage, network traffic, logging and
-Cloud Run requests may still incur charges after their applicable allowances.
-Review current GCP pricing and budgets before running the script.
+maximum instance. CPU is throttled outside request processing and the optional
+startup CPU boost is disabled. This sharply limits exposure but cannot
+guarantee a zero invoice: Cloud Build, Artifact Registry storage, network
+traffic, logging and Cloud Run requests may still incur charges after their
+applicable allowances. Review current GCP pricing and budgets before running
+the script.
 
 To remove the two runtime services after a demonstration:
 

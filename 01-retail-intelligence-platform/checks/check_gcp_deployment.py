@@ -62,6 +62,8 @@ def main() -> None:
 
     assert deploy.count('"--min=0"') == 2
     assert deploy.count('"--max=1"') == 2
+    assert deploy.count('"--cpu-throttling"') == 2
+    assert deploy.count('"--no-cpu-boost"') == 2
     assert '"--max=3"' not in deploy
 
     assert 'origin == "*"' in settings

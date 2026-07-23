@@ -28,7 +28,8 @@ Cloud Build -> Artifact Registry
 ```
 
 Both Cloud Run services use request-based scaling with zero minimum instances
-and one maximum instance for the initial portfolio deployment.
+and one maximum instance for the initial portfolio deployment. CPU throttling
+is explicit and startup CPU boost is disabled.
 
 `deployment/gcp/deploy.ps1` provisions and updates this topology. The frontend
 is built with the exact API HTTPS origin, and the backend validates an exact
